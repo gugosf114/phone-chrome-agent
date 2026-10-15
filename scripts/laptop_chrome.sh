@@ -15,4 +15,6 @@ if ! curl -s -m 4 127.0.0.1:$PORT/json/version | grep -q Browser; then
 fi
 curl -s -m 6 127.0.0.1:$PORT/json/version | grep -q Browser || { echo "laptop Chrome not reachable on $PORT"; exit 1; }
 [ -n "$1" ] && curl -s -m 12 -X PUT "127.0.0.1:$PORT/json/new?$1" >/dev/null && sleep 6
+# bring the window in front of George (runs inside his desktop session via the interactive task ShowAgentChrome)
+ssh -o ConnectTimeout=10 -o BatchMode=yes wimlaptop "schtasks /run /tn ShowAgentChrome" >/dev/null 2>&1
 curl -s -m 6 127.0.0.1:$PORT/json | python3 -c 'import json,sys;[print(t["id"],"|",t["title"][:50],"|",t["url"][:80]) for t in json.load(sys.stdin) if t["type"]=="page"]' | head -10
