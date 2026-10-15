@@ -1,0 +1,20 @@
+{
+  "_comment": "George's standing answers for job forms. 'exact' matches a question by words; 'defaults' cover the rest. Edit here, never in code. Blank values = unknown, fill them in.",
+  "exact": {
+    "first name": "George",
+    "last name": "Abrahamyants",
+    "email": "gugosf@gmail.com",
+    "city": "Daly City",
+    "state": "California",
+    "zip": "94015",
+    "country": "United States",
+    "linkedin": "",
+    "sponsorship": "No",
+    "authorized to work": "Yes"
+  },
+  "defaults": {
+    "number": "5",
+    "yesNo": "Yes",
+    "text": "Yes"
+  }
+}

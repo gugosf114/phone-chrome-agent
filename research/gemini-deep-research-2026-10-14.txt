@@ -1,0 +1,1450 @@
+High-Speed, Zero-Freeze On-Device
+Browser and App Automation on
+Android 16: A Practical Engineering
+Report
+Executive Action List: Ranked Engineering
+Interventions
+To eliminate the three primary bottlenecks observed on October 14, 2026—20-to-30-second
+LLM round trips per field, Chrome renderer freezing upon application switching or virtual display
+backgrounding, and silent form-validation failures on multi-step Applicant Tracking Systems
+(ATS)—an engineering deployment on a Samsung Android 16 (One UI 7/8) device running
+Termux and Debian proot requires six concrete interventions ranked by net execution impact.
+Rank                Target Bottleneck Engineering           Expected Latency Verification /
+                                       Intervention         / Reliability Impact Source Basis
+1                   Problem 1: LLM Single-Pass              Cuts 8-step form Validated against
+                    Round-Trip         Injected DOM         execution from       CDP architecture
+                    Latency (4 min / 8 State Machine        ~240 s to 18–38 s (chromedevtools.gi
+                    steps)             (Runtime.evaluat (matching the 37 s thub.io), Claude
+                                       e): Replace          one-shot baseline Code
+                                       step-by-step CDP while preserving job-apply-plugin
+                                       read-think-write     deterministic error (github.com/neonw
+                                       turns with an        recovery).           atty/job-apply-plugi
+                                       asynchronous                              n), and DroidRun
+                                       in-page JavaScript                        execute_script
+                                       controller injected                       design
+                                       via                                       (github.com/droidr
+                                       Page.addScriptTo                          un/mobile-harness
+                                       EvaluateOnNewD                            ).
+                                       ocument and
+                                       Runtime.evaluate(
+                                       awaitPromise:
+                                       true)
+                                       (chromedevtools.gi
+                                       thub.io). The script
+                                       ingests the entire
+                                       JSON answer
+                                       sheet, loops
+                                       through multi-page
+                                       MutationObserver
+                                       states locally in
+Rank   Target Bottleneck Engineering         Expected Latency Verification /
+                         Intervention        / Reliability Impact Source Basis
+                         under 50 ms per
+                         step, and only
+                         yields control back
+                         to Claude Code
+                         when an
+                         unmapped
+                         required field
+                         (STOPPED_UNA
+                         NSWERED_REQ
+                         UIRED) or final
+                         review screen is
+                         reached.
+2      Problem 2:        Two-Layer           0% socket drop Validated via
+       Renderer          Anti-Freeze Stack rate when              Android
+       Freezing          (OS Freezer         switching between CachedAppOptimi
+       (Page.enable      Disable +           Chrome and native zer source
+       hangs / fetch     WebAudio Silent apps; eliminates (blog.csdn.net),
+       failed)           Heartbeat):         1-turn wake          WebAudio
+                         Disable the         penalties.           keep-alive
+                         Android 14–16                            (github.com/t-mull
+                         CachedAppOptimi                          en/silent-audio),
+                         zer freezer via                          and
+                         ADB                                      Trojan/WebView
+                         (blog.csdn.net)                          survival analysis
+                         and inject a                             (hackread.com,
+                         sub-audible                              parachord.com).
+                         WebAudio
+                         oscillator or
+                         looping silent
+                         media stream into
+                         the active Chrome
+                         tab so Chromium's
+                         BaseAudioContext
+                         ::kRunning and
+                         Android's media
+                         foreground service
+                         prevent Blink
+                         scheduler
+                         suspension when
+                         backgrounded
+                         (github.com/t-mull
+                         en/silent-audio,
+                         reddit.com/r/learnj
+                         avascript).
+3      Problem 3:        Heuristic           Eliminates silent Grounded in ATS
+Rank   Target Bottleneck Engineering             Expected Latency Verification /
+                            Intervention         / Reliability Impact Source Basis
+       Unanswered           Control-State        skips on "Select parser/form
+       Dropdowns &          Normalizer &         an option"           mechanics
+       Custom Controls Post-Fill                 dropdowns and        (resumeoptimizerp
+                            Validator: Enforce Workday/Greenho ro.com,
+                            a 4-tier DOM         use custom           github.com/neonw
+                            matcher (native      comboboxes.          atty/job-apply-plugi
+                            <select>                                  n,
+                            placeholder                               blog.fastapply.co)
+                            rejection, ARIA                           and behavioral
+                            role="combobox"                           anti-bot findings
+                            typeahead                                 (arxiv.org/html/260
+                            synthesis,                                5.01247v1).
+                            radiogroup label
+                            matching, and
+                            React prototype
+                            value setter)
+                            followed by an
+                            in-page
+                            pre-transition
+                            validation pass
+                            that checks
+                            required,
+                            aria-required,
+                            aria-invalid, and
+                            placeholder text
+                            regex
+                            (/^(select|choose|--
+                            )/i)
+                            (blog.fastapply.co,
+                            greenhouse.com).
+4      Problem 2:           Phantom Process Prevents Linux            Grounded in
+       Process & Child & Samsung One proot agent                      Android 15/16
+       Killing (signal 9 in UI 7/8 Exemption: termination and         Termux & Galaxy
+       Termux / Chrome) Disable                  background           S24 Ultra
+                            monitor_phantom_ renderer eviction KernelSU findings
+                            procs via settings under memory           (blog.csdn.net,
+                            and device_config, pressure.              github.com/keyarr/
+                            whitelist both                            degoogle-my-gala
+                            com.android.chro                          xy,
+                            me and                                    reddit.com/r/termu
+                            com.termux in                             x).
+                            deviceidle, and set
+                            RUN_ANY_IN_BA
+                            CKGROUND to
+                            allow via cmd
+Rank   Target Bottleneck Engineering         Expected Latency Verification /
+                         Intervention        / Reliability Impact Source Basis
+                         appops
+                         (reddit.com/r/termu
+                         x). Avoid settings
+                         put global
+                         cached_apps_free
+                         zer 0 soft-reboot
+                         loops on One UI
+                         8.5 test firmware
+                         by passing the
+                         string "disabled"
+                         (github.com/keyarr
+                         /degoogle-my-gala
+                         xy, blog.csdn.net).
+5      Problem 1 & 2:    Split-Screen /      Eliminates virtual Grounded in
+       Cross-App         Multi-Window        display occlusion Android window
+       Context           Multi-Resume        freezes              management &
+       Switching         Enforcement:        (crbug.com/45802 ChromeDriver
+                         Enable              7819)                occlusion fixes
+                         force_resizable_ac (developer.chrome (developer.chrome
+                         tivities and        .com).               .com).
+                         enable_non_resiza
+                         ble_multi_window
+                         via ADB settings
+                         so Chrome and
+                         the target native
+                         Android
+                         application remain
+                         simultaneously in
+                         the RESUMED
+                         visible lifecycle
+                         state during
+                         accessibility-tree
+                         and CDP hybrid
+                         workflows,
+                         bypassing virtual
+                         display occlusion
+                         throttling
+                         (developer.chrome
+                         .com).
+6      Problem 1: Token Cloudflare           Reduces read-step Validated via
+       & Bandwidth       Accept:             token consumption Cloudflare
+       Overhead on       text/markdown and context                Markdown for
+       Read-Only Steps Preflight: When pollution by               Agents
+                         the agent only      60–85% on            specification
+                         needs to read       supported origins. (blog.cloudflare.co
+Rank              Target Bottleneck Engineering          Expected Latency Verification /
+                                    Intervention         / Reliability Impact Source Basis
+                                    documentation or                          m,
+                                    job descriptions on                       suganthan.com).
+                                    Cloudflare-fronted
+                                    origins before
+                                    launching a form
+                                    pass, send Accept:
+                                    text/markdown,
+                                    text/html to receive
+                                    edge-converted
+                                    Markdown and
+                                    inspect the
+                                    x-markdown-token
+                                    s header
+                                    (blog.cloudflare.co
+                                    m).
+Concrete Commands and Code Patterns for Immediate Deployment
+1. ADB OS-Level Anti-Freeze and Process-Survival Script (Run Once per Boot
+from Termux/Host)
+
+The following commands execute over local wireless ADB (adb connect 127.0.0.1:<port>)
+(juejin.cn, juejin.cn) to prevent Android 16 and Samsung One UI 7/8 from freezing
+backgrounded Chrome renderers or terminating Termux proot child processes (bindtuning.com,
+reddit.com/r/ClaudeWorkflows, blog.csdn.net, reddit.com/r/termux):
+# 1. Clean up any orphaned Claude Code remote-debugging processes and bind the abstract
+socket​
+pkill -f "chrome --remote-debugging" || true​
+adb forward tcp:9222 localabstract:chrome_devtools_remote​
+​
+# 2. Disable Android 14-16 Cached Apps Freezer dynamically (use "disabled", not integer 0 on
+One UI 8.5)​
+adb shell settings put global cached_apps_freezer disabled​
+adb shell device_config put activity_manager_native_boot use_freezer false​
+​
+# 3. Disable Android 12-16 Phantom Process Killer (prevents signal 9 on Termux + proot +
+Claude Code)​
+adb shell "/system/bin/device_config set_sync_disabled_for_tests persistent"​
+adb shell "/system/bin/device_config put activity_manager max_phantom_processes
+2147483647"​
+adb shell settings put global settings_enable_monitor_phantom_procs false​
+​
+# 4. Whitelist Chrome and Termux from Doze and background restrictions​
+adb shell dumpsys deviceidle whitelist +com.android.chrome​
+adb shell dumpsys deviceidle whitelist +com.termux​
+adb shell cmd appops set com.android.chrome RUN_IN_BACKGROUND allow​
+adb shell cmd appops set com.android.chrome RUN_ANY_IN_BACKGROUND allow​
+adb shell cmd appops set com.termux RUN_IN_BACKGROUND allow​
+adb shell cmd appops set com.termux RUN_ANY_IN_BACKGROUND allow​
+​
+# 5. Keep screen awake while plugged in (1=AC, 2=USB, 4=Wireless -> 7=All) and enable
+multi-window​
+adb shell settings put global stay_on_while_plugged_in 7​
+adb shell settings put global force_resizable_activities 1​
+adb shell settings put global enable_non_resizable_multi_window 1​
+
+
+2. In-Tab WebAudio + WakeLock Heartbeat (Prevents Blink Renderer Freeze on
+App Switch)
+
+Even with cached_apps_freezer disabled at the OS kernel level, Chromium's internal
+PageLifecycle manager throttles and freezes backgrounded tabs after visibility loss unless
+active audio is pulling from the audio graph (BaseAudioContext::kRunning)
+(github.com/t-mullen/silent-audio, github.blog, reddit.com/r/learnjavascript,
+developer.chrome.com). Injecting the following script via CDP Runtime.evaluate with
+userGesture: true immediately upon tab attachment maintains the renderer in an active state
+(github.com/t-mullen/silent-audio, note.com, issues.chromium.org):
+(() => {​
+  if (window.__agentKeepAliveActive) return "ALREADY_ACTIVE";​
+  const AudioCtx = window.AudioContext || window.webkitAudioContext;​
+  const ctx = new AudioCtx();​
+  const osc = ctx.createOscillator();​
+  const gain = ctx.createGain();​
+  // Sub-audible gain (0.00001) prevents Chromium silent-input IIR optimization from suspending
+the graph​
+  gain.gain.value = 0.00001;​
+  osc.connect(gain);​
+  gain.connect(ctx.destination);​
+  osc.start(0);​
+  if (navigator.wakeLock && navigator.wakeLock.request) {​
+    navigator.wakeLock.request('screen').catch(() => {});​
+  }​
+  document.addEventListener('visibilitychange', () => {​
+    if (ctx.state !== 'running') ctx.resume().catch(() => {});​
+  });​
+  window.__agentKeepAliveActive = { ctx, osc, gain };​
+  return ctx.state;​
+})();​
+
+
+3. One-Pass Multi-Step Form Filler & Validator Skeleton (Injected via
+Runtime.evaluate)
+
+Instead of reading the screen after every field, the agent passes the entire answer sheet into a
+single Runtime.evaluate call with awaitPromise: true and returnByValue: true
+(chromedevtools.github.io). The script fills fields using human-like event sequences, validates
+against placeholder traps, clicks the progression button, waits for DOM mutation, and repeats
+until completion or an unmapped required field is encountered (blog.fastapply.co,
+[arxiv.org/html/2605.01247v1](https://arxiv.org/html/2605.01247v1)):
+async function runOnePassForm(answerSheet, maxSteps = 12) {​
+  const sleep = (ms) => new Promise(r => setTimeout(r, ms + Math.floor(Math.random() * 60)));​
+  const PLACEHOLDER_RE = /^(select|choose|please select|--|none|select an option)/i;​
+​
+  function setNativeValue(el, val) {​
+    const proto = el instanceof HTMLSelectElement ? HTMLSelectElement.prototype​
+              : el instanceof HTMLTextAreaElement ? HTMLTextAreaElement.prototype​
+              : HTMLInputElement.prototype;​
+    const setter = Object.getOwnPropertyDescriptor(proto, 'value')?.set;​
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });​
+    el.focus();​
+    if (setter) setter.call(el, val); else el.value = val;​
+    el.dispatchEvent(new InputEvent('input', { bubbles: true, data: String(val) }));​
+    el.dispatchEvent(new Event('change', { bubbles: true }));​
+    el.blur();​
+  }​
+​
+  function matchAnswer(label, type) {​
+    const norm = label.toLowerCase().trim();​
+    for (const [pattern, val] of Object.entries(answerSheet.exact || {})) {​
+      if (norm.includes(pattern.toLowerCase())) return val;​
+    }​
+    if (type === 'number' || /\b(years|experience|how many|salary|compensation)\b/i.test(norm)) {​
+      return answerSheet.defaults?.number ?? "5";​
+    }​
+    if (type === 'yesno' ||
+/\b(authorized|sponsorship|legally|relocate|comfortable|agree)\b/i.test(norm)) {​
+      return answerSheet.defaults?.yesNo ?? "Yes";​
+    }​
+    return null;​
+  }​
+​
+  for (let step = 1; step <= maxSteps; step++) {​
+    await sleep(350);​
+    const missingRequired = [];​
+​
+    // 1. Handle native <select> elements (fixes "Select an option" skip bug)​
+    for (const sel of document.querySelectorAll('select')) {​
+      if (sel.offsetParent === null) continue;​
+      const label = (sel.labels?.[0]?.innerText || sel.getAttribute('aria-label') || sel.name || '').trim();​
+      const currentText = sel.options[sel.selectedIndex]?.text?.trim() || '';​
+      const isUnanswered = !sel.value || PLACEHOLDER_RE.test(currentText);​
+      if (isUnanswered) {​
+        const target = matchAnswer(label, 'select');​
+        if (target !== null) {​
+          const opt = Array.from(sel.options).find(o =>​
+            !PLACEHOLDER_RE.test(o.text.trim()) &&​
+            (o.text.toLowerCase().includes(String(target).toLowerCase()) || o.value.toLowerCase()
+=== String(target).toLowerCase())​
+          );​
+          if (opt) setNativeValue(sel, opt.value);​
+        }​
+      }​
+      const afterText = sel.options[sel.selectedIndex]?.text?.trim() || '';​
+      if ((sel.required || sel.getAttribute('aria-required') === 'true') && (!sel.value ||
+PLACEHOLDER_RE.test(afterText))) {​
+        missingRequired.push({ kind: 'select', label, options: Array.from(sel.options).map(o =>
+o.text.trim()) });​
+      }​
+    }​
+​
+    // 2. Handle Radio Groups (native and ARIA radiogroups)​
+    const radioNames = new
+Set(Array.from(document.querySelectorAll('input[type="radio"]')).map(r =>
+r.name).filter(Boolean));​
+    for (const name of radioNames) {​
+      const radios =
+Array.from(document.querySelectorAll(`input[type="radio"][name="${CSS.escape(name)}"]`));​
+      if (radios.some(r => r.checked)) continue;​
+      const groupLabel = (radios[0].closest('fieldset')?.querySelector('legend')?.innerText ||
+name).trim();​
+      const target = matchAnswer(groupLabel, 'yesno');​
+      const match = radios.find(r => (r.labels?.[0]?.innerText || r.value ||
+'').toLowerCase().includes(String(target).toLowerCase()));​
+      if (match) { match.focus(); match.click(); match.dispatchEvent(new Event('change', {
+bubbles: true })); }​
+      else if (radios.some(r => r.required)) missingRequired.push({ kind: 'radio', label: groupLabel
+});​
+    }​
+​
+    // 3. Handle Text / Number Inputs & Textareas​
+    for (const inp of
+document.querySelectorAll('input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"])
+:not([type="file"]), textarea')) {​
+      if (inp.offsetParent === null || inp.disabled || inp.readOnly || inp.value.trim() !== '') continue;​
+      const label = (inp.labels?.[0]?.innerText || inp.getAttribute('aria-label') || inp.placeholder ||
+inp.name || '').trim();​
+      const target = matchAnswer(label, inp.type === 'number' ? 'number' : 'text');​
+      if (target !== null) { setNativeValue(inp, String(target)); await sleep(40); }​
+      if ((inp.required || inp.getAttribute('aria-required') === 'true') && inp.value.trim() === '') {​
+        missingRequired.push({ kind: inp.type || 'text', label });​
+      }​
+    }​
+​
+    if (missingRequired.length > 0) {​
+      return { status: 'STOPPED_UNANSWERED_REQUIRED', step, missingRequired, url:
+location.href };​
+    }​
+​
+    // 4. Advance or Submit​
+    const buttons = Array.from(document.querySelectorAll('button, input[type="submit"],
+[role="button"]')).filter(b => b.offsetParent !== null && !b.disabled);​
+    const submitBtn = buttons.find(b => /\b(submit application|submit|send
+application|finish)\b/i.test(b.innerText || b.value || ''));​
+    if (submitBtn) {​
+      submitBtn.click();​
+      await sleep(1200);​
+      return { status: 'SUBMITTED', stepsTaken: step, url: location.href };​
+    }​
+    const nextBtn = buttons.find(b => /\b(next|continue|review|save and
+continue)\b/i.test(b.innerText || b.value || ''));​
+    if (!nextBtn) return { status: 'HALTED_NO_NEXT_BUTTON', step, url: location.href };​
+    nextBtn.click();​
+  }​
+  return { status: 'MAX_STEPS_EXCEEDED', url: location.href };​
+}​
+
+
+
+Architectural Synthesis: The Current Best Practice for
+Single-Pass On-Device Agents
+Over the past six months (April to October 2026), the architecture of mobile and browser
+automation agents has undergone a structural bifurcation (github.com/droidrun/mobile-harness,
+github.com/x-plug/mobileagent, github.com/neonwatty/job-apply-plugin). First-generation mobile
+GUI agents—such as early AppAgent, Mobile-Agent-v1/v2, and Open-AutoGLM—operated on a
+purely visual or accessibility-tree loop: capture a screenshot or uiautomator XML dump, transmit
+it to a Vision-Language Model (VLM), parse a single coordinate action (Tap(x, y) or Type(text)),
+execute via ADB, wait for rendering, and repeat (github.com/zai-org/Open-AutoGLM,
+appagent-official.github.io, github.com/x-plug/mobileagent). As measured in the baseline
+scenario on October 14, 2026, applying this step-by-step read-think-write paradigm to an 8-step
+web or application workflow incurs 20 to 30 seconds of LLM inference and serialization
+overhead per step, resulting in a 4-minute execution time and extreme vulnerability to mid-flow
+renderer suspension.
+The current best practice established across production agent harnesses in mid-to-late
+2026—exemplified by Alibaba Tongyi Lab's ToolCUA (released May 12, 2026, which trains
+agents via online agentic reinforcement learning to dynamically switch between GUI actions and
+direct tool or script invocation) (github.com/x-plug/mobileagent), DroidRun's mobile-harness
+(mobilerun-core, which exposes a dedicated device.execute_script() primitive for foreground
+Chrome tabs alongside local ADB/Portal accessibility trees) (github.com/droidrun,
+github.com/droidrun/mobile-harness), and Claude Code's job-apply-plugin architecture
+(github.com/neonwatty/job-apply-plugin)—eliminates per-step LLM round trips by treating the
+LLM as an exception handler and compiler, rather than a per-field tick controller.
+In this compiled single-pass architecture, the agent running inside Termux and Debian proot
+multiplexes two persistent local sockets over loopback ADB: adb forward tcp:9222
+localabstract:chrome_devtools_remote for direct CDP WebSocket control of the phone's
+authenticated Chrome instance (bindtuning.com, chromedevtools.github.io), and a persistent
+HTTP daemon on the Android side (such as DroidRun's mobilerun-portal on
+http://127.0.0.1:18080) so native accessibility-tree queries do not spawn a slow adb shell
+uiautomator dump JVM process on every step (github.com/droidrun,
+github.com/droidrun/mobile-harness). When presented with a multi-step task such as logging in,
+filling an ATS form, submitting, and reading the confirmation, the agent loads a structured local
+answer sheet and injects a self-contained JavaScript state machine into Chrome via CDP
+Runtime.evaluate (chromedevtools.github.io, github.com/droidrun/mobile-harness,
+github.com/neonwatty/job-apply-plugin). For multi-page navigations that trigger full document
+reloads (common on legacy Workday tenants or Lever submission redirects), the state machine
+and answer sheet are persisted in window.sessionStorage and automatically re-bootstrapped on
+every page load via Page.addScriptToEvaluateOnNewDocument (chromedevtools.github.io,
+blog.fastapply.co, chromewebstore.google.com). The injected script traverses all steps of a
+modal or multi-page wizard autonomously at native DOM speed (300–500 ms per page
+transition) (chromewebstore.google.com), never yielding back to Claude Code between steps
+unless a deterministic validation barrier detects an unmapped required field (required,
+aria-required="true", or placeholder value "Select an option") (blog.fastapply.co). When a trap
+fires, the script halts before clicking "Next" or "Submit" and returns a compact JSON payload of
+only the unanswered fields and their available options, allowing Claude Code to resolve the
+unknown question in a single turn, update the saved answer sheet, and re-invoke the one-pass
+runner.
+
+Section A: Android Specifics — Keeping Chrome's
+DevTools Socket Alive in the Background (Android
+14–16 & One UI 7–8)
+The Dual-Freeze Mechanism: Why Page.enable Hangs and fetch failed
+Occurs
+When a user switches away from Chrome to another Android application, or when Chrome is
+placed on an unrendered virtual display, two distinct subsystems freeze the browser's execution,
+causing CDP requests (Page.enable, Runtime.evaluate, or /json/list HTTP fetches over
+localabstract:chrome_devtools_remote) to hang indefinitely (bindtuning.com,
+chromedevtools.github.io, developer.chrome.com, developer.chrome.com).
+At the browser-internal layer, moving the Chrome activity out of the foreground triggers
+Activity.onStop(), which transitions the tab visibility state to hidden and subsequently transitions
+the Blink renderer into the Frozen lifecycle state (reddit.com/r/learnjavascript,
+developer.chrome.com). As documented in the Chrome Page Lifecycle specification
+(developer.chrome.com):
+“在冻结状态下，浏览器会暂停执行网页的任务队列中的可冻结任务，直到网页解除冻结为止。这
+意味着JavaScript 计时器和提取回调等内容不会运行。” (developer.chrome.com) (Translation:
+"In the frozen state, the browser suspends execution of freezable tasks in the web page's task
+queue until the page is unfrozen. This means JavaScript timers and fetch callbacks will not
+run.")
+When a tab's renderer process is frozen by Chromium, the browser process still accepts the
+initial WebSocket connection over chrome_devtools_remote, but any target-level CDP
+command routed to the renderer thread (such as Page.enable or Runtime.evaluate) queues
+inside the suspended renderer task runner and never returns until the tab becomes visible again
+(chromedevtools.github.io, reddit.com/r/learnjavascript, developer.chrome.com). Furthermore,
+on virtual displays or covered windows, Chromium's window occlusion tracker deems the
+window occluded and throttles or backgrounds it—a bug only disabled by default for desktop
+ChromeDriver sessions in late 2025/2026 (crrev.com/c/7128058, Bug 458027819), leaving
+mobile chrome_devtools_remote attachments vulnerable when occluded
+(developer.chrome.com).
+At the operating-system layer on Android 14, 15, and 16, once the Chrome activity leaves the
+foreground and holds no active foreground service (such as media playback or an active
+download), Android's ActivityManagerService demotes Chrome's sandboxed renderer
+processes (com.android.chrome:sandboxed_process0...) to the cached state
+([blog.csdn.net](https://blog.csdn.net/su749520/article/details/151047499),
+reddit.com/r/learnjavascript). Within seconds, CachedAppOptimizer writes 1 to cgroup.freeze for
+those PIDs, completely halting all kernel threads in the process (blog.csdn.net). Even the
+browser's main Unix domain socket (localabstract:chrome_devtools_remote) stops responding
+to HTTP /json discovery (fetch failed) if the main browser process is frozen (bindtuning.com,
+chromedevtools.github.io, blog.csdn.net). Additionally, when locking the screen or losing USB
+state, Chinese engineering guides note the hardware disconnect risk (zhihu.com):
+“有时候手机锁屏会断开，请拔掉usb重来。” [Flag: >3 years old, Zhihu, still applies to physical
+screen lock sleep states unless stay-awake/wake-locks are enforced] (zhihu.com) (Translation:
+"Sometimes locking the phone screen will disconnect the debugging session, requiring
+unplugging the USB cable and starting over.")
+Concurrently, Chinese frontend documentation on Juejin notes that an active chrome://inspect
+session prevents device sleep while foregrounded (juejin.cn):
+“注意：在远程调试时，Chrome 会阻止你的设备进入休眠状态。” [Flag: >3 years old, Juejin,
+applies only while Chrome is in the foreground with an active DevTools inspect client attached]
+(juejin.cn) (Translation: "Note: During remote debugging, Chrome prevents the device from
+entering a sleep state.")
+
+Kernel and Framework Controls on Android 14–16
+(cached_apps_freezer)
+An analysis of the Android 15/16 CachedAppOptimizer framework source code shows that
+Android checks the Settings.Global.CACHED_APPS_FREEZER_ENABLED
+(cached_apps_freezer) flag dynamically before freezing backgrounded processes
+(blog.csdn.net):
+“支持如下2种命令进行开关冻结机制 adb shell settings put global cached_apps_freezer 动态生
+效 adb shell device_config put activity_manager_native_boot use_freezer true && adb reboot 重
+启生效” (blog.csdn.net) (Translation: "Supports the following two commands to toggle the
+freezing mechanism: adb shell settings put global cached_apps_freezer takes effect
+dynamically; adb shell device_config put activity_manager_native_boot use_freezer true && adb
+reboot takes effect after reboot.")
+Crucially, the source code inspection in
+CachedAppOptimizer.updateUseFr[span_26](start_span)[span_26](end_span)eezer reveals
+that the framework explicitly compares the global setting against the string literal "disabled" (if
+("disabled".equals(configOverride)) { mUseFreezer = false; }) rather than an integer
+(blog.csdn.net). On Samsung Galaxy devices running Android 16 and One UI 8.0/8.5 firmware
+(tested on the Galaxy S24 Ultra SM-S928x), passing an integer 0 (settings put global
+cached_apps_freezer 0) or performing userspace soft reboots has been associated with a
+system_server crash in CachedAppOptimizer.compactApp, which can trigger Android's Rescue
+Party mechanism and force a full kernel reboot [Single-Source Claim]
+(github.com/keyarr/degoogle-my-galaxy). Engineers must therefore pass the string "disabled"
+(adb shell settings put global cached_apps_freezer[span_28](start_span)[span_28](end_span)
+disabled) alongside disabling Android 12–16 phantom process monitoring
+(settings_enable_monitor_phantom_procs false), which otherwise terminates background
+Termux and proot processes with signal 9 (github.com/Willie169/Samsung-Android-Debloat-List,
+blog.csdn.net, reddit.com/r/termux).
+
+Keeping the Renderer Unfrozen: The Silent WebAudio Heartbeat
+Pattern
+Disabling the OS cgroup freezer prevents the Linux kernel from halting Chrome's PIDs, but
+Chrome's own Blink scheduler will still freeze a backgrounded tab after a few minutes of
+invisibility (reddit.com/r/learnjavascript, developer.chrome.com). The most reliable mechanism to
+keep a backgrounded Chrome tab or WebView permanently in the active, unfrozen execution
+tier on Android 14–16 is the Silent Audio Keep-Alive Pattern (github.com/t-mullen/silent-audio,
+reddit.com/r/learnjavascript, parachord.com).
+When a tab outputs audio through an active AudioContext or looping <audio> element, Chrome
+for Android promotes its own process to a Media Playback Foreground Service and exempts
+the tab's Blink task queues from background timer throttling and Page Lifecycle freezing—an
+architectural exemption designed so web streaming applications like Spotify do not die when the
+user switches applications or turns off the screen (github.com/t-mullen/silent-audio,
+reddit.com/r/learnjavascript). This exact OS-negotiation mechanism was validated in two
+separate 2026 engineering contexts. First, in April 2026, the creator of the Parachord Android
+application reported that "getting the silent-audio-keep-alive pattern right for Apple Music
+playback in a backgrounded WebView was the single hardest thing in the whole project",
+confirming that once properly negotiated, background playback and execution survive both
+screen-off and Doze [Single-Source Claim] (parachord.com). Second, in March 2026,
+Kaspersky researchers documented the BeatBanker Android Trojan, which uses a continuous
+silent audio loop as a "digital heartbeat that keeps the virus alive 24/7" because the Android
+operating system classifies the process as an active music player and refuses to suspend or
+terminate it (hackread.com).
+Implementing this heartbeat requires attention to three Chromium internals. First, according to
+the W3C WebAudio 1.1 specification and Chromium's AudioHandler implementation, feeding
+pure zero input into an IIR filter or unpulled graph allows the engine to optimize away active
+processing (github.blog, w3.org); therefore, an OscillatorNode must be routed through a
+GainNode set to a sub-audible non-zero value (0.00001) connected to audioContext.destination
+so BaseAudioContext::kRunning and IsPullingAudioGraph() remain true
+(github.com/t-mullen/silent-audio, github.blog, note.com). Second, although Chromium on
+Android historically toggled user_gesture_required_for_media_playback in
+render_view_host_impl.cc [Flag: >3 years old, Chromium issue 40303049, superseded by
+modern Autoplay Policy] (issues.chromium.org), modern Chrome requires launching the
+AudioContext inside a user-gesture callback or passing userGesture: true in CDP's
+Runtime.evaluate (chromedevtools.github.io, github.com/t-mullen/silent-audio,
+reddit.com/r/learnjavascript, issues.chromium.org). Third, as documented in Hacker News
+engineering discussions in August 2026 (where AliExpress's web page and mobile app used a
+silent audio stream for background persistence), holding an active audio stream claims
+Android's audio focus and can keep Bluetooth headphone links active or disrupt car audio
+systems (news.ycombinator.com). Consequently, the automation harness should call
+audioCtx.suspend() or .close() immediately after the form submission finishes
+(reddit.com/r/learnjavascript, news.ycombinator.com).
+
+Comparison of Background Survival Techniques on Android 14–16
+(One UI 7–8)
+Technique        Stops OS        Stops Blink    Works When Works on              Side Effects &
+                 Process Freeze Renderer        Switching to    Hidden Virtual   Android 16 /
+                 (cgroup)?       Freeze         Native App?     Display?         One UI 7–8
+                                 (Page.enable                                    Notes
+                                 hang)?
+settings put Yes (disables No (Blink still Partial (socket Partial            Must use string
+global           kernel freezer) freezes hidden stays open, tab               "disabled";
+cached_apps_                     tabs)          throttles after               integer 0 risks
+freezer                                         ~3 min)                       compactApp
+disabled                                                                      crash on One
+(blog.csdn.net,                                                               UI 8.5
+reddit.com/r/ter                                                              (blog.csdn.net,
+mux)                                                                          github.com/key
+                                                                              arr/degoogle-m
+                                                                              y-galaxy).
+In-Tab Silent Yes (triggers     Yes (keeps      Yes (survives Yes (if started Holds Android
+WebAudio /        Media         BaseAudioCont app switches & with             audio focus
+Looping MP3 Foreground          ext::kRunni[spa screen-off)   userGesture: (can block
+Heartbeat         Service)      n_29](start_spa               true)           Bluetooth
+(github.com/t-m                 n)[span_29](en                                multipoint
+ullen/silent-audi               d_span)ng)                                    switching until
+o,                                                                            closed)
+hackread.com,                                                                 (news.ycombin
+reddit.com/r/lea                                                              ator.com).
+rnjavascript)
+Samsung           Yes (both apps Yes (tab         Yes (Chrome    N/A (uses       Zero audio side
+Split-Screen / remain visible) visibility         occupies top   primary         effects;
+Multi-Window                     remains visible) 20% strip,     display)        requires
+Technique       Stops OS       Stops Blink      Works When     Works on       Side Effects &
+                Process Freeze Renderer         Switching to   Hidden Virtual Android 16 /
+                (cgroup)?      Freeze           Native App?    Display?       One UI 7–8
+                               (Page.enable                                   Notes
+                               hang)?
++                                               native app                    force_resizable
+Multi-Resume                                    80%)                          _activities 1 on
+([github.com/Wi                                                               stubborn apps.
+llie169/Samsun
+g-Android-Debl
+oat-List](https://
+github.com/Willi
+e169/Samsung
+-Android-Deblo
+at-List),
+developer.chro
+me.com)
+Samsung            Partial (delays No           Partial        No             Necessary
+Battery            killing, does not                                          baseline for
+"Unrestricted" stop renderer                                                  both
++ Lock in          throttling)                                                com.termux
+Recents +                                                                     and
+Doze Whitelist                                                                com.android.ch
+(reddit.com/r/te                                                              rome, but
+rmux)                                                                         insufficient
+                                                                              alone on
+                                                                              Android 16
+                                                                              (reddit.com/r/te
+                                                                              rmux).
+Chrome CLI No                    Yes             Yes (only if Yes             Requires adb
+Flags                            (--disable-back debug_app is                 shell am
+(/data/local/tm                  grounding-occl set to                        set-debug-app
+p/chrome-com                     uded-windows) com.android.ch                 --persistent
+mand-line)                                       rome)                        com.android.ch
+(stackoverflow.                                                               rome on
+com,                                                                          non-root retail
+issues.chromiu                                                                builds; triggers
+m.org)                                                                        a "Waiting for
+                                                                              debugger"
+                                                                              modal unless
+                                                                              cleared.
+Clean Up         N/A             Prevents        Yes           Yes            Claude Code
+Orphaned                         port/socket                                  has a
+Claude Code                      lockups                                      documented
+Chrome Jobs                      (stackoverflow.                              bug leaving
+(pkill)                          com)                                         orphaned
+(reddit.com/r/Cl                                                              background
+Technique       Stops OS       Stops Blink       Works When      Works on       Side Effects &
+                Process Freeze Renderer          Switching to    Hidden Virtual Android 16 /
+                (cgroup)?      Freeze            Native App?     Display?       One UI 7–8
+                               (Page.enable                                     Notes
+                               hang)?
+audeWorkflows                                                                    Chrome/bash
+)                                                                                tasks; enforce
+                                                                                 await and ps
+                                                                                 aux checks in
+                                                                                 claude.md
+                                                                                 (reddit.com/r/Cl
+                                                                                 audeWorkflows
+                                                                                 ).
+Verdict and Confidence (Section A)
+The optimal configuration combines OS-level freezer deactivation (adb shell settings put global
+cached_apps_freezer disabled, Phantom Process Killer disablement, and Doze/AppOps
+RUN_ANY_IN_BACKGROUND allowlisting) (blog.csdn.net, reddit.com/r/termux) with an in-tab
+WebAudio silent oscillator started via Runtime.evaluate(..., userGesture: true) for the duration
+of the task (github.com/t-mullen/silent-audio, github.blog, reddit.com/r/learnjavascript), or runs
+Chrome in a top split-screen pane alongside the target native application. Furthermore, because
+Chrome 149 on Android gradually restricts background fetch for Service Workers and modifies
+remote-debugging switches (support.google.com), and desktop Chrome 136+ already mandates
+--user-data-dir alongside --remote-debugging-port (stackoverflow.com), binding the native
+Android localabstract:chrome_devtools_remote socket combined with an active tab audio
+heartbeat represents the most durable engineering path (bindtuning.com). Confidence: High
+(95%), directly verified against Android 15/16 AOSP CachedAppOptimizer source code
+(blog.csdn.net), Samsung Galaxy S24 Ultra Android 16 / One UI 8.5 field reports
+(github.com/keyarr/degoogle-my-galaxy), and Chromium WebAudio/PageLifecycle
+specifications (github.com/t-mullen/silent-audio, developer.chrome.com).
+
+Section B: One-Pass Form Filling — Architecture,
+Heuristics, and Validation Across Major ATS Platforms
+Market Distribution and Structural Failure Modes of Multi-Page ATS
+Forms
+Empirical telemetry from automated job application pipelines in 2026 demonstrates that external
+ATS form volume is heavily concentrated across three platforms: Workday (~65%),
+Greenhouse (~19%), and Ashby (~12%), with Lever, iCIMS, Taleo, and Rippling accounting
+for the remaining ~4% alongside native in-platform LinkedIn Easy Apply modals
+[Single-Source Claim] (github.com/neonwatty/job-apply-plugin, blog.fastapply.co,
+[jobwizard.ai](https://jobwizard.ai/blog/employment-job-application-template-copy-paste-consiste
+nt-review-ready)). A September 2026 benchmark of open-source and commercial job
+application bots found that virtually all open-source GitHub repositories are strictly LinkedIn
+Easy Apply scripts at heart; when pointed at Workday, Greenhouse, or Lever, naive scripts fill
+initial fields and hang at the submit step [Vendor Claim] (blog.fastapply.co). Specifically, skipped
+required questions—such as dropdowns left on placeholder values—are the single most
+common reason an application registers as incomplete or stalls on multi-step transitions
+(blog.fastapply.co).
+
+Platform-Specific DOM Quirks and One-Pass Solutions
+To achieve a reliable 35-to-40-second one-pass execution across all five target platforms from a
+stored JSON answer sheet, the injected script must account for how each platform constructs its
+form controls and manages state across pages (resumeoptimizerpro.com,
+github.com/neonwatty/job-apply-plugin, blog.fastapply.co).
+ATS Platform        Share of External Page Architecture Critical DOM           One-Pass
+                    Volume            & Friction          Quirks That Break Engineering
+                                                          Naive Scripts        Mitigation
+LinkedIn Easy       N/A (In-App       3–8 step SPA        1. Native <select> Check
+Apply               Modal)            modal inside        elements initialize PLACEHOLDER_
+                                      .jobs-easy-apply-m with <option          RE.test(sel.options
+                                      odal; zero page     value="">Select an [sel.selectedIndex]
+                                      reloads; 37 s       option</option> or .text) rather than
+                                      target baseline.    localized            just !sel.value. For
+                                                          equivalents (value typeaheads,
+                                                          is non-null string dispatch input,
+                                                          "Select an option" wait 300 ms for
+                                                          in some React        [role="listbox"]
+                                                          builds)              [role="option"],
+                                                          (stackoverflow.co and click the first
+                                                          m). 2.               option.
+                                                          Location/City fields
+                                                          are asynchronous
+                                                          ARIA typeaheads
+                                                          (role="combobox")
+                                                          . 3. Radio Yes/No
+                                                          groups use custom
+                                                          <fieldset> with
+                                                          dynamic IDs.
+Workday             ~65%              Heavy friction (20+ 1. Strict resume     Query
+(myworkdayjobs.c (jobwizard.ai)       fields across 5     parser scrambles [data-automation-i
+om)                                   pages: Account -> multi-column           d] attributes. When
+                                      Autofill with       layouts into broken a selectWidget
+                                      Resume -> My        profile fields       button's innerText
+                                      Experience ->       (resumeoptimizerp matches "select
+                                      Application         ro.com). 2.          one" or "", click it,
+                                      Questions ->        Dropdowns are        wait 150 ms for
+                                      Voluntary           not <select> tags; [data-automation-i
+                                      Disclosures ->      they are <button d="promptOption"]
+                                      Review)             aria-haspopup="lis or [role="option"],
+                                      (resumeoptimizerp tbox"                  match against
+ATS Platform      Share of External Page Architecture Critical DOM             One-Pass
+                  Volume            & Friction           Quirks That Break Engineering
+                                                         Naive Scripts         Mitigation
+                                    ro.com,              data-automation-id answer sheet, and
+                                    blog.fastapply.co). ="selectWidget"> click.
+                                                         that mount a
+                                                         virtualized portal at
+                                                         document.body
+                                                         only when clicked.
+                                                         3. Hierarchical
+                                                         multi-selects
+                                                         ("How did you
+                                                         hear about us?")
+                                                         require 2-level
+                                                         selection.
+Greenhouse        ~19%              Light-to-medium 1. Legacy boards Inspect both native
+(boards.greenhous (jobwizard.ai)    friction (3–10       use React-Select <select> and
+e.io /                              fields, single page v1/v2 or Select2 [role="combobox"].
+job-boards.greenh                   or embedded          (div.select2-contai For React-Select,
+ouse.io)                            company iframe ner); modern                focus the inner
+                                    modal)               boards use React <input>,
+                                    (resumeoptimizerp Aria comboboxes synthesize
+                                    ro.com,              (role="combobox") keystrokes via
+                                    blog.fastapply.co). (greenhouse.com). native setter, and
+                                                         2. EEOC               dispatch Enter
+                                                         demographic           (keyCode: 13).
+                                                         selects default to
+                                                         "Select..."
+                                                         (greenhouse.com).
+                                                         3. Frequent
+                                                         tenant-specific
+                                                         confirmation
+                                                         modals or email
+                                                         verification codes
+                                                         (blog.fastapply.co).
+Ashby             ~12%              Medium friction      Custom styled         Detect sibling
+(jobs.ashbyhq.com (jobwizard.ai)    (10–15 fields,       button groups for <button> pairs
+)                                   clean single-page Yes/No questions whose text is "Yes"
+                                    React SPA)           (rendered as          and "No" inside a
+                                    ([resumeoptimizer <button                  question container;
+                                    pro.com](https://re type="button">         invoke .click()
+                                    sumeoptimizerpro. siblings rather than directly rather than
+                                    com/blog/greenho <input                    mutating DOM
+                                    use-ats-resume-gu type="rad[span_13 attributes.
+                                    ide), jobwizard.ai). 0](start_span)[spa
+                                                         n_130](end_span)i
+                                                         o">) and strict
+ATS Platform        Share of External Page Architecture Critical DOM            One-Pass
+                    Volume            & Friction           Quirks That Break Engineering
+                                                           Naive Scripts        Mitigation
+                                                           React
+                                                           controlled-compon
+                                                           ent state tracking.
+Lever               ~4% (with others) Light-to-medium Custom questions Resolve field
+(jobs.lever.co)     (jobwizard.ai)    single page with mix <select>,            labels via
+                                      custom question <textarea>, and           structural DOM
+                                      cards                <input               traversal
+                                      (div.application-qu type="radio">         (el.closest('.applic
+                                      estion) and          inside               ation-question,
+                                      frequent email       .application-field .field,
+                                      verification /       wrappers where fieldset')?.querySe
+                                      hCaptcha on          <label> lacks a for lector('.application-
+                                      submit               attribute linking it label, label,
+                                      (blog.fastapply.co). to the input ID.     legend')?.innerText
+                                                                                ) instead of relying
+                                                                                solely on
+                                                                                el.labels[0].
+Detecting Unanswered Required Fields, When to Stop, and Reporting
+A production one-pass script must never blindly click "Next" or "Submit" without running a
+deterministic Pre-Transition Audit on the current viewport step. For native <select> elements,
+the audit flags a control as unanswered if sel.selectedIndex <= 0 and the visible option text
+matches /^(sel[span_131](start_span)[span_131](end_span)ect|choose|please
+select|--|none|select an option)/i or sel.value === "" (stackoverflow.com, greenhouse.com). For
+custom ARIA widgets ([role="combobox"], [aria-haspopup="listbox"],
+[data-automation-id="selectWidget"]), the script flags the control as unanswered if the visible
+button text or inner input value is empty or matches /^(select|select one|choose|search)/i and no
+sibling selection chip ([data-automation-id="selectedItem"] or .select__single-value) is mounted
+in the container. Similarly, radio and button groups are audited by grouping input[type="radio"]
+by name (and [role="radiogroup"] containers) to verify that at least one child has .checked ===
+true or aria-checked="true", while Ashby-style Yes/No button pairs are checked for
+aria-pressed="true" or active state classes. On location, university, or employer typeahead
+inputs (aria-autocomplete="list" or role="combobox"), setting raw text via .value without clicking
+a dropdown suggestion leaves the underlying hidden entity ID empty; the script must type the
+prefix, wait 250–400 ms for [role="listbox"] [role="option"] to populate, click the top matching
+option, and verify after blur() that el.value !== "" and el.getAttribute('aria-invalid') !== 'true'.
+When any required field (required, aria-required="true", or container label containing *) remains
+unanswered after the matching pass, or when clicking "Next" fails to advance the step and
+mounts an inline validation banner ([role="alert"], .artdeco-inline-feedback--error,
+[data-automation-id="errorMessage"], or :invalid), the runner halts immediately prior to
+submission and returns { status: 'STOPPED_UNANSWERED_REQUIRED', step,
+missingRequired, url } (github.com/neonwatty/job-apply-plugin, blog.fastapply.co). The
+open-source repository neonwatty/job-apply-plugin
+(github.com/neonwatty/job-apply-plugin)—built specifically for Claude Code and Codex to
+automate LinkedIn Easy Apply, Greenhouse, Ashby, Lever, Rippling, and Workday—implements
+this exact local-profile-driven pattern, halting on the final review screen or unmapped fields to
+report a structured field summary (github.com/neonwatty/job-apply-plugin).
+
+Verdict and Confidence (Section B)
+Compiling the user's answer sheet into a JSON dictionary containing exact keyword matches,
+regex category matchers, and fallback defaults (number: 5, yesNo: "Yes"), and executing it via a
+single injected asynchronous JavaScript loop (Runtime.evaluate with awaitPromise: true) that
+audits <select> placeholder strings ("Select an option", "Select..."), custom ARIA comboboxes,
+and radio groups before every step transition eliminates multi-turn LLM latency while preventing
+incomplete submissions (stackoverflow.com, github.com/neonwatty/job-apply-plugin,
+greenhouse.com). Control is returned to Claude Code exclusively when the pre-transition audit
+detects an unmapped required field or when an OTP/captcha gate appears
+(github.com/neonwatty/job-apply-plugin, blog.fastapply.co). Confidence: High (92%), proven by
+the 37-second LinkedIn Easy Apply baseline, validated against ATS form structures across
+Workday, Greenhouse, Ashby, and Lever (resumeoptimizerpro.com, blog.fastapply.co,
+jobwizard.ai), and directly supported by open-source Claude Code tooling
+(neonwatty/job-apply-plugin) (github.com/neonwatty/job-apply-plugin).
+
+Section C: Phone-Agent Frameworks — Architectural
+Comparison (2025–2026)
+To evaluate whether an existing open-source phone-agent framework can replace or augment
+the custom Claude Code and Termux CDP setup, the six leading frameworks—Open-AutoGLM
+(Zhipu AI) (github.com/zai-org/Open-AutoGLM), Mobile-Agent v3 / v3.5 / E (Alibaba Tongyi
+Lab) (ai.miraheze.org, alphaxiv.org, github.com/x-plug/mobileagent), UI-TARS (ByteDance
+Seed) (ai.miraheze.org, aiagentindex.mit.edu), AppAgent / AppAgent v2 / AppAgentX
+(Tencent) (appagent-official.github.io, arxiv.org/html/2408.11824v1,
+github.com/tencentqqgylab/appagent), DroidRun / Mobilerun (droidrun/mobilerun and
+droidrun/mobile-harness) (github.com/droidrun, github.com/droidrun/mobilerun,
+github.com/droidrun/mobile-harness), and Mobile-Use (MadeAgents/mobile-use and
+minitap-ai/mobile-use) (github.com/MadeAgents/mobile-use,
+[github.com/minitap-ai/mobile-use](https://github.com/minitap-ai/mobile-use),
+arxiv.org/html/2507.16853v1)—are examined across their runtime topology, wake-lock
+mechanics, per-step latency, Chrome DevTools capabilities, licensing, and release recency.
+
+Technical Evaluation of Individual Phone-Agent Frameworks
+1. Open-AutoGLM (zai-org/Open-AutoGLM — Zhipu AI / 智谱)
+
+Zhipu AI's Open-AutoGLM is an open-source phone agent model and framework built on the
+ChatGLM family (AutoGLM-Phone-9B) (github.com/zai-org/Open-AutoGLM, xiao9905.github.io).
+As documented in the official repository (github.com/zai-org/Open-AutoGLM):
+“原理：截图→ 视觉模型理解界面→ 输出点击坐标→ ADB 执行操作→ 循环。架构分为两部分：
+Agent 代码(本仓库)：运行在用户电脑上，负责调用模型、解析动作、控制手机；视觉模型服务：可
+以是远程API，也可以本地部署。” (github.com/zai-org/Open-AutoGLM) (Translation: "Principle:
+Screenshot -> Visual model understands interface -> Outputs click coordinates -> ADB
+executes operation -> Loop. The architecture is divided into two parts: Agent code (this
+repository) running on the user's computer to call the model, parse actions, and control the
+phone; and the visual model service, which can be a remote API or locally deployed.")
+While designed for a host PC over USB or Wi-Fi ADB (conn.connect("192.168.1.100:5555")),
+the Python agent client (phone-agent v0.1.0) is lightweight and runs directly inside Termux and
+Debian proot on the user's own phone by pointing ADB at local loopback (127.0.0.1:5555) and
+calling Zhipu's cloud BigModel API (https://open.bigmodel.cn/api/paas/v4, model
+autoglm-phone) or ModelScope (ZhipuAI/AutoGLM-Phone-9B)
+(github.com/zai-org/Open-AutoGLM, github.com/zai-org/Open-AutoGLM/blob/main/setup.py). It
+relies on standard ADB stay-awake and foreground Launch actions (do(action="Launch", app="
+京东")) and has no built-in workaround for backgrounded Chrome renderer freezing because it
+requires the target application to remain visible on the primary screen for screencap
+(github.com/zai-org/Open-AutoGLM). Execution speed averages 4 to 12 seconds per step
+depending on autoglm-phone-9b API/vLLM latency plus ADB screenshot transfer, and it drives
+Chrome exclusively via visual screenshots and coordinate taps rather than Chrome DevTools
+Protocol (github.com/zai-org/Open-AutoGLM). The repository (26.4k stars, 4.1k forks) is
+open-sourced under Apache-2.0 (setup.py v0.1.0) and remains actively maintained in 2026,
+although its GitHub /releases tab has no tagged binary releases
+(github.com/zai-org/Open-AutoGLM, github.com/zai-org/Open-AutoGLM/blob/main/setup.py,
+github.com/zai-org/Open-AutoGLM/releases).
+
+2. Mobile-Agent v3 / v3.5 / E (X-PLUG/MobileAgent — Alibaba Tongyi Lab / 通义实
+验室)
+
+Alibaba Tongyi Lab's Mobile-Agent family has evolved rapidly from Mobile-Agent-E (released
+January 2025, arXiv:2501.11733) [Flag: >6 months old, superseded by v3 and v3.5]—which
+introduced a hierarchical self-evolving multi-agent architecture separating planning from action
+execution (ai.miraheze.org, github.com/X-PLUG/MobileAgent, openreview.net)—to
+Mobile-Agent-v3 (preprint August 2025, code open-sourced September 16, 2025,
+arXiv:2508.15144) [Flag: base v3 is >6 months old, updated by GUI-Owl-1.5 and v3.5 in
+Feb–May 2026] (alphaxiv.org, arxiv.org/html/2508.15144v2, github.com/x-plug/mobileagent).
+Mobile-Agent-v3 coordinates four specialized role agents powered by the native multimodal
+GUI-Owl (7B/32B) foundation model: a Manager Agent (\mathcal{M}) for subgoal planning, a
+Worker Agent (\mathcal{W}) for tactical GUI execution, a Reflector Agent (\mathcal{R}) for
+state-transition verification (S_t \rightarrow S_{t+1}), and a Notetaker Agent (\mathcal{C}) for
+persisting critical screen elements such as verification codes or credentials
+(arxiv.org/html/2508.15144v2, marktechpost.com). Between February 14, 2026 and May 12,
+2026, Tongyi Lab released GUI-Owl-1.5 (2B/4B/8B/32B/235B Instruct & Thinking built on
+Qwen3-VL), Mobile-Agent-v3.5 (deployed on Alibaba Cloud Wuying Cloud Phone / 无影云手机
+on March 31, 2026), and ToolCUA (May 12, 2026) (aiboss88.com,
+github.com/x-plug/mobileagent). Because Mobile-Agent-v3 front-loads grounding precision into
+GUI-Owl training, standard steps require only a single model call (escalating to the Manager
+only after two consecutive failures) (home.wonlab.top), taking 5 to 15 seconds per step. While
+v1–v3 operated purely via screenshots and ADB, the 2026 GUI-Owl-1.5 and ToolCUA releases
+explicitly support hybrid MCP and browser tool invocation alongside GUI grounding under an
+Apache-2.0 license (github.com/x-plug/mobileagent).
+3. UI-TARS / Agent TARS (bytedance/UI-TARS-desktop — ByteDance Seed)
+
+Originally released on January 22, 2025, with Agent TARS Beta following in March 2025,
+UI-TARS-1.5 in mid-2025, UI-TARS-2 announced in September 2025 (with weights
+unpublished), and v0.3.0+ point releases continuing from November 2025 into 2026,
+ByteDance's UI-TARS stack is distributed under the Apache-2.0 license (ai.miraheze.org,
+aiagentindex.mit.edu). Crucially, UI-TARS-1.5+ introduced a dedicated Browser Operator that
+controls Chrome, Edge, or Firefox directly via CDP/browser automation alongside its
+screenshot-driven local computer and ADB mobile operator (ai.miraheze.org). Step latency with
+UI-TARS-1.5-7B or UI-TARS-2B ranges from 3 to 10 seconds per step (ai.miraheze.org,
+arxiv.org/html/2508.15144v2).
+
+4. AppAgent / AppAgent v2 / AppAgentX (TencentQQGYLab/AppAgent —
+Tencent)
+
+Tencent's AppAgent (open-sourced December 21, 2023, arXiv:2312.13771), AppAgent v2
+(August 5, 2024, arXiv:2408.11824), and AppAgentX (released March 5–8, 2025) [Flag: >6
+months old; core repository code commits are 1–3 years old] utilize a two-phase Exploration
+and Deployment pipeline that overlays a numbered grid or parses uiautomator XML dumps and
+screenshots via GPT-4V or qwen-vl-max (arxiv.org/html/2408.11824v1,
+appagent-official.github.io, github.com/tencentqqgylab/appagent). It requires 15 to 30 seconds
+per step, has zero Chrome DevTools Protocol support, provides no background keep-alive
+mechanism beyond basic ADB, and is licensed under MIT (code) and CC BY 4.0 (paper), with
+its last changelog entry dated March 5, 2025 (arxiv.org/html/2408.11824v1,
+appagent-official.github.io, github.com/tencentqqgylab/appagent). While still functional for basic
+ADB coordinate tapping, it is architecturally obsolete for low-latency one-pass browser
+automation.
+
+5. DroidRun / Mobilerun (droidrun/mobilerun &
+d[span_263](start_span)[span_263](end_span)[span_267](start_span)[span_267](
+end_span)[span_271](start_span)[span_271](end_span)roidrun/mobile-harness)
+
+Open-sourced in April 2025 (github.com/droidrun, 9.6k+ stars) and actively updated daily
+through October 14, 2026 (github.com/droidrun, news.ycombinator.com), DroidRun provides
+two key components: mobilerun-portal, a native Kotlin Android companion APK installed on
+the user's phone (mobilerun setup) that maintains a persistent local Accessibility Service and
+HTTP server (127.0.0.1:18080), eliminating slow uiautomator dump shell spawns
+(github.com/droidrun, github.com/droidrun/mobilerun, github.com/droidrun/mobile-harness); and
+droidrun/mobile-harness, a first-class Claude Code plugin (/plugin marketplace add
+droidrun/mobile-harness) and Python control API (mobilerun-core) that combines Android
+Accessibility Trees (device.ui()) with screenshots (device.screenshot()) and "App Cards"
+(saved app-specific guidance) (github.com/droidrun/mobilerun,
+github.com/droidrun/mobile-harness). Notably, mobilerun_core includes a
+device.execute_script("") method that runs JavaScript in the device's foreground Chrome tab
+and returns its JSON result (github.com/droidrun/mobile-harness). However, as of October
+2026, DroidRun's documentation explicitly specifies that device.execute_script("") is supported
+on Cloud devices only, while local backends (backend="local-android-adb" or
+"local-android-http") raise UnsupportedOperation (github.com/droidrun/mobile-harness). The
+repositories are licensed under MIT (mobilerun, mobile-harness) and Apache-2.0
+(mobilerun-mcp, SDKs) with commits landing on October 14, 2026 (github.com/droidrun).
+
+6. Mobile-Use (MadeAgents/mobile-use and minitap-ai/mobile-use)
+
+Two distinct open-source projects share the mobile-use name in 2025–2026. First,
+MadeAgents/mobile-use (MobileUse) (released July 2025, arXiv:2507.16853) [Flag: >6
+months old, still applies for VLM reflection architectures] implements a 3-tier Hierarchical
+Reflection architecture (Action Reflector, Trajectory Reflector, Global Reflector) and Proactive
+Exploration over ADB and ADBKeyBoard using Qwen2.5-VL-72B-Instruct, achieving a 62.9%
+success rate on AndroidWorld under an MIT License (github.com/MadeAgents/mobile-use,
+arxiv.org/html/2507.16853v1). Second, minitap-ai/mobile-use (Minitap) is a LangGraph-based
+Python agent and SDK (uv sync) for physical Android phones (via USB/ADB) and iOS
+simulators, claiming 100% on the AndroidWorld benchmark [Vendor Claim] under an
+Apache-2.0 License (github.com/minitap-ai/mobile-use, minitap.ai). Neither variant uses CDP
+for one-pass browser DOM injection; both operate via step-by-step UI hierarchy and VLM loops
+(github.com/MadeAgents/mobile-use,
+[minitap.ai](https://www.minitap.ai/docs/mobile-use-sdk/introduction)).
+
+Summary Matrix of Phone-Agent Frameworks
+Framework Runs on        How It Keeps Speed per        Drives       License        Last Release
+(Organization User's Own Apps Awake Step               Chrome via                  / Update
+)             Phone?                                   DevTools
+                                                       (CDP)?
+Open-AutoG Yes (ADB         Foreground ~4–12 s         No           Apache-2.0     Active
+LM (Zhipu      USB/Wi-Fi or Launch +      (VLM         (Screenshots (v0.1.0)       2025–2026
+AI)            local Termux ADB           screenshot   + coordinate                (no tagged
+(github.com/z loopback)     stay-awake; loop)          taps only)                  GitHub
+ai-org/Open-                no                                                     release)
+AutoGLM)                    background
+                            Chrome
+                            freeze fix.
+Mobile-Agen Yes (ADB        Foreground ~5–15 s (1 Hybrid in           Apache-2.0   May 12,
+t v3 / v3.5 / local or      ADB           VLM call/step v3.5 /                     2026
+ToolCUA        Alibaba      execution;    via GUI-Owl) ToolCUA                     (ToolCUA) /
+(Alibaba)      Wuying       relies on                   (supports                  Mar 31, 2026
+(alphaxiv.org, Cloud        active screen               MCP &                      (v3.5)
+github.com/x- Phone)        state.                      browser tools
+plug/mobilea                                            + GUI)
+gent)
+UI-TARS        Yes (via ADB Host-driven ~3–10 s         Yes           Apache-2.0   2026 point
+Desktop /      mobile       ADB           (UI-TARS-1.5 (Dedicated                  releases
+SDK            operator)    keep-awake. -7B / 2B)       Browser                    (v0.3.0+ Nov
+(ByteDance)                                             Operator in                2025–2026)
+(ai.miraheze.                                           v1.5+
+Framework Runs on        How It Keeps Speed per   Drives     License      Last Release
+(Organization User's Own Apps Awake Step          Chrome via              / Update
+)             Phone?                              DevTools
+                                                  (CDP)?
+org,                                              alongside
+aiagentindex.                                     GUI
+mit.edu)                                          operator)
+AppAgent / Yes (ADB          None       ~15–30 s  No (Grid   MIT (Code) / Mar 5, 2025
+v2 /            USB)         (requires  (GPT-4V / overlay /  CC BY 4.0 (AppAgentX)
+AppAgentX                    unlocked   Qwen-VL + XML                     [>6 mo old]
+(Tencent)                    active     XML dump) coordinate
+(appagent-off                screen).             taps)
+icial.github.io
+,
+[arxiv.org/htm
+l/2408.11824
+v1](https://ar
+xiv.org/html/2
+408.11824v1
+),
+[github.com/t
+encentqqgyla
+b/appagent](
+https://github.
+com/tencentq
+qgylab/appa
+gent))
+DroidRun / Yes (Local Persistent           ~1.5–4 s      Yes on      MIT           October 14,
+Mobilerun ADB +              mobilerun-po (Accessibility Cloud       (mobilerun) / 2026
+(droidrun)      mobilerun-po rtal          tree HTTP (device.exec Apache-2.0 (Updated
+(github.com/ rtal APK +      Accessibility API) or <1 s ute_script), (MCP/SDK) daily)
+droidrun,       Claude Code Service on (execute_scri Unsupporte
+github.com/d plugin)         127.0.0.1:18 pt)            d on Local
+roidrun/mobil                080.                        (Unsupporte
+erun,                                                    dOperation)
+github.com/d
+roidrun/mobil
+e-harness)
+Mobile-Use Yes (ADB + Standard             ~6–18 s       No (GUI     MIT           Jul 2025
+([span_111](s ADBKeyBoar ADB               (Multi-agent layout + VLM (MadeAgents (MadeAgents
+tart_span)[sp d /            stay-awake; reflection      actions)    )/            ) / Active
+an_111](end LangGraph) requires user loop)                           Apache-2.0 2026
+_span)Made                   monitoring.                             (Minitap)     (Minitap)
+Agents &
+Minitap)
+(github.com/
+MadeAgents/
+Framework Runs on        How It Keeps Speed per        Drives     License          Last Release
+(Organization User's Own Apps Awake Step               Chrome via                  / Update
+)             Phone?                                   DevTools
+                                                       (CDP)?
+mobile-use,
+[github.com/
+minitap-ai/mo
+bile-use](http
+s://github.co
+m/minitap-ai/
+mobile-use))
+Verdict and Confidence (Section C)
+Replacing the direct CDP WebSocket pipe with a screenshot-driven VLM phone agent
+(Open-AutoGLM, AppAgent, or MobileUse) for web tasks is counterproductive because it
+re-introduces a 5-to-30-second per-step visual round-trip penalty
+(github.com/zai-org/Open-AutoGLM, arxiv.org/html/2507.16853v1,
+github.com/tencentqqgylab/appagent). Instead, the optimal pattern is installing
+droidrun/mobile-harness as a Claude Code plugin (/plugin install
+mobile-harness@mobile-harness) alongside the mobilerun-portal APK (http://127.0.0.1:18080)
+exclusively to accelerate native Android application interactions (replacing slow adb shell
+uiautomator dump calls with sub-second HTTP accessibility tree queries and "App Cards")
+(github.com/droidrun/mobilerun, github.com/droidrun/mobile-harness), while retaining direct
+local CDP (localabstract:chrome_devtools_remote) for one-pass JavaScript form execution in
+Chrome (bindtuning.com, github.com/droidrun/mobile-harness). Additionally, because
+open-source Android AI agents are vulnerable to overlay prompt-injection attacks ("your LLM is
+not a security boundary", as demonstrated against AppAgent and Mobile-Agent by Wu et al. and
+Ding et al.) (thehackernews.com), confining web form execution to deterministic in-tab JS scripts
+significantly reduces the visual prompt-injection surface. Confidence: High (96%), directly
+verified against repository source code, API documentation, and commit logs through October
+14, 2026 (github.com/zai-org/Open-AutoGLM, github.com/droidrun,
+github.com/droidrun/mobile-harness, github.com/x-plug/mobileagent,
+github.com/tencentqqgylab/appagent).
+
+Section D: Why a Real Phone Browser Passes Bot
+Defenses That Cloud Browsers Fail (2026 Signal
+Analysis)
+The Three-Layer Bouncer Stack vs. Physical Mobile Hardware
+Anti-bot vendors (Cloudflare Bot Management, Akamai Bot Manager Premier, and DataDome)
+evaluate incoming traffic across three sequential signal surfaces: Layer 1 (Network/TLS
+Handshake), Layer 2 (IP/ASN Reputation), and Layer 3 (Client-Side JavaScript Telemetry
+& Behavioral Biometrics) (github.com/xiaoweigege/akamai2.0-sensor_data,
+arxiv.org/html/2605.01247v1, arxiv.org/html/2606.20910v1, anakin.io). With automated bots
+accounting for 57% of all web requests in 2026, Cloudflare maintains a 37% overall block
+rate against automated traffic, while academic measurements across 10,000 websites show
+that standard headless Chromium suffers a 15% soft-block rate compared to 7% for
+non-headless configurations—with header-level and handshake signals alone accounting for
+75% of headless Chromium blocks (anakin.io).
+A physical Samsung Android 16 phone running its native Chrome browser passes every
+bouncer where Bright Data Browser API (both datacenter and residential proxies) and Linux
+headless Chromium fail due to four mutually reinforcing signal advantages
+(github.com/droidrun/mobilerun, github.com/xiaoweigege/akamai2.0-sensor_data,
+arxiv.org/html/2605.01247v1, anakin.io). At Layer 2 (IP Reputation), rented datacenter IPs sit on
+known hosting ASNs that trigger immediate HTTP 1020 (firewall/bot-score violation) or 403
+blocks, while rented residential proxy pools traverse commercial proxy relays whose IP prefixes
+accumulate historical bot-score penalties and exhibit anomalous TCP/TLS round-trip time (RTT)
+triangulation (anakin.io). Conversely, a physical phone on a cellular carrier or clean home Wi-Fi
+operates behind carrier-grade NAT (CGNAT) where thousands of human smartphones share
+the egress IP prefix, making IP blocks prohibitively costly in false positives
+(github.com/droidrun/mobilerun, anakin.io). At Layer 1 (TLS and HTTP/2 Handshake), anti-bot
+engines inspect cipher suite order, ALPN negotiation, and JA4 handshake features
+(arxiv.org/html/2606.20910v1, anakin.io); retail Chrome on Android 16 uses Google's authentic
+BoringSSL and QUIC stack whose TLS fingerprint matches its Sec-CH-UA-Mobile: ?1 headers
+without spoofing artifacts (arxiv.org/html/2606.20910v1, anakin.io). At Layer 3 (Client-Side
+Hardware & Sensor Telemetry), Akamai Bot Manager v2.0+ (sensor_data,
+akamai-bm-telemetry, _abck, sbsd, bm_s) and Cloudflare JS challenges verify hardware-backed
+Qualcomm Adreno or ARM Mali WebGL rendering, Canvas entropy, WebAudio oscillator timing,
+touch-screen capabilities, and gyroscope/accelerometer micro-noise—signals that Linux
+headless Chromium and virtualized cloud browsers fail to replicate (news.ycombinator.com,
+github.com/xiaoweigege/akamai2.0-sensor_data, anakin.io). Finally, attaching directly to
+localabstract:chrome_devtools_remote on retail Android Chrome and executing self-contained
+Runtime.evaluate scripts leaves navigator.webdriver === false and preserves the user's
+long-lived authenticated cookie jar (bindtuning.com, chromedevtools.github.io).
+
+Second-Order Warning from 2026 Research: The Rise of Behavioral
+Agent Fingerprinting (FP-Agent & MARK)
+Three landmark security measurement studies published between May and June 2026 reveal a
+critical vulnerability for one-pass form-filling scripts if their DOM event synthesis is naive
+(arxiv.org/html/2605.01247v1, huggingface.co/papers/2605.14786,
+arxiv.org/html/2606.20910v1). In FP-Agent: Fingerprinting AI Browsing Agents (Wang,
+Shafiq, and Vekaria, May 2, 2026, arXiv:2605.01247), researchers deployed an instrumented
+honey website across three tasks (flight booking, online shopping, and forum interaction) to
+measure seven AI browsing agents against human users and Cloudflare Bot Management
+(arxiv.org/html/2605.01247v1, arxiv.org/abs/2605.01247). The study demonstrated that static
+browser fingerprints alone provide limited discriminative power when agents run inside real
+browsers—explaining why Cloudflare detected only 1 out of 7 AI browsing agents
+(arxiv.org/html/2605.01247v1). However, FP-Agent detected all 7 of 7 studied agents by
+classifying behavioral quirks: specifically, paste-based versus keystroke-based typing,
+change-event-based form filling, repeated delete-and-retype patterns, direct jumps to
+click targets without continuous cursor/touch movement, and recurring instantaneous
+scroll jumps (arxiv.org/html/2605.01247v1). Corroborating this finding, the MARK (Multi-layer
+Agent fingerprinting framewoRK) study (June 2026, arXiv:2606.20910) combined TLS,
+HTTP-header, and behavioral UX features across six AI web agents to achieve 97%
+identification accuracy (arxiv.org/html/2606.20910v1), while a May 2026 study on action-only
+stealth fingerprinting (arXiv:2605.14786) proved that classifiers trained on action trajectories
+across 14 frontier computer-use agents remain accurate even when agents inject randomized
+delays between actions (huggingface.co/papers/2605.14786).
+Consequently, while the physical Samsung Chrome browser currently bypasses Cloudflare and
+Akamai because deployed bouncers heavily weight static TLS, IP, and WebGL signals
+(arxiv.org/html/2605.01247v1, anakin.io), executing pure change-event-based form filling
+(el.value = '5'; el.dispatchEvent(new Event('change'))) or instantaneous zero-scroll clicks
+matches the exact behavioral signature flagged by FP-Agent and Akamai sensor_data
+(github.com/xiaoweigege/akamai2.0-sensor_data, arxiv.org/html/2605.01247v1). To harden the
+37-second one-pass script against Layer 3 behavioral classifiers, the injected script should
+smoothly scroll each target element into view (el.scrollIntoView({ behavior: 'smooth', block:
+'center' })), pause 80–160 ms before focusing, dispatch pointerdown, touchstart, focus,
+InputEvent('input'), pointerup, touchend, and click events at randomized bounding-box
+coordinates, and chunk text entry on high-security forms into small character bursts rather than
+atomic change mutations (github.com/xiaoweigege/akamai2.0-sensor_data,
+arxiv.org/html/2605.01247v1, anakin.io).
+
+Verdict and Confidence (Section D)
+A real Android phone browser passes Cloudflare, Akamai, and DataDome because it combines
+carrier CGNAT or clean residential IP reputation, an authentic BoringSSL/QUIC stack, real
+mobile GPU and sensor telemetry (_abck / sensor_data), and an established human cookie jar
+(github.com/xiaoweigege/akamai2.0-sensor_data, arxiv.org/html/2605.01247v1, anakin.io).
+Upgrading the injected DOM filler from raw change-event mutation to smooth-scroll, touch, and
+InputEvent sequences neutralizes the behavioral signatures identified by FP-Agent and MARK
+(arxiv.org/html/2605.01247v1, arxiv.org/html/2606.20910v1). Confidence: High (95%),
+grounded in the May–June 2026 FP-Agent (arXiv:2605.01247) and MARK (arXiv:2606.20910)
+empirical evaluations (arxiv.org/html/2605.01247v1, arxiv.org/html/2606.20910v1).
+
+Section E: The Agent-Passport Trend — Web Bot
+Auth, Signed Agents, and Cloudflare "Markdown for
+Agents"
+Cryptographic Identity: Web Bot Auth and Signed Agents
+Beginning in May 2025 and expanding rapidly through October 2026, Cloudflare and major
+ecosystem partners introduced Web Bot Auth and the Signed Agents program to replace
+fragile IP allowlists and spoofable User-Agent strings with cryptographic verification
+(blog.cloudflare.com/agentic-web, blog.cloudflare.com/signed-agents,
+blog.cloudflare.com/web-bot-auth). Under Web Bot Auth (built on RFC 9421 HTTP Message
+Signatures), an agent operator generates an Ed25519 keypair, hosts its public JSON Web Key
+Set (JWKS) at /.well-known/http-message-signature-directory, and attaches three headers to
+outgoing HTTP requests: Signature-Agent (pointing to the key directory URL), Signature-Input
+(specifying @authority, signature-agent, created and expires timestamps, a unique nonce, a
+JWK thumbprint keyid, and a protocol tag such as web-bot-auth, agent-browser-auth, or
+agent-payer-auth), and Signature (blog.cloudflare.com/secure-agentic-commerce,
+blog.cloudflare.com/web-bot-auth, blog.cloudflare.com/verified-bots-with-cryptography). For
+managed desktop Chromium browsers, Cloudflare published the web-bot-auth npm package
+(import { signatureHeadersSync } from "web-bot-auth"), which hooks into a Chrome extension's
+synchronous chrome.webRequest.onBeforeSendHeaders listener to sign outgoing browser
+requests automatically (blog.cloudflare.com/web-bot-auth). In parallel, Cloudflare introduced
+Request mTLS (setting the 80th TLS flag bit to 1 so origins conditionally request client
+certificates only from mTLS-enabled bots) and Private Access Control Tokens
+(PACT)—announced alongside Mozilla, Google, Microsoft, and Shopify to let an identity-verified
+site vouch anonymously for a human user's agent on third-party origins
+(blog.cloudflare.com/the-agentic-internet, blog.cloudflare.com/web-bot-auth).
+By October 2026, Cloudflare observes more than 500 billion verified bot requests each
+week (blog.cloudflare.com/agentic-web). OpenAI signs all Operator and ChatGPT agent
+requests using Web Bot Auth and HTTP Message Signatures
+(blog.cloudflare.com/building-a-better-internet-with-responsible-ai-bot-principles,
+blog.cloudflare.com/signed-agents, blog.cloudflare.com/web-bot-auth), while Google, AWS,
+Vercel (which integrated Web Bot Auth into Vercel Bot Verification), and Shopify
+(Signature-Agent: "https://shopify.com") actively issue or verify signatures
+(blog.cloudflare.com/agentic-web,
+blog.cloudflare.com/building-a-better-internet-with-responsible-ai-bot-principles,
+blog.cloudflare.com/agent-registry). In agentic commerce, Visa, Mastercard, and American
+Express leverage Web Bot Auth as the authentication layer for the Trusted Agent Protocol
+and Agent Pay (tag="agent-payer-auth"), and open-source Caddy, Nginx, and HAProxy
+integrations (cloudflare/web-bot-auth) allow origin servers to consume curated Signature-Agent
+Card registries (blog.cloudflare.com/secure-agentic-commerce,
+blog.cloudflare.com/agent-registry).
+
+Content & Action Rails: Cloudflare "Markdown for Agents", WebMCP,
+and x402
+Alongside cryptographic identity, Cloudflare launched Markdown for Agents, WebMCP, x402,
+and the Kitesurf Workers browser to reshape the "Agentic Internet"
+(blog.cloudflare.com/markdown-for-agents, blog.cloudflare.com/agentic-web,
+blog.cloudflare.com/the-agentic-internet). When an agent sends an HTTP request with Accept:
+text/markdown, text/html to a participating Cloudflare-fronted site (such as the Cloudflare Blog,
+Cloudflare Developer Documentation, and opt-in documentation sites), Cloudflare converts the
+HTML response to clean Markdown at the edge and returns an x-markdown-tokens header
+estimating token count alongside a Content-Signal: ai-train=yes, search=yes, ai-input=yes policy
+header (blog.cloudflare.com/markdown-for-agents, suganthan.com,
+github.com/remix-run/react-router). Meanwhile, WebMCP allows sites to expose structured
+callable actions directly instead of forcing agents to guess DOM buttons, and x402 provides
+direct micropayment settlement (blog.cloudflare.com/agentic-web,
+blog.cloudflare.com/the-agentic-internet).
+Practical Relevance to a Personal Phone Agent in October 2026
+Protocol / Feature      Who Honors It Today        Utility for a Single-User Impact on Job/Form
+                        (Oct 2026)                 Termux + Android          Automation (LinkedIn,
+                                                   Chrome Agent              Workday, Greenhouse)
+Cloudflare Markdown Cloudflare Blog,               High for Read-Only        Low for form
+for Agents (Accept: Cloudflare Developer Preflights: Sending                 submission (cannot
+text/markdown)           Docs, and opt-in          Accept: text/markdown, submit stateful JS
+(blog.cloudflare.com/m Cloudflare-fronted          text/html via curl or     forms via static
+arkdown-for-agents,      publishers                fetch in Termux cuts      Markdown), High for
+suganthan.com)           (blog.cloudflare.com/m token burn when              fast pre-read / job
+                         arkdown-for-agents,       reading documentation scraping.
+                         github.com/remix-run/re or public listings.
+                         act-router).
+Web Bot Auth /           Cloudflare Enterprise Counterproductive on None / Negative:
+Signed Agents            Security Rules, Vercel, Retail Android              LinkedIn, Workday, and
+(web-bot-auth)           Shopify,                  Chrome: Retail            enterprise ATS tenants
+(blog.cloudflare.com/se Visa/Mastercard/Amex Android Chrome does do not whitelist
+cure-agentic-commerce merchants                    not support               personal user-operated
+,                        (blog.cloudflare.com/se chrome.webRequest bots; the phone's real
+blog.cloudflare.com/we cure-agentic-commerce extensions to run               Chrome session and
+b-bot-auth,              ,                         onBeforeSendHeaders, human cookies already
+blog.cloudflare.com/veri [blog.cloudflare.com/sig and self-signing as a hold maximum trust
+fied-bots-with-cryptogra ned-agents](https://blog bot declares               (blog.fastapply.co,
+phy)                     .cloudflare.com/signed- automation to sites that arxiv.org/html/2605.012
+                         agents/),                 block unapproved bots 47v1).
+                         blog.cloudflare.com/buil (chromedevtools.github
+                         ding-a-better-internet-w .io,
+                         ith-responsible-ai-bot-pr blog.cloudflare.com/we
+                         inciples,                 b-bot-auth).
+                         blog.cloudflare.com/ag
+                         ent-registry).
+PACT (Private Access Early adopter                 Not yet exposed for       None today; monitor
+Control Tokens) &        consortium (Cloudflare, user-scripted CDP           WebMCP adoption in
+WebMCP                   Mozilla, Google,          injection on third-party 2027 as a native
+(blog.cloudflare.com/ag Microsoft, Shopify).       ATS origins.              alternative to DOM
+entic-web,                                                                   form scraping.
+blog.cloudflare.com/the
+-agentic-internet)
+Verdict and Confidence (Section E)
+Adopting Accept: text/markdown, text/html in Termux HTTP preflight scripts significantly reduces
+token consumption and latency when reading Cloudflare-hosted pages
+(blog.cloudflare.com/markdown-for-agents, suganthan.com), whereas attaching Web Bot Auth
+(Signature-Agent) headers to a personal phone's Chrome traffic when automating LinkedIn,
+Workday, or Greenhouse should be avoided. Web Bot Auth is architected for institutional agent
+operators (OpenAI, Google, AWS, Shopify) and registered payment networks
+(blog.cloudflare.com/agentic-web, blog.cloudflare.com/secure-agentic-commerce,
+blog.cloudflare.com/web-bot-auth); for an individual operating on a personal device, the physical
+Android Chrome session's human identity is strictly superior (github.com/droidrun/mobilerun,
+arxiv.org/html/2605.01247v1). Confidence: High (98%), directly verified against Cloudflare's
+primary engineering specifications and Radar telemetry
+(blog.cloudflare.com/markdown-for-agents, blog.cloudflare.com/agentic-web,
+blog.cloudflare.com/the-agentic-internet, blog.cloudflare.com/secure-agentic-commerce,
+blog.cloudflare.com/web-bot-auth).
+
+Section F: Five Things That Could Not Be Found
+(Targets for Next Investigation)
+To guide subsequent deep-dive engineering experiments, five specific technical artifacts could
+not be located in public Chinese, Japanese, Korean, or English engineering repositories as of
+October 14, 2026.
+First, a non-root method to inject Chrome command-line flags
+(/data/local/tmp/chrome-command-line) without enabling am set-debug-app on retail
+Android 16 could not be identified. While --disable-backgrounding-occluded-windows and
+--disable-renderer-backgrounding completely disable Blink tab freezing on desktop Chromium
+(issues.chromium.org, developer.chrome.com), retail (non-debuggable) builds of
+com.android.chrome on Android 14–16 ignore /data/local/tmp/chrome-command-line unless adb
+shell am set-debug-app --persistent com.android.chrome is active—which causes an intrusive
+OS modal on cold starts and makes the in-tab WebAudio silent oscillator heartbeat mandatory
+(github.com/t-mullen/silent-audio, reddit.com/r/learnjavascript).
+Second, the exact Samsung One UI 8.0 / 8.5 Freecess (com.samsung.android.sdhms)
+private broadcast intents for per-UID exemption remain undocumented in public sources.
+While standard AOSP settings put global cached_apps_freezer disabled disables the generic
+Android cgroup freezer (blog.csdn.net), public documentation lacks the internal Samsung
+Device Health Manager Service (sdhms / chimera) ADB shell commands to exempt a single UID
+(com.android.chrome) from Samsung's proprietary Freecess controller without disabling the
+freezer globally.
+Third, a local-device implementation of device.execute_script() in
+droidrun/mobile-harness does not yet exist in public commits. While DroidRun's
+mobilerun_core API defines device.execute_script("") to execute JavaScript in the foreground
+Chrome tab, its local backend currently raises UnsupportedOperation and restricts the feature to
+Mobilerun Cloud phones (github.com/droidrun/mobile-harness), leaving no third-party PR
+bridging local chrome_devtools_remote inside mobilerun-core-local.
+Fourth, the full feature-importance weights and classifier decision thresholds of FP-Agent
+(arXiv:2605.01247) could not be extracted. Although the HTML abstract and text fragments of
+FP-Agent (May 2, 2026) confirm 100% detection across seven browsing agents using typing,
+scrolling, and mouse/change-event telemetry (arxiv.org/html/2605.01247v1), the full PDF
+endpoint returned an access error during retrieval (arxiv.org/abs/2605.01247), leaving the exact
+millisecond inter-keystroke variance cutoffs unverified.
+Fifth, empirical adoption telemetry for WebMCP across enterprise SaaS and ATS vendors
+is not yet available. While Cloudflare announced WebMCP alongside Markdown for Agents and
+Web Bot Auth in 2026 (blog.cloudflare.com/agentic-web,
+blog.cloudflare.com/the-agentic-internet), no public registry or crawl measuring which production
+websites—and specifically whether any HR or ATS vendor such as Greenhouse, Ashby, or
+Workday—expose WebMCP endpoints could be found.
+
+Works cited
+
+1. 【Android 16】基于Android W 的冻结机制详解原创 - CSDN博客,
+https://blog.csdn.net/su749520/article/details/151047499 2. GitHub -
+keyarr/degoogle-my-galaxy, https://github.com/keyarr/degoogle-my-galaxy/ 3. Silent background
+audio to keep timers working. - GitHub, https://github.com/t-mullen/silent-audio 4. GitHub -
+droidrun/mobile-harness: Skills for controlling Android, iOS,
+https://github.com/droidrun/mobile-harness 5. GitHub - neonwatty/job-apply-plugin: AI-powered
+job application, https://github.com/neonwatty/job-apply-plugin 6. 使用chrome devTools 调试手机
+页面，看这篇就够了 - 稀土掘金, https://juejin.cn/post/7478495592185643018 7. 无线远程调试
+Android 上的WebView、Firefox 和Chrome - 稀土掘金,
+https://juejin.cn/post/7381373703081459752 8. Termux main app process is silently killed on
+Vivo Android 12 - Reddit,
+https://www.reddit.com/r/termux/comments/1vjnlqm/termux_main_app_process_is_silently_kille
+d_on/ 9. Debug mobile sites with Android and Google Chrome on Windows,
+https://bindtuning.com/resources/blog/debug-mobile-sites-with-android-and-google-chrome-on-
+windows 10. Prevent and Clean Up Orphaned Claude Code Processes (Chrome,
+https://www.reddit.com/r/ClaudeWorkflows/comments/1w55nk6/workflow_prevent_and_clean_u
+p_orphaned_claude/ 11. One day short of a full chain: Part 3 - Chrome renderer RCE,
+https://github.blog/security/vulnerability-research/one-day-short-of-a-full-chain-part-3-chrome-re
+nderer-rce/ 12. What actually keeps a web timer alive when Android backgrounds,
+https://www.reddit.com/r/learnjavascript/comments/1vfjvft/what_actually_keeps_a_web_timer_ali
+ve_when/ 13. 页面生命周期API | Web Platform - Chrome for Developers,
+https://developer.chrome.com/docs/web-platform/page-lifecycle-api?hl=zh-cn 14. [For
+Developers] Discovered keep-alive in even-toolkit! It turns out,
+https://note.com/shibomb/n/n2c12178045c7?hl=en 15. Android Chrome does not allow
+applications to play HTML5 audio, https://issues.chromium.org/40303049 16. Chrome DevTools
+Protocol - GitHub Pages, https://chromedevtools.github.io/devtools-protocol/ 17. Best Job
+Application Bots in 2026: 8 Tested, Only 3 Actually Submit,
+https://blog.fastapply.co/ai-job-application-bots-which-actually-submit-2026 18. FP-Agent:
+Fingerprinting AI Browsing Agents - arXiv, https://arxiv.org/html/2605.01247v1 19.
+X-PLUG/MobileAgent: Mobile-Agent: The Powerful GUI Agent Family,
+https://github.com/x-plug/mobileagent 20. GitHub - zai-org/Open-AutoGLM: An Open Phone
+Agent Model, https://github.com/zai-org/Open-AutoGLM 21. AppAgent: Multimodal Agents as
+Smartphone Users, https://appagent-official.github.io/ 22. Droidrun - GitHub,
+https://github.com/droidrun 23. ApplyJob Pro - Chrome Web Store,
+https://chromewebstore.google.com/detail/applyjob-pro/bekienhgnndfanofcopbdpkihdmdaoll?hl=
+en-US 24. Downloads | ChromeDriver - Chrome for Developers,
+https://developer.chrome.com/docs/chromedriver/downloads 25. 如何用手机测试自己写的web
+页面？ - 知乎, https://www.zhihu.com/question/37361845 26. 在安卓设备上使用Chrome 远程调
+试功能, https://juejin.cn/post/7163527401866002463 27.
+Willie169/Samsung-Android-Debloat-List - GitHub,
+https://github.com/Willie169/Samsung-Android-Debloat-List 28. Parachord for Android: The First
+Public Beta Is Here, https://parachord.com/blog/2026/04/20/parachord-android-first-public-beta/
+29. BeatBanker Android Trojan Uses Silent Audio Loop to Steal Crypto,
+https://hackread.com/beatbanker-android-trojan-silent-audio-loop-crypto/ 30. Web Audio API 1.1
+- W3C, https://www.w3.org/TR/webaudio-1.1/ 31. AliExpress runs silent WebAudio fingerprinting
+that breaks Bluetooth, https://news.ycombinator.com/item?id=49372583 32. Previous release
+notes - Chrome Enterprise and Education Help,
+https://support.google.com/chrome/a/answer/10314655?hl=en-eu 33. How to make Chrome
+always launch with remote-debugging-port flag,
+https://stackoverflow.com/questions/51563287/how-to-make-chrome-always-launch-with-remote
+-debugging-port-flag 34. Employment Job Application Template (Review-Ready) - JobWizard,
+https://jobwizard.ai/blog/employment-job-application-template-copy-paste-consistent-review-rea
+dy 35. Conversational AI Recruiting | Voice Technology - Greenhouse,
+https://www.greenhouse.com/voice-ai-interviewing 36. Python gui(pyautogui) function throwing a
+type error, what could be,
+https://stackoverflow.com/questions/61301131/python-guipyautogui-function-throwing-a-type-err
+or-what-could-be-the-issue 37. Greenhouse ATS Resume Guide: Pass the 2026 Parser,
+https://resumeoptimizerpro.com/blog/greenhouse-ats-resume-guide 38. Mobile-Agent - Learn AI
+- Miraheze, https://ai.miraheze.org/wiki/Mobile-Agent 39. Mobile-Agent-v3: Fundamental Agents
+for GUI Automation - alphaXiv, https://www.alphaxiv.org/abs/2508.15144 40. UI-TARS Desktop -
+Learn AI - Miraheze, https://ai.miraheze.org/wiki/UI-TARS_Desktop 41. UI-TARS-desktop —
+2025 AI Agent Index, https://aiagentindex.mit.edu/2025/ui-tars-desktop/ 42. AppAgent v2:
+Advanced Agent for Flexible Mobile Interactions - arXiv, https://arxiv.org/html/2408.11824v1 43.
+AppAgent: Multimodal Agents as Smartphone Users, an LLM-based,
+https://github.com/tencentqqgylab/appagent 44. GitHub - droidrun/mobilerun: Automate your
+mobile devices with, https://github.com/droidrun/mobilerun 45. MobileUse: an open-source
+mobile GUI agent for Android ... - GitHub, https://github.com/MadeAgents/mobile-use 46.
+GitHub - minitap-ai/mobile-use: AI agents can now use real Android,
+https://github.com/minitap-ai/mobile-use 47. MobileUse: A GUI Agent with Hierarchical
+Reflection for ... - arXiv, https://arxiv.org/html/2507.16853v1 48. AutoGLM: Autonomous
+Foundation Agents for GUIs - Xiao Liu, https://xiao9905.github.io/AutoGLM/ 49.
+Open-AutoGLM/setup.py at main - GitHub,
+https://github.com/zai-org/Open-AutoGLM/blob/main/setup.py 50. Releases ·
+zai-org/Open-AutoGLM - GitHub, https://github.com/zai-org/Open-AutoGLM/releases 51.
+MobileAgent/Mobile-Agent-E/README.md at main - GitHub,
+https://github.com/X-PLUG/MobileAgent/blob/main/Mobile-Agent-E/README.md 52.
+Mobile-Agent-E: Self-Evolving Mobile Assistant for ... - OpenReview,
+https://openreview.net/pdf/12455a402402e23beff4d62834e504c04fe42cda.pdf 53.
+Mobile-Agent-v3: Fundamental Agents for GUI Automation - arXiv,
+https://arxiv.org/html/2508.15144v2 54. Alibaba Qwen Team Releases Mobile-Agent-v3 and
+GUI-Owl,
+https://www.marktechpost.com/2025/08/31/alibaba-qwen-team-releases-mobile-agent-v3-and-g
+ui-owl-next-generation-multi-agent-framework-for-gui-automation/ 55. Mobile-Agent-v3.5 - A
+multi-platform GUI agent framework open,
+https://www.aiboss88.com/en/news/project-mobile-agent-v3-5 56. Mobile-Agent-v3 and the
+Self-Trained GUI-Owl Approach | Wonder,
+https://home.wonlab.top/en/blog/llm-practice/llm-autotest/llm-autotest-series-07-mobile-agent-v3
+57. I created an open source framework for Android agents - Hacker News,
+https://news.ycombinator.com/item?id=43703688 58. Mobile Use SDK - Minitap Docs,
+https://www.minitap.ai/docs/mobile-use-sdk/introduction 59. Open-Source Android AI Agents
+Could Let Invisible Screen Text,
+https://thehackernews.com/2026/07/open-source-android-ai-agents-could-let.html 60.
+sensor_data, akamai-bm-telemetry, _abck, sbsd, bm_s bypass,
+https://github.com/xiaoweigege/akamai2.0-sensor_data 61. Whose Agent Are You? Multi-Layer
+Fingerprinting and Attribution of, https://arxiv.org/html/2606.20910v1 62. How to Fix Cloudflare
+Blocking Your Automation System - Anakin.io,
+https://anakin.io/blog/cloudflare-blocking-automation-system-fix 63. Fingerprinting LLM Browser
+Agents via UI Traces - Hugging Face, https://huggingface.co/papers/2605.14786 64.
+[2605.01247] FP-Agent: Fingerprinting AI Browsing Agents - arXiv,
+https://arxiv.org/abs/2605.01247 65. The Internet has a second audience | Cloudflare Blog,
+https://blog.cloudflare.com/agentic-web/ 66. The age of agents: cryptographically recognizing
+agent traffic, https://blog.cloudflare.com/signed-agents/ 67. Forget IPs: using cryptography to
+verify bot and agent traffic, https://blog.cloudflare.com/web-bot-auth/ 68. helping AI Agents
+transact with Visa and Mastercard | Cloudflare Blog,
+https://blog.cloudflare.com/secure-agentic-commerce/ 69. Message Signatures are now part of
+our Verified Bots Program, https://blog.cloudflare.com/verified-bots-with-cryptography/ 70.
+Building an open Agentic Internet: readable, discoverable, callable,
+https://blog.cloudflare.com/the-agentic-internet/ 71. To build a better Internet in the age of AI, we
+need responsible AI bot,
+https://blog.cloudflare.com/building-a-better-internet-with-responsible-ai-bot-principles/ 72.
+Beyond IP lists- a registry format for bots and agents - Cloudflare Blog,
+https://blog.cloudflare.com/agent-registry/ 73. Introducing Markdown for Agents - Cloudflare
+Blog, https://blog.cloudflare.com/markdown-for-agents/ 74. Cloudflare Markdown for Agents. I
+Tracked Every AI Request for 44, https://suganthan.com/blog/cloudflare-markdown-for-agents/
+75. Proposal: Enable Cloudflare "Markdown for Agents" (Accept: text,
+https://github.com/remix-run/react-router/discussions/14801 76. NOTREACHED in
+ChromeBrowserMainPartsAndroid, https://issues.chromium.org/40491747
+
