@@ -1,0 +1,729 @@
+Keep your phone’s Chrome. Run each task through one saved
+script. Use split-screen first. Fully hidden Chrome still lacks a
+proven fix for your Samsung setup.
+
+Reasoning: Your 37-second run supports this shape. The current code supports reusable scripts with
+checks inside them. The largest gain comes from removing agent turns between steps. The missing
+proof is that Chrome will keep answering while fully hidden on your exact Android build. Your
+baseline · Replay code
+
+Do this, in this order
+1. Make one saved runner own the whole task. Give it the task, saved answers, and
+   permission to submit. Let it fill, check, advance, submit, and collect proof. Return to Claude only
+   when the task ends or hits a real block. This directly addresses the 20–30-second agent round
+   trips. Reusable workflows already exist in Midscene and Workflow Use; native-app replay exists
+   in DroidRun, now named Mobilerun. Expected impact: highest on speed. Midscene ·
+   Workflow Use · Mobilerun replay
+
+2. Keep Chrome visible and active during the run. Put Chrome and Termux in split-screen.
+   Keep the screen on. Android supports keeping both activities resumed in multi-window mode.
+   This has a stronger basis than trying to protect a hidden browser with a wake lock alone.
+   Expected impact: highest on hangs. Android multi-window rules
+
+  Use your existing paired connection. If several devices are connected, set ANDROID_SERIAL to this
+  phone’s transport first.
+ adb-connect-existing
+ termux-wake-lock
+ adb forward tcp:9222 localabstract:chrome_devtools_remote
+ curl --fail --max-time 2 http://127.0.0.1:9222/json/version
+
+  The forwarding command is documented by Chrome and reproduced in a Japanese real-phone
+  guide published on 2026-05-18. The Termux lock keeps the CPU awake; it does not pin
+  Chrome’s renderer. Japanese guide · Termux implementation
+
+3. Add one shared field checker. Every page must pass it before Next or Submit. Check native
+   validity, placeholder selects, radio groups, committed typeahead choices, file uploads, and site
+   errors. Keep factual answers separate from test defaults such as “every number is 5.” Expected
+   impact: highest on missed fields and wrong submissions. HTML select rules · ARIA
+   combobox rules · Playwright input actions
+
+4. Give every browser command a deadline. Check the ADB path, browser process, and
+   selected page separately. A responding browser socket does not prove that the page renderer
+   can answer. A September 2026 Playwright issue reproduces a silent Page.enable hang against a
+   discarded desktop tab. Single-source report; useful diagnostic evidence, not Samsung
+   proof. Issue and reproduction
+
+5. For native apps, reuse saved actions with state checks. Your existing accessibility bridge
+   can do this. Mobilerun’s replay code is a useful reference: it checks the current screen against
+   the recorded state and stops on a mismatch. Expected impact: fewer agent turns without
+   blind tapping. Replay implementation
+
+
+
+
+                                                                                                  Page 1
+6. Treat true background use as a separate, small experiment. The two strongest leads are
+   disabling Android’s cached-app freezer and using scrcpy 4.0’s active virtual display. Neither
+   source proves hidden Chrome CDP survival on One UI 7–8. A full framework swap is poor value
+   until that gap is resolved. Android freezer · scrcpy 4.0
+
+Evidence rules used below
+The main window is 2026-04-14 through 2026-10-14. The Android window starts 2023-10-14.
+OLD marks known material outside the relevant window. “Live docs” means checked now; it does
+not mean newly published. Vendor claim marks claims from a product’s maker. Design marks my
+proposed implementation.
+
+The most useful non-English evidence came from Chinese project documentation and a Japanese
+real-device account. Searches across Zhihu, Juejin, WeChat, ChinaXiv, the named Chinese journals,
+Qiita, Zenn, velog, and Naver D2 did not yield a reproducible Samsung background-CDP fix. The
+source snapshots and findings are saved in the research folder.
+
+
+
+A. Android: keep Chrome’s renderer alive
+There are several distinct sleep mechanisms. Fixing one does not establish that the others are fixed.
+Android’s process freezer, Chrome’s page lifecycle, screen sleep, and Samsung app management
+have separate controls. Android freezer · Chrome page lifecycle · Samsung app management
+
+    Mechanism              Useful control                       What the evidence establishes
+
+    Termux/controller      termux-wake-lock; keep               Termux acquires a partial wake lock. It keeps CPU work
+    loses CPU time         Termux’s service running             possible. Code
+
+    Screen goes dark       Charging stay-awake setting,         These address screen sleep. Android screen rules
+                           longer screen timeout, or an
+                           explicit screen-awake service
+
+    Android freezes        Keep Chrome resumed; optionally      Android 14+ can freeze cached processes after 10
+    cached processes       disable the cached-app freezer       seconds. Current AOSP docs
+
+    Chrome freezes or      Keep the working tab visible;        A page may stop executing while its browser process
+    discards a page        check page liveness separately       remains reachable. Lifecycle rules
+
+    Samsung restricts an   Unrestricted battery use; remove     Samsung documents these controls. Vendor
+    app                    sleeping/deep-sleeping status; use   documentation; no CDP guarantee. Samsung
+                           Never sleeping
+
+    A virtual display      scrcpy 4.0 --keep-active             The option periodically signals user activity.
+    becomes inactive                                            Documented feature; Samsung Chrome result
+                                                                unverified. scrcpy device controls
+
+
+
+The first setup I would use
+For Chrome, Termux, and the accessibility bridge:
+
+•     Settings → Apps → app → Battery → Unrestricted, where offered.
+
+•     Settings → Battery → Background usage limits: remove them from Sleeping and Deep sleeping
+      apps. Add them to Never sleeping/Never auto sleeping apps, where offered.
+
+
+                                                                                                                   Page 2
+•    Recents → app icon → Keep open, where offered.
+
+•    Put Chrome and Termux in split-screen. Keep the working Chrome tab selected.
+
+Samsung documents these settings. Its “Keep open” wording describes keeping an app running in
+the background. It does not establish that every Chrome child renderer stays runnable. Vendor
+documentation. Battery controls · Sleeping apps · Keep open
+
+For a charging phone:
+    # Record the old value first.
+    adb shell settings get global stay_on_while_plugged_in
+
+    # Stay awake on AC, USB, or wireless power.
+    adb shell settings put global stay_on_while_plugged_in 7
+
+Restore the recorded value after the work. This setting depends on the phone being plugged in; it
+does not solve off-charger sleep. scrcpy’s documented Android setting
+
+The cached-app-freezer lead
+AOSP’s page, updated 2026-10-09, gives this control:
+    # Record the old value.
+    adb shell device_config get activity_manager_native_boot use_freezer
+
+    # Optional diagnostic change. Reboot interrupts the phone.
+    adb shell device_config put activity_manager_native_boot use_freezer false
+    adb reboot
+
+The UI route is Developer options → Suspend execution for cached apps → Disabled, if Samsung
+exposes it. This is a system-wide change. It can increase background CPU and battery use. It
+addresses Android’s freezer; Chrome can still apply its own page rules. AOSP instructions
+
+Capture evidence before choosing this change:
+    adb logcat -d -v time -s ActivityManager |
+      rg -i 'freez|froze|chrome'
+
+    adb shell dumpsys activity processes |
+      rg -i -C 3 'chrome|frozen'
+
+AOSP documents the freeze logs. The dumpsys filter is my diagnostic suggestion. Look for the Chrome
+browser process and its child processes. AOSP debugging
+
+Foreground services and wake locks
+A foreground service in your bridge protects that service’s work. It does not automatically grant
+Chrome’s separate renderer the same status. Likewise, FLAG_KEEP_SCREEN_ON stops protecting the
+screen when the owning activity goes into the background. Engineering conclusion from the
+separate process and activity rules. Android process rules · Screen-on rules
+
+There is useful existing code here. Mobilerun Portal has:
+
+•    A foreground KeepAliveService.
+
+•    A bright-screen wake lock.
+
+•    Screen-state checks.
+
+
+
+                                                                                                Page 3
+•    A recovery activity that requests the screen to turn on.
+
+I inspected that code at the 2026-10-02 commit. It is a concrete pattern for keeping an automation
+phone awake. It is not evidence that hidden Chrome renderers stay active. Service source
+
+A webpage’s navigator.wakeLock.request("screen") is also insufficient for hidden use. The current
+specification allows only visible documents to acquire a screen wake lock. Screen Wake Lock
+specification
+
+Secondary and virtual displays
+scrcpy 4.0, released 2026-05-12, added --keep-active. Its virtual-display docs explicitly
+recommend it to prevent the display turning off. This is the strongest recent lead I found for your
+failed hidden-display route. Release · Virtual-display docs
+
+On a host with scrcpy’s display runtime available:
+    scrcpy \
+      --new-display=1080x1920/420 \
+      --start-app=com.android.chrome \
+      --keep-active \
+      --no-audio
+
+This creates an active virtual display for the installed Chrome app. Plain Debian proot alone does
+not supply scrcpy’s graphical host environment; using it on the phone adds that setup work. The
+command is therefore a candidate for the secondary-display experiment, not the first change to
+your working stack. scrcpy requirements and usage · Virtual-display setup
+
+Make the runner tell three failures apart
+
+    Probe                      What it checks
+
+    GET /json/version with a   Forwarded HTTP endpoint
+    short timeout
+
+    Browser-level              Browser CDP command handling
+    Browser.getVersion
+
+    Target-level               The selected page’s ability to execute
+    Runtime.evaluate, such
+    as document.readyState
+
+
+These use different CDP targets and commands. A WebSocket ping or a successful /json/version
+response cannot replace the page probe. Browser protocol · Runtime protocol
+
+Design: attach to the exact working target. Bound each probe. On failure, allow one automatic
+recovery: restore the forward if needed, bring Chrome forward, find the target again, and inspect
+the saved task state. If Submit was already attempted, check the receipt before doing anything
+else. The recent Playwright hang also makes attaching to every open tab a poor default. Playwright
+issue
+
+The deciding device check is small: compare foreground, split-screen, and virtual-display runs.
+Record browser-probe and page-probe latency separately. The exact unfinished part is that this
+check has not been run on your Samsung in this research.
+
+
+
+
+                                                                                                    Page 4
+Verdict: use split-screen as the first reliable design. Confidence: high in the
+Android basis; medium until checked on your build. Fully hidden operation
+remains unproven.
+
+
+B. One-pass form filling
+One pass should mean one agent call. The runner should still read and check the page.
+That is how it catches a new required question without paying for another model turn. Playwright’s
+actions and locators already support waiting for usable controls. Mobilerun’s native replay uses the
+same broad idea: check state locally before acting. Playwright action checks · Mobilerun replay
+
+The runner I recommend — design
+Use four small parts:
+
+1. Answer book: saved facts, exact choices, source, scope, and resume filename.
+
+2. Site adapter: how this site exposes fields, steps, uploads, and confirmation.
+
+3. Shared checker: whether each required answer is present and committed.
+
+4. Run journal: what was filled, what was submitted, and what proof came back.
+
+This follows existing workflow and adapter patterns. The proposed split is mine. Workflow Use ·
+Playwright page-object pattern
+
+The answer book must distinguish missing, false, 0, and an empty string. For example, use
+Object.hasOwn(answers, key) to check whether an answer exists. Do not use truthiness to decide
+whether a saved “No” or zero is missing. That is a design requirement for preserving the saved
+answer faithfully.
+
+Use exact field identity where possible: site, form, question label, question ID, and allowed choices.
+A numeric input alone does not tell the runner whether it asks for years, salary, notice days, or
+something else. Ashby’s own form schema makes these distinctions explicit through IDs, paths,
+types, and required flags. Ashby form definitions
+
+
+
+
+                                                                                                  Page 5
+Checks that prevent the failures you saw
+
+ Control                   Required check
+
+ Native text/number/date   Native validity plus the adapter’s required-field rule. Check the actual value after input.
+                           HTML validation
+
+ Native <select>           Reject empty, disabled, or known placeholder options. A nonempty value can still
+                           represent “Select an option” in a poorly built form. HTML select rules
+
+ Custom dropdown           Open it, choose the exact option, then verify the committed selection. ARIA listbox
+
+ Radio group               Find the selected member of the whole group. For custom controls, inspect
+                           aria-checked. ARIA radio-group pattern
+
+ Typeahead                 Choose a suggestion and verify the resulting item or committed value. Typed text alone
+                           may be only a search query. ARIA combobox
+
+ Upload                    Verify the selected file and upload-complete state. Preserve the exact filename in the
+                           journal. Playwright uploads
+
+ Newly revealed fields     Scan again after answers that change the form. Fill until the set of visible questions stops
+                           changing. Design.
+
+ Validation errors         Check native errors, aria-invalid, alerts, and site-specific error text. Required flags
+                           alone do not cover custom forms. ARIA invalid state
+
+
+The placeholder rule needs both the standard and site knowledge. HTML’s defined placeholder
+option has an empty value under specific conditions. An application can implement its own
+placeholder with a nonempty value. That second case belongs in the site adapter. Design based
+on the HTML rule. Specification
+
+Concrete input patterns
+Once attached to your phone’s Chrome, use normal browser input actions:
+
+
+
+
+                                                                                                                 Page 6
+ await form.getByLabel('Email', { exact: true })
+   .fill(profile.email);
+
+ await form.getByLabel('Country', { exact: true })
+   .selectOption({ label: profile.country });
+
+ await form.getByRole('radio', {
+   name: savedAnswer,
+   exact: true
+ }).check();
+
+ // A typeahead needs a committed option.
+ await city.fill(profile.citySearch);
+ await page.getByRole('option', {
+   name: profile.cityChoice,
+   exact: true
+ }).click();
+
+ // A buffer avoids assuming the browser shares Debian's file paths.
+ await resumeInput.setInputFiles({
+   name: profile.resumeFilename,
+   mimeType: 'application/pdf',
+   buffer: resumeBytes
+ });
+
+These are documented Playwright actions. Scope controls to the correct form or question group. Fill
+fields in sequence when they share focus or change each other. Input API · Locator scoping
+
+Keep your current CDP client if it already works. Playwright can attach to existing Chromium
+through connectOverCDP, but its own docs describe that connection as lower fidelity than its native
+protocol. A library change is useful only if its selectors and checks save more work than it adds. CDP
+connection docs
+
+Runner skeleton — design
+The adapter functions below are the work to implement. This shows the control flow, including the
+crucial submission boundary.
+
+
+
+
+                                                                                                 Page 7
+ async function runTask(adapter, answers, task, journal) {
+   const prior = await adapter.findSubmission(task);
+   if (prior) return { status: 'submitted', proof: prior };
+
+     for (let step = 0; step < task.maxSteps; step++) {
+       await adapter.ensureReady();
+
+         const gate = await adapter.findHumanGate();
+         if (gate) return { status: 'needs_human', gate };
+
+         // Includes fields revealed by earlier answers.
+         await adapter.fillUntilStable(answers);
+
+         const problems = await adapter.auditRequiredFields();
+         if (problems.length) {
+           return { status: 'blocked', problems };
+         }
+
+         await journal.saveStep(await adapter.readCommittedAnswers());
+
+         if (await adapter.isFinalStep()) {
+           if (!task.allowSubmit) {
+             return { status: 'ready_for_review' };
+           }
+
+             await journal.markSubmitAttempted();
+
+             try {
+               await adapter.submitOnce();
+             } catch {
+               // The server may have received the request.
+             }
+
+             const proof = await adapter.findSubmission(task);
+             return proof
+               ? { status: 'submitted', proof }
+               : { status: 'submission_unconfirmed' };
+         }
+
+         await adapter.advanceAndWaitForNextStep();
+     }
+
+     return { status: 'blocked', reason: 'step_limit' };
+ }
+
+Register navigation or response waits before the triggering click. Use field, step, and confirmation
+conditions instead of fixed sleeps. That is the useful part of browser automation’s existing wait
+machinery. Playwright events · Auto-waiting
+
+
+
+
+                                                                                                  Page 8
+What each site adapter should own — design
+
+    Site              Adapter duties                                                     Useful source
+
+    LinkedIn Easy     Scope to the active modal. Handle each question group. Check       Open-source Easy Apply
+    Apply             the chosen resume. After submission, reopen the live               implementation and answer
+                      application record and verify its status. Save the exact           configuration
+                      submitted answers.
+
+    Workday           Handle tenant login, repeated work/education entries, custom       Workday-specific extractor
+                      controls, and step changes. Use stable attributes where
+                      present.
+
+    Greenhouse        Handle the hosted or embedded form, uploads, custom                Official Job Board API
+                      questions, location, and demographic sections. Public
+                      job-board GET data can help identify questions; application
+                      POST requires employer-side credentials.
+
+    Ashby             Preserve field IDs/types and distinguish core application fields   Official form definitions
+                      from survey fields.
+
+    Lever             Inspect the actual hosted form and custom questions. Do not        Official postings API and
+                      assume the public posting feed contains the full application       limitations
+                      form.
+
+
+
+Which open-source pieces are worth borrowing
+•     Midscene: strong reference for cached plans and web element locations. Its Chinese docs
+      distinguish plan caching from XPath location caching; the latter is web-only. Its example reports
+      51 seconds falling to 28 seconds. Vendor example, single case. Chinese docs
+
+•     Mobilerun macros: useful for native app flows. Current defaults include a one-second action
+      delay, a five-second state-match timeout, and stopping on mismatch. These are implementation
+      settings, not a measured speed result. Source
+
+•     Workflow Use: useful workflow structure and variables. Its own roadmap says its LLM fallback
+      needs improvement. I would borrow the design before trusting the fallback with applications.
+      README
+
+•     Application bots: useful selector examples. Public code alone does not establish full coverage.
+      One repo advertises workday_apply.py in its README, while its current file list lacks that file.
+      Repository
+
+A useful Chinese rule from Midscene:
+
+     “永不缓存查询结果”
+     Translation: “Never cache query results.”
+
+That is the right distinction here: reuse how to act, then check what actually happened. Original
+source
+
+
+
+
+                                                                                                                     Page 9
+Stop and report
+Design: stop on an unknown required fact, unresolved typeahead, CAPTCHA, MFA, biometric
+prompt, changed form structure, repeated state, or unclear submission result. Return one compact
+result with status, completed steps, all currently visible missing questions, exact resume filename,
+and receipt or error evidence.
+
+A click on Submit earns submission_unconfirmed until the runner finds proof. A lost reply must never
+cause an automatic second submission.
+
+Verdict: a saved runner plus typed answers and shared validation is the
+strongest fit. Confidence: high in the design; site coverage still requires real
+adapters.
+
+
+C. Phone-agent frameworks
+“Controls your own phone” and “runs the model on your phone” are different claims. The listed
+projects support or provide routes to physical-device control. Their normal setups generally put the
+controller or model service on a host. I found no documented, complete Termux-plus-proot
+deployment guarantee across this group. AutoGLM architecture · Mobilerun setup · Mobile-use setup
+
+ Framework      Your           Chrome CDP?             Awake handling found   Speed evidence
+                physical
+                phone?
+
+ Open-AutoGL    Yes, through   The phone loop          No dedicated           No comparable measured step time
+ M              ADB.           uses screenshots        continuous wake        found. Default tap delay is 1 second;
+                               and ADB actions.        mechanism found in     text entry has several 1-second waits,
+                                                       the inspected Python   plus model time. Code
+                                                       code.
+
+ Mobile-Agent   Yes; v3        The inspected           No hidden-Chrome       v3 code waits 2 seconds after
+ v3 / E         includes a     mobile runner uses      keeper found in that   actions, with an extra 8 seconds on
+                real-phone     screenshots.            runner.                app launch, plus model work. These
+                ADB runner.                                                   are waits, not benchmarks. Runner
+
+ UI-TARS        Yes, through   Its browser             No persistent          No comparable physical-phone
+                its ADB        infrastructure          hidden-Chrome wake     seconds-per-step result found. ADB
+                operator       accepts CDP             mechanism found in     code · Remote browser code
+                packages.      endpoints. The GUI      the inspected ADB
+                               operator still uses     operator.
+                               screenshots and
+                               visual actions.
+
+ AppAgent       Yes, through   Its original runner     No dedicated Chrome    Default request interval is 10
+                ADB.           uses screenshots        background keeper      seconds, plus other work. Config
+                               and UI information.     found.
+
+ DroidRun →     Yes, through   Native tools use ac     Explicit Keep Screen   No comparable current Samsung step
+ Mobilerun      its Portal     cessibility/state/scr   Awake service and      benchmark found. Macro replay has a
+                app.           eenshot control; no     recovery code.         1-second default delay. Framework ·
+                               stock Chrome-CDP                               Keepalive
+                               path found in the
+                               reviewed
+                               framework.
+
+
+
+                                                                                                            Page 10
+ Framework         Your           Chrome CDP?          Awake handling found     Speed evidence
+                   physical
+                   phone?
+
+ Mobile-use /      Yes, through   The inspected        No dedicated             Authors report 31 seconds per task
+ Minitap           ADB and UIA    Android controller   continuous wake code     versus 68 for their baseline on
+                   utomator2.     uses UIAutomator2    found in the inspected   AndroidWorld. OLD, vendor/author
+                                  and screenshots.     Python source.           claim; emulator tasks, not phone
+                                                                                steps. Controller · Paper, February
+                                                                                2026
+
+
+The UI-TARS check mattered: an old open feature request suggests physical Android support is
+missing. Current source contains ADB operators. I used the current code for the verdict. Old request
+· Current operator
+
+Licenses and release dates, checked 2026-10-14
+
+ Project                  Code license            Latest GitHub release found
+
+ Open-AutoGLM             Apache-2.0.             No published GitHub Release. Latest commit: 2026-03-06 — OLD.
+                          AutoGLM-Phone-9B        Current reference code still applies to this comparison. Code ·
+                          weights are MIT.        Commit · Model card
+
+ Mobile-Agent             MIT.                    No published GitHub Release. Latest repo commit: 2026-07-07.
+                                                  v3.5/GUI-Owl-1.5 announcement: 2026-02-14 — OLD; included to
+                                                  avoid treating v3 as the newest family member. Repository ·
+                                                  Commit
+
+ UI-TARS desktop          Apache-2.0.             v0.3.1, 2026-10-08. Model and desktop releases are separate.
+                                                  Release · License
+
+ Original AppAgent        MIT.                    No published GitHub Release. Latest commit: 2025-03-19 — OLD.
+                                                  Useful as a historical implementation; weak choice for a new
+                                                  speed-focused base. Repository · Commit
+
+ Mobilerun                MIT.                    v0.7.0, 2026-10-14. Release · License
+
+ Mobile-use               Apache-2.0.             v3.3.0, 2026-01-12 — OLD. Main branch remains active;
+                                                  inspected commit dated 2026-10-14. Releases · Current commit
+
+
+Zhipu’s Chinese documentation states the core loop plainly:
+
+  “截图 → 视觉模型理解界面”
+  Translation: “Screenshot → visual model reads the screen.”
+
+That loop is useful for unknown screens. It keeps model calls in the normal action path. OLD code
+snapshot; still describes the inspected implementation. Original documentation
+
+The newer Chinese research points toward mixing GUI actions with larger tools. Tongyi’s
+2026-05-12 ToolCUA announcement describes learning:
+
+  “何时使用 GUI 操作、何时调用工具及何时切换。”
+  Translation: “When to use GUI actions, call tools, and switch.”
+
+That supports the direction of replacing repeated clicks with a task tool. It does not establish a
+ready Samsung form runner. Author claim; research evidence. Chinese announcement ·
+ToolCUA paper
+
+                                                                                                            Page 11
+Verdict: Mobilerun has the most useful pieces to borrow for this task: replay
+and phone wake handling. Keep your existing CDP route. Confidence: high in
+the inspected capabilities; low in any cross-framework speed ranking.
+
+
+D. Why the real phone passes where cloud browsers fail
+My inference: your phone presents a more coherent browser, network, and session
+history. The evidence supports several contributing signals. It does not identify which signal
+decided your individual Akamai or Cloudflare challenges. Akamai detection methods · Cloudflare JA4
+· DataDome agent identification
+
+    Signal                     Why your phone can differ
+
+    IP and network             Your normal Wi-Fi or mobile connection has a different history from a shared proxy exit.
+    reputation                 “Residential” alone does not establish a clean history. Akamai reputation
+
+    TLS and HTTP behavior      Real Chrome supplies its actual network stack. A changed user-agent string does not
+                               change the whole TLS/HTTP fingerprint. Cloudflare JA4
+
+    Browser consistency        Browser version, OS, rendering, fonts, screen, and other features can agree naturally on a
+                               real device. Scraper engineers also emphasize consistency between spoofed features.
+                               Vendor explanation. Camoufox
+
+    Existing session context   A known logged-in session gives the site more context than a fresh browser. DataDome
+                               lists session, device, network, and behavioral context among its signals. Vendor claim.
+                               DataDome’s 2026 report
+
+    Behavior                   Timing, typing, scrolling, and click patterns remain observable even in a real browser.
+                               FP-Agent study
+
+
+
+The important 2026 change is better attention to agent behavior.
+FP-Agent, submitted 2026-05-02, studied seven browsing agents. Its authors found behavior more
+useful than browser fingerprints for separating agents that share real browser environments. In
+their Cloudflare case study, their classifier detected all seven agents while Cloudflare detected one.
+Single study, controlled sites; not a result for Samsung Chrome or every Cloudflare
+deployment. Paper
+
+Akamai’s August 19 and 27, 2026 articles describe a proof-of-concept model for sparse agent
+interaction traces. That is evidence that a real browser alone does not settle the question. It is not
+proof that this particular model is deployed on your target sites. Vendor research claim. Part 1 ·
+Part 2
+
+What the scraper tools actually change
+•     curl_cffi can imitate browser network fingerprints. It is an HTTP client, so it does not supply your
+      Chrome page, JavaScript state, and logged-in UI. Project
+
+•     Camoufox supplies a modified Firefox environment. Its fingerprint design is useful research, but
+      switching to it would replace the working browser you already have. Vendor capability claims.
+      Project docs
+
+
+
+
+                                                                                                                  Page 12
+•     Scrapling can connect to an existing CDP browser and keep sessions open. That fits your
+      architecture better than replacing Chrome, if its extraction tools become useful. It supplies no
+      documented Android renderer-wake fix. Current MCP/session docs
+
+•     Bright Data provides managed cloud browsers. Your own failed runs are the strongest evidence
+      for choosing your working phone route for these sites. Product description · Your baseline
+
+Verdict: preserve the real phone’s browser and session. Confidence: high that
+these signal classes matter; medium that they explain your result without a
+controlled comparison.
+
+
+E. Agent passports, signed requests, and Markdown
+Web Bot Auth proves an agent identity. Each site still decides what that identity may do.
+Cloudflare’s current implementation uses signed requests and published public keys. Its docs still
+reference IETF drafts for the Web Bot Auth pieces. Current implementation
+
+    Site or service           What is established today
+
+    Shopify storefronts and   2026-05-07: Shopify says unsigned agents face the strictest limits. Signed Web Bot Auth
+    Storefront API            traffic qualifies for higher limits. It says Cloudflare enrollment is not required for Shopify’s
+                              route. Vendor policy. Policy
+
+    Cloudflare verification   Supports registering an agent and key directory, then verifying signed requests. Site
+                              rules still determine treatment. The directory lists bots and agents, not every destination
+                              that permits them. Vendor documentation. Web Bot Auth · Directory
+
+    DataDome-protected        DataDome documents HTTP-signature verification using Web Bot Auth. This establishes
+    sites                     provider capability, not acceptance by every customer site. Vendor documentation.
+                              Authentication docs
+
+    Akamai-protected sites    Akamai describes Web Bot Auth support and related trust work. OLD: November 2025
+                              material; still relevant to the supported direction, not proof of target-site
+                              acceptance. Vendor claim. Akamai
+
+    LinkedIn, Workday,        I found no verified public policy granting your application runner access because it signs
+    Greenhouse, Ashby,        with Web Bot Auth. This is an unresolved search result, not a claim that support is
+    Lever                     impossible.
+
+
+Cloudflare’s route requires a key directory at:
+    https://your-domain/.well-known/http-message-signatures-directory
+
+Its documented verification path includes registration and approval. Adding arbitrary signature
+headers alone does not complete that process. Cloudflare steps
+
+Markdown for Agents solves a different cost
+It lets an enabled site return Markdown when the client asks for it:
+    curl --fail --max-time 15 \
+      -H 'Accept: text/markdown' \
+      https://blog.cloudflare.com/markdown-for-agents/
+
+
+
+
+                                                                                                                     Page 13
+Cloudflare launched it on 2026-02-12 — OLD. It still applies: current docs describe the feature, and
+I verified live 200 responses with Content-Type: text/markdown from both the Cloudflare blog and the
+Web Bot Auth documentation during this research. Launch · Current docs · Saved live checks
+
+This helps read pages with less markup. It does not retain a live form’s controls, submit answers,
+satisfy login, or keep Chrome awake. That follows from its documented HTML-to-Markdown role.
+Conversion behavior
+
+Verdict: use Markdown where it is already offered. Postpone passport work for
+these application flows. Confidence: high; the missing target-site acceptance
+makes its present value low.
+
+
+One useful next idea
+High confidence: turn the successful 37-second flow into the first saved adapter. Add the shared
+required-field checker and submission proof. The main catch is variation in later questions. The
+cheapest useful check is a replay of that known flow that stops at Review and reports every
+committed answer. This would measure the proposed design against your actual working baseline.
+
+The five things I could not find
+1. A proven One UI 7–8 background-CDP recipe. Next evidence needed: your exact build,
+   Chrome version, and paired browser/page probes when the failure occurs.
+
+2. A Samsung proof for scrcpy 4.0’s active virtual display. Next check: whether --keep-active
+   preserves page execution while another app owns the physical screen.
+
+3. A fair physical-phone speed comparison of the six frameworks. Next evidence needed:
+   the same phone, model, network, task, and definition of “step.”
+
+4. A maintained open-source runner with demonstrated complete coverage of all five
+   named application systems. Next work: verify the actual adapters and required-field
+   handling, rather than relying on README support lists.
+
+5. Published Web Bot Auth acceptance for your five target systems. Next evidence needed:
+   a policy or confirmed integration from LinkedIn, Workday, Greenhouse, Ashby, or Lever.
+
+
+
+
+                                                                                                Page 14
+

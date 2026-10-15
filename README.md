@@ -40,6 +40,24 @@ Give the model (Claude Code, running in Termux + Debian proot on George's Samsun
 
 Lanes, by where George is: watching → his own Chrome on his screen (he wants to see it). Driving or away for an hour → the rented browser. App tasks he does not want in his face → the hidden screen.
 
+
+## Two deep-research reports, side by side (2026-10-14)
+
+Same prompt, two models. Both in `research/`. Where they agree, trust it. Where they differ, the second one is the more careful reader.
+
+| Topic | Gemini report | Second report |
+|---|---|---|
+| Round trips | One in-page script runs the whole form; the model is the exception handler. | Same. Adds: the runner must still *check* each page locally (never cache what happened, only how to act). |
+| Chrome freezing | Freezer switch via adb (use `disabled`, not `0`) + silent-audio loop in the tab. | **Split-screen first**: Chrome and Termux both on screen, both stay resumed. Freezer switch is a lead, not proven on Samsung One UI 7/8. Says a page's `wakeLock` only works while the page is visible, so the silent-audio trick is unproven for a hidden tab. Lists the Samsung battery menus to set by hand (Unrestricted, Never sleeping, Keep open). |
+| Hidden screen | Keep it; benefits from the two fixes. | Unproven; strongest new lead is `scrcpy 4.0 --new-display --keep-active` (May 2026). Treat as a separate small experiment. |
+| Form filling | Code given (`scripts/one_pass_form.js`). | Design only, stricter: a typed answer book (keep real facts apart from test defaults like "every number is 5"), a site adapter per site, a shared checker, a run journal. **A click on Submit is "unconfirmed" until the runner finds the receipt; never auto-submit twice.** |
+| Probing a dead browser | — | Three separate probes: `/json/version` (adb path), `Browser.getVersion` (browser), `Runtime.evaluate` (the page). A live socket does not mean a live page. |
+| Why the phone passes bouncers | Address + handshake + driven-browser flags. | Same, plus: behavior is now the signal that matters (FP-Agent caught all 7 agents where Cloudflare caught 1; Akamai August 2026 work on agent traces). |
+| Agent passports | Coming; Akamai and Cloudflare verify. | Shopify honors signed agents (May 2026). No LinkedIn/Workday/Greenhouse/Ashby/Lever policy found. Postpone. |
+| Frameworks | Survey. | Checked licenses and dates on 2026-10-14. Verdict: borrow Mobilerun's replay + wake-service code; keep our own CDP route. |
+
+Net: do the split-screen and the Samsung battery menus first (no risk), then the freezer switch as an experiment with a before/after log, then the one-pass runner with a real answer book and a receipt check.
+
 ## Every line that worked, for Termux (Debian proot on the phone)
 
 Open the door to the phone's Chrome and list tabs (also wakes Chrome and re-forwards the port):
@@ -106,5 +124,6 @@ scripts/easy_apply.cjs          the one-run LinkedIn Easy Apply that worked 2026
 scripts/answers.json            George's standing answers
 scripts/anti_freeze.sh          one-time Android settings (freezer off, phantom killer off, Doze whitelist)
 research/deep-research-prompt.md  the prompt that produced the report
-research/gemini-deep-research-2026-10-14.pdf / .txt   the report
+research/gemini-deep-research-2026-10-14.pdf / .txt   report 1 (Gemini)
+research/second-deep-research-2026-10-14.pdf / .docx / .txt   report 2 (second model) + its saved sources folder
 ```

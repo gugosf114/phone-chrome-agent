@@ -1,0 +1,6 @@
+Source: George, research brief dated 2026-10-14. These are user-reported measurements, not measurements repeated in this research.
+
+Setup: Samsung phone, Android 16, Termux plus Debian proot. Claude Code controls the phone Chrome through adb-forwarded chrome_devtools_remote and native apps through accessibility.
+Measured round-trip cost: 20-30 seconds per agent step; an eight-step form took roughly four minutes.
+Background failure: after switching away from Chrome, the DevTools path stops responding; Page.enable can hang. Hidden virtual display also failed in the reported setup.
+One-pass result: a LinkedIn Easy Apply run completed in 37 seconds with a complete blanket answer sheet. This is a speed observation, not evidence that blanket answers are factually correct.

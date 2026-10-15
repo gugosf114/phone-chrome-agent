@@ -1,0 +1,19 @@
+Research cutoff: 2026-10-14. Recent window: 2026-04-14 through 2026-10-14. Android window starts 2023-10-14.
+
+Recommendation: keep phone Chrome and existing accessibility bridge; run a versioned local state machine from a typed approved answer sheet. Use machine checks within one tool call; avoid LLM-per-action loops. Keep Chrome visible/resumed in split-screen for the first reliable path. Diagnose browser vs page vs ADB separately.
+
+New evidence: scrcpy 4.0 (2026-05-12) adds --keep-active and documents use with virtual displays. No Samsung One UI 7/8 hidden Chrome CDP survival proof found. Android cached-app-freezer docs updated 2026-10-09 describe ten-second caching freeze and device_config disabling.
+
+DroidRun now redirects to droidrun/mobilerun. v0.7.0 published 2026-10-14. Macro replay checks pre-state, defaults to stop on mismatch, one-second delay. Portal current source commit cc3fa91b15847ca9f7cc9a5afdd6b8e1db7e4ec2 (2026-10-02) implements a foreground keepalive service with a bright-screen wake lock and recovery activity. This is not proof of keeping hidden Chrome renderers alive.
+
+UI-TARS has real ADB operators in source, despite old open feature request #579 and unmerged PR #580. RemoteBrowser accepts CDP endpoint; the GUI agent still uses screenshots.
+
+Open-AutoGLM: Apache-2.0 code; MIT AutoGLM-Phone-9B model card. Latest code commit 2026-03-06. Per-action sleeps present. Mobile-Agent v3 real-phone code has two-second wait and extra eight-second app-launch wait. AppAgent default REQUEST_INTERVAL is ten seconds. Mobile-use paper claims 31-second task average on AndroidWorld, not measured Samsung per-step time.
+
+One multi-ATS example repository (tmason10/job-application-automation) advertises workday_apply.py in README but its current root listing does not contain it. Treat it as sample code, not proven coverage. workflow-use README flags weak LLM fallback.
+
+Cloudflare Markdown for Agents launch: 2026-02-12 (older than six months); live Markdown content negotiation verified on Cloudflare blog and docs. Shopify Web Bot Auth policy: 2026-05-07. No verified target-site Web Bot Auth policy found for LinkedIn, Workday, Greenhouse, Ashby, Lever.
+
+Source coverage: Chinese searches included Zhihu, Juejin, WeChat, CNKI, ChinaXiv, software/automation journals. Useful primary Chinese evidence came from Zhipu, Tongyi and Midscene docs/source. Japanese Zenn real-phone CDP write-up published 2026-05-18. Korean velog/Naver D2 queries yielded no useful reproducible background-CDP fix. Reddit/HN used as leads; claims checked against source where possible.
+
+No phone configuration was changed for this research. No application was submitted. Performance and keepalive recommendations remain proposals, not device test results. Public HTTP reads, repository metadata and source inspection were performed.

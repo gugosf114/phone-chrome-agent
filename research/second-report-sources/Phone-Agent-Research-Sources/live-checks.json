@@ -1,0 +1,22 @@
+[
+  {
+    "date": "2026-10-14",
+    "url": "https://blog.cloudflare.com/markdown-for-agents/",
+    "request_header": {
+      "Accept": "text/markdown"
+    },
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "body_saved_as": "cloudflare-blog-negotiated.txt"
+  },
+  {
+    "date": "2026-10-14",
+    "url": "https://developers.cloudflare.com/bots/reference/bot-verification/web-bot-auth/",
+    "request_header": {
+      "Accept": "text/markdown"
+    },
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "body_saved_as": "cloudflare-docs-negotiated.txt"
+  }
+]
