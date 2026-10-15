@@ -91,6 +91,24 @@ scripts/laptop_show_window.ps1` inside session 1 and brings the LinkedIn/Home De
 
 Laptop facts (read-only check): Intel i7-1185G7 at full 3.0 GHz, not throttled, on the charger, battery at about half its original capacity, Windows 11 Home, booted 10/13 7:33 pm.
 
+## One pipeline (George decided, 2026-10-14 ~8:30 pm)
+
+Too many Chromes on too many ports kept tripping the model. Now there is one pipe.
+
+**Keep:**
+- Laptop: headed Chrome on port 9222, started by the task `GeorgeJobApplicationsChrome`, profile `C:\Users\georg\job-applications-chrome-profile`.
+- Laptop: task `ShowAgentChrome` (puts the window in front of George).
+- Laptop: task `AgentBridgeLaptop` (Windows desktop control; not a Chrome).
+- Box: one tunnel, `127.0.0.1:19222` to the laptop's 9222, opened by `scripts/laptop_chrome.sh`.
+- Phone: Chrome Beta on the hidden screen (port 9335: Play Console lane, Google Ads) and George's own Chrome (port 9336). Separate machine, separate lane, left alone.
+
+**Retired** (turned off, not deleted; XML backups in `C:\Users\georg\retired-chrome-tasks-2026-10-14\`):
+- `CaptureCurrentChrome`, `OpenMainChrome`, `OpenMainChromeFinal`, `OpenMainChromeInspect`, `OpenSavedGoogleChrome`, `StartChromeBridge` (one-time launchers from old experiments).
+- `GeorgeGoogleConsoleHeadless` (ran at every logon: a headless Chrome on 9224 for the old Analytics/Search Console reader; the API does that job). Its Chrome and daemon were stopped.
+- Tonight's dead try on 9229 and its `C:\agent-chrome` profile folder: removed. Leftover box tunnels: closed.
+
+**Bring one back:** on the laptop, `schtasks /change /tn <name> /enable`. Or re-import: `schtasks /create /tn <name> /xml C:\Users\georg\retired-chrome-tasks-2026-10-14\<name>.xml`.
+
 ## Every line that worked, for Termux (Debian proot on the phone)
 
 Open the door to the phone's Chrome and list tabs (also wakes Chrome and re-forwards the port):
