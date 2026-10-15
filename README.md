@@ -156,3 +156,21 @@ research/deep-research-prompt.md  the prompt that produced the report
 research/gemini-deep-research-2026-10-14.pdf / .txt   report 1 (Gemini)
 research/second-deep-research-2026-10-14.pdf / .docx / .txt   report 2 (second model) + its saved sources folder
 ```
+
+## The eleven buckets (everything we found, sorted)
+
+1. **The instruction (what George says):** every fork answered up front; a stop line; the answer book, real facts apart from test defaults.
+2. **The run (how the model acts):** one pass, one command, no look between presses; Submit counts only with a receipt, never twice; a log of every run, read before speaking; three checks when a browser goes quiet (tunnel, browser, page).
+3. **The machine (where the browser lives):** laptop headed Chrome (proven); George's phone Chrome (when he watches); hidden screen for app tasks; Yana's phone; rented browser for long jobs; Bright Data's fetcher for pages that block the rest.
+4. **The paper (what survives the session):** this repo; one saved recipe per site or app; the run log; this journal.
+5. **Getting in (the bouncer and the doors):** headed, never headless; a home address; logged-in profiles kept warm; email codes read from Gmail, text codes read on the phone; captchas by live view or George's thumb (parked); agent passports: watch, do not build; keys on the box, never in the repo; account lockouts for "unusual activity": no recipe yet.
+6. **Eyes (how the model reads):** web page = whole page as text in one gulp; app = keyhole, one screen at a time; fetcher and markdown for clean reading; screenshots last.
+7. **Speed (where the seconds go):** ~20 s a turn is the model thinking; ~3 s the phone's Linux shell starting a command; ~2 s the page. Fewer turns is the only big lever.
+8. **Money:** model tokens per turn; Bright Data $8/GB after the free GB ($10 on the account); the rest free or owned.
+9. **George watching:** visible lane when he watches, rented browser when he drives; split screen, Chrome on top; a buzz or spoken "ten done" at batch end (not built).
+10. **Recovery (when it breaks):** wake Chrome, re-forward the port, re-run the laptop task; the traps list in "Rules learned the hard way."
+11. **Research (where to look next):** the two reports and the prompt; Chinese engineer forums first for phone agents; six-month window for agents, three years for Android.
+
+## Journal (one entry per session, newest first)
+
+**2026-10-13 → 10-14 (one long night, ~8 pm to 7 pm next day):** Started as "help me with LinkedIn." Found the phone's own Chrome passes every bouncer and everything else gets bounced. Found the slowness is the model's round trips, fresh scripts, and Android freezing Chrome. Made a Bright Data account (Google sign-in), paid $10, wired its tools into Claude Code; its fetcher opens Home Depot, its rented browser does not. One LinkedIn Easy Apply went in from George's phone Chrome in 37 s ("Legal Expert | Remote"). Two deep-research reports, same prompt, both read; five fixes written down, none run yet. Laptop lane proven at 6:28 pm: headed Chrome via scheduled task + Tailscale tunnel opened Home Depot with products in 11 s. Answer book merged from Agent Bridge + job-vault (50 rules, 19 facts; George to pick email, salary, portfolio link). Machines decided: laptop = browser home, Yana's phone = second address, drawer machine later. Open: two-job apply with the 5/yes rules (not run); the Home Depot rod; cashing the LLC check; the freezer switch, sound trick, split screen, Samsung battery menus (all unrun); which lane is fastest for Easy Apply (laptop vs phone Chrome vs app), to be timed.
