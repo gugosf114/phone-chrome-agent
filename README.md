@@ -2,9 +2,19 @@
 
 # phone-chrome-agent
 
-The agent drives George's own phone Chrome. One command, one pass, no second look.
+The agent drives a real, headed Chrome on George's own machines. One command, one pass, no second look.
 
 Read this file first. It is the whole story, so no session has to be told "remember when we did this."
+
+## Start here (state as of 2026-10-14, 8:45 pm)
+
+- **The browser pipe is the laptop's real Chrome.** One command: `bash scripts/laptop_chrome.sh "<url>"`. It starts Chrome if needed, opens the tunnel, opens the page, and puts the window on George's laptop screen. 7 to 15 seconds. The laptop Chrome is signed into LinkedIn.
+- **Do not start any other Chrome on any other port.** The old ones were turned off on purpose. See "One pipeline" below.
+- **The phone has two lanes, left alone.** George's own Chrome (port 9336) when he wants to watch on the phone. Chrome Beta on the hidden screen (port 9335) for Play Console and Google Ads.
+- **Tasks that already work are in `recipes/`,** one card each. Read the card before doing the task. When George says "recipe it," write or update a card.
+- **George's answers for forms are in `scripts/answers.json`.** Three choices are still his: email, salary, portfolio link.
+- **Two sessions can push here at the same time.** Pull before you push. Never force-push.
+- **Before a session closes,** add a dated entry to `journal.md` and push.
 
 ## What we were trying to do
 
@@ -83,11 +93,7 @@ What made it work, in plain words:
 - The laptop already had a scheduled task, `GeorgeJobApplicationsChrome`, that starts a real Chrome with remote control on port 9222 and its own profile. Run the task, not `Start-Process` over ssh: a Chrome started inside an ssh session dies when the session ends.
 - Tunnel from the box: `ssh -N -L 127.0.0.1:19222:127.0.0.1:9222 wimlaptop` (bind 127.0.0.1 explicitly). Then drive it with `CDP_PORT=19222 node /root/.play/cdp.cjs ...` like any Chrome.
 - One command does all of it: `bash scripts/laptop_chrome.sh "<url>"`.
-- **Two rooms.** My ssh commands land in Windows session 0, which has no screen. Chrome lives in session 1, George's desktop. From session 0 I can open tabs through the control port but cannot show the window. To put a window in front of George, run a scheduled task made with `/it` (interactive): `ShowAgentChrome` runs `scripts/cdpx.cjs                the 10/14 Google Ads driver: reads and clicks INSIDE Google's payment box (iframes), real mouse clicks, key-by-key typing
-scripts/findclick.sh            find an element by its text, scroll it into view, real-click it (uses cdpx.cjs)
-scripts/fill.sh                 fill a field by its label, key by key, and read the value back (uses cdpx.cjs)
-scripts/clickread.cjs           one mouse click at x,y, then one read; no typing, no iframes
-scripts/laptop_show_window.ps1` inside session 1 and brings the LinkedIn/Home Depot window to the front. Proven 10/14 7:40 pm: George saw the LinkedIn sign-in window appear.
+- **Two rooms.** My ssh commands land in Windows session 0, which has no screen. Chrome lives in session 1, George's desktop. From session 0 I can open tabs through the control port but cannot show the window. To put a window in front of George, run a scheduled task made with `/it` (interactive): `ShowAgentChrome` runs `scripts/laptop_show_window.ps1` inside session 1 and brings the LinkedIn/Home Depot window to the front. Proven 10/14 7:40 pm: George saw the LinkedIn sign-in window appear.
 
 Laptop facts (read-only check): Intel i7-1185G7 at full 3.0 GHz, not throttled, on the charger, battery at about half its original capacity, Windows 11 Home, booted 10/13 7:33 pm.
 
