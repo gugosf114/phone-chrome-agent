@@ -35,7 +35,7 @@ Give the model (Claude Code, running in Termux + Debian proot on George's Samsun
 | 1 | **Freezer switch**: two Android settings so background Chrome is not frozen (`scripts/anti_freeze.sh`). Use the word `disabled`, not `0`, on Samsung One UI 8. | written, not run; George's call |
 | 2 | **Silent sound in the tab**: a sub-audible audio loop makes Chrome treat the tab like a music player and never freeze it (`scripts/keepalive.js`). | written, not yet tested |
 | 3 | **One-pass form script**: fills a whole multi-page form from the answer sheet, stops only on a question the sheet can't answer, returns the list (`scripts/one_pass_form.js`, from the report). | written, not yet tested on LinkedIn |
-| 4 | **Answer sheet**: George's standing answers in plain JSON (`scripts/answers.json`). Edit the file, never the code. | started, blanks to fill |
+| 4 | **Answer book**: George's standing answers in plain JSON (`scripts/answers.json`): 50 question rules from Agent Bridge's LinkedIn answer sheet plus the facts from 10 job-vault packets, and a never-say-yes list. Three things for George to pick (email, salary, portfolio link) are flagged at the top of the file. | merged 10/14 |
 | 5 | **Hidden screen kept alive**: the third lane for app tasks George doesn't want on his screen (`hidden-operator` repo). | exists; benefits from 1 and 2 |
 
 Lanes, by where George is: watching → his own Chrome on his screen (he wants to see it). Driving or away for an hour → the rented browser. App tasks he does not want in his face → the hidden screen.
@@ -150,7 +150,7 @@ scripts/laptop_chrome.sh        start the laptop's headed Chrome (scheduled task
 scripts/keepalive.js            silent-audio keep-awake, paste into a tab via CDP
 scripts/one_pass_form.js        answer-sheet form filler that stops on unknown questions (from the report)
 scripts/easy_apply.cjs          the one-run LinkedIn Easy Apply that worked 2026-10-14
-scripts/answers.json            George's standing answers
+scripts/answers.json            George's answer book (rules + facts + never-yes), merged from Agent Bridge + job-vault
 scripts/anti_freeze.sh          one-time Android settings (freezer off, phantom killer off, Doze whitelist)
 research/deep-research-prompt.md  the prompt that produced the report
 research/gemini-deep-research-2026-10-14.pdf / .txt   report 1 (Gemini)
