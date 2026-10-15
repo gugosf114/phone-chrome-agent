@@ -41,22 +41,31 @@ Give the model (Claude Code, running in Termux + Debian proot on George's Samsun
 Lanes, by where George is: watching → his own Chrome on his screen (he wants to see it). Driving or away for an hour → the rented browser. App tasks he does not want in his face → the hidden screen.
 
 
-## Two deep-research reports, side by side (2026-10-14)
+## We asked two research models the same question. Here is what we keep from each.
 
-Same prompt, two models. Both in `research/`. Where they agree, trust it. Where they differ, the second one is the more careful reader.
+Same prompt (`research/deep-research-prompt.md`), two different models, two reports in `research/`. We read both and took the best pieces. Plain words below.
 
-| Topic | Gemini report | Second report |
-|---|---|---|
-| Round trips | One in-page script runs the whole form; the model is the exception handler. | Same. Adds: the runner must still *check* each page locally (never cache what happened, only how to act). |
-| Chrome freezing | Freezer switch via adb (use `disabled`, not `0`) + silent-audio loop in the tab. | **Split-screen first**: Chrome and Termux both on screen, both stay resumed. Freezer switch is a lead, not proven on Samsung One UI 7/8. Says a page's `wakeLock` only works while the page is visible, so the silent-audio trick is unproven for a hidden tab. Lists the Samsung battery menus to set by hand (Unrestricted, Never sleeping, Keep open). |
-| Hidden screen | Keep it; benefits from the two fixes. | Unproven; strongest new lead is `scrcpy 4.0 --new-display --keep-active` (May 2026). Treat as a separate small experiment. |
-| Form filling | Code given (`scripts/one_pass_form.js`). | Design only, stricter: a typed answer book (keep real facts apart from test defaults like "every number is 5"), a site adapter per site, a shared checker, a run journal. **A click on Submit is "unconfirmed" until the runner finds the receipt; never auto-submit twice.** |
-| Probing a dead browser | — | Three separate probes: `/json/version` (adb path), `Browser.getVersion` (browser), `Runtime.evaluate` (the page). A live socket does not mean a live page. |
-| Why the phone passes bouncers | Address + handshake + driven-browser flags. | Same, plus: behavior is now the signal that matters (FP-Agent caught all 7 agents where Cloudflare caught 1; Akamai August 2026 work on agent traces). |
-| Agent passports | Coming; Akamai and Cloudflare verify. | Shopify honors signed agents (May 2026). No LinkedIn/Workday/Greenhouse/Ashby/Lever policy found. Postpone. |
-| Frameworks | Survey. | Checked licenses and dates on 2026-10-14. Verdict: borrow Mobilerun's replay + wake-service code; keep our own CDP route. |
+### What we take from report 1 (Gemini)
 
-Net: do the split-screen and the Samsung battery menus first (no risk), then the freezer switch as an experiment with a before/after log, then the one-pass runner with a real answer book and a receipt check.
+- **The phone switch that stops Android from freezing Chrome.** Two settings, typed once over adb. Written down in `scripts/anti_freeze.sh`. One warning from this report: on Samsung, use the word `disabled`, not the number `0`, or the phone may reboot in a loop.
+- **The silent sound trick.** A tiny sound loop in the Chrome tab, too quiet to hear. Chrome then treats the tab like a music player and does not put it to sleep. Written down in `scripts/keepalive.js`.
+- **The form-filling code.** A script that fills a whole multi-page form from the answer sheet and stops only when it hits a question the sheet does not cover. Written down in `scripts/one_pass_form.js`.
+- **The "Select an option" fix.** Drop-downs that still say "Select an option" count as empty. Our first script got that wrong. This one gets it right.
+
+### What we take from report 2 (second model)
+
+- **Split screen first.** Before touching any phone setting, put Chrome on the top half of the screen and Termux on the bottom. Both stay awake. No risk, no settings changed.
+- **The Samsung battery menus.** Settings → Apps → Chrome → Battery → Unrestricted. Settings → Battery → Background limits → take Chrome and Termux off the sleeping lists, put them on Never sleeping. Recents → app icon → Keep open. Done by hand, once.
+- **Check three things, not one, when Chrome stops answering.** Is the adb tunnel up? Is the browser answering? Is the page itself answering? Tonight a live tunnel fooled us into thinking the page was alive.
+- **Submit is not done until we see the receipt.** After pressing Submit, look for proof on the page. Never press Submit a second time on our own.
+- **Keep real answers and test answers apart.** "Every number is 5" was a test. The real answer book has real facts: years, salary, city. Two files, never mixed.
+- **A log of every run.** What was filled, what was pressed, what came back. So a question answered once is never asked twice.
+- **A new lead for the hidden screen.** scrcpy 4.0 (May 2026) has a virtual-display mode with a keep-active switch. Untested on this phone. Parked as an experiment.
+- **Borrow, do not switch.** Keep our own Chrome route. Borrow Mobilerun's replay-and-check code and its keep-awake service when we build the app lane.
+
+### Where the two disagree, and which one we follow
+
+- Report 1 says: flip the freezer switch and add the sound, then everything stays awake. Report 2 says: nobody has proven that on a Samsung, so do split screen and the battery menus first, and treat the switch and the sound as experiments with a before-and-after log. **We follow report 2's order.** Safe things first, experiments second, with proof.
 
 ## Every line that worked, for Termux (Debian proot on the phone)
 
