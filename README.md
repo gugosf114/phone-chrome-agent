@@ -83,7 +83,8 @@ What made it work, in plain words:
 - The laptop already had a scheduled task, `GeorgeJobApplicationsChrome`, that starts a real Chrome with remote control on port 9222 and its own profile. Run the task, not `Start-Process` over ssh: a Chrome started inside an ssh session dies when the session ends.
 - Tunnel from the box: `ssh -N -L 127.0.0.1:19222:127.0.0.1:9222 wimlaptop` (bind 127.0.0.1 explicitly). Then drive it with `CDP_PORT=19222 node /root/.play/cdp.cjs ...` like any Chrome.
 - One command does all of it: `bash scripts/laptop_chrome.sh "<url>"`.
-- **Two rooms.** My ssh commands land in Windows session 0, which has no screen. Chrome lives in session 1, George's desktop. From session 0 I can open tabs through the control port but cannot show the window. To put a window in front of George, run a scheduled task made with `/it` (interactive): `ShowAgentChrome` runs `scripts/laptop_show_window.ps1` inside session 1 and brings the LinkedIn/Home Depot window to the front. Proven 10/14 7:40 pm: George saw the LinkedIn sign-in window appear.
+- **Two rooms.** My ssh commands land in Windows session 0, which has no screen. Chrome lives in session 1, George's desktop. From session 0 I can open tabs through the control port but cannot show the window. To put a window in front of George, run a scheduled task made with `/it` (interactive): `ShowAgentChrome` runs `scripts/clickread.cjs           real-finger clicks + letter-by-letter typing + reads inside Google's payment boxes (from the 10/14 Google Ads session on the phone's hidden Chrome Beta; ~50 commands, 1 hour, same three walls)
+scripts/laptop_show_window.ps1` inside session 1 and brings the LinkedIn/Home Depot window to the front. Proven 10/14 7:40 pm: George saw the LinkedIn sign-in window appear.
 
 Laptop facts (read-only check): Intel i7-1185G7 at full 3.0 GHz, not throttled, on the charger, battery at about half its original capacity, Windows 11 Home, booted 10/13 7:33 pm.
 
@@ -148,6 +149,7 @@ bash scripts/anti_freeze.sh
 README.md                       this
 scripts/chrome.sh               wake phone Chrome + forward DevTools port + list tabs
 scripts/laptop_chrome.sh        start the laptop's headed Chrome (scheduled task) + tunnel + show window + list tabs
+scripts/clickread.cjs           real-finger clicks + letter-by-letter typing + reads inside Google's payment boxes (from the 10/14 Google Ads session on the phone's hidden Chrome Beta; ~50 commands, 1 hour, same three walls)
 scripts/laptop_show_window.ps1  runs inside the laptop's desktop session (task ShowAgentChrome, /it) and brings the agent Chrome window to the front
 scripts/keepalive.js            silent-audio keep-awake, paste into a tab via CDP
 scripts/one_pass_form.js        answer-sheet form filler that stops on unknown questions (from the report)
@@ -172,6 +174,10 @@ research/second-deep-research-2026-10-14.pdf / .docx / .txt   report 2 (second m
 9. **George watching:** visible lane when he watches, rented browser when he drives; split screen, Chrome on top; a buzz or spoken "ten done" at batch end (not built).
 10. **Recovery (when it breaks):** wake Chrome, re-forward the port, re-run the laptop task; the traps list in "Rules learned the hard way."
 11. **Research (where to look next):** the two reports and the prompt; Chinese engineer forums first for phone agents; six-month window for agents, three years for Android.
+
+## Case study from another session (2026-10-14, Google Ads on the phone's hidden Chrome)
+
+A sibling session fixed the Google Ads card, paid $20, and published an app-installs campaign, all through Chrome Beta on the phone's hidden screen. No API. It hit the same three walls: about 50 look-think-press round trips (an hour), Chrome's port died twice and the hidden screen got rebuilt twice, and fresh holes (pasted text ignored, buttons off the right edge of the narrow screen, a "get the app" door on every page). It wrote `scripts/clickread.cjs` to click like a finger, type letter by letter, and read inside Google's payment box. The "Confirm it's you" step passed on the second try; best guess is the first passed but Chrome froze before publish landed. Lesson matches this repo: next time run it on the laptop's headed Chrome (no freeze, wide screen, no app door) from a saved recipe, one pass.
 
 ## Journal (one entry per session, newest first)
 

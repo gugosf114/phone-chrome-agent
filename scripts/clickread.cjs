@@ -1,0 +1,10 @@
+const WebSocket=globalThis.WebSocket||require('ws');
+const [,,tabSub,X,Y,wait,expr]=process.argv;
+(async()=>{const list=await (await fetch("http://127.0.0.1:9335/json")).json(); const t=list.find(o=>o.type==="page"&&o.url.includes(tabSub));
+const ws=new WebSocket(t.webSocketDebuggerUrl); await new Promise(r=>ws.onopen=r); let id=0; const pend={};
+ws.onmessage=e=>{const m=JSON.parse(e.data); if(m.id&&pend[m.id]){pend[m.id](m); delete pend[m.id];}};
+const send=(m,p={})=>new Promise(res=>{const i=++id; pend[i]=res; ws.send(JSON.stringify({id:i,method:m,params:p}));});
+for(const type of ["mouseMoved","mousePressed","mouseReleased"]) await send("Input.dispatchMouseEvent",{type,x:+X,y:+Y,button:"left",clickCount:1});
+await new Promise(r=>setTimeout(r,+wait));
+const r=await send("Runtime.evaluate",{expression:expr,returnByValue:true});
+console.log(JSON.stringify(r.result.result.value)); ws.close(); process.exit(0);})();
