@@ -67,6 +67,13 @@ Same prompt (`research/deep-research-prompt.md`), two different models, two repo
 
 - Report 1 says: flip the freezer switch and add the sound, then everything stays awake. Report 2 says: nobody has proven that on a Samsung yet. Both are on the table. George decides the order.
 
+## Machines (George decided, 2026-10-14)
+
+- **The laptop is the browser's home.** Windows does not freeze a background Chrome, nobody uses its screen, it is plugged in, and Agent Bridge already drives its Chrome (proven Ashby submission, Aug 2026). It needs its own Chrome profile for the agent (new Chrome refuses remote control of the daily profile) and a power setting so it never sleeps.
+- **Yana's phone is the second home address** (ssh over Tailscale from this box) when a second real phone browser is needed.
+- **George's own phone Chrome** stays the lane for when he wants to watch.
+- **Maybe later: one machine in a drawer** whose only job is to host a Chrome. A used mini PC or a spare Android. The spare Android also gives the app lane.
+
 ## Every line that worked, for Termux (Debian proot on the phone)
 
 Open the door to the phone's Chrome and list tabs (also wakes Chrome and re-forwards the port):
