@@ -63,9 +63,9 @@ Same prompt (`research/deep-research-prompt.md`), two different models, two repo
 - **A new lead for the hidden screen.** scrcpy 4.0 (May 2026) has a virtual-display mode with a keep-active switch. Untested on this phone. Parked as an experiment.
 - **Borrow, do not switch.** Keep our own Chrome route. Borrow Mobilerun's replay-and-check code and its keep-awake service when we build the app lane.
 
-### Where the two disagree, and which one we follow
+### Where the two disagree
 
-- Report 1 says: flip the freezer switch and add the sound, then everything stays awake. Report 2 says: nobody has proven that on a Samsung, so do split screen and the battery menus first, and treat the switch and the sound as experiments with a before-and-after log. **We follow report 2's order.** Safe things first, experiments second, with proof.
+- Report 1 says: flip the freezer switch and add the sound, then everything stays awake. Report 2 says: nobody has proven that on a Samsung yet. Both are on the table. George decides the order.
 
 ## Every line that worked, for Termux (Debian proot on the phone)
 
