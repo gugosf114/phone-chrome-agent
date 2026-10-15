@@ -74,6 +74,18 @@ Same prompt (`research/deep-research-prompt.md`), two different models, two repo
 - **George's own phone Chrome** stays the lane for when he wants to watch.
 - **Maybe later: one machine in a drawer** whose only job is to host a Chrome. A used mini PC or a spare Android. The spare Android also gives the app lane.
 
+## The laptop lane, proven (2026-10-14, 6:28 pm)
+
+The laptop's real Chrome opened the Home Depot search page and listed products in 11 seconds, through an ssh tunnel over Tailscale. Same page that bounced the box's Chromium, Bright Data's rented browser, and the laptop's own *headless* Chrome ("Oops, something went wrong"). Headless is a robot flag. Headed is not.
+
+What made it work, in plain words:
+
+- The laptop already had a scheduled task, `GeorgeJobApplicationsChrome`, that starts a real Chrome with remote control on port 9222 and its own profile. Run the task, not `Start-Process` over ssh: a Chrome started inside an ssh session dies when the session ends.
+- Tunnel from the box: `ssh -N -L 127.0.0.1:19222:127.0.0.1:9222 wimlaptop` (bind 127.0.0.1 explicitly). Then drive it with `CDP_PORT=19222 node /root/.play/cdp.cjs ...` like any Chrome.
+- One command does all of it: `bash scripts/laptop_chrome.sh "<url>"`.
+
+Laptop facts (read-only check): Intel i7-1185G7 at full 3.0 GHz, not throttled, on the charger, battery at about half its original capacity, Windows 11 Home, booted 10/13 7:33 pm.
+
 ## Every line that worked, for Termux (Debian proot on the phone)
 
 Open the door to the phone's Chrome and list tabs (also wakes Chrome and re-forwards the port):
@@ -134,6 +146,7 @@ bash scripts/anti_freeze.sh
 ```
 README.md                       this
 scripts/chrome.sh               wake phone Chrome + forward DevTools port + list tabs
+scripts/laptop_chrome.sh        start the laptop's headed Chrome (scheduled task) + tunnel + list tabs
 scripts/keepalive.js            silent-audio keep-awake, paste into a tab via CDP
 scripts/one_pass_form.js        answer-sheet form filler that stops on unknown questions (from the report)
 scripts/easy_apply.cjs          the one-run LinkedIn Easy Apply that worked 2026-10-14
