@@ -18,7 +18,10 @@ const KW = arg('--keywords', 'legal operations');
 const PORT = process.env.CDP_PORT || '19222';
 const ROOT = path.resolve(__dirname, '..');
 const BOOK = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/answers.json'), 'utf8'));
-const LOGDIR = path.join(ROOT, 'logs/easy_apply_map'); fs.mkdirSync(LOGDIR, { recursive: true });
+const LOGDIR = path.join(ROOT, 'logs/easy_apply_map');
+// --overrides <file.json>: { "<jobId>": { "skip": "reason" | "rules": [[regex, answer], ...] } } — per-job answers written by the thinker before the run
+const OVR = arg('--overrides', '') ? JSON.parse(fs.readFileSync(arg('--overrides', ''), 'utf8')) : {};
+let CUR_RULES = []; fs.mkdirSync(LOGDIR, { recursive: true });
 const stamp = new Date().toISOString().replace(/[:T]/g, '-').slice(0, 16);
 const OUT = path.join(LOGDIR, `map-${stamp}.jsonl`);
 const SEENF = path.join(LOGDIR, 'seen-forks.json');
@@ -31,12 +34,15 @@ const RULES = BOOK.rules.map(([re, v]) => [new RegExp(re, 'i'), v]);
 function answerFor(label, type, options) {
   const l = (label || '').trim();
   if (!l) return null;
+  if (/authoriz\w* to work|legally authorized|permanently authorized|eligible to work/i.test(l)) return { value: 'Yes', source: 'rule:authorized-to-work (beats never_yes)' };
   if (NEVER_YES.test(l)) return { value: 'No', source: 'never_yes' };
+  for (const [re, v] of CUR_RULES) if (re.test(l)) return { value: v, source: 'job-rule:' + re.source.slice(0, 30) };
   for (const [re, v] of RULES) if (re.test(l)) return { value: v, source: 'rule:' + re.source.slice(0, 30) };
   if (type === 'number') return { value: BOOK.defaults.number, source: 'default:number' };
   if (type === 'radio' && (options || []).some(o => /\.(pdf|docx?)$/i.test(o))) return { value: BOOK.facts.resume_file || options[0], source: 'fact:resume_file' };
   if (type === 'radio' || type === 'select') {
     const opts = (options || []).map(o => o.toLowerCase());
+    const dec = opts.findIndex(o => /do not want to answer|prefer not|don.?t wish|decline to/.test(o)); if (dec > -1) return { value: options[dec], source: 'default:decline-option' };
     if (opts.some(o => /^yes$/.test(o))) return { value: BOOK.defaults.yesNo, source: 'default:yesNo' };
     return null;
   }
@@ -136,11 +142,14 @@ function answerFor(label, type, options) {
   const waitFor = async (expr, ms = 8000) => { const t0 = Date.now(); while (Date.now() - t0 < ms) { if (await ev(expr)) return true; await sleep(250); } return false; };
 
   // ---------- job list ----------
+  const IDS = arg('--ids', ''); const SUBMIT = process.argv.includes('--submit');
+  let ids = [];
+  if (!IDS) {
   await send('Page.navigate', { url: `https://www.linkedin.com/jobs/search/?f_AL=true&keywords=${encodeURIComponent(KW)}&location=United%20States` });
   await waitFor('document.querySelectorAll("a[href*=\\"/jobs/view/\\"]").length>3', 15000); await pause(1500, 3000);
   for (let s = 0; s < 3; s++) { await ev('document.querySelector(".jobs-search-results-list, .scaffold-layout__list")?.scrollBy(0,900)'); await pause(600, 1200); }
   const grab = async () => JSON.parse(await ev('JSON.stringify([...document.querySelectorAll("a[href*=\\"/jobs/view/\\"]")].map(a=>(a.href.match(/jobs\\/view\\/(\\d+)/)||[])[1]).filter(Boolean))'));
-  let ids = await grab();
+  ids = await grab();
   for (let pg = 1; pg <= 3 && ids.length < JOBS * 3; pg++) {
     await send('Page.navigate', { url: `https://www.linkedin.com/jobs/search/?f_AL=true&keywords=${encodeURIComponent(KW)}&location=United%20States&start=${pg * 25}` });
     await waitFor('document.querySelectorAll("a[href*=\\"/jobs/view/\\"]").length>3', 15000); await pause(1500, 3000);
@@ -151,11 +160,16 @@ function answerFor(label, type, options) {
   const done = new Set();
   if (!process.argv.includes('--repeat')) for (const f of fs.readdirSync(LOGDIR).filter(f => /^map-.*\.jsonl$/.test(f))) for (const line of fs.readFileSync(path.join(LOGDIR, f), 'utf8').split('\n')) { try { done.add(JSON.parse(line).jobId); } catch {} }
   ids = ids.filter((v, i, a) => a.indexOf(v) === i).filter(v => !done.has(v)).slice(0, JOBS * 4);
+  }
+  if (IDS) ids = IDS.split(',').map(x => x.trim()).filter(Boolean);
   console.log(`keywords="${KW}" jobs found: ${ids.length} · target runs: ${JOBS} · log: ${path.relative(ROOT, OUT)}`);
 
   let runs = 0; const t00 = Date.now();
   for (const jid of ids) {
     if (runs >= JOBS) break;
+    const o = OVR[jid] || {};
+    if (o.skip) { console.log(`  skip ${jid} by thinker: ${o.skip}`); fs.appendFileSync(OUT, JSON.stringify({ run: null, jobId: jid, status: 'SKIPPED_BY_THINKER', reason: o.skip, startedAt: new Date().toISOString() }) + '\n'); continue; }
+    CUR_RULES = (o.rules || []).map(([re, v]) => [new RegExp(re, 'i'), v]);
     const rec = { run: runs + 1, jobId: jid, startedAt: new Date().toISOString(), screens: [], status: '', stuck: [], newForks: [], filled: 0, unanswered: 0 };
     const t0 = Date.now();
     await send('Page.navigate', { url: `https://www.linkedin.com/jobs/view/${jid}/` });
@@ -202,7 +216,13 @@ function answerFor(label, type, options) {
       const stillEmpty = st.fields.filter(f => f.required && !f.value && f.type !== 'file' && f.type !== 'checkbox');
       if (stillEmpty.length) { rec.status = 'STUCK_REQUIRED'; rec.stuck.push({ heading: st.heading, fields: stillEmpty.map(f => f.type + ':' + f.label + (f.options ? ' [' + f.options.join('/') + ']' : '')) }); screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
       if (!st.next) { rec.status = 'NO_NEXT_BUTTON'; rec.stuck.push({ heading: st.heading, buttons: st.buttons, text: st.text }); screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
-      if (st.next.isSubmit) { rec.status = 'READY_TO_SUBMIT'; screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
+      if (st.next.isSubmit) {
+        if (!SUBMIT) { rec.status = 'READY_TO_SUBMIT'; screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
+        await pause(700, 1500); await humanClick(st.next.sel); await pause(2500, 4000);
+        const after = await ev('(()=>{const d=document.querySelector("dialog[open], [role=dialog]");return (d?d.innerText:document.body.innerText).replace(/\\s+/g," ").slice(0,200)})()');
+        rec.receipt = after; rec.status = /application (was )?sent|applied|submitted/i.test(after) ? 'SUBMITTED' : 'SUBMIT_CLICKED_NO_RECEIPT';
+        screen.ms = Date.now() - ts; rec.screens.push(screen); break;
+      }
       await pause(700, 2200);
       await humanClick(st.next.sel);
       await pause(1200, 2600);
