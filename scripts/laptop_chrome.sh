@@ -10,11 +10,13 @@
 PORT=${CDP_PORT:-19222}
 ssh -o ConnectTimeout=15 -o BatchMode=yes wimlaptop 'powershell -NoProfile -Command "try { $null = Invoke-WebRequest -UseBasicParsing -TimeoutSec 4 http://127.0.0.1:9222/json/version; \"up\" } catch { schtasks /run /tn GeorgeJobApplicationsChrome | Out-Null; Start-Sleep 8; \"started\" }"' 2>/dev/null
 if ! curl -s -m 4 127.0.0.1:$PORT/json/version | grep -q Browser; then
-  ssh -o ConnectTimeout=15 -o BatchMode=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=20 -N -L 127.0.0.1:$PORT:127.0.0.1:9222 wimlaptop &
-  echo $! > /tmp/laptop_tunnel.pid; sleep 6
+  # tunnel output goes to /dev/null so it cannot hold this script's pipe open after we exit
+  ssh -o ConnectTimeout=15 -o BatchMode=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=20 -N -L 127.0.0.1:$PORT:127.0.0.1:9222 wimlaptop >/dev/null 2>&1 &
+  echo $! > /tmp/laptop_tunnel.pid
+  for i in $(seq 1 12); do curl -s -m 2 127.0.0.1:$PORT/json/version | grep -q Browser && break; sleep 0.5; done
 fi
 curl -s -m 6 127.0.0.1:$PORT/json/version | grep -q Browser || { echo "laptop Chrome not reachable on $PORT"; exit 1; }
-[ -n "$1" ] && curl -s -m 12 -X PUT "127.0.0.1:$PORT/json/new?$1" >/dev/null && sleep 6
+[ -n "$1" ] && curl -s -m 12 -X PUT "127.0.0.1:$PORT/json/new?$1" >/dev/null && sleep 1.5
 # bring the window in front of George (runs inside his desktop session via the interactive task ShowAgentChrome)
 ssh -o ConnectTimeout=10 -o BatchMode=yes wimlaptop "schtasks /run /tn ShowAgentChrome" >/dev/null 2>&1
 curl -s -m 6 127.0.0.1:$PORT/json | python3 -c 'import json,sys;[print(t["id"],"|",t["title"][:50],"|",t["url"][:80]) for t in json.load(sys.stdin) if t["type"]=="page"]' | head -10
