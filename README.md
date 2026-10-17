@@ -9,6 +9,7 @@ Read this file first. It is the whole story, so no session has to be told "remem
 ## Start here (state as of 2026-10-17, 9:30 am)
 
 - **Read "The menu" below to pick an option fast** (who does the work, where the browser lives, where the hands live, how the model sees), one good-for / bad-at line each.
+- **Read `me/george-dossier.md` before picking jobs or writing a cover letter.** Who George is, what he built, YES and NO job lanes, how to write. The thinker reads it once per batch; the script never needs it.
 - **Read `the-map.md` for what an agent is, in our words:** brain / hands / handbook, the three ways to do a task (Fable, sent model, dumb script), think-once-run-once, the leash, the sandbox. Settled 2026-10-17 with the Travolta test receipts.
 - **The browser pipe is the laptop's real Chrome.** One command: `bash scripts/laptop_chrome.sh "<url>"`. It starts Chrome if needed, opens the tunnel, opens the page, and puts the window on George's laptop screen. 7 to 15 seconds. The laptop Chrome is signed into LinkedIn.
 - **Do not start any other Chrome on any other port.** The old ones were turned off on purpose. See "One pipeline" below.
@@ -224,6 +225,7 @@ bash scripts/anti_freeze.sh
 
 ```
 README.md                       this
+me/george-dossier.md            George on one page: credentials, receipts, YES/NO job lanes, cover-letter voice (2026-10-17)
 the-map.md                      what an agent is, in plain words, + the Travolta three-lane test (2026-10-17)
 scripts/travolta_dumb.sh        the 6-second dumb script from the Travolta test (one fixed search, first hit)
 scripts/chrome.sh               wake phone Chrome + forward DevTools port + list tabs
