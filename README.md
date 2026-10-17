@@ -8,6 +8,7 @@ Read this file first. It is the whole story, so no session has to be told "remem
 
 ## Start here (state as of 2026-10-17, 9:30 am)
 
+- **Read "The menu" below to pick an option fast** (who does the work, where the browser lives, where the hands live, how the model sees), one good-for / bad-at line each.
 - **Read `the-map.md` for what an agent is, in our words:** brain / hands / handbook, the three ways to do a task (Fable, sent model, dumb script), think-once-run-once, the leash, the sandbox. Settled 2026-10-17 with the Travolta test receipts.
 - **The browser pipe is the laptop's real Chrome.** One command: `bash scripts/laptop_chrome.sh "<url>"`. It starts Chrome if needed, opens the tunnel, opens the page, and puts the window on George's laptop screen. 7 to 15 seconds. The laptop Chrome is signed into LinkedIn.
 - **Do not start any other Chrome on any other port.** The old ones were turned off on purpose. See "One pipeline" below.
@@ -16,6 +17,54 @@ Read this file first. It is the whole story, so no session has to be told "remem
 - **George's answers for forms are in `scripts/answers.json`.** Three choices are still his: email, salary, portfolio link.
 - **Two sessions can push here at the same time.** Pull before you push. Never force-push.
 - **Before a session closes,** add a dated entry to `journal.md` and push.
+
+## The menu (every option, where it is good, where it is bad)
+
+Pick from here. One line each so George can recall it without re-reading the story.
+
+**Who does the work**
+
+| Option | Good for | Bad at |
+|---|---|---|
+| **Fable does it, step by step** | Anything new, anything George wants to watch and steer; one-off jobs; the first run of any task | Slow: ~20 s of thinking per move; every page read lands in this chat and fills it |
+| **Sent model** (helper with a brief) | Long walks whose junk should stay out of the chat; many jobs at once; cheaper model for a dumb walk | Starts blank (knows only the brief); George cannot see it; its mistakes come back stamped "done" |
+| **Dumb script** (fixed clicks, no brain) | Any path already walked once; repeats; speed (6 s vs 37 s); zero tokens | Any surprise (moved button, new pop-up, captcha): it stops; needs the stop rule + a brain for the fix |
+| **Think once, run once** (model writes the whole script, runs it, reads the receipt) | The target shape for every task: 37-s Easy Apply, Travolta script | Needs every fork answered up front; first run of a new site still has holes |
+| **Cron loop** (alarm clock fires a script) | Anything on a schedule: mail watch, 9 am call, nightly check | Runs blind; needs a receipt and a "wake a model only if X" rule |
+| **Vapi phone line** (Ava calls) | Phone-only jobs: T-Mobile dispute, bank, any hold line; George's stutter stays out of it | Costs per minute; no eyes on a screen; receipt is the transcript only; must say it is an AI |
+
+**Where the browser lives**
+
+| Option | Good for | Bad at |
+|---|---|---|
+| **Laptop headed Chrome** (port 9222, task `GeorgeJobApplicationsChrome`, tunnel 19222) | THE default pipe. Passes bouncers (Home Depot 11 s), never frozen by Android, nobody uses its screen, logged into LinkedIn | Laptop must be on and plugged in; its window is in George's desktop session (needs `ShowAgentChrome` to show it) |
+| **George's phone Chrome** (port 9336) | When George wants to watch on his phone; passes every bouncer (home IP, real phone) | Android freezes it the moment he switches apps; shares his screen; door shuts on app switch |
+| **Phone Chrome Beta on the hidden screen** (port 9335) | Play Console, Google Ads, pages that need a signed-in Google without stealing George's screen | Same Android freezing; hidden tabs go stale; `/json/new` refused |
+| **Yana's phone** (adb `100.68.147.84:5555`, ssh 8022) | Second real phone address when one is not enough; fixing her phone from anywhere | Her screen, her apps; only touch when George says |
+| **Box Chromium (headless, in Termux/proot)** | Nothing on the public web; dead | Bounced everywhere (headless flag, proot slow) |
+| **Laptop headless Chrome** (port 9224, retired) | Nothing; turned off 10/14 | Bounced ("Oops, something went wrong"); headless is a robot flag |
+| **Bright Data fetcher** (`bdata scrape`, Unlocker) | Reading a page that blocks everything else (got Home Depot); clean markdown of a page | Reading only: no clicks, no login, no forms; $8/GB after the free GB |
+| **Bright Data rented browser** (Browser API) | Hour-long jobs while George drives and does not need to watch | Bounced by Home Depot even after paying; out of sight makes George anxious |
+
+**Where the agent's hands live**
+
+| Option | Good for | Bad at |
+|---|---|---|
+| **Termux on George's phone** (this box) | Home. Full handbook loads every time; adb to both phones; ssh to laptop; termux-api (say, clipboard, notifications); boots with the phone | Android is the landlord (can freeze or kill it); proot translator makes file work 2-5x slower |
+| **Google's Linux Terminal VM** (installed on the Z Flip 7, unopened) | Heavy file work, systemd services, Docker, Playwright; nothing phantom-killed inside | Sealed box: no phone storage, no termux-api, no boot start, reaches the phone only over Wi-Fi adb |
+| **Laptop (WSL2 or the Claude desktop app)** | Real Linux with no landlord; the browser is already there; free | Handbook not there yet (so it hesitates); laptop must be awake |
+| **claude.ai on the web** ("cloud session") | Nothing of ours; a rented empty box at Anthropic | None of George's files, keys, phones, or rules |
+| **Rented Linux box** ($4-6/mo Hetzner/DigitalOcean) | Always on, even with the phone off; services | Data-center address gets bounced by the same sites; not home |
+| **Root on the phone** | Would remove Android's wall (app-sleep list, adb forever, killers off) | Off: US Samsung bootloader locked; Knox fuse blows (Wallet, bank apps, Netflix HD, Linux Terminal) |
+
+**How the model sees**
+
+| Option | Good for | Bad at |
+|---|---|---|
+| **Whole page as text** (CDP `document.body.innerText`) | Web pages in one gulp; fast | Misses layout, hidden iframes (Google's payment box needed `cdpx.cjs`) |
+| **Accessibility tree / uiautomator dump** | Phone apps; buttons by name | Keyhole, one screen at a time; fails when "could not get idle state" |
+| **Screenshot** | Proof for George; captcha look; when text lies | Slow, big, costs tokens; last resort |
+| **Fetcher markdown** | Clean reading of a blocked page | Reading only |
 
 ## What we were trying to do
 
