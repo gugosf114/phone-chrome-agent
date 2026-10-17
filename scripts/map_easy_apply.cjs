@@ -138,6 +138,13 @@ function answerFor(label, type, options) {
     await ev('(()=>{const d=document.querySelector("dialog[open], [role=dialog], .jobs-easy-apply-modal");if(d){const b=[...d.querySelectorAll("button")].find(b=>/Dismiss|Discard|Close/i.test(b.innerText+(b.getAttribute("aria-label")||"")));if(b)b.click();}})()');
     await ev('(()=>{const d=document.querySelector("dialog[open], [role=dialog], .jobs-easy-apply-modal");if(d){const b=[...d.querySelectorAll("button")].find(b=>/^Discard/i.test(b.innerText+(b.getAttribute("aria-label")||"")));if(b)b.click();}})()');
     await pause(500, 1000);
+    // still open (Review page's X is an icon button): Escape opens "Save this application?", then real-click Discard
+    if (await ev('!!document.querySelector("dialog[open]")')) {
+      await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape' }); await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape' }); await pause(1200, 1800);
+      const ok = await ev('(()=>{const b=[...document.querySelectorAll("dialog[open] button")].find(b=>/discard/i.test((b.innerText||"")+" "+(b.getAttribute("aria-label")||"")));if(!b)return false;b.setAttribute("data-map-idx","disc");return true})()');
+      if (ok) await humanClick('[data-map-idx=disc]'); await pause(800, 1400);
+      if (await ev('!!document.querySelector("dialog[open]")')) console.log('  WARNING: form still open after dismiss');
+    }
   }
   const waitFor = async (expr, ms = 8000) => { const t0 = Date.now(); while (Date.now() - t0 < ms) { if (await ev(expr)) return true; await sleep(250); } return false; };
 
