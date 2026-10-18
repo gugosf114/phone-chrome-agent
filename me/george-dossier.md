@@ -15,7 +15,7 @@ Last checked 2026-10-17. Facts come from the Sept 2026 resume, the memory files,
 - **WiM** (abrahamyants/wim-android, public): voice-to-intent Android app with a speech-disfluency layer. Google Play closed testing. Pricing live. Sole inventor on a 35-claim US provisional patent (App. No. 64/100,336, filed June 27 2026).
 - **Lavrentiy** (abrahamyants/lavrentiy, public): the Windows twin, v1.7.11, works offline.
 - **Bakers Agent** (gugosf114/bakers-agent, public): Google Cloud system, 22 Cloud Functions, React dashboard, runs a live bakery's marketing behind approval gates. Bakers Agent 2 is the multi-client build.
-- **NoiseFile** (gugosf114/noisefile-android, public): Android app, noise rules for Bay Area cities turned into complaint workflows from archived official sources. In Google Play review.
+- **NoiseFile** (gugosf114/noisefile-android, public): Android app that checks a noise complaint against the city's own ordinance and files it the way that city wants. Repo README (Oct 2026): complaint workflows across 36 Bay Area cities, rules extracted offline from official sources (no live web call), 62-entry source manifest with hashes. In Google Play closed testing since Aug 2026, listing resubmitted Oct 2026. The Sept resume's "15 cities, 45 workflows, 52 sources" is the July number and needs updating.
 - **Heirloom** (public): old family photo restoration, Gemini image engine, Android.
 - **Climate Permit** (public): satirical California quiz app, Play alpha.
 - **Agent Bridge / phone-chrome-agent** (private): agents that drive his own phone and laptop with approval gates. One LinkedIn Easy Apply in 37 s; 30+ mapped walks.
