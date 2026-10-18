@@ -1,0 +1,752 @@
+George Abrahamyants
+
+AI Evaluations & Operations  | JD, UC Hastings | LLM Reliability | AI Governance
+
+Daly City, California, United States
+
+·
+
+Contact info
+
+Self Employed
+
+University of California, College of the Law, San Francisco (formerly UC Hastings)
+
+430 connections
+
+Open to
+Add section
+Enhance profile
+
+Open to work · Recruiters only
+
+San Francisco Bay Area | On-site · Hybrid · Remote
+
+Show details
+
+Tell non-profits you are interested in getting involved with your time and skills
+
+Get started
+
+Analytics
+
+Private to you
+
+42 profile views
+
+Discover who’s viewed your profile.
+
+76 post impressions
+
+Check out who’s engaging with your posts.
+
+Past 7 days
+
+23 search appearances
+
+See how often you appear in search results.
+
+Show all
+About
+
+I am a JD and applied AI builder with experience in multistate tax controversy, legal research, and regulated business operations.
+
+At Andersen, I managed audit defense, refund claims, voluntary disclosures, nexus reviews, and disputes involving the state tax treatment of major technology transactions. At the U.S. Department of Labor, I drafted a Defense Base Act decision that was affirmed on appeal. As COO of Phenotopia, I led a regulated facility through unanimous municipal approval and state licensing, then separately managed a $1.75 million retail buildout through opening.
+
+My current work includes WiM and Lavrentiy, voice-to-intent products for Android and Windows with dedicated speech-disfluency support. I am the sole inventor on the related 35-claim U.S. provisional patent application (App. No. 64/100,336).
+
+I also built Bakers Agent, a small-business AI operations platform used in bakery operations, and Audit Ledger, a tamper-evident evidence and AI-governance system.
+
+My focus is applied AI, AI operations, and legal technology.
+… more
+
+Top skills
+
+AI Governance • Tax Compliance • Large Language Models (LLM) • SALT • Regulatory Compliance
+
+Featured
+
+Media
+
+Order Denying Compensation and Benefits — Drafted for Hon. Richard M. Clark
+
+Authored a Defense Base Act benefits decision under Judge's direct supervision; the ruling was affirmed by the Benefits Review Board on appeal (Baba v. SOS Int'l, LLC, BRB No. 17-0440, Jan. 30, 2018).
+
+Media
+
+My Baking Creations — real traffic, zero ad spend
+
+Live bakery storefront — my first coding project (917 commits). ~2,000 monthly visitors on zero ad spend, pure SEO. Client work includes Fortune 500 logo cookies and Ice Cube's 55th birthday cake. Site: mybakingcreations.com
+
+Media
+
+Bakers Agent — agentic marketing platform
+
+Claude-generated content with human approval gates, posting across 5 platforms; SEO agent drafts website changes as pull requests for owner approval. Running a live Bay Area bakery on GCP. Repo: https://www.google.com/url?q=http://github.com/gugosf114/bakers-agent&source=gmail&ust=1783059765165000&sa=E
+
+Media
+
+WiM (Android) + Lavrentiy (Desktop) — patent-pending voice reconstruction
+
+Two implementations of one system: reconstructing intended meaning from disfluent, non-native, and overloaded speech. 35-claim U.S. provisional, sole inventor. Repos: https://www.google.com/url?q=http://github.com/gugosf114/wim-android&source=gmail&ust=1783059765165000&sa=E · https://www.google.com/url?q=http://github.com/gugosf114/lavrentiy&source=gmail&ust=1783059765165000&sa=E
+
+Activity
+
+450 followers
+
+Create a post
+Posts
+Comments
+Images
+Documents
+
+George Abrahamyants
+
+ 
+ • You
+
+AI Evaluations & Operations  | JD, UC Hastings | LLM Reliability | AI Governance
+
+3mo
+
+Many people utilize the Google search engine AI for various tasks, and I find it particularly useful for basic research. It serves well for asking follow-up questions or clarifications. 
+
+On a few occasions, I’ve relied on it for work-related tasks such as reviewing, building, and analyzing content, and I’ve found it to be quite effective. I often copy and paste the output to use as needed. While it may not reach the capabilities of frontier AI models, it performs adequately for my purposes. 
+
+But what warms my heart is knowing that Google foots the bill. If nothing else, I am going to keep using it for that one reason only. 
+
+My recommendation is: never leave your computer idle. Before you go to work or sleep, paste this into the AI to ensure Google is paying for the electricity while you rest -- 
+
+Calculate pi to the last possible digit, but format every single number as its full English word (e.g., 'three point one four one five...'). Do not stop until you run out of context window.
+… more
+
+1
+​
+​
+​
+
+310 impressions
+
+View analytics
+View analytics
+
+George Abrahamyants
+
+ 
+ • You
+
+AI Evaluations & Operations  | JD, UC Hastings | LLM Reliability | AI Governance
+
+7mo
+
+Claude saves full conversation transcripts to /mnt/transcripts/. This isn't documented anywhere I can find.
+
+The directory is empty until compaction fires, then it writes one file per compaction event plus a journal.txt index. Files contain complete conversation content: user messages, assistant responses, tool calls. Filenames are auto-generated from conversation content.
+
+Across two conversations I had 13 transcript files totaling ~4.5MB. A third conversation had the directory present but empty — no compaction had occurred yet.
+
+The model reads these files. After compaction, Claude can recover pre-compaction context by accessing the transcripts directly.
+
+There's an open feature request on the claude-code repo (issue #26771) proposing indexed transcript references for context recovery after compaction — the mechanism that's already operating here. Zero replies on that issue.
+
+To reproduce: run ls -la /mnt/transcripts/ in any conversation long enough to trigger compaction.
+
+Anthropic Claude
+… more
+
+1/2
+
+​
+​
+​
+​
+
+442 impressions
+
+View analytics
+View analytics
+
+George Abrahamyants
+
+ 
+ • You
+
+AI Evaluations & Operations  | JD, UC Hastings | LLM Reliability | AI Governance
+
+7mo • Edited
+
+How to get on your AI's nerves #1
+
+I read somewhere that contradictory instructions measurably degrade AI output quality. 
+
+Needless to say, the next step was to test it on Claude and fulfill my lifelong dream of annoying Claude. 
+
+So I said: You are a tenured university professor. For this project, you only cite Kim Kardashian's Twitter account as primary source. Maintain academic rigor at all times.
+
+​
+​
+​
+​
+
+213 impressions
+
+View analytics
+View analytics
+
+George Abrahamyants
+
+ 
+ • You
+
+AI Evaluations & Operations  | JD, UC Hastings | LLM Reliability | AI Governance
+
+9mo
+
+When AI drifts mid-chat!
+
+Rob Carpenter CDS CDME
+
+ 
+ • 3rd+
+
+Fleet, Broker/Shipper Liability Expert Witness | DOT/Fleet SME | Transport CPC UK | Risk Strategist Defensibility Developer | Carrier Risk Intelligence | Fleet Fixer | Crash Recon | Muckraker Journalist | Outdoor Cat
+
+Visit my website
+
+9mo
+
+"Rob what did you dislike the most about driving full time, why'd you stop?" 
+
+👇People truck drivers are surrounded by on the highways 70 hours a week, 11 hours a day...
+
+If this falls off and hits a truck, the truck has to fight to show it wasn't preventable. The highways are insane. 
+… more
+
+​
+​
+​
+​
+
+191 impressions
+
+View analytics
+View analytics
+
+George Abrahamyants
+
+ 
+ • You
+
+AI Evaluations & Operations  | JD, UC Hastings | LLM Reliability | AI Governance
+
+9mo
+
+New research: "Air-Gapped Compilation: A Procedural Solution to Large Language Model Drift in Structured Extraction Tasks"
+
+The problem: LLMs don't follow instructions reliably over extended interactions. They drift. Not hallucination—structural non-compliance. The model that was giving you atomic claims starts giving compound ones. The model citing verbatim quotes starts paraphrasing.
+
+For high-stakes work—legal, audit, compliance—"works most of the time" isn't good enough.
+
+The insight: The model that generates is the same model that validates. Contaminated context infects the validator. Self-assessment fails because the model carries the same drift that caused the error.
+
+The solution: Iron Pipeline—air-gapped compilation using three isolated sessions:
+• Generator produces structured output (allowed to drift)
+• Auditor validates against source (cannot see Generator's reasoning)
+• Regenerator rebuilds from scratch if needed (no anchoring to failed output)
+
+Tested across GPT-4, Gemini, and Claude. All configurations passed when the architecture was properly implemented.
+
+The takeaway: Drift is solvable for structured extraction—but only by moving enforcement outside the model. The model cannot police itself. An air-gapped external layer can.
+
+Full paper attached. Builds on my earlier work on NotebookLM as a deterministic compiler.
+
+#AIGovernance #LegalTech #Compliance #LLM #AIOperations
+… more
+
+Why LLMs Can't Police : 3 Validation Architecture
+
+9 pages
+
+​
+​
+​
+​
+
+232 impressions
+
+View analytics
+View analytics
+
+George Abrahamyants
+
+ 
+ • You
+
+AI Evaluations & Operations  | JD, UC Hastings | LLM Reliability | AI Governance
+
+9mo • Edited
+
+Most people prompt. I compile. NotebookLM isn't a chatbot. It's a deterministic compiler — if you treat it that way.
+
+Three-layer lock: Cognitive Mode (load audit weights, suppress creative weights), Hierarchical Truth (the Draft is the Rule, the Log is the Fact), Format Lock (force binary output, kill hedging space).
+
+I used this to extract 400k+ characters across 35 operator logs for my "12 Rules for AI" manuscript. Zero drift.
+
+The paper covers:
+Why drift happens (the model optimizes for "helpful," not correct)
+The Triage Protocol (rank by catastrophe, not volume)
+The Null Protocol (teach the model that "nothing found" is a valid output)
+Real failure modes caught in the wild (with verbatim exchanges)
+The model is the interpreter. The protocol is the code. The output is the truth.
+
+GitHub: https://lnkd.in/g3Ww4Eyw
+
+Full paper below.
+#AI #LLM #NotebookLM #AIGovernance #PromptEngineering
+… more
+
+NotebookLM Compiler Protocol
+
+4 pages
+
+2
+1
+​
+​
+
+198 impressions
+
+View analytics
+View analytics
+
+George Abrahamyants
+
+ 
+ • You
+
+AI Evaluations & Operations  | JD, UC Hastings | LLM Reliability | AI Governance
+
+10mo
+
+I discovered something about NotebookLM that I haven't seen documented anywhere.
+
+You can turn it into a deterministic compiler.
+
+Most people use it like a chat interface: upload documents, ask questions, hope the answers are accurate. The problem is drift—over time, the model blends sources, hedges conclusions, softens output.
+
+I developed a three-layer prompt architecture that eliminates drift entirely:
+
+Classification — tells the model what operation to run (audit vs synthesis)
+Hierarchy of Truth — defines which source is the standard, which is evidence
+Format Lock — forces structured output, eliminates hedging
+
+When all three are active, the model has no degrees of freedom. It can only execute the structure you gave it. You're not chatting with it. You're running a program. Full methodology + example prompts coming soon.
+
+#NotebookLM #PromptEngineering #LLMs #GenerativeAI #GoogleAI
+… more
+
+3
+3
+​
+​
+
+1,825 impressions
+
+View analytics
+View analytics
+
+George Abrahamyants
+
+ 
+ • You
+
+AI Evaluations & Operations  | JD, UC Hastings | LLM Reliability | AI Governance
+
+10mo
+
+I have no programming background. None. 
+
+Over the past several months, I've been reverse-engineering how AI systems fail under operational pressure. Probing until the systems revealed how they actually worked. Cross-referencing against the research literature. Triangulating outputs across GPT, Claude, Gemini to isolate where the failures originate. 
+
+Some context: JD, ten years across contracts, compliance, state tax. When I started using LLMs for real work, I noticed patterns. Confident outputs that didn't survive verification. Drift that got worse with clearer instructions. Appeasement loops where systems apologized and repeated the same error. 
+
+These weren't user failures. They were structural—and they had names in the literature. Sycophancy. Lost-in-the-middle. Context degradation. I just hadn't connected the research to the operational reality. 
+
+So I documented the patterns. Developed protocols. Tested what actually fixes them. 
+
+The result: "12 Rules for AI: An Operator's Field Manual" 
+
+29 pages. 17 academic citations. Protocols for anyone using these systems for work that requires verification—legal, finance, audit, compliance. 
+
+PDF attached. Feedback welcome.
+
+#AIGovernance #LegalOps #Compliance #LLMs #PromptEngineering #GenerativeAI #LegalTech #AIRisk #AIStrategy #FutureOfWork #LegalInnovation #RiskManagement #AICompliance #GRC
+… more
+
+12 Rules for AI: Field Manual for LLM System Failures
+
+29 pages
+
+2
+3
+​
+​
+
+277 impressions
+
+View analytics
+View analytics
+
+George Abrahamyants
+
+ 
+ • You
+
+AI Evaluations & Operations  | JD, UC Hastings | LLM Reliability | AI Governance
+
+11mo
+
+When companies rush to implement AI, they frequently overlook a crucial aspect: the importance of guardrails. An EY survey reveals that while 72% of organizations report having integrated or scaled AI, only one-third have established comprehensive governance protocols.
+
+For legal, compliance, and tax teams, the key question shifts from 'Can we build the AI?' to 'Can we trust it enough to sign off on its output, document the audit trail, and defend it if challenged?' 
+… more
+
+GenAI adoption outpaces governance, Ernst & Young finds
+GenAI adoption outpaces governance, Ernst & Young finds
+
+computerworld.com
+
+1
+​
+​
+​
+
+260 impressions
+
+View analytics
+View analytics
+
+George Abrahamyants
+
+ 
+ • You
+
+AI Evaluations & Operations  | JD, UC Hastings | LLM Reliability | AI Governance
+
+11mo
+
+AI adoption in tax has gone mainstream. As of October, 64% of tax professionals now use AI — up from 40% in February.
+
+Two-thirds of tax professionals now use AI, and pricing models are next in line for disruption
+Two-thirds of tax professionals now use AI, and pricing models are next in line for disruption
+
+globenewswire.com
+
+2
+​
+​
+​
+
+273 impressions
+
+View analytics
+View analytics
+
+Show all
+Experience
+
+ AI Developer & Independent Researcher
+
+Self Employed · Self-employed
+
+Jun 2025 - Present · 1 yr 5 mos
+
+San Francisco, California, United States · Hybrid
+
+• Built and operate Bakers Agent, a small-business AI operations platform used in bakery operations. It manages content, traditional and AI-search optimization, analytics, brand monitoring, and reviews behind approval controls. Built Bakers Agent 2 as the commercial version, with isolated deployments, automated onboarding and site audits, private dashboards, approval-controlled website fixes, scheduled drafts, and guided pilots.
+
+• Developed WiM for Android and Lavrentiy for Windows, voice-to-intent products with dedicated speech-disfluency support for repetitions, false starts, prolongations, long pauses, blocks, circumlocution, and word substitution. They use personal speech patterns to reconstruct intended meaning, clarify uncertain language, and place text into other applications.
+
+• Sole inventor on a 35-claim U.S. provisional patent application covering persistent cross-application controls, disfluency-aware reconstruction, bidirectional clarification, context preservation, failed-write recovery, and user-controlled insertion (App. No. 64/100,336; filed June 27, 2026).
+
+• Built Audit Ledger, a tamper-evident evidence and AI-governance system using SHA-256 hash chains, pre-commit confidence declarations, compliance mapping, gap detection, and adversarial claim verification.
+
+• Built Drift Auditor, a multi-turn diagnostic for dropped instructions, correction persistence, and operator burden. Analyzed 512 Claude and ChatGPT conversations containing 37,536 messages and documented 101 model failures involving source use, authorization, context recovery, and proof of completion.
+
+• Built and operate a live bakery website and its SEO and analytics systems. Delivered paid website work for a private-aviation detailing client.
+… more
+
+ Android Development, Google Cloud Platform (GCP) and +4 skills
+
+Senior Associate – State & Local Tax
+
+Andersen · Full-time
+
+Nov 2023 - Apr 2025 · 1 yr 6 mos
+
+San Francisco, California, United States · Hybrid
+
+• Managed multistate tax compliance and controversy for corporate and startup clients — audit defense, refund claims, voluntary disclosures, and nexus reviews.
+
+• Led engagements where the state tax consequences of major technology transactions were in dispute; negotiated audit resolutions that reduced client liabilities.
+
+• Drafted legal memoranda and structured recommendations on filing positions across income/franchise and sales & use tax.
+
+• Used LLM tools to analyze public clients' SEC filings — surfacing active sales & use tax audits, pending litigation, and credits & incentives positions — to prepare client intake and identify additional service opportunities.
+
+• Translated complex tax and regulatory issues into clear, actionable guidance for cross-functional teams.
+… more
+
+ Large Language Models (LLM), Tax Controversy and +5 skills
+
+Chief Operations Officer
+
+Phenotopia · Full-time
+
+Feb 2021 - May 2023 · 2 yrs 4 mos
+
+Santa Rosa, California, United States · On-site
+
+• Directed a $1.75 million retail construction buildout through building permits, construction, final municipal inspections, and opening. Managed contractors, engineers, consultants, municipal departments, vendor contracts, MSAs, NDAs, purchasing, and operating procedures. The business remains open.
+
+• Separately led a cultivation, distribution, and non-volatile manufacturing project from its municipal application through unanimous local approval and state licensing. Authored and coordinated the 33-page conditional-use-permit application and approximately $300,000 in engineering, traffic, odor, security, water, fire, building, and operating plans.
+
+• Built audit systems and compliance frameworks across construction, licensing, and business operations.
+… more
+
+374 Yolanda_Project Description.pdf
+
+A 33-page conditional-use-permit application submitted to the City of Santa Rosa for a cultivation, distribution, and non-volatile manufacturing facility. The package integrated land-use requirements, operating procedures, security, traffic, odor control, water treatment, fire and building compliance, and work from outside engineering and environmental consultants. This application was separate from the $1.75 million retail buildout described in the Experience entry.
+
+ Regulatory Compliance, Procurement and +3 skills
+
+Andersen
+
+3 yrs
+
+San Francisco Bay Area
+
+Associate — State & Local Tax
+
+Full-time
+
+Aug 2018 - Jan 2021 · 2 yrs 6 mos
+
+On-site
+
+• Conducted nexus studies, multistate compliance reviews, and exposure analyses across 20+ jurisdictions.
+
+• Supported audits, voluntary disclosures, refund claims, and tax controversy matters.
+
+• Prepared legal memoranda and structured recommendations for client tax positions.
+
+• Researched federal, state, and local codes to ensure accurate regulatory interpretation.
+… more
+
+ Legal Operations, Regulatory Compliance and +7 skills
+
+State & Local Tax Intern
+
+Feb 2018 - Aug 2018 · 7 mos
+
+• Supported senior associates in delivering multistate tax planning and compliance services.
+
+• Researched federal, state, and local tax codes to ensure regulatory alignment.
+
+• Prepared legal memoranda and nexus studies to clarify client tax obligations.
+… more
+
+ Regulatory Compliance, Data Analysis and +6 skills
+
+Legal Extern - IRS Office of the Chief Counsel
+
+Internal Revenue Service · Internship
+
+Aug 2017 - Nov 2017 · 4 mos
+
+San Francisco Bay Area · On-site
+
+• Drafted pleadings, motions, and legal memoranda for tax litigation.
+
+• Researched complex tax issues to support case strategies.
+
+• Reviewed extensive documentation, including tax returns and financial records, for evidentiary value.
+… more
+
+ Regulatory Compliance, Tax Law and +3 skills
+
+Show all
+Profile language
+
+English
+
+Public profile & URL
+
+www.linkedin.com/in/george-abrahamyan
+
+Who your viewers also viewed
+
+Private to you
+
+laborer at Chipotle Mexican Grill
+
+View
+
+Someone at Amirkabir University of Technology - Tehran Polytechnic
+
+View
+
+Operations Specialist in the Apparel Manufacturing industry from San Francisco Bay Area
+
+View
+
+Advertising Specialist at Old Republic Title
+
+View
+People you may know
+
+From your industry
+
+Ely Zuno 
+
+· 2nd
+
+Commercial Counsel at Fivetran
+
+Connect
+
+Horsens Labs
+
+· 3rd+
+
+Independent Developer at Self Employed
+
+Connect
+
+Constantine Papadakis 
+
+· 3rd
+
+The Smart Way to Handle Sales and Use Tax Questions Starts Here
+
+Connect
+
+Curtis Burrell 
+
+· 3rd+
+
+Artificial Intelligence Engineer at Replicate
+
+Connect
+
+Negin (Behrouzi) Moïse 
+
+· 2nd
+
+Commercial Counsel at Crosby AI
+
+Connect
+Show all
+You might like
+
+Pages for you
+
+California Privacy Protection Agency
+
+Government Administration
+
+7,802 followers
+
+Gabriela & 2 other connections follow this page
+
+Follow
+
+Institute for Law & AI (LawAI)
+
+Think Tanks
+
+27,073 followers
+
+Amit follows this page
+
+Follow
+Show all
+
+About
+
+Accessibility
+
+Talent Solutions
+
+Community Guidelines
+
+Careers
+
+Marketing Solutions 
+
+Privacy & Terms
+
+Ad Choices
+
+Advertising
+
+Sales Solutions
+
+Mobile
+
+Small Business
+
+Safety Center
+
+LinkedIn Corporation © 2026
+
+Questions?
+
+Visit our Help Center.
+
+Manage your account and privacy
+
+Go to your Settings.
+
+Recommendation transparency
+
+Learn more about Recommended Content.
+
+Select language
+
+العربية (Arabic)
+বাংলা (Bangla)
+Čeština (Czech)
+Dansk (Danish)
+Deutsch (German)
+Ελληνικά (Greek)
+English (English)
+Español (Spanish)
+فارسی (Persian)
+Suomi (Finnish)
+Français (French)
+हिंदी (Hindi)
+Magyar (Hungarian)
+Bahasa Indonesia (Indonesian)
+Italiano (Italian)
+עברית (Hebrew)
+日本語 (Japanese)
+한국어 (Korean)
+मराठी (Marathi)
+Bahasa Malaysia (Malay)
+Nederlands (Dutch)
+Norsk (Norwegian)
+ਪੰਜਾਬੀ (Punjabi)
+Polski (Polish)
+Português (Portuguese)
+Română (Romanian)
+Русский (Russian)
+Svenska (Swedish)
+తెలుగు (Telugu)
+ภาษาไทย (Thai)
+Tagalog (Tagalog)
+Türkçe (Turkish)
+Українська (Ukrainian)
+Tiếng Việt (Vietnamese)
+简体中文 (Chinese (Simplified))
+正體中文 (Chinese (Traditional))

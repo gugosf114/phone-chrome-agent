@@ -1,0 +1,288 @@
+Experience
+
+ AI Developer & Independent Researcher
+
+Self Employed · Self-employed
+
+Jun 2025 - Present · 1 yr 5 mos
+
+San Francisco, California, United States · Hybrid
+
+• Built and operate Bakers Agent, a small-business AI operations platform used in bakery operations. It manages content, traditional and AI-search optimization, analytics, brand monitoring, and reviews behind approval controls. Built Bakers Agent 2 as the commercial version, with isolated deployments, automated onboarding and site audits, private dashboards, approval-controlled website fixes, scheduled drafts, and guided pilots.
+
+• Developed WiM for Android and Lavrentiy for Windows, voice-to-intent products with dedicated speech-disfluency support for repetitions, false starts, prolongations, long pauses, blocks, circumlocution, and word substitution. They use personal speech patterns to reconstruct intended meaning, clarify uncertain language, and place text into other applications.
+
+• Sole inventor on a 35-claim U.S. provisional patent application covering persistent cross-application controls, disfluency-aware reconstruction, bidirectional clarification, context preservation, failed-write recovery, and user-controlled insertion (App. No. 64/100,336; filed June 27, 2026).
+
+• Built Audit Ledger, a tamper-evident evidence and AI-governance system using SHA-256 hash chains, pre-commit confidence declarations, compliance mapping, gap detection, and adversarial claim verification.
+
+• Built Drift Auditor, a multi-turn diagnostic for dropped instructions, correction persistence, and operator burden. Analyzed 512 Claude and ChatGPT conversations containing 37,536 messages and documented 101 model failures involving source use, authorization, context recovery, and proof of completion.
+
+• Built and operate a live bakery website and its SEO and analytics systems. Delivered paid website work for a private-aviation detailing client.
+
+ Android Development, Google Cloud Platform (GCP) and +4 skills
+
+Enhance with AI
+
+Senior Associate – State & Local Tax
+
+Andersen · Full-time
+
+Nov 2023 - Apr 2025 · 1 yr 6 mos
+
+San Francisco, California, United States · Hybrid
+
+• Managed multistate tax compliance and controversy for corporate and startup clients — audit defense, refund claims, voluntary disclosures, and nexus reviews.
+
+• Led engagements where the state tax consequences of major technology transactions were in dispute; negotiated audit resolutions that reduced client liabilities.
+
+• Drafted legal memoranda and structured recommendations on filing positions across income/franchise and sales & use tax.
+
+• Used LLM tools to analyze public clients' SEC filings — surfacing active sales & use tax audits, pending litigation, and credits & incentives positions — to prepare client intake and identify additional service opportunities.
+
+• Translated complex tax and regulatory issues into clear, actionable guidance for cross-functional teams.
+
+ Large Language Models (LLM), Tax Controversy and +5 skills
+
+Chief Operations Officer
+
+Phenotopia · Full-time
+
+Feb 2021 - May 2023 · 2 yrs 4 mos
+
+Santa Rosa, California, United States · On-site
+
+• Directed a $1.75 million retail construction buildout through building permits, construction, final municipal inspections, and opening. Managed contractors, engineers, consultants, municipal departments, vendor contracts, MSAs, NDAs, purchasing, and operating procedures. The business remains open.
+
+• Separately led a cultivation, distribution, and non-volatile manufacturing project from its municipal application through unanimous local approval and state licensing. Authored and coordinated the 33-page conditional-use-permit application and approximately $300,000 in engineering, traffic, odor, security, water, fire, building, and operating plans.
+
+• Built audit systems and compliance frameworks across construction, licensing, and business operations.
+
+374 Yolanda_Project Description.pdf
+
+A 33-page conditional-use-permit application submitted to the City of Santa Rosa for a cultivation, distribution, and non-volatile manufacturing facility. The package integrated land-use requirements, operating procedures, security, traffic, odor control, water treatment, fire and building compliance, and work from outside engineering and environmental consultants. This application was separate from the $1.75 million retail buildout described in the Experience entry.
+
+ Regulatory Compliance, Procurement and +3 skills
+
+Andersen
+
+3 yrs
+
+San Francisco Bay Area
+
+Associate — State & Local Tax
+
+Full-time
+
+Aug 2018 - Jan 2021 · 2 yrs 6 mos
+
+On-site
+
+• Conducted nexus studies, multistate compliance reviews, and exposure analyses across 20+ jurisdictions.
+
+• Supported audits, voluntary disclosures, refund claims, and tax controversy matters.
+
+• Prepared legal memoranda and structured recommendations for client tax positions.
+
+• Researched federal, state, and local codes to ensure accurate regulatory interpretation.
+
+Skills: Legal Operations, Regulatory Compliance, +7 skills
+
+State & Local Tax Intern
+
+Feb 2018 - Aug 2018 · 7 mos
+
+• Supported senior associates in delivering multistate tax planning and compliance services.
+
+• Researched federal, state, and local tax codes to ensure regulatory alignment.
+
+• Prepared legal memoranda and nexus studies to clarify client tax obligations.
+
+Skills: Regulatory Compliance, Data Analysis, +6 skills
+
+Legal Extern - IRS Office of the Chief Counsel
+
+Internal Revenue Service · Internship
+
+Aug 2017 - Nov 2017 · 4 mos
+
+San Francisco Bay Area · On-site
+
+• Drafted pleadings, motions, and legal memoranda for tax litigation.
+
+• Researched complex tax issues to support case strategies.
+
+• Reviewed extensive documentation, including tax returns and financial records, for evidentiary value.
+
+ Regulatory Compliance, Tax Law and +3 skills
+
+Legal Extern - USPS Pacific Area Law Office
+
+United States Postal Service
+
+May 2017 - Aug 2017 · 4 mos
+
+San Francisco Bay Area · On-site
+
+• Drafted motions and settlement agreements for EEOC and MSPB cases.
+
+• Researched employment law issues to support litigation strategy.
+
+• Attended proceedings and analyzed briefs and testimony.
+
+ Regulatory Compliance, Legal Research and +1 skill
+
+Judicial Extern to the Honorable Richard M. Clark
+
+U.S. Department of Labor
+
+Jan 2017 - Apr 2017 · 4 mos
+
+San Francisco Bay Area · On-site
+
+• Authored a Defense Base Act benefits decision under Judge's direct supervision; the ruling was affirmed by the Benefits Review Board on appeal (Baba v. SOS Int'l, LLC, BRB No. 17-0440, Jan. 30, 2018).
+
+• Analyzed briefs and testimony to support case outcomes.
+
+• Conducted in-depth legal research and wrote memoranda.
+
+Writing Sample _Decision Denying Benefits_Gurgen Abrahamyants.pdf
+
+Decision and Order Denying Compensation and Benefits drafted during my judicial externship under Administrative Law Judge Richard M. Clark’s supervision. The Benefits Review Board affirmed the decision in Baba v. SOS International, LLC, BRB No. 17-0440 (Jan. 30, 2018). Underlying matter No. 2015-LDA-00761.
+
+ Regulatory Compliance, Legal Research and +1 skill
+
+Policy Intern - Office of the Assessor Recorder 
+
+City and County of San Francisco
+
+Aug 2016 - Nov 2016 · 4 mos
+
+San Francisco
+
+• Researched property tax regulations and public finance policies.
+
+• Created outreach materials on tax relief programs for veterans and individuals with disabilities.
+
+• Translated communications into Russian and Armenian.
+
+ Regulatory Compliance, Legal Research and +1 skill
+
+Law Clerk
+
+AIDS Legal Referral Panel
+
+May 2016 - Aug 2016 · 4 mos
+
+San Francisco Bay Area
+
+• Conducted client intake and drafted legal memoranda in housing and consumer law.
+
+• Represented clients in grievance meetings to resolve disputes.
+
+• Drafted legal memoranda on bankruptcy and debt-related issues.
+
+ Regulatory Compliance, Legal Research and +1 skill
+
+Profile language
+
+English
+
+Who your viewers also viewed
+
+Private to you
+
+laborer at Chipotle Mexican Grill
+
+View
+
+Someone at Amirkabir University of Technology - Tehran Polytechnic
+
+View
+
+Operations Specialist in the Apparel Manufacturing industry from San Francisco Bay Area
+
+View
+
+Advertising Specialist at Old Republic Title
+
+View
+
+About
+
+Accessibility
+
+Talent Solutions
+
+Community Guidelines
+
+Careers
+
+Marketing Solutions 
+
+Privacy & Terms
+
+Ad Choices
+
+Advertising
+
+Sales Solutions
+
+Mobile
+
+Small Business
+
+Safety Center
+
+LinkedIn Corporation © 2026
+
+Questions?
+
+Visit our Help Center.
+
+Manage your account and privacy
+
+Go to your Settings.
+
+Recommendation transparency
+
+Learn more about Recommended Content.
+
+Select language
+
+العربية (Arabic)
+বাংলা (Bangla)
+Čeština (Czech)
+Dansk (Danish)
+Deutsch (German)
+Ελληνικά (Greek)
+English (English)
+Español (Spanish)
+فارسی (Persian)
+Suomi (Finnish)
+Français (French)
+हिंदी (Hindi)
+Magyar (Hungarian)
+Bahasa Indonesia (Indonesian)
+Italiano (Italian)
+עברית (Hebrew)
+日本語 (Japanese)
+한국어 (Korean)
+मराठी (Marathi)
+Bahasa Malaysia (Malay)
+Nederlands (Dutch)
+Norsk (Norwegian)
+ਪੰਜਾਬੀ (Punjabi)
+Polski (Polish)
+Português (Portuguese)
+Română (Romanian)
+Русский (Russian)
+Svenska (Swedish)
+తెలుగు (Telugu)
+ภาษาไทย (Thai)
+Tagalog (Tagalog)
+Türkçe (Turkish)
+Українська (Ukrainian)
+Tiếng Việt (Vietnamese)
+简体中文 (Chinese (Simplified))
+正體中文 (Chinese (Traditional))

@@ -1,5 +1,7 @@
 # George, on one page (read this before picking jobs or writing a cover letter)
 
+Companion: `me/writings.md` = his papers, posts, legal writing samples and LinkedIn profile facts, with the rule for which receipt fits which job. Raw LinkedIn text saved beside it (profile, experience, posts, Oct 17 2026).
+
 Last checked 2026-10-17. Facts come from the Sept 2026 resume, the memory files, and GitHub. Never call him an attorney. He is a lawyer by degree; he never took the bar.
 
 ## Who
