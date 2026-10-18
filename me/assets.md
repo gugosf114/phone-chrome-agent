@@ -1,5 +1,7 @@
 # The shelf — what George built that runs and can be shown
 
+> **Standing note (George, 2026-10-18 00:10):** this shelf and every job letter built from it rest on a partial read. Of 40 repos, 23 READMEs were read in full, WiM's in full, and 16 only their top 50 to 110 lines. Code was not read. So any letter or form answer that shows off an asset may carry errors, and those errors can surface in an interview. George said: "whatever you do is going to contain lots of errors... sorry but I should have prepared the better." Every session that drafts from this page must know that and must read the full README of any asset it puts in a letter before writing the line.
+
 Built 2026-10-17 by reading, not memory: all 33 repos on gugosf114, all 7 on abrahamyants, the Play Console by API (`play apps`, `play tracks`), and every live site by fetch. Every number names its source. `scripts/check_assets.py` re-pulls each source and confirms the number is still there.
 
 Rule (George, 2026-10-17): only things that run and can be shown. No drift tools, no papers, no field notes, no Agent Bridge, no Vapi lines, nothing without a repo, nothing half built.
