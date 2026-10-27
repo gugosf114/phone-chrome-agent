@@ -329,6 +329,11 @@ scripts/anti_freeze.sh          one-time Android settings (freezer off, phantom 
 scripts/floorplan.cjs           read-only site crawler: GET only, 2 doors deep, writes pages/links/buttons/inputs as JSON
 scripts/gather.cjs              read-only LinkedIn job gather (10/26): search with set filters, copy every posting + full description, mark walls, write logs/gather/<stamp>.json + .md; never applies, never picks
 scripts/walls.json              George's walls for gather.cjs: name + regex (+ "field": "title" for title-only); a hit = the rule name + the sentence it matched
+scripts/stage_ashby.cjs         fill one Ashby application to the "Submit Application" button with human hands, never submit (10/26); log + screenshot in logs/stage/
+scripts/stage_greenhouse.cjs    the same for Greenhouse (job-boards.greenhouse.io), stops at "Submit application" (10/26)
+scripts/stage_lib.cjs           what the two stagers share: answer book order, type-and-pick boxes, resume upload to the laptop, screenshot, 6-line receipt; refuses any press on a "submit" target
+recipes/ashby-apply.md          card: Ashby staging, proven 10/26 on OpenAI (76 s, 13 filled, 2 for George)
+recipes/greenhouse-apply.md     card: Greenhouse staging, proven 10/26 on Scale AI (95 s, 15 filled, 2 for George)
 floor-plans/github.md           plain-words floor plan of github.com (pages, links, buttons, fastest URLs), drawn 2026-10-26
 floor-plans/github-raw.json     the raw crawl behind it: 45 pages with links, buttons, inputs
 research/deep-research-prompt.md  the prompt that produced the report
