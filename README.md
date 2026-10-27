@@ -316,6 +316,13 @@ Follow-up 1 (10/27): the one authorized Easy Apply dialog tried a POST navigatio
 
 Follow-up guardrails: every run discovers today's `decorationId`/`queryId` from live `/voyager/api/` requests; any future authorized form replay must be checked on the reloaded job, `/jobs/tracker/` and `/my-items/saved-jobs/`, and any started/in-progress trace rules out pre-reading; the first HTTP 999 stops immediately with a persistent stop flag and no retry.
 
+## The picker file (2026-10-27)
+
+The picker is the model that reads a gather against the dossier, writings, assets, and resume-master and decides. It writes
+ONE file per run, `picks/picks-<stamp>.json`: per job `decision` yes/no/ask, `why`, the cover-letter angle, which one-page
+resume cut, and per-job form `rules`. The apply walker takes that same file as `--overrides`. Every `no` also lands in
+`scripts/no.json`. `ask` lines are the only thing George has to read. Shape and rules: `picks/README.md`.
+
 ## Rules learned the hard way
 
 - When George gives the answers for every fork, run the whole thing in one command. No look between presses.
@@ -339,6 +346,7 @@ scripts/cdpx.cjs                the 10/14 Google Ads driver: reads and clicks IN
 scripts/findclick.sh            find an element by its text, scroll it into view, real-click it (uses cdpx.cjs)
 scripts/fill.sh                 fill a field by its label, key by key, and read the value back (uses cdpx.cjs)
 scripts/clickread.cjs           one mouse click at x,y, then one read; no typing, no iframes
+picks/README.md                 the picker file: one file per gather, yes/no/ask + why + letter angle + resume cut + per-job rules; the walker reads it as --overrides (10/27)
 scripts/human.cjs               the hands, made to move like a person's (10/26): pointer path + press/release, key-by-key typing with jitter, wheel scroll, pauses; plain CDP; every new script clicks and types through this
 scripts/laptop_show_window.ps1  runs inside the laptop's desktop session (task ShowAgentChrome, /it) and brings the agent Chrome window to the front
 scripts/keepalive.js            silent-audio keep-awake, paste into a tab via CDP
