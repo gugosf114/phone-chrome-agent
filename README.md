@@ -312,6 +312,8 @@ wall now looks at the title only, and "sales" must be a whole word (so "Salesfor
 Measured: **30 jobs in 104.5 s (0.287 jobs/s)**; 33 data/document GETs, 2.50–3.96 s apart. See `docs/linkedin-api-notes.md` for endpoints and proof.
 Ban signals: **none**. Easy Apply questions: unavailable without opening Apply; `questions:null` has an explicit reason. Keep a two-minute gap from the DOM gather.
 
+Follow-up 1 (10/27): the one authorized Easy Apply dialog tried a POST navigation action, blocked by the GET-only guard; no form fields or Next appeared, Dismiss closed it, and schema extraction remains unavailable (exact evidence in `docs/linkedin-api-notes.md`).
+
 ## Rules learned the hard way
 
 - When George gives the answers for every fork, run the whole thing in one command. No look between presses.

@@ -137,3 +137,19 @@ The guarded DOM run returned empty descriptions for all five jobs. This comparis
 | 4481495473 | HCL Global Systems Inc | All four match |
 
 Comparison evidence: `logs/api-research/comparison.json`, `dom-run.json`, `dom-network.jsonl`, and `logs/gather/gather-2026-10-27-07-17-16.json`. No application was staged or submitted.
+
+## Follow-up 1 — one Easy Apply dialog (2026-10-27)
+
+**Schema extraction did not land under the GET-only rule.** Exactly one Easy Apply click was made, with `human.cjs`, on Turing job `4483291551`. Network recording and the write-blocking gate were active before navigation and the click. The browser attempted:
+
+```text
+POST /flagship-web/rsc-action/actions/navigation?screenId=com.linkedin.sdui.flagshipnav.jobs.easyapply.EasyApply&sduiid=com.linkedin.sdui.flagshipnav.jobs.easyapply.EasyApply
+```
+
+Its JSON request body contained `clientArguments.payload.jobId`, `companyName`, and `applicantTrackingSystemName:"LinkedIn"`. The guard blocked it before transmission. The dialog shell said `Apply to Turing`, then `Something went wrong on our end`, with only Dismiss and Refresh buttons. There were zero fields and no Next or Review button. No second screen could be reached. Refresh was not clicked.
+
+Dismiss was clicked with `human.cjs`; the final snapshot proved `dialog:false`. No Discard prompt appeared. No answers were entered, no request was changed to another method, and the dialog was not reopened. Two data/document GETs passed the gate. No account-warning signal was seen.
+
+This establishes that the observed live UI loads Easy Apply through a POST navigation action. It does **not** establish that LinkedIn serves schemas only after an application is started, nor that no legacy GET exists. No GET schema endpoint was observed, so there is no evidenced GET to replay for other jobs. `--questions` remains explicitly unavailable.
+
+Private proof: `logs/followup/dialog-once.json`, `dialog-network.jsonl` (including all data-call attempts and blocked POST bodies), `dialog-screen-1.json`, `dialog-report.json`. The one-dialog marker prevents an accidental repeat. This live probe also recorded the standalone description component's POST; that evidence is used in challenge 3.
