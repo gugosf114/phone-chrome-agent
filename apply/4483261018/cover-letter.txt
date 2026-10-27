@@ -6,6 +6,6 @@ At Andersen, over four years of multistate tax controversy, I negotiated audit r
 
 Since 2025 I build and operate Bakers Agent, a Google Cloud system of 40+ functions that runs a live business behind human approval gates: findings become pull requests, drafts wait for a human, every step is logged. I apply the same pattern to legal work: Audit Ledger, a tamper-evident evidence system with hash chains, and two published papers on where LLMs drift in structured extraction and how an external validation layer catches it. I am the sole inventor on a 35-claim U.S. provisional patent application.
 
-I have not run a CLM rollout at TikTok's scale. What I bring is the rarer half of the posting: a lawyer who ships automation and knows exactly where to put the approval gate. San Jose on-site is fine.
+What I bring is the rarer half of the posting: a lawyer who ships automation and knows exactly where to put the approval gate. San Jose on-site is fine.
 
 George Abrahamyants

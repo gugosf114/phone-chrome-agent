@@ -11,3 +11,6 @@ Shape that held (read before writing a new one): 250–300 words; "Dear <Company
 role and the one thing he built that matches it; receipts, not adjectives; "JD" and "lawyer by training", never "attorney";
 closes plainly. Replies on record: Legora sent an update 8/25/2026; Harvey sent acknowledgements 9/3–9/19/2026.
 The picker and the letter writer read these for voice, then write from me/cards/ and me/resume-master.md.
+
+**Rule (George, 10/27): never name a gap.** No "what I do not have", no "new to me", no "used, not mastered". We are his friend,
+not the bears'. Say what he has; the reader finds the rest on their own. A letter that volunteers a gap gets rewritten.

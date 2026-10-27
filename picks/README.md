@@ -48,3 +48,5 @@ Rules:
 - The picks file is committed. It is the receipt of what was chosen and why.
 
 Flow: gather → picks (+ apply/<jobId>/ files for every yes, pushed to the laptop) → George answers the asks → walk the yes list → receipt.
+
+**Letters never name a gap (George, 10/27).** No "I have not", "new to me", "not mastered". Say what he has. See me/letters/README.md.

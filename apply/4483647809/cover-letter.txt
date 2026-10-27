@@ -6,6 +6,6 @@ The assignment is three things: read a large set of agreements against their ter
 
 I also build contract-process tools. I run Bakers Agent, a Google Cloud system that works a live business's queue behind approval gates, so the "future technology-driven contract management" line in your posting is work I already do.
 
-Dealer and franchise agreements are new to me as a category. A contract is a contract; a day of reading closes that gap. Remote, full-time, two months, works for me.
+Remote, full-time, two months, works for me.
 
 George Abrahamyants
