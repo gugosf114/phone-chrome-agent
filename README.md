@@ -41,8 +41,8 @@ Pick from here. One line each so George can recall it without re-reading the sto
 | Option | Good for | Bad at |
 |---|---|---|
 | **Laptop headed Chrome** (port 9222, task `GeorgeJobApplicationsChrome`, tunnel 19222) | THE default pipe. Passes bouncers (Home Depot 11 s), never frozen by Android, nobody uses its screen, logged into LinkedIn | Laptop must be on and plugged in; its window is in George's desktop session (needs `ShowAgentChrome` to show it) |
-| **George's phone Chrome** (port 9336) | When George wants to watch on his phone; passes every bouncer (home IP, real phone) | Android freezes it the moment he switches apps; shares his screen; door shuts on app switch |
-| **Phone Chrome Beta on the hidden screen** (port 9335) | Play Console, Google Ads, pages that need a signed-in Google without stealing George's screen | Same Android freezing; hidden tabs go stale; `/json/new` refused |
+| **Phone Chrome, the agent's** (`com.android.chrome`, port 9336) | The agent's own browser on the phone, its own logins (George's daily browser is Chrome Beta, 43 tabs; this Chrome holds agent tabs only, found 10/26); passes every bouncer (home IP, real phone); since 10/26 keeps answering in the background | Android freezes it the moment he switches apps; shares his screen; door shuts on app switch |
+| **Phone Chrome Beta on the hidden screen** (port 9335) | Chrome Beta IS George's daily browser (`com.chrome.beta`), placed on a screen he never sees: same logins, same tabs. Play Console, Google Ads, anything already signed in, without stealing his screen | Same Android freezing; hidden tabs go stale; `/json/new` refused |
 | **Yana's phone** (adb `100.68.147.84:5555`, ssh 8022) | Second real phone address when one is not enough; fixing her phone from anywhere | Her screen, her apps; only touch when George says |
 | **Box Chromium (headed window on an invisible X screen, Termux/proot)** | ON again 2026-10-26 (George's call). Port 9222 on the box. Start: `bash /root/hchrome/start.sh`; stop: `bash /root/hchrome/start.sh stop`. Profile `george`. | Bounced by bouncer sites (Home Depot, Bright Data sign-up); use it where there is no bouncer |
 | **Laptop headless Chrome** (port 9224) | ON again 2026-10-26 (George's call). Task `GeorgeGoogleConsoleHeadless`, runs at logon. From the box: `ssh -N -L 127.0.0.1:19224:127.0.0.1:9224 wimlaptop`, then `CDP_PORT=19224`. Off: `schtasks /change /tn GeorgeGoogleConsoleHeadless /disable` | Bounced by bouncer sites ("Oops, something went wrong"); headless is a robot flag. Use it where there is no bouncer |
@@ -159,7 +159,7 @@ Too many Chromes on too many ports kept tripping the model. Now there is one pip
 - Laptop: task `ShowAgentChrome` (puts the window in front of George).
 - Laptop: task `AgentBridgeLaptop` (Windows desktop control; not a Chrome).
 - Box: one tunnel, `127.0.0.1:19222` to the laptop's 9222, opened by `scripts/laptop_chrome.sh`.
-- Phone: Chrome Beta on the hidden screen (port 9335: Play Console lane, Google Ads) and George's own Chrome (port 9336). Separate machine, separate lane, left alone.
+- Phone: Chrome Beta on the hidden screen (port 9335: Play Console lane, Google Ads; Beta is George's daily browser) and the agent's Chrome (port 9336, `com.android.chrome`, agent tabs only). Separate machine, separate lane, left alone.
 
 **Retired** (turned off, not deleted; XML backups in `C:\Users\georg\retired-chrome-tasks-2026-10-14\`):
 - `CaptureCurrentChrome`, `OpenMainChrome`, `OpenMainChromeFinal`, `OpenMainChromeInspect`, `OpenSavedGoogleChrome`, `StartChromeBridge` (one-time launchers from old experiments).
