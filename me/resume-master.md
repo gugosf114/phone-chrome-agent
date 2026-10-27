@@ -151,7 +151,7 @@ Sites and client work
 ## Education
 
 - UC College of the Law, San Francisco (formerly UC Hastings): JD, Tax Concentration, 2018; CALI Award; Production Editor, Hastings Business Law Journal <!-- src: resume.txt -->
-- University of California, Berkeley: BA, Political Science; Minor, Southeast Asian Studies, 2015; Distinction in General Scholarship <!-- src: resume.txt -->
+- University of California, Berkeley: BA with honors, Political Science; Minor, Southeast Asian Studies, 2015; Distinction in General Scholarship; GPA 3.85 <!-- src: resume.txt, george-dossier.md, George 2026-10-26 -->
 - Came to the US at 17; City College of San Francisco night classes at 26, then Berkeley, then Hastings <!-- src: george-dossier.md -->
 
 ## Patent
@@ -179,7 +179,7 @@ Sites and client work
 
 - Drift Auditor numbers (512 conversations / 37,536 messages / 101 failures): OFF every resume and letter. George's order of 2026-07-24 stands; the 2026-08-04 re-add was without his word. His LinkedIn page is his to edit. <!-- src: resume-master check block, george order 7/24 -->
 - GPA 3.85 belongs to the Berkeley BA (Political Science, 2015, Distinction in General Scholarship). The JD line carries the CALI Award and Hastings Business Law Journal, no GPA. <!-- src: george-dossier.md line 9, resume.txt -->
-- **OPEN, George only:** "JD, cum laude" appears in four 2026-08 resumes and nowhere in the dossier. Do not write it until George says yes.
+- JD is NOT cum laude (George, 2026-10-26). Never write it; the four 2026-08 resumes that say so are wrong. The Berkeley BA is with honors: Distinction in General Scholarship, 3.85. <!-- src: George 2026-10-26 -->
 - Years of legal, compliance, and regulated-operations work: 8. Never "ten" or "a decade". <!-- src: answers.json, george-facts.json years_experience -->
 - NoiseFile numbers: use the newest read, assets.md 2026-10-17 (36 cities, 108 workflows, public on Play). Re-read the repo README before the next letter; numbers move. <!-- src: assets.md -->
 - Bakery site: 117 HTML files and 1,414 commits as of 2026-10-17; "44 pages / 917 commits" is stale. <!-- src: assets.md -->

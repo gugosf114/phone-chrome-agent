@@ -2,7 +2,7 @@
 
 Companion: `me/writings.md` = his papers, posts, legal writing samples and LinkedIn profile facts, with the rule for which receipt fits which job. Raw LinkedIn text saved beside it (profile, experience, posts, Oct 17 2026).
 
-Last checked 2026-10-17. Facts come from the Sept 2026 resume, the memory files, and GitHub. Never call him an attorney. He is a lawyer by degree; he never took the bar.
+Last checked 2026-10-17. Facts come from the Sept 2026 resume, the memory files, and GitHub. Never call him an attorney. He is a lawyer by degree; he never took the bar. The JD is NOT cum laude (George, 10/26); the Berkeley BA is with honors (Distinction in General Scholarship, 3.85).
 
 ## Who
 - George Abrahamyants (legal name Gurgen). Daly City, CA 94015. 415-632-8008. gugosf@berkeley.edu. linkedin.com/in/george-abrahamyan. github.com/gugosf114 and github.com/abrahamyants.
