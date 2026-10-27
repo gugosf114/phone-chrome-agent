@@ -16,6 +16,8 @@
 // Job files (10/27): resume + cover letter per job from picks ("resume_file", "letter_file": laptop paths; "letter": the
 // letter's text) or the apply/<jobId>/ folder (meta.json names, pushed to the laptop by scripts/push_apply_files.sh).
 // A form that offers a cover letter with neither in hand stops that job: NEEDS_LETTER.
+// No silent skips (10/27): every field the form offers, required or optional, is filled from the book / picks, or the job
+// stops with NEEDS_INPUT naming the field. Nothing is left empty and walked past.
 
 const fs = require('fs'); const path = require('path');
 const human = require('./human.cjs');
@@ -57,6 +59,7 @@ function answerFor(label, type, options) {
     return null;
   }
   if (type === 'text' || type === 'textarea') return { value: BOOK.defaults.text, source: 'default:text' };
+  if (type === 'checkbox' && /agree|consent|acknowledge|terms|certify/i.test(l)) return { value: 'Yes', source: 'consent box' };
   return null;
 }
 const isMiss = src => !src || /^(NO_ANSWER|FAILED|default:(number|text|yesNo))/.test(src);
@@ -193,7 +196,12 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
       console.log(`  ticked ${ticked.length} of ${f.options.length} in "${f.label.slice(0, 60)}": ${ticked.join(', ')}`);
       return !!g && want.every(i => g.checked[i]);
     }
-    if (f.type === 'checkbox') { if (f.required || /agree|consent|acknowledge|terms/i.test(f.label)) return click(f.sel); entry.note = 'optional checkbox left alone'; a.source = 'left:' + a.source; return false; }
+    if (f.type === 'checkbox') { // one box: the book's No is an answer (left unticked, logged); anything else ticks it
+      if (/^no$/i.test(String(a.value))) { entry.note = 'book says No: left unticked'; return true; }
+      await click(f.sel); await h.pause(300, 600);
+      const g = ((await snap()).fields || []).find(x => x.type === 'checkbox' && x.label === f.label);
+      return !!(g && g.value);
+    }
     if (f.type === 'text' || f.type === 'number' || f.type === 'textarea' || f.type === 'typeahead') { const ok = await typeInto(f.sel, a.value); if (ok && f.type === 'typeahead') { await h.pause(900, 1500); await h.key('ArrowDown'); await h.key('Enter'); } return ok; }
     return false;
   }
@@ -281,6 +289,8 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
       if (!now || !((await snap()).resumeCards || []).find(c => c.name === F.resumeName && c.checked)) return { status: 'NEEDS_INPUT', field: 'resume not selected after ' + rec.resume };
       console.log(`  resume: ${rec.resume}`);
     }
+    const other = (st.uploads || []).filter(u => u.kind === 'other');
+    if (other.length) return { status: 'NEEDS_INPUT', field: 'upload: ' + other.map(u => u.text).join(', ') };
     if (!rec.letter && up('cover')) {
       if (!F.letterPath) return { status: 'NEEDS_LETTER', field: 'cover letter upload (no letter_file in picks, no apply/' + rec.jobId + '/ folder)' };
       if (!await upload(up('cover').sel, F.letterPath, F.letterName)) return { status: 'NEEDS_INPUT', field: 'cover letter upload failed: ' + F.letterName };
@@ -365,10 +375,13 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
         const stop = await handleDocs(st, rec, F);
         if (stop) { rec.status = stop.status; rec.needs = stop.field; console.log(`  ${stop.status}: ${stop.field}`); screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
         if (rec.resume || rec.letter) st = await snap();
+        const needs = []; // fields the book and picks cannot fill: the job stops here, naming them
         for (const f of st.fields) {
           const fork = `${st.heading}|${f.type}|${f.label.toLowerCase()}`;
           const isNew = !seen.has(fork); if (isNew) { seen.add(fork); rec.newForks.push(fork); }
           const entry = { type: f.type, label: f.label, group: f.group || undefined, required: !!f.required, options: f.options, had: f.value || '', filledWith: null, source: null, new: isNew };
+          if (f.type === 'checkbox' && /^Follow\b/i.test(f.label)) { entry.source = 'Follow box: unticked on Review'; screen.fields.push(entry); continue; }
+          if (f.type === 'file') { entry.source = 'NEEDS_INPUT'; needs.push('file: ' + f.label); screen.fields.push(entry); continue; }
           if (isResumeCard(f)) { entry.source = 'resume card: ' + (rec.resume || 'not handled'); screen.fields.push(entry); continue; }
           if (/cover letter/i.test(f.label) && (f.type === 'textarea' || f.type === 'text')) { // the letter as a text box: typed key by key
             if (!F.letterText) { rec.status = 'NEEDS_LETTER'; rec.needs = 'cover letter text box: ' + f.label; break; }
@@ -380,9 +393,8 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
             if (a) {
               const ok = await fillField(f, a, entry);
               if (ok) { entry.filledWith = a.value; entry.source = a.source; rec.filled++; }
-              else if (/^left:/.test(a.source)) entry.source = a.source;
-              else { entry.source = 'FAILED:' + a.source; rec.unanswered++; }
-            } else { entry.source = 'NO_ANSWER'; rec.unanswered++; }
+              else { entry.source = 'FAILED:' + a.source; rec.unanswered++; needs.push(`${f.label || f.type} ("${a.value}" could not be set${entry.note ? ': ' + entry.note : ''})`); }
+            } else { entry.source = 'NO_ANSWER'; rec.unanswered++; needs.push(`${f.label || '(no label)'} [${f.type}${f.required ? ', required' : ', optional'}${f.options && f.options.length ? ': ' + f.options.slice(0, 6).join('/') : ''}]`); }
             await h.pause(300, 900);
           } else if (f.value && CHECKED_TYPES.has(f.type) && !isResumeCard(f)) {
             // LinkedIn pre-fills answers from old applications. Each one gets the same book check as an empty box;
@@ -399,6 +411,7 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
           }
           screen.fields.push(entry);
         }
+        if (needs.length && rec.status !== 'NEEDS_LETTER') { rec.status = 'NEEDS_INPUT'; rec.needs = needs.join(' | '); console.log(`  NEEDS_INPUT: ${rec.needs}`); screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
         if (rec.status === 'NEEDS_LETTER') { console.log(`  NEEDS_LETTER: ${rec.needs}`); screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
         st = await snap();
         const stillEmpty = st.fields.filter(f => f.required && !f.value && f.type !== 'file' && f.type !== 'checkbox');
