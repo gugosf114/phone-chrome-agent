@@ -44,8 +44,8 @@ Pick from here. One line each so George can recall it without re-reading the sto
 | **George's phone Chrome** (port 9336) | When George wants to watch on his phone; passes every bouncer (home IP, real phone) | Android freezes it the moment he switches apps; shares his screen; door shuts on app switch |
 | **Phone Chrome Beta on the hidden screen** (port 9335) | Play Console, Google Ads, pages that need a signed-in Google without stealing George's screen | Same Android freezing; hidden tabs go stale; `/json/new` refused |
 | **Yana's phone** (adb `100.68.147.84:5555`, ssh 8022) | Second real phone address when one is not enough; fixing her phone from anywhere | Her screen, her apps; only touch when George says |
-| **Box Chromium (headless, in Termux/proot)** | Nothing on the public web; dead | Bounced everywhere (headless flag, proot slow) |
-| **Laptop headless Chrome** (port 9224, retired) | Nothing; turned off 10/14 | Bounced ("Oops, something went wrong"); headless is a robot flag |
+| **Box Chromium (headed window on an invisible X screen, Termux/proot)** | ON again 2026-10-26 (George's call). Port 9222 on the box. Start: `bash /root/hchrome/start.sh`; stop: `bash /root/hchrome/start.sh stop`. Profile `george`. | Bounced by bouncer sites (Home Depot, Bright Data sign-up); use it where there is no bouncer |
+| **Laptop headless Chrome** (port 9224) | ON again 2026-10-26 (George's call). Task `GeorgeGoogleConsoleHeadless`, runs at logon. From the box: `ssh -N -L 127.0.0.1:19224:127.0.0.1:9224 wimlaptop`, then `CDP_PORT=19224`. Off: `schtasks /change /tn GeorgeGoogleConsoleHeadless /disable` | Bounced by bouncer sites ("Oops, something went wrong"); headless is a robot flag. Use it where there is no bouncer |
 | **Bright Data fetcher** (`bdata scrape`, Unlocker) | Reading a page that blocks everything else (got Home Depot); clean markdown of a page | Reading only: no clicks, no login, no forms; $8/GB after the free GB |
 | **Bright Data rented browser** (Browser API) | Hour-long jobs while George drives and does not need to watch | Bounced by Home Depot even after paying; out of sight makes George anxious |
 
@@ -163,7 +163,7 @@ Too many Chromes on too many ports kept tripping the model. Now there is one pip
 
 **Retired** (turned off, not deleted; XML backups in `C:\Users\georg\retired-chrome-tasks-2026-10-14\`):
 - `CaptureCurrentChrome`, `OpenMainChrome`, `OpenMainChromeFinal`, `OpenMainChromeInspect`, `OpenSavedGoogleChrome`, `StartChromeBridge` (one-time launchers from old experiments).
-- `GeorgeGoogleConsoleHeadless` (ran at every logon: a headless Chrome on 9224 for the old Analytics/Search Console reader; the API does that job). Its Chrome and daemon were stopped.
+- `GeorgeGoogleConsoleHeadless` (ran at every logon: a headless Chrome on 9224 for the old Analytics/Search Console reader; the API does that job). Its Chrome and daemon were stopped. **Turned back ON 2026-10-26 on George's word**, together with the box's hidden Chromium on 9222. Rule from George: we know where a headless works and where it does not; we pick, we take the hit.
 - Tonight's dead try on 9229 and its `C:\agent-chrome` profile folder: removed. Leftover box tunnels: closed.
 
 **Bring one back:** on the laptop, `schtasks /change /tn <name> /enable`. Or re-import: `schtasks /create /tn <name> /xml C:\Users\georg\retired-chrome-tasks-2026-10-14\<name>.xml`.
