@@ -1,4 +1,7 @@
 // human.cjs — the agent's hands, made to move like a person's. Plain CDP, no Playwright. Built 2026-10-26.
+// v2 (same night): folded in the other model's helper (hidden-operator/web/human.cjs on the phone): no Runtime.enable,
+// bring the tab to front and refuse to act on a hidden tab, settle + one idle move before the first action, wheel-scroll
+// (not JS scrollIntoView) until the target is in view, Shift held for capitals, a real finger (touch events) on Android.
 //
 // Why: our scripts clicked with element.click() and filled boxes by setting .value. No pointer ever moved,
 // no key was ever pressed. Captcha scoring (reCAPTCHA v3/Enterprise, Cloudflare) watches exactly that.
@@ -12,122 +15,167 @@
 //   const h = await human.attach(tab);          // tab = an entry from http://127.0.0.1:<port>/json (type page)
 //   await h.click('button[aria-label="Easy Apply"]');       // CSS selector, or {text:/^Next$/i}
 //   await h.type('input[name=email]', 'name@example.com'); // clears the box first, then key by key
+//   await h.key('Enter');                                   // one key, no box
 //   await h.pause();                                        // a short human pause (250–900 ms)
-//   await h.scrollTo('#submit');                            // scroll the element into view, wheel steps
 //   h.close();
 //
 // Command line test:
-//   CDP_PORT=9222 node human.cjs <tabUrlSubstring> click '<selector>'
-//   CDP_PORT=9222 node human.cjs <tabUrlSubstring> type '<selector>' '<text>'
+//   CDP_PORT=9222 node human.cjs <tabUrlSubstring> click '<css or text:regex>'
+//   CDP_PORT=9222 node human.cjs <tabUrlSubstring> type '<css>' '<text>'
+//
+// Speed dial: HUMAN_SPEED=0 makes every pause zero (still real pointer + real keys). Default 1.
 
 const WebSocket = globalThis.WebSocket || (() => { try { return require('ws'); } catch { return require('/root/mbc-analytics/node_modules/ws'); } })();
-const sleep = ms => new Promise(r => setTimeout(r, ms));
+const SPEED = process.env.HUMAN_SPEED === undefined ? 1 : +process.env.HUMAN_SPEED;
+const sleep = ms => new Promise(r => setTimeout(r, ms * SPEED));
 const rnd = (a, b) => a + Math.random() * (b - a);
 const jitter = (a, b) => sleep(rnd(a, b));
 
-// Where the pretend pointer is right now, per attached tab (so paths start from the last spot, like a real hand).
+const VK = { Enter: 13, Tab: 9, Escape: 27, Backspace: 8, ArrowDown: 40, ArrowUp: 38, ArrowLeft: 37, ArrowRight: 39, ' ': 32 };
+const keyOf = (ch) => {
+  if (/^[a-z]$/.test(ch)) return { key: ch, code: 'Key' + ch.toUpperCase(), vk: ch.toUpperCase().charCodeAt(0), text: ch, shift: false };
+  if (/^[A-Z]$/.test(ch)) return { key: ch, code: 'Key' + ch, vk: ch.charCodeAt(0), text: ch, unmod: ch.toLowerCase(), shift: true };
+  if (/^[0-9]$/.test(ch)) return { key: ch, code: 'Digit' + ch, vk: ch.charCodeAt(0), text: ch, shift: false };
+  if (ch === ' ') return { key: ' ', code: 'Space', vk: 32, text: ' ', shift: false };
+  if (ch === '\n') return { key: 'Enter', code: 'Enter', vk: 13, text: '\r', shift: false };
+  const shifted = '~!@#$%^&*()_+{}|:"<>?';
+  return { key: ch, code: '', vk: 0, text: ch, shift: shifted.includes(ch) };
+};
+
 async function attach(tab, opts = {}) {
   const ws = new WebSocket(tab.webSocketDebuggerUrl);
   await new Promise((r, j) => { ws.onopen = r; ws.onerror = j; });
   let id = 0; const pend = {};
   ws.onmessage = e => { const m = JSON.parse(e.data); if (m.id && pend[m.id]) { pend[m.id](m); delete pend[m.id]; } };
-  const send = (method, params = {}) => new Promise((res, rej) => { const i = ++id; pend[i] = m => m.error ? rej(new Error(m.error.message)) : res(m.result); ws.send(JSON.stringify({ id: i, method, params })); });
+  const send = (method, params = {}) => new Promise((res, rej) => { const i = ++id; pend[i] = m => m.error ? rej(new Error(method + ': ' + m.error.message)) : res(m.result || {}); ws.send(JSON.stringify({ id: i, method, params })); });
+  // No Runtime.enable on purpose: it is one of the automation marks pages can see. evaluate works without it.
   const evaluate = async (expression) => { const r = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true, userGesture: true }); if (r.exceptionDetails) throw new Error(r.exceptionDetails.text || 'page error'); return r.result.value; };
-  await send('Page.enable'); await send('Runtime.enable');
-  const pointer = { x: rnd(80, 300), y: rnd(120, 400) };
   const log = opts.log || (() => {});
 
-  // Find the element. selector = CSS string, or {text:/regex/i, tag:'button'} to match visible text.
-  const finder = (sel) => typeof sel === 'string'
-    ? `document.querySelector(${JSON.stringify(sel)})`
-    : `[...document.querySelectorAll(${JSON.stringify(sel.tag || 'button, a, [role=button], input[type=submit], label')})].filter(e=>e.getBoundingClientRect().height>0).find(e=>${sel.text.toString()}.test((e.innerText||e.value||e.getAttribute('aria-label')||'').trim()))`;
+  // Which kind of hand: a finger on Android Chrome, a mouse everywhere else.
+  const env = await evaluate(`({touch: navigator.maxTouchPoints > 0 && /Android/i.test(navigator.userAgent), vw: innerWidth, vh: innerHeight})`);
+  const touch = opts.touch === undefined ? env.touch : opts.touch;
+  const pointer = { x: rnd(env.vw * 0.2, env.vw * 0.6), y: rnd(env.vh * 0.2, env.vh * 0.5) };
 
-  // Centre of the element in viewport coords, with a little off-centre wobble like a thumb or a mouse.
-  const where = async (sel) => {
-    const r = await evaluate(`(()=>{const e=${finder(sel)}; if(!e) return null; e.scrollIntoView({block:'center',inline:'center'}); const b=e.getBoundingClientRect(); return {x:b.left,y:b.top,w:b.width,h:b.height,tag:e.tagName,name:(e.innerText||e.value||e.getAttribute('aria-label')||'').trim().slice(0,40)}})()`);
-    if (!r) throw new Error(`human: no element for ${JSON.stringify(sel)}`);
-    if (r.w === 0 || r.h === 0) throw new Error(`human: element has no size ${JSON.stringify(sel)}`);
-    return { x: r.x + r.w * rnd(0.3, 0.7), y: r.y + r.h * rnd(0.3, 0.7), name: r.name, tag: r.tag };
+  // The tab must be in front and visible, or the page scores the action as coming from nowhere.
+  const front = async () => {
+    await send('Page.bringToFront').catch(() => {});
+    const hidden = await evaluate('document.hidden');
+    if (hidden) throw new Error('human: tab is hidden (document.hidden). Bring Chrome to the front first.');
   };
 
-  // Move the pretend pointer along a slightly curved path in 8–18 steps, slower near the end.
+  const finder = (sel) => typeof sel === 'string'
+    ? `document.querySelector(${JSON.stringify(sel)})`
+    : `[...document.querySelectorAll(${JSON.stringify(sel.tag || 'button, a, [role=button], input[type=submit], label, summary')})].filter(e=>e.getBoundingClientRect().height>0).find(e=>${sel.text.toString()}.test((e.innerText||e.value||e.getAttribute('aria-label')||'').trim()))`;
+  const readBox = async (sel) => evaluate(`(()=>{const e=${finder(sel)}; if(!e) return null; const b=e.getBoundingClientRect(); return {x:b.left,y:b.top,w:b.width,h:b.height,vw:innerWidth,vh:innerHeight,tag:e.tagName,name:(e.innerText||e.value||e.getAttribute('aria-label')||'').trim().slice(0,40)}})()`);
+  const inView = b => b.y >= 0 && b.y + b.h <= b.vh && b.x >= 0 && b.x + b.w <= b.vw;
+
+  // A curved path from the pointer to (x,y): 8–18 steps, fast start, slow landing.
+  const path = (x, y) => {
+    const steps = Math.round(rnd(8, 18)), sx = pointer.x, sy = pointer.y;
+    const cx = (sx + x) / 2 + rnd(-40, 40), cy = (sy + y) / 2 + rnd(-40, 40);
+    const pts = [];
+    for (let i = 1; i <= steps; i++) { const t = i / steps, e = 1 - Math.pow(1 - t, 2); pts.push({ x: (1 - e) * (1 - e) * sx + 2 * (1 - e) * e * cx + e * e * x, y: (1 - e) * (1 - e) * sy + 2 * (1 - e) * e * cy + e * e * y }); }
+    return pts;
+  };
   const moveTo = async (x, y) => {
-    const steps = Math.round(rnd(8, 18));
-    const sx = pointer.x, sy = pointer.y;
-    const cx = (sx + x) / 2 + rnd(-40, 40), cy = (sy + y) / 2 + rnd(-40, 40); // one control point = a gentle curve
-    for (let i = 1; i <= steps; i++) {
-      const t = i / steps, e = 1 - Math.pow(1 - t, 2); // ease-out: fast start, slow landing
-      const px = (1 - e) * (1 - e) * sx + 2 * (1 - e) * e * cx + e * e * x;
-      const py = (1 - e) * (1 - e) * sy + 2 * (1 - e) * e * cy + e * e * y;
-      await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: px, y: py, button: 'none' });
-      await jitter(8, 22);
+    for (const p of path(x, y)) { await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: p.x, y: p.y, button: 'none', buttons: 0, pointerType: 'mouse' }); pointer.x = p.x; pointer.y = p.y; await jitter(8, 22); }
+  };
+  const tp = (p, force) => ({ x: p.x, y: p.y, id: 1, radiusX: rnd(7, 12), radiusY: rnd(7, 12), force });
+  const finger = async (from, to) => {
+    const pts = [from, ...path.call(null, to.x, to.y)];
+    await send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [tp(pts[0], rnd(0.4, 0.7))] });
+    for (let i = 1; i < pts.length; i++) { await jitter(8, 20); await send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [tp(pts[i], rnd(0.4, 0.8))] }); }
+    await jitter(40, 110);
+    await send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    pointer.x = to.x; pointer.y = to.y;
+  };
+
+  // Wheel (or a finger swipe on the phone) until the element is in view. Never a JS scroll.
+  const scrollTo = async (sel) => {
+    let b = null;
+    for (let i = 0; i < 14; i++) {
+      b = await readBox(sel);
+      if (!b) throw new Error(`human: no element for ${JSON.stringify(sel)}`);
+      if (b.w < 2 || b.h < 2) throw new Error(`human: element has no size ${JSON.stringify(sel)}`);
+      if (inView(b)) return b;
+      const centre = b.y + b.h / 2 - b.vh / 2;
+      const dy = Math.sign(centre) * Math.min(Math.abs(centre), rnd(200, 420));
+      const at = { x: b.vw * rnd(0.35, 0.65), y: b.vh * rnd(0.35, 0.65) };
+      if (touch) await finger({ x: at.x, y: b.vh * 0.62 }, { x: at.x + rnd(-10, 10), y: b.vh * 0.62 - dy });
+      else { await moveTo(at.x, at.y); await send('Input.dispatchMouseEvent', { type: 'mouseWheel', x: at.x, y: at.y, deltaX: 0, deltaY: dy, pointerType: 'mouse' }); }
+      await jitter(90, 220);
     }
-    pointer.x = x; pointer.y = y;
+    throw new Error(`human: could not scroll ${JSON.stringify(sel)} into view`);
   };
 
   const click = async (sel) => {
     await jitter(150, 450);
-    const p = await where(sel);
-    await moveTo(p.x, p.y);
-    await jitter(60, 180); // hover a beat
-    await send('Input.dispatchMouseEvent', { type: 'mousePressed', x: p.x, y: p.y, button: 'left', clickCount: 1 });
-    await jitter(50, 130); // a real press lasts a moment
-    await send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: p.x, y: p.y, button: 'left', clickCount: 1 });
-    log(`click ${p.tag} "${p.name}"`);
+    await front();
+    const b = await scrollTo(sel);
+    const hit = { x: b.x + b.w * rnd(0.3, 0.7), y: b.y + b.h * rnd(0.3, 0.7) };
+    if (touch) {
+      await finger({ x: hit.x + rnd(-2, 2), y: hit.y + rnd(-2, 2) }, hit);
+    } else {
+      await moveTo(hit.x, hit.y);
+      await jitter(60, 180);
+      await send('Input.dispatchMouseEvent', { type: 'mousePressed', x: hit.x, y: hit.y, button: 'left', buttons: 1, pointerType: 'mouse', clickCount: 1 });
+      await jitter(50, 130);
+      await send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: hit.x, y: hit.y, button: 'left', buttons: 0, pointerType: 'mouse', clickCount: 1 });
+    }
+    log(`${touch ? 'tap' : 'click'} ${b.tag} "${b.name}"`);
     await jitter(200, 600);
-    return p;
+    return hit;
   };
 
-  // Type key by key. Clears the box first with a real select-all + backspace. Keeps Unicode and punctuation.
+  const shift = (type, modifiers) => send('Input.dispatchKeyEvent', { type, key: 'Shift', code: 'ShiftLeft', windowsVirtualKeyCode: 16, nativeVirtualKeyCode: 16, modifiers, location: 1 });
+  const pressChar = async (ch) => {
+    const d = keyOf(ch);
+    const gap = rnd(55, 150), hold = Math.min(rnd(28, 70), gap - 15);
+    if (d.shift) await shift('rawKeyDown', 8);
+    await send('Input.dispatchKeyEvent', { type: 'keyDown', key: d.key, code: d.code, text: d.text, unmodifiedText: d.unmod || d.text, windowsVirtualKeyCode: d.vk, nativeVirtualKeyCode: d.vk, modifiers: d.shift ? 8 : 0 });
+    await sleep(hold);
+    await send('Input.dispatchKeyEvent', { type: 'keyUp', key: d.key, code: d.code, windowsVirtualKeyCode: d.vk, nativeVirtualKeyCode: d.vk, modifiers: d.shift ? 8 : 0 });
+    if (d.shift) await shift('keyUp', 0);
+    await sleep(gap - hold + (ch === ' ' ? rnd(30, 90) : 0));
+    if (Math.random() < 0.04) await jitter(250, 700); // sometimes a person just stops to think
+  };
+
+  // Type key by key. Clears the box first with a real select-all + backspace.
   const type = async (sel, text, { clear = true } = {}) => {
     await click(sel);
     if (clear) {
-      await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'a', code: 'KeyA', modifiers: 2, commands: ['selectAll'] });
-      await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'a', code: 'KeyA', modifiers: 2 });
+      await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'a', code: 'KeyA', windowsVirtualKeyCode: 65, modifiers: 2, commands: ['selectAll'] });
+      await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'a', code: 'KeyA', windowsVirtualKeyCode: 65, modifiers: 2 });
       await jitter(40, 90);
-      await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Backspace', code: 'Backspace', windowsVirtualKeyCode: 8 });
-      await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Backspace', code: 'Backspace', windowsVirtualKeyCode: 8 });
-      await jitter(80, 160);
+      await key('Backspace');
     }
-    for (const ch of [...text]) {
-      if (ch === '\n') {
-        await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, text: '\r' });
-        await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
-      } else {
-        await send('Input.dispatchKeyEvent', { type: 'keyDown', key: ch, text: ch, unmodifiedText: ch });
-        await send('Input.dispatchKeyEvent', { type: 'keyUp', key: ch });
-      }
-      await jitter(ch === ' ' ? 90 : 55, ch === ' ' ? 220 : 150); // people pause a bit longer at spaces
-      if (Math.random() < 0.04) await jitter(250, 700);              // and sometimes just stop to think
-    }
-    log(`type ${JSON.stringify(sel)} (${[...text].length} keys)`);
+    for (const ch of [...String(text)]) await pressChar(ch);
+    log(`type ${JSON.stringify(sel)} (${[...String(text)].length} keys)`);
     await jitter(150, 400);
   };
 
-  // Press one key with no box in mind (Enter, Tab, Escape, ArrowDown).
+  // One named key with no box in mind (Enter, Tab, Escape, ArrowDown, Backspace).
   const key = async (name) => {
-    const codes = { Enter: 13, Tab: 9, Escape: 27, ArrowDown: 40, ArrowUp: 38, Backspace: 8 };
-    const base = { key: name, code: name, windowsVirtualKeyCode: codes[name] };
+    const base = { key: name, code: name, windowsVirtualKeyCode: VK[name], nativeVirtualKeyCode: VK[name] };
     await send('Input.dispatchKeyEvent', { type: 'keyDown', ...base, ...(name === 'Enter' ? { text: '\r' } : {}) });
     await jitter(40, 110);
     await send('Input.dispatchKeyEvent', { type: 'keyUp', ...base });
     await jitter(120, 350);
   };
 
-  // Scroll with wheel steps until the element is in view (pages watch scroll too).
-  const scrollTo = async (sel) => {
-    for (let i = 0; i < 12; i++) {
-      const d = await evaluate(`(()=>{const e=${finder(sel)}; if(!e) return null; const b=e.getBoundingClientRect(); return b.top + b.height/2 - innerHeight/2})()`);
-      if (d === null) throw new Error(`human: no element for ${JSON.stringify(sel)}`);
-      if (Math.abs(d) < 120) return;
-      await send('Input.dispatchMouseEvent', { type: 'mouseWheel', x: pointer.x, y: pointer.y, deltaX: 0, deltaY: Math.sign(d) * Math.min(Math.abs(d), rnd(200, 420)) });
-      await jitter(90, 220);
-    }
-  };
-
-  const pause = () => jitter(250, 900);
+  const pause = (a = 250, b = 900) => jitter(a, b);
   const close = () => ws.close();
-  return { click, type, key, scrollTo, pause, evaluate, send, close, pointer };
+
+  // Settle: a page mints its first score token in the first instant. Give it a few seconds and one idle move
+  // before the first real action, like a person reading the page. Skipped when HUMAN_SPEED=0.
+  if (opts.settle !== false) {
+    await front().catch(() => {});
+    await jitter(1500, 3500);
+    if (!touch) await moveTo(rnd(env.vw * 0.3, env.vw * 0.7), rnd(env.vh * 0.3, env.vh * 0.6));
+  }
+
+  return { click, type, key, scrollTo, pause, evaluate, send, close, pointer, touch };
 }
 
 async function tabByUrl(port, needle) {

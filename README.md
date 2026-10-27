@@ -237,6 +237,15 @@ apart, longer at spaces; `scrollTo` wheels; `pause` waits a human beat. It is al
 never moves. Proven 10/26 on GitHub search in the box Chromium: click box, 28 keys, Enter, results in 10.9 s.
 Rule: a new script never calls `element.click()` or sets `.value`; it requires `./human.cjs`. Old scripts get moved over as they are touched.
 
+v2, same night, after a second model wrote its own helper and a 13-point list of what still moves the score (its file sits on the
+phone at `~/hidden-operator/web/human.cjs`; the ideas are folded into ours): no `Runtime.enable` (an automation mark); bring the tab
+to front and refuse a hidden tab; settle 1.5–3.5 s and one idle move before the first action (the page mints its first score token
+early); wheel-scroll into view, never a JS scroll; Shift held for capitals; a real finger (touch events) on Android Chrome. Proven
+10/26 twice: mouse on the box Chromium (GitHub search, 28 keys, 16 s with the settle) and finger on Chrome Beta on the hidden screen
+(22 keys, results page). `HUMAN_SPEED=0` zeroes every pause for a fast run, hands stay real.
+Two more from that list we already do: let the tab load pages (never a Node fetch for a page the site scores), leave the window size alone.
+Trap seen twice today: the two phone Chromes SWAP socket names when one restarts. `chrome.sh` now picks by app name on every open.
+
 ## Rules learned the hard way
 
 - When George gives the answers for every fork, run the whole thing in one command. No look between presses.
