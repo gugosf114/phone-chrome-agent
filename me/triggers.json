@@ -107,12 +107,23 @@
    "content pipeline",
    "pinterest",
    "instagram api",
-   "react dashboard"
+   "react dashboard",
+   "agentic",
+   "multi-?agent",
+   "orchestrat",
+   "pub/?sub",
+   "serverless",
+   "event[- ]driven",
+   "LLM (pipeline|workflow|ops)",
+   "AI (operations|ops)",
+   "human[- ]in[- ]the[- ]loop"
   ],
-  "say": "I built Bakers Agent: 22 Google Cloud Functions and a React dashboard that run a live bakery's marketing behind approval gates, posting to Google, Facebook, Instagram, Pinterest, and YouTube.",
+  "say": "I built and run Bakers Agent, a 40-function Google Cloud agent system that runs a live bakery's marketing and SEO behind human approval gates, posting to five platforms and opening its own pull requests.",
   "proof": "github.com/gugosf114/bakers-agent (public)",
-  "status": "in production for mybakingcreations.com",
-  "lane": "ai-governance"
+  "status": "in production (README 2026-09-30)",
+  "lane": "ai-governance",
+  "weight": "FULL",
+  "card": "me/cards/bakers-agent.md"
  },
  "mybakingcreations.com": {
   "words": [
@@ -125,10 +136,12 @@
    "search console",
    "google analytics"
   ],
-  "say": "I run mybakingcreations.com end to end: 44 pages, PayPal checkout, a Claude chatbot, Search Console and Analytics by API.",
+  "say": "I built and run mybakingcreations.com, a 44-page bakery site with PayPal checkout, a Claude chatbot, and an AI phone helper, that came out ahead of Google's March 2026 core update on zero ad spend.",
   "proof": "https://mybakingcreations.com; github.com/gugosf114/gugosf114.github.io",
-  "status": "live",
-  "lane": "legal-ops"
+  "status": "live; ~1,400 commits; pushed 2026-10-27",
+  "lane": "legal-ops",
+  "weight": "FULL",
+  "card": "me/cards/mybakingcreations.md"
  },
  "Stratos": {
   "words": [
@@ -338,5 +351,30 @@
   "proof": "resume; dossier; George 2026-10-27",
   "status": "fact",
   "lane": "legal-ops"
+ },
+ "GLM fine-tune": {
+  "words": [
+   "fine[- ]?tun",
+   "\\bLoRA\\b",
+   "QLoRA",
+   "open[- ]weight",
+   "open[- ]source model",
+   "\\bRLHF\\b",
+   "\\bSFT\\b",
+   "instruction tuning",
+   "model training",
+   "training data",
+   "\\bGPU\\b",
+   "hugging ?face",
+   "adapter",
+   "inference (endpoint|serving)",
+   "vLLM"
+  ],
+  "say": "I fine-tune my own GLM-4.5-Air with QLoRA on an H200, from hand-written training cards, versioned and probe-tested through eleven releases, served on Modal, to train out hedging and false completion claims.",
+  "proof": "huggingface.co/gabrahamyants; github.com/gugosf114/glm-george-recipe (private)",
+  "status": "in use; live endpoint on Modal; v11 per George 10/27",
+  "weight": "FULL for AI/ML roles",
+  "card": "me/cards/glm-george-model.md",
+  "lane": "ai-eval"
  }
 }

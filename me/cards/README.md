@@ -17,3 +17,6 @@ it backs one.
 | writing-sample-baba.md | FULL — real decision, affirmed on appeal |
 | invisible-work.md | LESS/MEDIUM — a paper with a public tool and data; submitted to Anthropic |
 | audit-ledger.md | LESS — private repo, last work July 2026, live dashboard |
+| bakers-agent.md | FULL — in production, runs the bakery's marketing every day |
+| mybakingcreations.md | FULL — live business site, ~1,400 commits, worked on daily |
+| glm-george-model.md | FULL for AI/ML roles — his own QLoRA fine-tune, live endpoint; method only, never the card contents |
