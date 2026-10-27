@@ -56,6 +56,28 @@ function answerFor(label, type, options) {
   return null;
 }
 const isMiss = src => !src || /^(NO_ANSWER|FAILED|default:(number|text|yesNo))/.test(src);
+// Is a value LinkedIn saved from an old application the same answer as the book's? Loose on purpose:
+// "4156328008" = "415-632-8008", "Daly City, California, United States" = "Daly City, CA", "Juris Doctor (J.D.)" = "Juris Doctor".
+const norm = s => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+function same(had, want, type) {
+  const a = norm(had), b = norm(want);
+  if (a === b) return true;
+  const da = String(had).replace(/\D/g, ''), db = String(want).replace(/\D/g, '');
+  if (da.length >= 7 && da === db) return true;
+  if (/^\s*\d+(\.\d+)?\s*$/.test(had) && /^\s*\d+(\.\d+)?\s*$/.test(want)) return +had === +want;
+  if ((type === 'select' || type === 'radio') && b && a.includes(b)) return true;
+  if (String(want).includes(',') && b) return a.startsWith(norm(String(want).split(',')[0]));
+  return false;
+}
+const CHECKED_TYPES = new Set(['select', 'radio', 'text', 'number', 'textarea', 'typeahead']); // saved values of these get the book check
+const isResumeCard = f => f.type === 'radio' && /\.(pdf|docx?)$/i.test(f.label);
+// Which radio option the book's value means; -1 when it is not one of them.
+function radioIndex(f, value) {
+  const o = (f.options || []).map(x => x.toLowerCase()), w = String(value).toLowerCase();
+  let j = o.indexOf(w); if (j < 0) j = o.findIndex(x => x.startsWith(w));
+  if (j < 0 && /don.?t wish|prefer not|decline/.test(w)) j = o.findIndex(x => /prefer not|don.?t wish|decline|not to (answer|specify|say|disclose)/.test(x));
+  return j;
+}
 
 // Stop signs: the run ends on any of these and touches nothing more.
 const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||{};if(nav.responseStatus===999)return "HTTP 999";
@@ -94,11 +116,14 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
       const all=[...s.options];const opts=all.filter(o=>!/select an option|^select$|^--/i.test(o.text.trim()));
       let o=opts.find(o=>o.text.trim().toLowerCase()===w)||opts.find(o=>o.text.toLowerCase().includes(w))||opts.find(o=>o.value.toLowerCase()===w);
       if(!o&&/^yes$/i.test(w))o=opts.find(o=>/^yes\\b/i.test(o.text));if(!o&&/^no$/i.test(w))o=opts.find(o=>/^no\\b/i.test(o.text));
-      return o?{want:all.indexOf(o),text:o.text.trim()}:{miss:true}})()`);
+      if(!o)return {miss:true};const tx=all.map(x=>x.text.trim().toLowerCase()),wi=all.indexOf(o),w0=tx[wi];let pre=o.text.trim();
+      for(let n=2;n<=w0.length;n++){if(tx.filter(x=>x.startsWith(w0.slice(0,n))).length===1){pre=o.text.trim().slice(0,n);break}}
+      return {want:wi,text:o.text.trim(),prefix:pre}})()`);
     if (!t) return 'no el'; if (t.miss) return 'no option for ' + wanted;
     const at = () => ev(`document.querySelector(${JSON.stringify(f.sel)}).selectedIndex`);
     const isOpen = () => ev(`(()=>{try{return document.querySelector(${JSON.stringify(f.sel)}).matches(":open")}catch(e){return false}})()`);
-    const walk = async () => { const n = t.want - Math.max(0, await at()); for (let i = 0; i < Math.abs(n); i++) await h.key(n > 0 ? 'ArrowDown' : 'ArrowUp'); };
+    // near: arrows. Far down a long list (LinkedIn's School list has 2,467 schools): type the start of the name instead.
+    const walk = async () => { const n = t.want - Math.max(0, await at()); if (Math.abs(n) > 15) return h.keys(t.prefix); for (let i = 0; i < Math.abs(n); i++) await h.key(n > 0 ? 'ArrowDown' : 'ArrowUp'); };
     if (await click(f.sel)) {
       await h.pause(250, 600); await walk();
       if (await isOpen()) await h.key('Enter');
@@ -117,6 +142,28 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     const p = at || await ev('({x:innerWidth*(0.35+Math.random()*0.3),y:innerHeight*(0.35+Math.random()*0.3)})');
     await h.send('Input.dispatchMouseEvent', { type: 'mouseWheel', x: p.x, y: p.y, deltaX: 0, deltaY: dy, pointerType: 'mouse' });
     await h.pause(300, 800);
+  }
+
+  // Put the book's answer into one field with the hands; true when the field now holds it.
+  // allowDefault: an EMPTY yes/no radio whose rule value is not an option gets the test yes/no default (old behaviour).
+  // A saved answer is never overwritten with a test default.
+  async function fillField(f, a, entry, allowDefault = true) {
+    if (f.type === 'select') { const r = String(await pickSelect(f, a.value)); if (!/^ok/.test(r) || /setter/.test(r)) entry.note = /setter/.test(r) ? 'setter: ' + f.label : r; return /^ok/.test(r); }
+    if (f.type === 'radio') {
+      let j = radioIndex(f, a.value);
+      const yn = (f.options || []).some(o => /^yes$/i.test(o)) && (f.options || []).some(o => /^no$/i.test(o));
+      if (j < 0 && allowDefault && yn && !/\.(pdf|docx?)$/i.test(a.value)) { a.source = 'default:yesNo (rule value "' + a.value + '" not an option)'; a.value = BOOK.defaults.yesNo; j = radioIndex(f, a.value); }
+      if (j < 0 && allowDefault && (f.options || []).some(o => /\.(pdf|docx?)$/i.test(o))) j = Math.max(0, (f.options || []).findIndex(o => o.includes(BOOK.facts.resume_file || '\u0000')));
+      if (j < 0) { entry.note = 'not an option: ' + a.value; return false; }
+      const verify = async () => { const s2 = await snap(); const g = (s2.fields || []).find(x => x.type === 'radio' && x.label === f.label); return !!(g && g.value === f.options[j]); };
+      await click(f.optsel[j]); await h.pause(300, 600);
+      let chk = await verify();
+      if (!chk) { await click(f.radiosel[j]); await h.pause(300, 500); chk = await verify(); entry.note = 'second press, on the radio itself'; }
+      return chk;
+    }
+    if (f.type === 'checkbox') { if (f.required || /agree|consent|acknowledge|terms/i.test(f.label)) return click(f.sel); entry.note = 'optional checkbox left alone'; a.source = 'left:' + a.source; return false; }
+    if (f.type === 'text' || f.type === 'number' || f.type === 'textarea' || f.type === 'typeahead') { const ok = await typeInto(f.sel, a.value); if (ok && f.type === 'typeahead') { await h.pause(900, 1500); await h.key('ArrowDown'); await h.key('Enter'); } return ok; }
+    return false;
   }
 
   // ---------- screen reader ----------
@@ -200,7 +247,7 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     const o = OVR[jid] || {};
     if (o.skip) { console.log(`  skip ${jid} by thinker: ${o.skip}`); fs.appendFileSync(OUT, JSON.stringify({ run: null, jobId: jid, status: 'SKIPPED_BY_THINKER', reason: o.skip, startedAt: new Date().toISOString() }) + '\n'); continue; }
     CUR_RULES = (o.rules || []).map(([re, v]) => [new RegExp(re, 'i'), v]);
-    const rec = { run: runs + 1, jobId: jid, startedAt: new Date().toISOString(), screens: [], status: '', review: false, stuck: [], newForks: [], filled: 0, unanswered: 0, misses: [], error: null };
+    const rec = { run: runs + 1, jobId: jid, startedAt: new Date().toISOString(), screens: [], status: '', review: false, stuck: [], newForks: [], filled: 0, unanswered: 0, misses: [], overwrote: [], error: null };
     const t0 = Date.now();
     let opened = false;
     try {
@@ -231,24 +278,24 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
           if (!f.value && f.type !== 'file') {
             const a = answerFor(f.label, f.type, f.options);
             if (a) {
-              let ok = false;
-              if (f.type === 'select') { const r = String(await pickSelect(f, a.value)); ok = /^ok/.test(r); if (/setter/.test(r)) entry.note = 'setter: ' + f.label; }
-              else if (f.type === 'radio') { let want = String(a.value).toLowerCase(); let j = (f.options || []).findIndex(o => o.toLowerCase() === want); if (j < 0) j = (f.options || []).findIndex(o => o.toLowerCase().startsWith(want)); if (j < 0 && /don.?t wish|prefer not|decline/i.test(want)) j = (f.options || []).findIndex(o => /prefer not|don.?t wish|decline|not to (answer|specify|say|disclose)/i.test(o));
-                if (j < 0 && (f.options || []).some(o => /^yes$/i.test(o)) && (f.options || []).some(o => /^no$/i.test(o)) && !/\.(pdf|docx?)$/i.test(want)) { want = String(BOOK.defaults.yesNo).toLowerCase(); j = (f.options || []).findIndex(o => o.toLowerCase() === want); a.source = 'default:yesNo (rule value "' + a.value + '" not an option)'; a.value = BOOK.defaults.yesNo; } if (j < 0 && (f.options || []).some(o => /\.(pdf|docx?)$/i.test(o))) j = Math.max(0, (f.options || []).findIndex(o => o.includes(BOOK.facts.resume_file || '\u0000')));
-                if (j > -1) {
-                  const verify = async () => { const s2 = await snap(); const g = (s2.fields || []).find(x => x.type === 'radio' && x.label === f.label); return !!(g && g.value); };
-                  await click(f.optsel[j]); await h.pause(300, 600);
-                  let chk = await verify();
-                  if (!chk) { await click(f.radiosel[j]); await h.pause(300, 500); chk = await verify(); entry.note = 'second press, on the radio itself'; }
-                  ok = chk;
-                } }
-              else if (f.type === 'checkbox') { if (f.required || /agree|consent|acknowledge|terms/i.test(f.label)) ok = await click(f.sel); else { entry.note = 'optional checkbox left alone'; a.source = 'left:' + a.source; } }
-              else if (f.type === 'text' || f.type === 'number' || f.type === 'textarea' || f.type === 'typeahead') { ok = await typeInto(f.sel, a.value); if (ok && f.type === 'typeahead') { await h.pause(900, 1500); await h.key('ArrowDown'); await h.key('Enter'); } }
+              const ok = await fillField(f, a, entry);
               if (ok) { entry.filledWith = a.value; entry.source = a.source; rec.filled++; }
               else if (/^left:/.test(a.source)) entry.source = a.source;
               else { entry.source = 'FAILED:' + a.source; rec.unanswered++; }
             } else { entry.source = 'NO_ANSWER'; rec.unanswered++; }
             await h.pause(300, 900);
+          } else if (f.value && CHECKED_TYPES.has(f.type) && !isResumeCard(f)) {
+            // LinkedIn pre-fills answers from old applications. Each one gets the same book check as an empty box;
+            // when a book rule says something else, the hands overwrite it. A test default never overwrites.
+            const a = answerFor(f.label, f.type, f.options);
+            if (!a || /^default:/.test(a.source)) entry.source = 'kept saved (' + (a ? 'book has only a test default' : 'no book rule') + ')';
+            else if (same(f.value, a.value, f.type)) entry.source = 'saved = book (' + a.source + ')';
+            else if (await fillField(f, a, entry, false)) {
+              entry.filledWith = a.value; entry.source = a.source; entry.overwrote = { old: f.value, new: a.value }; rec.filled++;
+              rec.overwrote.push({ label: f.label, old: f.value, new: a.value, source: a.source });
+              console.log(`  overwrote saved: ${f.label} ${f.value} → ${a.value}`);
+              await h.pause(300, 900);
+            } else entry.source = `kept saved (book says "${a.value}", could not set it: ${entry.note || 'unknown'})`;
           }
           screen.fields.push(entry);
         }
@@ -276,7 +323,7 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     for (const s of rec.screens) for (const f of s.fields) if (!f.had && f.type !== 'file' && isMiss(f.source)) rec.misses.push({ screen: s.heading, label: f.label, group: f.group, type: f.type, options: f.options, required: f.required, source: f.source, filledWith: f.filledWith });
     fs.appendFileSync(OUT, JSON.stringify(rec) + '\n');
     fs.writeFileSync(SEENF, JSON.stringify([...seen], null, 0));
-    console.log(`run ${rec.run}/${JOBS} · ${(rec.ms / 1000).toFixed(1)} s · ${rec.status}${rec.review ? ' (Review)' : ''} · screens ${rec.screens.length} · filled ${rec.filled} · misses ${rec.misses.length} · new forks ${rec.newForks.length}${rec.error ? ' · ERROR ' + rec.error.slice(0, 80) : ''} · ${rec.title} @ ${rec.company}`);
+    console.log(`run ${rec.run}/${JOBS} · ${(rec.ms / 1000).toFixed(1)} s · ${rec.status}${rec.review ? ' (Review)' : ''} · screens ${rec.screens.length} · filled ${rec.filled} · misses ${rec.misses.length} · overwrote ${rec.overwrote.length} · new forks ${rec.newForks.length}${rec.error ? ' · ERROR ' + rec.error.slice(0, 80) : ''} · ${rec.title} @ ${rec.company}`);
     if (runs < JOBS && jid !== ids[ids.length - 1]) { const gap = rnd(15000, 45000); console.log(`  waiting ${(gap / 1000).toFixed(0)} s`); await sleep(gap); }
   }
   console.log(`done: ${runs} runs in ${((Date.now() - t00) / 60000).toFixed(1)} min · forks known: ${seen.size} · log: ${path.relative(ROOT, OUT)}`);
