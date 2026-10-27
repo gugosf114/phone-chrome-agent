@@ -256,6 +256,9 @@ scripts/one_pass_form.js        answer-sheet form filler that stops on unknown q
 scripts/easy_apply.cjs          the one-run LinkedIn Easy Apply that worked 2026-10-14
 scripts/answers.json            George's answer book (rules + facts + never-yes), merged from Agent Bridge + job-vault
 scripts/anti_freeze.sh          one-time Android settings (freezer off, phantom killer off, Doze whitelist)
+scripts/floorplan.cjs           read-only site crawler: GET only, 2 doors deep, writes pages/links/buttons/inputs as JSON
+floor-plans/github.md           plain-words floor plan of github.com (pages, links, buttons, fastest URLs), drawn 2026-10-26
+floor-plans/github-raw.json     the raw crawl behind it: 45 pages with links, buttons, inputs
 research/deep-research-prompt.md  the prompt that produced the report
 research/gemini-deep-research-2026-10-14.pdf / .txt   report 1 (Gemini)
 research/second-deep-research-2026-10-14.pdf / .docx / .txt   report 2 (second model) + its saved sources folder
