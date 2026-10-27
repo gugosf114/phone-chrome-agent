@@ -42,8 +42,9 @@ function answerFor(label, type, options) {
   if (!l) return null;
   if (/authoriz\w* to work|legally authorized|permanently authorized|eligible to work/i.test(l)) return { value: 'Yes', source: 'rule:authorized-to-work (beats never_yes)' };
   if (NEVER_YES.test(l)) return { value: 'No', source: 'never_yes' };
-  for (const [re, v] of CUR_RULES) if (re.test(l)) return { value: v, source: 'job-rule:' + re.source.slice(0, 30) };
-  for (const [re, v] of RULES) if (re.test(l)) return { value: v, source: 'rule:' + re.source.slice(0, 30) };
+  const fits = v => v !== 'ALL' || type === 'checkboxgroup'; // "ALL" = tick every box; it means nothing to other fields
+  for (const [re, v] of CUR_RULES) if (re.test(l) && fits(v)) return { value: v, source: 'job-rule:' + re.source.slice(0, 30) };
+  for (const [re, v] of RULES) if (re.test(l) && fits(v)) return { value: v, source: 'rule:' + re.source.slice(0, 30) };
   if (type === 'number') return { value: BOOK.defaults.number, source: 'default:number' };
   if (type === 'radio' && (options || []).some(o => /\.(pdf|docx?)$/i.test(o))) return { value: BOOK.facts.resume_file || options[0], source: 'fact:resume_file' };
   if (type === 'radio' || type === 'select') {
@@ -161,6 +162,17 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
       if (!chk) { await click(f.radiosel[j]); await h.pause(300, 500); chk = await verify(); entry.note = 'second press, on the radio itself'; }
       return chk;
     }
+    if (f.type === 'checkboxgroup') { // book value "ALL" ticks every box (George 10/27: contract types); else "A; B" ticks those
+      const want = String(a.value).toUpperCase() === 'ALL' ? f.options.map((_, i) => i)
+        : String(a.value).split(/\s*;\s*/).map(v => f.options.findIndex(o => o.toLowerCase().startsWith(v.toLowerCase()))).filter(i => i > -1);
+      if (!want.length) { entry.note = 'no box matches: ' + a.value; return false; }
+      const ticked = [];
+      for (const i of want) { if (f.checked[i]) continue; if (await click(f.optsel[i])) ticked.push(f.options[i]); await h.pause(200, 600); }
+      const g = ((await snap()).fields || []).find(x => x.type === 'checkboxgroup' && x.label === f.label);
+      entry.ticked = ticked;
+      console.log(`  ticked ${ticked.length} of ${f.options.length} in "${f.label.slice(0, 60)}": ${ticked.join(', ')}`);
+      return !!g && want.every(i => g.checked[i]);
+    }
     if (f.type === 'checkbox') { if (f.required || /agree|consent|acknowledge|terms/i.test(f.label)) return click(f.sel); entry.note = 'optional checkbox left alone'; a.source = 'left:' + a.source; return false; }
     if (f.type === 'text' || f.type === 'number' || f.type === 'textarea' || f.type === 'typeahead') { const ok = await typeInto(f.sel, a.value); if (ok && f.type === 'typeahead') { await h.pause(900, 1500); await h.key('ArrowDown'); await h.key('Enter'); } return ok; }
     return false;
@@ -181,8 +193,18 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     d.querySelectorAll("select").forEach(s=>{if(!vis(s))return;const cur=s.options[s.selectedIndex]?.text.trim()||"";const empty=!s.value||/select an option|^select$|^--/i.test(cur);
       fields.push({type:"select",label:labelOf(s),required:req(s),options:[...s.options].map(o=>o.text.trim()).filter(t=>!/select an option/i.test(t)).slice(0,12),value:empty?"":cur,sel:mark(s)})});
     const groups={};d.querySelectorAll("input[type=radio]").forEach(r=>{(groups[r.name]=groups[r.name]||[]).push(r)});Object.entries(groups).forEach(([name,rs])=>{const fs=rs[0].closest("fieldset")||rs[0].closest("[role=radiogroup]");if(!(rs.some(vis)||(fs&&vis(fs))))return;const label=txt(fs?.querySelector("legend"))||(rs[0].getAttribute("aria-label")||"").replace(/[*\\u00a0\\s]+$/,"")||labelOf(rs[0])||name;const opts=rs.map(r=>{const lab=r.id?d.querySelector('label[for="'+CSS.escape(r.id)+'"]'):null;const row=r.parentElement&&r.parentElement.parentElement;const t=txt(lab)||(row?txt(row):"")||r.value;const target=(lab&&vis(lab))?lab:((row&&vis(row))?row:r);return {text:t.slice(0,80),sel:mark(target)}});const chosen=rs.find(r=>r.checked);fields.push({type:"radio",label:label.slice(0,160),required:true,options:opts.map(o=>o.text),optsel:opts.map(o=>o.sel),radiosel:rs.map(mark),value:chosen?((opts[rs.indexOf(chosen)]||{}).text||"chosen"):""})});
-    d.querySelectorAll("input[type=checkbox]").forEach(c=>{const lab=c.id?d.querySelector('label[for="'+CSS.escape(c.id)+'"]'):null;if(!vis(c)&&!(lab&&vis(lab)))return;const fs=c.closest("fieldset");
-      fields.push({type:"checkbox",label:txt(lab)||labelOf(c),group:fs?txt(fs.querySelector("legend")).slice(0,160):"",required:req(c),value:c.checked?"checked":"",sel:mark(lab||c)})});
+    // checkboxes: a box's words are its label, or (2026 LinkedIn: empty label) the paragraph beside it. Boxes that share a
+    // parent are one question ("Please specify the contracts ..."); its words are the line just above the first box.
+    const rowOf=c=>{let r=c.parentElement;for(let k=0;k<5&&r&&r!==d;k++){if(txt(r))return r;r=r.parentElement}return null};
+    const boxText=c=>{const lab=c.id?d.querySelector('label[for="'+CSS.escape(c.id)+'"]'):null;return (txt(lab)||c.getAttribute("aria-label")||txt(rowOf(c))||"").slice(0,120)};
+    const groupOf=c=>{let g=c.parentElement;for(let k=0;k<8&&g&&g!==d;k++){if(g.querySelectorAll("input[type=checkbox]").length>1)return g;g=g.parentElement}return null};
+    const questionOf=(g,first)=>{const fs=g.closest("fieldset");if(fs&&txt(fs.querySelector("legend")))return txt(fs.querySelector("legend"));let a=g;for(let k=0;k<4&&a&&a!==d;k++){const it=a.innerText||"";const i=first?it.indexOf(first):-1;if(i>0){const raw=it.slice(0,i),ls=raw.split("\\n").map(x=>x.trim()).filter(x=>x&&!/^[*\\s]+$/.test(x));if(ls.length)return ls[ls.length-1]+(/\\*\\s*$/.test(raw)?"*":"")}a=a.parentElement}return ""};
+    const cbs=new Map();
+    d.querySelectorAll("input[type=checkbox]").forEach(c=>{const lab=c.id?d.querySelector('label[for="'+CSS.escape(c.id)+'"]'):null;if(!vis(c)&&!(lab&&vis(lab)))return;const g=groupOf(c)||c;if(!cbs.has(g))cbs.set(g,[]);cbs.get(g).push({c,lab})});
+    cbs.forEach((boxes,g)=>{const tgt=b=>mark((b.lab&&vis(b.lab))?b.lab:b.c);
+      if(boxes.length===1){const b=boxes[0];fields.push({type:"checkbox",label:boxText(b.c),required:req(b.c),value:b.c.checked?"checked":"",sel:tgt(b)});return}
+      const opts=boxes.map(b=>boxText(b.c)),q=questionOf(g,opts[0]);
+      fields.push({type:"checkboxgroup",label:q.replace(/[*\\u00a0\\s]+$/,"").slice(0,160),required:/\\*\\s*$/.test(q)||boxes.some(b=>req(b.c)),options:opts,optsel:boxes.map(tgt),checked:boxes.map(b=>b.c.checked),value:boxes.filter(b=>b.c.checked).map(b=>boxText(b.c)).join("; ")})});
     d.querySelectorAll("input:not([type]),input[type=text],input[type=number],input[type=email],input[type=tel],input[type=url],textarea").forEach(i=>{if(!vis(i)||i.readOnly||i.disabled)return;
       const type=i.tagName==="TEXTAREA"?"textarea":(i.type==="number"?"number":(i.getAttribute("role")==="combobox"||i.getAttribute("aria-autocomplete")?"typeahead":"text"));
       fields.push({type,label:labelOf(i),required:req(i),value:(i.value||"").trim(),sel:mark(i)})});
