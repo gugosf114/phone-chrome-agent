@@ -1,5 +1,5 @@
 {
-  "4483601187": {"decision": "yes", "why": "AI legal-expert gig, remote, hourly; Turing lane", "letter": "WiM patent + correction corpus first; Andersen second", "resume": "ai-eval", "rules": [["rate|hourly", "75"]]},
+  "4483601187": {"decision": "yes", "why": "AI legal-expert gig, remote, hourly; Turing lane", "letter": "<the letter's full text, under 150 words>", "resume": "ai-eval", "rules": [["rate|hourly", "75"]], "resume_file": "C:\\Users\\georg\\job-applications\\4483601187\\George_Abrahamyants_Resume_Turing.pdf", "letter_file": "C:\\Users\\georg\\job-applications\\4483601187\\George_Abrahamyants_Cover_Letter_Turing.pdf"},
   "4483292009": {"decision": "no", "skip": "wall: bar admission (Active CA Bar Required)"},
   "4480235281": {"decision": "ask", "ask": "wants 'licensed in any US state'; George never took the bar; confirm no"}
 }

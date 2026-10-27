@@ -23,13 +23,30 @@ Last worked: 2026-10-27 3:38–4:03 am PDT, walk only (no Submit): 25 jobs with 
   Not counted: the walker's 15–45 s pause between jobs. Receipt: logs/easy_apply_map/harvest-2026-10-27.md
 Last submitted: 2026-10-14 02:37 (37 s, "Legal Expert | Remote | $40–$60/hr")
 Last broke: 2026-10-14 02:11 — pressed Next into a drop-down that still said "Select an option"; fixed by treating placeholder selects as empty
-Needs from the answer book: rules + facts in scripts/answers.json; test defaults (number=5, yes/no=Yes) only when George says so
+Needs from the answer book: rules + facts in scripts/answers.json (George's own 10/27 rules sit at the top; first hit wins); test defaults (number=5, yes/no=Yes) only when George says so
 Steps:
-1. Open https://www.linkedin.com/jobs/search/?f_AL=true&keywords=<words>&location=United%20States
-2. For each job link /jobs/view/<id>: open it, press "Easy Apply"
-3. In the box: fill every select/radio/text from the answer book; placeholder "Select an option" counts as empty
-4. Press "Next" / "Review" until "Submit application"; press it once
-5. Press "Dismiss" / "Discard" if backing out
-Stop on: a required question the book cannot answer (return its label and options); a CAPTCHA; a "Submit" with no receipt
+1. Find: `CDP_PORT=19222 node scripts/gather.cjs --keywords "<words>" --hours 48 --max 25` (Easy Apply only; seen jobs skipped).
+2. Pick: the picker writes `picks/picks-<stamp>.json` and, for every yes, `apply/<jobId>/` (resume.pdf, cover-letter.pdf,
+   cover-letter.txt, meta.json; PDFs by `node scripts/make_pdf.cjs`), then `bash scripts/push_apply_files.sh <jobId>`.
+3. Walk: `CDP_PORT=19222 node scripts/map_easy_apply.cjs --ids <yes ids> --jobs <n> --overrides picks/picks-<stamp>.json` (map only).
+   Per screen the walker:
+   - Resume: selects the job's file if LinkedIn's saved list shows it, else presses "Upload resume" and hands Chrome the laptop
+     path (file chooser answered in code, no dialog). No job file: the book's resume_file from the saved list.
+   - Cover letter: upload button -> the job's PDF; text box -> cover-letter.txt typed key by key. Required or optional, always.
+   - Every field from the book / picks; placeholder "Select an option" counts as empty; long lists by type-to-find.
+   - Pre-filled values (LinkedIn's memory of old applications) get the same book check; a disagreeing rule overwrites them:
+     "overwrote saved: <label> <old> -> <new>". A test default never overwrites.
+   - Checkbox groups: the book value ALL ticks every box ("ticked N of M in ...").
+   - Review page: unticks "Follow <company>" with a real press, logged every time.
+4. Stops one click before Submit, then Dismiss + Discard (never Save, Follow, or Message).
+5. Submit: `--submit`, per job, only on George's word; press it once; Submit counts only with the receipt below.
+Stop on (status in the log; the walker never skips a field):
+- STOPPED_BLOCKED: a captcha, /checkpoint/, a login wall, or HTTP 999. The whole run ends (exit 4); report it, touch nothing.
+- NEEDS_LETTER: the form offers a cover letter and there is no letter in picks and no apply/<jobId>/ folder.
+- NEEDS_INPUT: a field the book and picks cannot fill, named with its type and options (required or optional); a value that
+  will not take; an upload other than resume / cover letter; a resume that cannot be selected or uploaded.
+- STUCK_SAME_SCREEN / STUCK_REQUIRED: Next did not move the form; the screen's errors are in the log.
+- READY_TO_SUBMIT: the good end of a map-only walk (Review reached).
 Receipt: the dialog after Submit says "Application sent" (or the job appears under My items → Applied)
+Proof of the five fixes (10/27 re-walk): logs/easy_apply_map/rewalk-2026-10-27.md
 Script: scripts/map_easy_apply.cjs (laptop, CDP_PORT=19222; walk + map, --submit only on George's word); scripts/easy_apply.cjs (phone, CDP_PORT=9336); scripts/one_pass_form.js (answer-book filler, untested on LinkedIn)

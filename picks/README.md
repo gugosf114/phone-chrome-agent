@@ -11,8 +11,10 @@ Shape (one entry per gathered job id):
   "4483601187": {
     "decision": "yes",
     "why": "AI legal-expert gig, remote, hourly; matches the Turing/Synthires lane in the dossier",
-    "letter": "First line: WiM patent + 449-case correction corpus; second: Andersen SALT controversy; close with hourly availability",
+    "letter": "<the letter's full text, under 150 words, in the dossier's voice>",
     "resume": "ai-eval",
+    "resume_file": "C:\\Users\\georg\\job-applications\\4483601187\\George_Abrahamyants_Resume_Turing.pdf",
+    "letter_file": "C:\\Users\\georg\\job-applications\\4483601187\\George_Abrahamyants_Cover_Letter_Turing.pdf",
     "rules": [["years of experience with (contract|legal) review", "8"], ["rate|hourly", "75"]]
   },
   "4483292009": {
@@ -26,9 +28,15 @@ Shape (one entry per gathered job id):
 }
 ```
 
-Keys the walker uses: `skip` (job is skipped, reason logged) and `rules` (per-job answer rules, tried before the book).
-Keys for people: `decision` (yes | no | ask), `why`, `letter` (the cover-letter angle, 1–2 lines), `resume` (which one-page
-cut from the master: `ai-eval`, `legal-ops`, `compliance`, `ai-governance`), `ask` (the one question only George can answer).
+Keys the walker uses: `skip` (job is skipped, reason logged), `rules` (per-job answer rules, tried before the book),
+`resume_file` and `letter_file` (10/27: Windows paths on the laptop, e.g.
+`C:\Users\georg\job-applications\<jobId>\George_Abrahamyants_Resume_<Company>.pdf`; the walker uploads or selects these),
+and `letter` (10/27: the letter's full text, under 150 words; typed into a cover-letter text box when there is no
+`apply/<jobId>/cover-letter.txt`). Without `resume_file` / `letter_file` the walker uses the `apply/<jobId>/` folder
+(meta.json names, pushed by `scripts/push_apply_files.sh`). A form that offers a cover letter with no letter in picks and
+no folder stops that job: NEEDS_LETTER.
+Keys for people: `decision` (yes | no | ask), `why`, `resume` (which one-page cut from the master: `ai-eval`, `legal-ops`,
+`compliance`, `ai-governance`), `ask` (the one question only George can answer).
 
 Rules:
 - Every `no` gets a reason; walls from `walls.json` are quoted as-is. Every `no` also goes into `scripts/no.json` so the
@@ -38,4 +46,4 @@ Rules:
   `--submit` only on George's word, per job.
 - The picks file is committed. It is the receipt of what was chosen and why.
 
-Flow: gather → picks → George answers the asks → walk the yes list → receipt.
+Flow: gather → picks (+ apply/<jobId>/ files for every yes, pushed to the laptop) → George answers the asks → walk the yes list → receipt.
