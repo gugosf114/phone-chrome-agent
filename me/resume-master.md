@@ -175,18 +175,20 @@ Sites and client work
 - [L9] Phenotopia: vendor sourcing, contracts, and performance reporting that supported the $1.75M launch <!-- src: George_Abrahamyants_Anduril Ops Analyst_Product Operations_Cover Letter.docx -->
 - [L10] Built tools that extract and classify key data, flag inconsistencies, and summarize compliance risks, reducing manual review time by more than half (the 2026-08 checker bans "cut review time" as unsupported) <!-- src: George_Abrahamyants_Sherwood Partners_Claims Analyst_Cover Letter.docx -->
 
-## Check before use (sources disagree)
+## Settled 2026-10-26 (Fable, from George's own files; two items still wait for George)
 
-- The 512-conversation / 37,536-message / 101-failure numbers: George ordered them off resumes on 2026-07-24; an assistant put them back 2026-08-04 without his word; his LinkedIn carries them as of 2026-10-17. Ask George before a resume uses them <!-- src: openai_model_designer_evidence.md, linkedin-experience-2026-10-17.txt -->
-- GPA 3.85 and cum laude: resume.txt and george-dossier.md put 3.85 on the Berkeley BA; the newest builders and four 2026-08 resumes say "JD, cum laude, 3.85" and drop it from Berkeley; george-facts.json lists 3.85 and cum laude under the law school. Ask George which is right <!-- src: build_compliance_resume.py, George_Abrahamyants_Resume_Kirkland_AI_Innovation_Advisor.pdf, george-facts.json, resume.txt -->
-- Years of experience: "eight years of legal, compliance, and regulated-operations work" (Amgen resume, george-facts years_experience 8) vs "ten years across contracts, compliance, state tax" (LinkedIn post) vs "over a decade" (2025 Pinterest letter) <!-- src: George_Abrahamyants_Resume_Amgen_Responsible_AI_Manager.pdf, george-facts.json, linkedin-posts-2026-10-17.txt, George_Abrahamyants_Trust & Risk Management (Pinterest)_Cover Letter.docx -->
-- NoiseFile numbers: Sept resume and 2026-08 resumes say 15 cities, 45 workflows, 52 sources, in Play testing; assets.md (2026-10-17) reads 36 cities, 108 workflows, 67-entry manifest, public on Play; the dossier says 62-entry manifest. Use the newest after re-reading the repo README <!-- src: resume.txt, assets.md, george-dossier.md -->
-- Bakery site: "44 pages" and "917 commits" (resume.txt, LinkedIn) are stale; the repo held 117 HTML files and 1,414 commits on 2026-10-17 <!-- src: assets.md -->
-- Public copy of the Baba decision: the OpenAI resume links https://www.dol.gov/sites/dolgov/files/brb/decisions/lngshore/unpublished/Jan18/17-0440.pdf; assets.md says a public DOL copy was searched for on 2026-10-17 and not found. Open the link before citing it <!-- src: build_openai_model_designer_resume.py, assets.md -->
-- Audit Ledger: the dossier calls it private; assets.md found a live public dashboard <!-- src: george-dossier.md, assets.md -->
-- WiM repo owner: the 2026-08 Model Designer resume and the LinkedIn featured links point to github.com/gugosf114/wim-android and gugosf114/lavrentiy; assets.md and the dossier name abrahamyants/wim-android and abrahamyants/lavrentiy <!-- src: build_openai_model_designer_resume.py, linkedin-profile-2026-10-17.txt, assets.md -->
-- Email: answers.json still lists gugosf@berkeley.edu vs gugosf@gmail.com as George's pick; every resume uses the berkeley address <!-- src: answers.json, resume.txt -->
-- assets.md standing note (George, 2026-10-18): the shelf rests on a partial read of 16 READMEs; read the README of any asset in full before it goes in a letter <!-- src: assets.md -->
+- Drift Auditor numbers (512 conversations / 37,536 messages / 101 failures): OFF every resume and letter. George's order of 2026-07-24 stands; the 2026-08-04 re-add was without his word. His LinkedIn page is his to edit. <!-- src: resume-master check block, george order 7/24 -->
+- GPA 3.85 belongs to the Berkeley BA (Political Science, 2015, Distinction in General Scholarship). The JD line carries the CALI Award and Hastings Business Law Journal, no GPA. <!-- src: george-dossier.md line 9, resume.txt -->
+- **OPEN, George only:** "JD, cum laude" appears in four 2026-08 resumes and nowhere in the dossier. Do not write it until George says yes.
+- Years of legal, compliance, and regulated-operations work: 8. Never "ten" or "a decade". <!-- src: answers.json, george-facts.json years_experience -->
+- NoiseFile numbers: use the newest read, assets.md 2026-10-17 (36 cities, 108 workflows, public on Play). Re-read the repo README before the next letter; numbers move. <!-- src: assets.md -->
+- Bakery site: 117 HTML files and 1,414 commits as of 2026-10-17; "44 pages / 917 commits" is stale. <!-- src: assets.md -->
+- Baba v. SOS International decision: the public DOL copy is live, checked 2026-10-26 (HTTP 200, PDF): https://www.dol.gov/sites/dolgov/files/brb/decisions/lngshore/unpublished/Jan18/17-0440.pdf <!-- src: curl 2026-10-26 -->
+- Audit Ledger: the repo is private; a live public dashboard exists (assets.md). A letter may cite the dashboard, never a repo link. <!-- src: assets.md, george-dossier.md -->
+- WiM and Lavrentiy repo owner: abrahamyants/wim-android and abrahamyants/lavrentiy. The old gugosf114/... links redirect there (checked 2026-10-26), so either works, write abrahamyants. <!-- src: gh repo view 2026-10-26 -->
+- Email on resumes and forms: gugosf@berkeley.edu. <!-- src: george-dossier.md, every resume -->
+- Standing rule (George, 2026-10-18): read the README of any asset in full before it goes in a letter. <!-- src: assets.md -->
+- **OPEN, George only:** the ten "Claimed only in 2025 cover letters" lines above (L1 to L10). Each needs his yes before it is used.
 
 ## Lanes (which bullets serve which kind of job; the picker cuts one page from these)
 
