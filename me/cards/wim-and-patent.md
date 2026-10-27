@@ -29,8 +29,13 @@ auditory feedback. Interface in English, Spanish, Russian, Portuguese, French; c
 first-language transfer packs for Russian, Spanish, Mandarin, Hindi, Arabic, Farsi, French, German, Korean. The README's
 own origin line: built by a political refugee from Armenia who arrived without English and lives with a speech block and a
 strong accent. Repo abrahamyants/lavrentiy, public, 474 commits, pushed Oct 11 2026.
-**Where it goes.** The patent covers both: the mobile overlay (WiM) and the desktop embodiment (Lavrentiy, claims 32–33),
-one system. Next for WiM: buy the 12 testers, 14-day test, production. Beyond text: the phone-call lane (WiM Line) already
+**What the patent protects (George, 10/27; screenshots in Drive "WIM Android & Lavrentiy Screenshots", 6/27).** The
+invention is the bubble: a persistent overlay on the phone that clarifies uncertain words without touching the app under
+it, a send-ready countdown that disarms instead of sending, and the bubble that jumps onto the app's own Send button.
+That is a phone thing; nobody needs a bubble on a desktop. The filing names a desktop embodiment in two of its 35 claims as a
+drafter's hedge, but the product the patent protects is WiM. Lavrentiy is the engine and the lab: the speech pipeline, the
+calibration, the stutter research, a full dashboard window (console, sessions, learning, insights, calibrate, profile). WiM
+is the product. Next for WiM: buy the 12 testers, 14-day test, production. Beyond text: the phone-call lane (WiM Line) already
 proved the far end hears clean speech, and there is a live FCC docket on replacing the human relay operator with ASR and
 TTS, a market that pays per minute. That is the long road: a speech prosthesis for calls and chat, not a dictation toy.
 **What it proves.** He designed a system and wrote the patent himself; he builds for his own disability; he ships to Play
