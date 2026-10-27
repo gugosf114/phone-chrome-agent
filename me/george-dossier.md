@@ -30,15 +30,19 @@ Last checked 2026-10-17. Facts come from the Sept 2026 resume, the memory files,
 
 ## Jobs: YES
 - AI evaluation, annotation, red-team, "legal expert for AI" gigs (Turing, Synthires, Mercor-style written work). Remote, contract, hourly. Target $40–$75/hr and up.
-- Legal operations, contracts management, compliance, regulatory affairs, AI governance, legal tech, privacy ops. Remote or Bay Area. Salary target $120k; floor about $90k full time.
+- Legal operations, contracts management, compliance, regulatory affairs, AI governance, legal tech, privacy ops. Remote, hybrid, or in-office in SF / Bay Area. Full time starts at $80k (George, 10/27). Contract, 1099, part-time, and equity-only all fine. Target $120k.
 - Anything where a JD plus real building is the fit and no bar license is required.
 
 ## Jobs: NO (skip without asking)
 - Attorney, associate, counsel roles that require bar admission or "licensed to practice."
 - On-site outside the Bay Area. Hybrid is fine only in the Bay Area.
-- Under $25/hr or under $60k full time.
+- Under $25/hr, or full time under $80k (George, 10/27).
 - Jobs whose screening questions are all about a field he has not touched (energy markets, clinical trials, a specific software he never used). The script answers "do you have experience" with Yes; a reader must catch these before the walk.
 - Sales, recruiting, customer support.
+
+## When a form asks for paralegal years, or 'are you a paralegal'
+- Answer No, then in any free-text box: JD with real law work, the same work lawyers do. No bar because Andersen asked him to postpone and then things changed. (George, 10/27)
+- Contract types: tick every box offered. A contract is a contract; a day to read up is all it takes. (George, 10/27)
 
 ## Cover letter and free-text answers: how to write them
 - Plain, short, specific. First line says what he built that matches the job. Receipts, not adjectives.
