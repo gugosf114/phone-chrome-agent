@@ -42,6 +42,14 @@
  },
  "rules": [
   [
+   "years .*(microsoft office|ms office|excel|word|powerpoint|outlook)",
+   "15"
+  ],
+  [
+   "years .*(civil litigation|paralegal|clinical|nursing|accounting|bookkeeping|sales|recruiting|customer support|ercot|energy market|real estate|insurance claims|medical billing|construction|manufacturing|supply chain|logistics|salesforce|sap\\b|workday|netsuite|quickbooks)",
+   "0"
+  ],
+  [
    "equity[- ]based|no base salary|until we secure funding|equity only",
    "Yes",
    "source: George 2026-10-27 (commit 814e85a), his answers to the ASK list; moved to the top 10/27 because older broad rules matched first"
@@ -325,6 +333,7 @@
   "_note": "test defaults from 2026-10-14; the rules above win first"
  },
  "_notes": [
-  "2026-10-27: 8 rules + 4 facts from George's own answers to the 25-walk ASK list. The value 'ALL' on a checkbox group means tick every box."
+  "2026-10-27: 8 rules + 4 facts from George's own answers to the 25-walk ASK list. The value 'ALL' on a checkbox group means tick every box.",
+  "2026-10-27 05:00: two rules at the very top: 0 years for fields George never worked in (list grows as forms ask), 15 years Microsoft Office. From the 5-job proof walk: the test defaults answered 3 for civil litigation."
  ]
 }
