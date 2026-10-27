@@ -78,7 +78,6 @@ Sites and client work
 - [S41] About 2,000 monthly visitors on zero ad spend from SEO; client work includes Fortune 500 logo cookies and Ice Cube's 55th birthday cake <!-- src: linkedin-profile-2026-10-17.txt -->
 - [S42] GA4, July 21 to August 17 2026: the AI Assistant channel brought 64 sessions and 328 key events, with chatgpt.com named as a source; kept the public order surface separate from the private Bakers Agent owner console <!-- src: george-facts.json -->
 - [S43] Delivered a paid website and field-operations app for a private-jet detailing company (Stratos), with photo inspections, damage markup, manager-only quality sign-off, and shareable customer reports; live at stratosjetdetail.com and /ops/ <!-- src: resume.txt, assets.md -->
-- [L10] Built tools that extract and classify key data, flag inconsistencies, and summarize compliance risks, reducing manual review time by more than half <!-- George confirmed 2026-10-26; src: George_Abrahamyants_Sherwood Partners_Claims Analyst_Cover Letter.docx -->
 
 ### Andersen — Senior Associate, State & Local Tax — November 2023 to April 2025 (San Francisco, hybrid)
 - [A1] Managed multistate tax compliance and controversy for corporate and startup clients, including audit defense, refund claims, voluntary disclosures, and nexus reviews, with structured recommendations across conflicting legal rules <!-- src: linkedin-experience-2026-10-17.txt, George_Abrahamyants_Resume_OpenAI_Model_Designer.pdf -->
@@ -91,11 +90,6 @@ Sites and client work
 - [A8] Coordinated parallel audit defense, refund, voluntary-disclosure, and nexus matters across clients and jurisdictions, tracking source records, deadlines, and stakeholder decisions; worked across legal, finance, operations, and government stakeholders without owning their underlying systems <!-- src: George_Abrahamyants_Resume_Amgen_Responsible_AI_Manager.pdf, George_Abrahamyants_Resume_OpenAI_Program_Manager_Alignment.pdf -->
 - [A9] Translated complex tax and regulatory issues into clear, actionable guidance for cross-functional teams <!-- src: linkedin-experience-2026-10-17.txt -->
 - [A10] More than four years at Andersen <!-- src: George_Abrahamyants_Resume_Legora_Legal_Engineer_Tax_Consulting.pdf, George_Abrahamyants_Cover_Letter_Kirkland_AI_Innovation_Advisor.pdf -->
-- managed multistate compliance and contract review projects for technology clients <!-- George confirmed 2026-10-26; src: George Abrahamyants_Databricks_Cover Letter.docx -->
-- worked on agreements for a major technology partnership involving AI development, applying California sourcing rules to novel compute infrastructure and IP-sharing arrangements with no clear precedent <!-- George confirmed 2026-10-26; src: George Abrahamyants_Harvey_Contract Manager_Cover Letter.docx -->
-- led multistate compliance reviews for Fortune 500 clients, validating control design and operating effectiveness; worked with audit, finance, and tax teams to identify control gaps, document findings, and ensure remediation <!-- George confirmed 2026-10-26; src: George Abrahamyants_SoFi_Compliance Testing_Cover Letter.docx -->
-- handled multistate audits and protests for Fortune 500 clients <!-- George confirmed 2026-10-26; src: George_Abrahamyants_xAi_Cover Letter.docx -->
-- worked directly with law firm and corporate legal clients on tax and compliance matters <!-- George confirmed 2026-10-26; src: George Abrahamyants_Harvey_CSM_Mid Market_Cover Letter.docx -->
 
 ### Phenotopia — Chief Operations Officer — February 2021 to May 2023 (Santa Rosa, on-site)
 - [P1] Directed a $1.75 million retail construction buildout through building permits, construction, final municipal inspections, and opening; managed contractors, engineers, consultants, municipal departments, vendor contracts, MSAs, NDAs, purchasing, SOPs, and compliance while requirements and operating conditions changed. The business remains open <!-- src: linkedin-experience-2026-10-17.txt, George_Abrahamyants_Resume_OpenAI_Model_Designer.pdf -->
@@ -103,10 +97,6 @@ Sites and client work
 - [P3] The permit package integrated land-use requirements, operating procedures, security, traffic, odor control, water treatment, fire and building compliance, and work from outside engineering and environmental consultants; outside work spanned civil, mechanical, traffic, odor, HVAC, noise, security, water, fire, building, and operating plans <!-- src: linkedin-experience-2026-10-17.txt, George_Abrahamyants_Resume_Harvey_Legal_Engineering_Program_Manager.pdf -->
 - [P4] Built audit systems and compliance frameworks across construction, licensing, and business operations <!-- src: linkedin-experience-2026-10-17.txt -->
 - [P5] Coordinated legal, finance, operations, vendors, consultants, and government staff, turning operating risk into clear plans and defensible records <!-- src: George_Abrahamyants_Cover_Letter_Amgen_Responsible_AI_Manager.pdf -->
-- drafted and negotiated vendor and licensing agreements, built contract workflows, and used DocuSign and contract-tracking dashboards <!-- George confirmed 2026-10-26; src: George Abrahamyants_Harvey_Contract Manager_Cover Letter.docx, George Abrahamyants_Databricks_Cover Letter.docx -->
-- led licensing and compliance from the ground up (zoning, finance, safety, audits) under overlapping state licensing frameworks, managing audits and corrective actions <!-- George confirmed 2026-10-26; src: George_Abrahamyants_Stripe Reg Affairs Analyst_Cover Letter.docx, George Abrahamyants_SoFi_Compliance Testing_Cover Letter.docx -->
-- hired the team, set up payroll and benefits, and rolled out healthcare, payroll, and leave policies while negotiating with providers, through COVID shutdown rules <!-- George confirmed 2026-10-26; src: George_Abrahamyants_xAi_Cover Letter.docx -->
-- vendor sourcing, contracts, and performance reporting that supported the $1.75M launch <!-- George confirmed 2026-10-26; src: George_Abrahamyants_Anduril Ops Analyst_Product Operations_Cover Letter.docx -->
 
 ### Andersen — Associate, State & Local Tax — August 2018 to January 2021 (San Francisco Bay Area, on-site)
 - [B1] Conducted nexus studies, multistate compliance reviews, and exposure analyses across 20+ jurisdictions <!-- src: linkedin-experience-2026-10-17.txt -->
@@ -185,7 +175,7 @@ Sites and client work
 - WiM and Lavrentiy repo owner: abrahamyants/wim-android and abrahamyants/lavrentiy. The old gugosf114/... links redirect there (checked 2026-10-26), so either works, write abrahamyants. <!-- src: gh repo view 2026-10-26 -->
 - Email on resumes and forms: gugosf@berkeley.edu. <!-- src: george-dossier.md, every resume -->
 - Standing rule (George, 2026-10-18): read the README of any asset in full before it goes in a letter. <!-- src: assets.md -->
-- The ten lines that lived only in 2025 cover letters: George ruled 2026-10-26 that anything he sent in a letter or resume is true. All ten moved into their role blocks, tagged "George confirmed 2026-10-26". The August "unsupported" hold is void.
+- The ten lines that lived only in 2025 cover letters: removed on George's order 2026-10-26. The resume already covers that ground.
 
 ## Lanes (which bullets serve which kind of job; the picker cuts one page from these)
 
