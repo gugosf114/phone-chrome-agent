@@ -29,7 +29,7 @@ Last checked 2026-10-27 (full LinkedIn read, Play Console, the CUP application, 
 - DOL OALJ judicial extern 2017: drafted the 23-page decision affirmed on appeal (Baba v. SOS International, BRB No. 17-0440). IRS Office of Chief Counsel extern; USPS law office extern.
 
 ## The seven cards (me/cards/, read before any pick or letter; weights are George's, 10/27)
-FULL: Bakers Agent (in production), mybakingcreations.com (live), the GLM fine-tune (in use, AI/ML roles), NoiseFile (live on Play, first sale), WiM + the 35-claim provisional patent (Play testing; patent filed 6/27/2026), Heirloom (testing done, waiting on Google), the Santa Rosa CUP (approved, licensed), the Baba decision writing sample (affirmed on appeal). LESS: Invisible Work (a paper, public tool and data), Audit Ledger (private repo, idle since July). A LESS item backs a letter; it never leads one.
+FULL: Bakers Agent (in production), mybakingcreations.com (live), Thursday the order book (daily use), the GLM fine-tune (in use, AI/ML roles), NoiseFile (live on Play, first sale), WiM + the 35-claim provisional patent (Play testing; patent filed 6/27/2026), Heirloom (testing done, waiting on Google), the Santa Rosa CUP (approved, licensed), the Baba decision writing sample (affirmed on appeal). LESS: Invisible Work (a paper, public tool and data), Audit Ledger (private repo, idle since July). A LESS item backs a letter; it never leads one.
 
 ## Jobs: YES
 - AI evaluation, annotation, red-team, "legal expert for AI" gigs (Turing, Synthires, Mercor-style written work). Remote, contract, hourly. Target $40–$75/hr and up.

@@ -376,5 +376,29 @@
   "weight": "FULL for AI/ML roles",
   "card": "me/cards/glm-george-model.md",
   "lane": "ai-eval"
+ },
+ "Thursday (order book)": {
+  "words": [
+   "\\bCRM\\b",
+   "order management",
+   "customer management",
+   "internal tool",
+   "back[- ]office (tool|software|system)",
+   "operations (software|tool|platform)",
+   "workflow (tool|software)",
+   "firebase",
+   "\\bPWA\\b",
+   "progressive web app",
+   "monday\\.com",
+   "honeybook",
+   "airtable",
+   "notion"
+  ],
+  "say": "I built Thursday, the order and customer management app my family's bakery runs on every day: live-synced orders, due-date alerts, invoices, sketches, delivery, and an email-to-order parser.",
+  "proof": "mybakingcreations.com/thursday; repo gugosf114/gugosf114.github.io",
+  "status": "in daily use",
+  "weight": "FULL",
+  "card": "me/cards/thursday.md",
+  "lane": "legal-ops"
  }
 }

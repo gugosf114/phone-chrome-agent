@@ -19,4 +19,5 @@ it backs one.
 | audit-ledger.md | LESS — private repo, last work July 2026, live dashboard |
 | bakers-agent.md | FULL — in production, runs the bakery's marketing every day |
 | mybakingcreations.md | FULL — live business site, ~1,400 commits, worked on daily |
+| thursday.md | FULL — the bakery's order and customer book, in daily use |
 | glm-george-model.md | FULL for AI/ML roles — his own QLoRA fine-tune, live endpoint; method only, never the card contents |
