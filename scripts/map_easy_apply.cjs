@@ -214,6 +214,21 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     if (await open()) { console.log('  WARNING: form still open after dismiss'); return false; }
     return true;
   }
+  // The Review page ticks "Follow <company>" by default. Untick it with a real press, every time, and log it.
+  async function untickFollow(rec) {
+    const k = 'flw' + (++mk);
+    const f = await ev(`(()=>{const d=document.querySelector(${JSON.stringify(DLG)});if(!d)return null;const t=e=>(e?(e.innerText||e.textContent||""):"").replace(/\\s+/g," ").trim();
+      for(const c of d.querySelectorAll("input[type=checkbox]")){const lab=c.id?d.querySelector('label[for="'+CSS.escape(c.id)+'"]'):null;let row=c.parentElement;for(let i=0;i<4&&row&&!t(row);i++)row=row.parentElement;const text=t(lab)||t(row);
+        if(c.id==="follow-company-checkbox"||/^Follow\\b/i.test(text)){const tgt=(lab&&lab.getBoundingClientRect().width>0)?lab:c;tgt.setAttribute("data-map-idx","${k}");return {text:text.slice(0,90),checked:c.checked}}}return null})()`);
+    if (!f) rec.follow = 'no Follow box on Review';
+    else if (!f.checked) rec.follow = `already unticked: ${f.text}`;
+    else {
+      await click(`[data-map-idx=${k}]`); await h.pause(300, 700);
+      const still = await ev(`(()=>{const e=document.querySelector("[data-map-idx=${k}]");const c=e&&(e.tagName==="INPUT"?e:(e.control||document.getElementById(e.htmlFor)));return !!(c&&c.checked)})()`);
+      rec.follow = (still ? 'FAILED to untick: ' : 'unticked: ') + f.text;
+    }
+    console.log(`  Follow: ${rec.follow}`);
+  }
   const waitFor = async (expr, ms = 8000) => { const t0 = Date.now(); while (Date.now() - t0 < ms) { if (await ev(expr)) return true; await sleep(250); } return false; };
   // LinkedIn's 2026 job page has no <h1>; the title line and the description box are the stable handles (same as gather.cjs).
   const JOB_READY = '/ \\| LinkedIn$/.test(document.title) && !!document.querySelector("[id^=JobDetails_AboutTheJob]")';
@@ -304,6 +319,7 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
         if (stillEmpty.length) { rec.status = 'STUCK_REQUIRED'; rec.stuck.push({ heading: st.heading, fields: stillEmpty.map(f => f.type + ':' + f.label + (f.options ? ' [' + f.options.join('/') + ']' : '')) }); screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
         if (!st.next) { rec.status = 'NO_NEXT_BUTTON'; rec.stuck.push({ heading: st.heading, buttons: st.buttons, text: st.text }); screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
         if (st.next.isSubmit) {
+          await untickFollow(rec);
           if (!SUBMIT) { rec.status = 'READY_TO_SUBMIT'; rec.review = true; screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
           await h.pause(700, 1500); await click(st.next.sel); await h.pause(2500, 4000);
           const after = await ev('(()=>{const d=document.querySelector("dialog[open], [role=dialog]");return (d?d.innerText:document.body.innerText).replace(/\\s+/g," ").slice(0,200)})()');
