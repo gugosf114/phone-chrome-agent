@@ -108,10 +108,10 @@ const READ = `(${readPage.toString()})()`;
       const rec = { jobId: jid, url, ...r, gatheredAt: new Date().toISOString() };
       rec.desc = (rec.desc || '').slice(0, 12000);
       rec.walls = [];
-      // a wall with "field": "title" looks at the title only; the rest look at title + description, one sentence or line at a time
-      const sentences = { title: [rec.title], all: [rec.title, ...rec.desc.split(/(?<=[.!?•])(?<!\b[A-Za-z]\.)\s+|\n+/)] }; // "U.S.", "J.D." do not end a sentence
+      // a wall with "field": "title" looks at the title only; "field": "where" looks at "<Remote|Hybrid|On-site> · <location>" (10/26, George: on-site outside the Bay Area must flag even when the description never names the city); the rest look at title + description, one sentence or line at a time
+      const sentences = { title: [rec.title], where: [[rec.workplace, rec.location].filter(Boolean).join(' · ')], all: [rec.title, ...rec.desc.split(/(?<=[.!?•])(?<!\b[A-Za-z]\.)\s+|\n+/)] }; // "U.S.", "J.D." do not end a sentence
       const around = (s, rx) => { if (s.length <= 200) return s; const i = Math.max(0, s.search(rx) - 60); return (i ? '…' : '') + s.slice(i, i + 200) + '…'; };
-      for (const w of WALLS) { const s = sentences[w.field === 'title' ? 'title' : 'all'].find(x => w.rx.test(x)); if (s) rec.walls.push({ wall: w.name, sentence: around(s.trim(), w.rx) }); }
+      for (const w of WALLS) { const s = sentences[w.field === 'title' ? 'title' : w.field === 'where' ? 'where' : 'all'].find(x => w.rx.test(x)); if (s) rec.walls.push({ wall: w.name, sentence: around(s.trim(), w.rx) }); }
       rec.easy = /^Easy Apply/i.test(rec.applyButton);
       out.push(rec);
       console.log(`[${i + 1}/${ids.length}] ${rec.title.slice(0, 50)} @ ${rec.company.slice(0, 30)} · ${rec.pay || 'pay ?'} · ${rec.easy ? 'Easy' : (rec.applyButton || 'no button')}${rec.applied ? ' · APPLIED' : ''}${rec.walls.length ? ' · WALL: ' + rec.walls.map(w => w.wall).join(', ') : ''}`);
