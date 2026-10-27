@@ -50,7 +50,10 @@ async function attach(tab, opts = {}) {
   let id = 0; const pend = {}; const listeners = {};
   ws.onmessage = e => { const m = JSON.parse(e.data); if (m.id && pend[m.id]) { pend[m.id](m); delete pend[m.id]; } else if (m.method && listeners[m.method]) listeners[m.method].forEach(f => f(m.params)); };
   const on = (method, fn) => { (listeners[method] = listeners[method] || []).push(fn); }; // CDP events, e.g. Page.fileChooserOpened
-  const send = (method, params = {}) => new Promise((res, rej) => { const i = ++id; pend[i] = m => m.error ? rej(new Error(method + ': ' + m.error.message)) : res(m.result || {}); ws.send(JSON.stringify({ id: i, method, params })); });
+  // Every command gets a clock (10/27): Chrome answers in 20 s or the call fails with a name. Before this, one unanswered
+  // command froze a run for 13 minutes with nothing in the log.
+  const SEND_MS = +(opts.sendTimeoutMs || 20000);
+  const send = (method, params = {}) => new Promise((res, rej) => { const i = ++id; const tm = setTimeout(() => { delete pend[i]; rej(new Error(method + ': no answer from Chrome in ' + SEND_MS / 1000 + ' s')); }, SEND_MS); pend[i] = m => { clearTimeout(tm); m.error ? rej(new Error(method + ': ' + m.error.message)) : res(m.result || {}); }; ws.send(JSON.stringify({ id: i, method, params })); });
   // No Runtime.enable on purpose: it is one of the automation marks pages can see. evaluate works without it.
   const evaluate = async (expression) => { const r = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true, userGesture: true }); if (r.exceptionDetails) throw new Error(r.exceptionDetails.text || 'page error'); return r.result.value; };
   const log = opts.log || (() => {});

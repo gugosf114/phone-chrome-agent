@@ -1,5 +1,7 @@
 // map_easy_apply.cjs — walk LinkedIn Easy Apply on N jobs, fill from the answer book, STOP one click before Submit,
-// and log every screen, field, fork, and the time each run took. Never submits. Dismisses + discards each form.
+// and log every screen, field, fork, and the time each run took. Never submits without --submit. Dismisses + discards each form.
+// Clocks (10/27): every Chrome command 20 s (human.cjs), every job --clock 90 s → TIMED_OUT and on to the next. After a
+// --submit run the receipt is LinkedIn's own Applied list (scripts/applied_check.cjs), never the pop-up after the click.
 //
 //   CDP_PORT=19222 node scripts/map_easy_apply.cjs --jobs 10 --keywords "legal operations"
 //   CDP_PORT=19222 node scripts/map_easy_apply.cjs --ids 111,222 --jobs 2 [--overrides picks/picks-<stamp>.json]
@@ -25,6 +27,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const rnd = (a, b) => a + Math.random() * (b - a);
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > -1 ? process.argv[i + 1] : d; };
 const JOBS = parseInt(arg('--jobs', '10'), 10);
+const JOB_CLOCK = parseInt(arg('--clock', '90'), 10); // seconds per job before TIMED_OUT (10/27)
 const KW = arg('--keywords', 'legal operations');
 const PORT = process.env.CDP_PORT || '19222';
 const ROOT = path.resolve(__dirname, '..');
@@ -351,7 +354,10 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     const rec = { run: runs + 1, jobId: jid, startedAt: new Date().toISOString(), screens: [], status: '', review: false, stuck: [], newForks: [], filled: 0, unanswered: 0, misses: [], overwrote: [], resume: null, letter: null, files: F.from, needs: null, error: null };
     const t0 = Date.now();
     let opened = false;
-    try {
+    // Per-job clock (10/27): JOB_CLOCK seconds for the whole walk, then the job is written as TIMED_OUT and the run moves on.
+    let clockHit = false; const clock = new Promise(r => setTimeout(() => { clockHit = true; r('CLOCK'); }, JOB_CLOCK * 1000));
+    const raced = async (pr) => { const v = await Promise.race([pr, clock]); if (v === 'CLOCK') throw new Error('job clock: ' + JOB_CLOCK + ' s ran out'); return v; };
+    try { await raced((async () => {
       await h.send('Page.navigate', { url: `https://www.linkedin.com/jobs/view/${jid}/` });
       await waitFor(JOB_READY, 12000); await stopIfBlocked(rec); await h.pause(1200, 2600);
       const tp = String(await ev('document.title') || '').split(' | ');
@@ -359,8 +365,8 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
       // read a little like a person: wheel down, then back up
       const down = rnd(250, 600); await wheel(down); await h.pause(800, 2000); await wheel(-down - 200); await h.pause(400, 900);
       const ea = await clickByText('/^Easy Apply/i', 'button, a, [role=button]');
-      if (!ea) { rec.status = 'NO_EASY_APPLY_BUTTON'; rec.ms = Date.now() - t0; console.log(`  skip ${jid} (no Easy Apply button) ${rec.title}`); fs.appendFileSync(OUT, JSON.stringify(rec) + '\n'); continue; }
-      if (!await waitFor(`!!document.querySelector(${JSON.stringify(DLG)})`, 8000)) { await stopIfBlocked(rec); rec.status = 'NO_DIALOG'; rec.ms = Date.now() - t0; console.log(`  skip ${jid} (no dialog) ${rec.title}`); fs.appendFileSync(OUT, JSON.stringify(rec) + '\n'); continue; }
+      if (!ea) { rec.status = 'NO_EASY_APPLY_BUTTON'; rec.ms = Date.now() - t0; console.log(`  skip ${jid} (no Easy Apply button) ${rec.title}`); return; }
+      if (!await waitFor(`!!document.querySelector(${JSON.stringify(DLG)})`, 8000)) { await stopIfBlocked(rec); rec.status = 'NO_DIALOG'; rec.ms = Date.now() - t0; console.log(`  skip ${jid} (no dialog) ${rec.title}`); return; }
       opened = true; runs++; await h.pause(900, 1800);
       let lastSig = '';
       for (let step = 0; step < 12; step++) {
@@ -432,10 +438,11 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
         screen.ms = Date.now() - ts; rec.screens.push(screen);
       }
       if (!rec.status) rec.status = 'MAX_STEPS';
-    } catch (e) { rec.error = e.message.slice(0, 300); if (!rec.status) rec.status = 'ERROR'; }
+    })()); } catch (e) { rec.error = e.message.slice(0, 300); if (clockHit) rec.status = 'TIMED_OUT'; else if (!rec.status) rec.status = 'ERROR'; }
     rec.ms = Date.now() - t0;
-    if (opened && !await dismiss()) rec.error = (rec.error ? rec.error + ' · ' : '') + 'form still open after dismiss';
+    if (opened) { const closed = await Promise.race([dismiss().catch(() => false), sleep(15000).then(() => false)]); if (!closed) rec.error = (rec.error ? rec.error + ' · ' : '') + 'form still open after dismiss'; }
     rec.msTotal = Date.now() - t0;
+    if (/^NO_(EASY_APPLY_BUTTON|DIALOG)$/.test(rec.status)) { fs.appendFileSync(OUT, JSON.stringify(rec) + '\n'); continue; }
     for (const s of rec.screens) for (const f of s.fields) if (!f.had && f.type !== 'file' && isMiss(f.source)) rec.misses.push({ screen: s.heading, label: f.label, group: f.group, type: f.type, options: f.options, required: f.required, source: f.source, filledWith: f.filledWith });
     fs.appendFileSync(OUT, JSON.stringify(rec) + '\n');
     fs.writeFileSync(SEENF, JSON.stringify([...seen], null, 0));
@@ -443,5 +450,9 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     if (runs < JOBS && jid !== ids[ids.length - 1]) { const gap = rnd(15000, 45000); console.log(`  waiting ${(gap / 1000).toFixed(0)} s`); await sleep(gap); }
   }
   console.log(`done: ${runs} runs in ${((Date.now() - t00) / 60000).toFixed(1)} min · forks known: ${seen.size} · log: ${path.relative(ROOT, OUT)}`);
+  if (SUBMIT) { // the receipt is LinkedIn's own Applied list, not a 3-second peek at the pop-up (George 10/27)
+    try { const r = await require('./applied_check.cjs').check(h, ids.filter(j => !(OVR[j] || {}).skip)); fs.appendFileSync(OUT, JSON.stringify({ run: null, appliedCheck: r, at: new Date().toISOString() }) + '\n'); }
+    catch (e) { console.log('applied check failed:', e.message); }
+  }
   h.close(); process.exit(0);
 })().catch(e => { console.log('ERROR', e && e.message); process.exit(1); });
