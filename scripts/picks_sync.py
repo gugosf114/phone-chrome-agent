@@ -11,6 +11,7 @@ picks = json.load(open(picks_f)); no_f = os.path.join(root, 'scripts/no.json')
 no = json.load(open(no_f)) if os.path.exists(no_f) else {}
 yes, ask, added = [], [], 0
 for jid, p in picks.items():
+    if jid.startswith('_') or not isinstance(p, dict): continue   # notes like "_run" ride along in the picks file
     d = (p.get('decision') or '').lower()
     if d == 'no':
         if jid not in no: no[jid] = p.get('skip') or p.get('why') or 'picker: no'; added += 1

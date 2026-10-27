@@ -116,6 +116,8 @@ function decode(card, search, detail, rules, wantQuestions) {
     salaryInsight: salaryText ? { text: salaryText, source: 'LinkedIn job card' } : null,
     easyApply, postingAge: age || null, postingAgeHours: listedAt ? Math.round((Date.now() - listedAt) / 36000) / 100 : null, listedAt, companyUrn };
   rec.walls = wallsFor(rec, rules);
+  // 10/27 (George): 100 or more applicants (or apply clicks) = a wall. A flag, like the rest; the picker says no.
+  if (rec.applicantCount != null && (rec.applicantCount >= 100 || rec.applicantCountIsLowerBound)) rec.walls.push({ wall: '100+ applicants', sentence: `${rec.applicantCountIsLowerBound ? 'Over ' : ''}${rec.applicantCount} ${rec.applicantCountKind || 'applicants'}` });
   if (wantQuestions) {
     rec.questions = null;
     rec.questionsStatus = easyApply ? 'unavailable: no form-schema GET observed without opening Apply' : 'not applicable: external application';
