@@ -347,6 +347,7 @@ scripts/findclick.sh            find an element by its text, scroll it into view
 scripts/fill.sh                 fill a field by its label, key by key, and read the value back (uses cdpx.cjs)
 scripts/clickread.cjs           one mouse click at x,y, then one read; no typing, no iframes
 me/cards/                       eleven one-page cards with WEIGHTS (FULL = live/in pipeline, LESS = GitHub-only/paper): Bakers Agent, mybakingcreations.com, Thursday (the order book), the GLM fine-tune, NoiseFile, WiM+patent, Heirloom, the Santa Rosa CUP, the Baba writing sample, Invisible Work, Audit Ledger; the picker reads these, not the raw (10/27)
+me/resume/                      the current resume, the one saved on LinkedIn (George_Abrahamyants_Resume_Sept2026.pdf, last used 10/14/2026) + its text (10/27)
 me/raw/                         raw LinkedIn text, dated reads (10/17 and 10/27: profile, experience, education+honors+publications+languages, posts, featured); read once, never per job
 me/samples/                     the documents in full: the 33-page CUP application, the 23-page Baba decision (PDF, for writing-sample uploads), the 18-page provisional patent (PDF), Invisible Work (PDF)
 me/triggers.json                word triggers that tie a posting to George's assets and receipts (say line, proof, status, resume lane); refresh status with check_assets.py (10/27)
