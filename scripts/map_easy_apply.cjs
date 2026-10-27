@@ -390,7 +390,8 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
           }
           if (!f.value && f.type !== 'file') {
             const a = answerFor(f.label, f.type, f.options);
-            if (a) {
+            if (a && a.value === 'BLANK') { entry.filledWith = '(left blank on purpose)'; entry.source = a.source; rec.filled++; } // 10/27: a book rule can say BLANK (middle name)
+            else if (a) {
               const ok = await fillField(f, a, entry);
               if (ok) { entry.filledWith = a.value; entry.source = a.source; rec.filled++; }
               else { entry.source = 'FAILED:' + a.source; rec.unanswered++; needs.push(`${f.label || f.type} ("${a.value}" could not be set${entry.note ? ': ' + entry.note : ''})`); }

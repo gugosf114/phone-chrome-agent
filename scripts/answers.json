@@ -48,6 +48,14 @@
  },
  "rules": [
   [
+   "start immediately|can you start|available to start|start date",
+   "Yes"
+  ],
+  [
+   "^middle (name|initial)",
+   "BLANK"
+  ],
+  [
    "years .*(microsoft office|ms office|excel|word|powerpoint|outlook)",
    "15"
   ],
@@ -356,6 +364,7 @@
   "2026-10-27 05:00: two rules at the very top: 0 years for fields George never worked in (list grows as forms ask), 15 years Microsoft Office. From the 5-job proof walk: the test defaults answered 3 for civil litigation.",
   "2026-10-27 05:30 (George: no guessing): removed 5 blanket rules that said Yes to any 'do you have experience' / 'have you ever' / 'law firm' and 3 to any 'years of'. These sent a false Yes to ERCOT questions on 10/17 and 3 years of civil litigation on 10/27. Such questions now stop as NEEDS_INPUT. Broad salary answer set to George's target 120000 (was 150000).",
   "2026-10-27 07:30: facts + 10 rules lifted from real forms George already submitted (job-vault Ashby packets: Harvey, Legora, OpenAI) and from george-facts.json on the phone. The arbitration and certify boxes: he ticked them on OpenAI in Aug 2026, so the book now ticks them.",
-  "2026-10-27 07:40: resume renamed to George_Abrahamyants_Resume_Oct2026.pdf (NoiseFile live on Play, 36 cities/108 workflows, 40+ functions, Bakers Agent 2 in progress). Uploaded to LinkedIn, Sept2026 deleted there."
+  "2026-10-27 07:40: resume renamed to George_Abrahamyants_Resume_Oct2026.pdf (NoiseFile live on Play, 36 cities/108 workflows, 40+ functions, Bakers Agent 2 in progress). Uploaded to LinkedIn, Sept2026 deleted there.",
+  "2026-10-27 09:15: BLANK = leave the box empty on purpose (middle name); 'start immediately' = Yes (George: start immediately)."
  ]
 }
