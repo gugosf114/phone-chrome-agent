@@ -42,6 +42,51 @@
  },
  "rules": [
   [
+   "equity[- ]based|no base salary|until we secure funding|equity only",
+   "Yes",
+   "source: George 2026-10-27 (commit 814e85a), his answers to the ASK list; moved to the top 10/27 because older broad rules matched first"
+  ],
+  [
+   "salary .*(starts|begins) at \\$?([3-7][0-9]),?\\d{3}|\\$([3-7][0-9]),?\\d{3}.*(align|expectation)",
+   "No",
+   "source: George 2026-10-27 (commit 814e85a), his answers to the ASK list; moved to the top 10/27 because older broad rules matched first"
+  ],
+  [
+   "salary .*(starts|begins) at \\$?(8[0-9]|9[0-9]|1[0-9]{2}),?\\d{3}|\\$(8[0-9]|9[0-9]|1[0-9]{2}),?\\d{3}.*(align|expectation)",
+   "Yes",
+   "source: George 2026-10-27 (commit 814e85a), his answers to the ASK list; moved to the top 10/27 because older broad rules matched first"
+  ],
+  [
+   "(contract|contractor|1099|part[- ]time|temporary|temp) (role|position|work|basis|opportunity).*(ok|fine|open|comfortable|interested|willing)|open to (contract|part[- ]time)",
+   "Yes",
+   "source: George 2026-10-27 (commit 814e85a), his answers to the ASK list; moved to the top 10/27 because older broad rules matched first"
+  ],
+  [
+   "(hybrid|in[- ]office|on[- ]site).*(san francisco|sf|bay area|oakland|san jose|daly city).*(ok|able|willing|comfortable)|able to (work|commute).*(san francisco|bay area)",
+   "Yes",
+   "source: George 2026-10-27 (commit 814e85a), his answers to the ASK list; moved to the top 10/27 because older broad rules matched first"
+  ],
+  [
+   "(five|5)[- ]?(to|-)[- ]?(seven|7) years .*paralegal|years .*(civil litigation )?paralegal experience",
+   "No",
+   "source: George 2026-10-27 (commit 814e85a), his answers to the ASK list; moved to the top 10/27 because older broad rules matched first"
+  ],
+  [
+   "(change|modify|delete|add) .*(terms|language).*(redlin|draft)|redlin.*(change|modify|delete|add)",
+   "Yes",
+   "source: George 2026-10-27 (commit 814e85a), his answers to the ASK list; moved to the top 10/27 because older broad rules matched first"
+  ],
+  [
+   "(which|what|specify|select) .*contracts? .*(experience|worked|familiar)|contract types?",
+   "ALL",
+   "source: George 2026-10-27 (commit 814e85a), his answers to the ASK list; moved to the top 10/27 because older broad rules matched first"
+  ],
+  [
+   "phone country code|country code",
+   "United States (+1)",
+   "source: me/george-dossier.md 'Who' (415 phone, Daly City CA); before the phone rule, which would answer the number; added 10/27"
+  ],
+  [
    "completed the following level of education: (doctor of (philosophy|medicine|pharmacy)|master of business|m\\.?b\\.?a\\b)",
    "No",
    "source: me/george-dossier.md 'Who' (JD + BA only; no PhD, MD, PharmD, MBA); same question family as the next rule; added 10/27"
@@ -270,38 +315,6 @@
   [
    "current/previous employee|former employee|previously (worked|employed|interviewed|applied)",
    "No"
-  ],
-  [
-   "equity[- ]based|no base salary|until we secure funding|equity only",
-   "Yes"
-  ],
-  [
-   "salary .*(starts|begins) at \\$?([3-7][0-9]),?\\d{3}|\\$([3-7][0-9]),?\\d{3}.*(align|expectation)",
-   "No"
-  ],
-  [
-   "salary .*(starts|begins) at \\$?(8[0-9]|9[0-9]|1[0-9]{2}),?\\d{3}|\\$(8[0-9]|9[0-9]|1[0-9]{2}),?\\d{3}.*(align|expectation)",
-   "Yes"
-  ],
-  [
-   "(contract|contractor|1099|part[- ]time|temporary|temp) (role|position|work|basis|opportunity).*(ok|fine|open|comfortable|interested|willing)|open to (contract|part[- ]time)",
-   "Yes"
-  ],
-  [
-   "(hybrid|in[- ]office|on[- ]site).*(san francisco|sf|bay area|oakland|san jose|daly city).*(ok|able|willing|comfortable)|able to (work|commute).*(san francisco|bay area)",
-   "Yes"
-  ],
-  [
-   "(five|5)[- ]?(to|-)[- ]?(seven|7) years .*paralegal|years .*(civil litigation )?paralegal experience",
-   "No"
-  ],
-  [
-   "(change|modify|delete|add) .*(terms|language).*(redlin|draft)|redlin.*(change|modify|delete|add)",
-   "Yes"
-  ],
-  [
-   "(which|what|specify|select) .*contracts? .*(experience|worked|familiar)|contract types?",
-   "ALL"
   ]
  ],
  "never_yes": "sponsor|visa|criminal|felony|convicted|terminated for cause|non-?compete|current(ly)? employed (by|at) (this|our)|do you require|are you a (former|current) employee|bar admi|licensed attorney|security clearance",
