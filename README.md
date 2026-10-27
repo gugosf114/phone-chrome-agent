@@ -228,6 +228,15 @@ bash scripts/anti_freeze.sh
 - **PROVEN 2026-10-26, no reboot:** George in Termux, Chrome in the background, `isFrozen=false`, the socket on 9336 answered `/json/version` and listed 19 tabs. The one false alarm was a wrong socket name: Chrome owned the bare `chrome_devtools_remote`, Beta owned `_<pid>`. Ask `/proc/net/unix` which is which.
 - Open catch: OLAF can still pause Chrome about a second on each app switch. No off switch known.
 
+## The hands (2026-10-26)
+
+Captcha scoring watches the hands: pointer movement, press and release, key timing, scroll. Our old scripts
+clicked by code (`element.click()`) and filled boxes in one shot (`.value=`). No pointer, no keys. `scripts/human.cjs`
+fixes that: `click` walks the pretend pointer along a curved path and presses; `type` sends one key at a time, 55–150 ms
+apart, longer at spaces; `scrollTo` wheels; `pause` waits a human beat. It is all inside Chrome over CDP; the real mouse
+never moves. Proven 10/26 on GitHub search in the box Chromium: click box, 28 keys, Enter, results in 10.9 s.
+Rule: a new script never calls `element.click()` or sets `.value`; it requires `./human.cjs`. Old scripts get moved over as they are touched.
+
 ## Rules learned the hard way
 
 - When George gives the answers for every fork, run the whole thing in one command. No look between presses.
@@ -250,6 +259,7 @@ scripts/cdpx.cjs                the 10/14 Google Ads driver: reads and clicks IN
 scripts/findclick.sh            find an element by its text, scroll it into view, real-click it (uses cdpx.cjs)
 scripts/fill.sh                 fill a field by its label, key by key, and read the value back (uses cdpx.cjs)
 scripts/clickread.cjs           one mouse click at x,y, then one read; no typing, no iframes
+scripts/human.cjs               the hands, made to move like a person's (10/26): pointer path + press/release, key-by-key typing with jitter, wheel scroll, pauses; plain CDP; every new script clicks and types through this
 scripts/laptop_show_window.ps1  runs inside the laptop's desktop session (task ShowAgentChrome, /it) and brings the agent Chrome window to the front
 scripts/keepalive.js            silent-audio keep-awake, paste into a tab via CDP
 scripts/one_pass_form.js        answer-sheet form filler that stops on unknown questions (from the report)
