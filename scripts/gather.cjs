@@ -53,8 +53,8 @@ function readPage() {
   const t = e => (e ? (e.innerText || e.textContent || '') : '').replace(/\s+/g, ' ').trim();
   const lines = e => (e ? (e.innerText || e.textContent || '') : '').replace(/[ \t ]+/g, ' ').replace(/ *\n */g, '\n').replace(/\n{3,}/g, '\n\n').trim();
   const jid = (location.pathname.match(/\/jobs\/view\/(\d+)/) || [])[1] || '';
-  const tparts = document.title.split(' | ');
-  const title = (tparts[0] || '').trim(), company = (tparts.length >= 3 ? tparts[1] : '').trim();
+  const tparts = document.title.split(' | '); // the title itself can hold " | " ("Specialist (Remote | $45–$90/hr)"): company is the next-to-last part
+  const title = (tparts.length >= 3 ? tparts.slice(0, -2).join(' | ') : tparts[0] || '').trim(), company = (tparts.length >= 3 ? tparts[tparts.length - 2] : '').trim();
   const main = t(document.querySelector('main') || document.body);
   const about = document.getElementById('JobDetails_AboutTheJob_' + jid) || document.querySelector('[id^=JobDetails_AboutTheJob]');
   const desc = lines(about).replace(/^About the job\s*/i, '').replace(/\s*(… ?more|show more|show less)\s*$/i, '');
@@ -86,7 +86,14 @@ const READ = `(${readPage.toString()})()`;
   const tab = list.find(o => o.type === 'page' && o.url.includes('linkedin.com')) || list.find(o => o.type === 'page');
   if (!tab) { console.log('no tab on port', PORT); process.exit(2); }
   const h = await human.attach(tab, { settle: false, log: m => process.stderr.write('  [human] ' + m + '\n') });
-  const nav = async (url, readyExpr, ms = 15000) => { await h.send('Page.navigate', { url }); const t0 = Date.now(); while (Date.now() - t0 < ms) { try { if (await h.evaluate(readyExpr)) break; } catch { } await human.sleep(300); } await h.pause(1200, 2600); };
+  // Stop signs (same as map_easy_apply.cjs): captcha, /checkpoint/ or login wall, HTTP 999 end the run; nothing is touched after.
+  const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||{};if(nav.responseStatus===999)return "HTTP 999";
+    if(/\\/(checkpoint|authwall|uas\\/login|login)\\b/.test(location.pathname))return "wall page: "+location.pathname;
+    if(document.querySelector('iframe[src*="captcha" i], iframe[title*="captcha" i], iframe[title*="challenge" i], #captcha-internal'))return "captcha";
+    if(/quick security check|security verification|verify you.?re (a )?human/i.test((document.body&&document.body.innerText||"").slice(0,4000)))return "captcha text";return ""})()`;
+  const nav = async (url, readyExpr, ms = 15000) => { await h.send('Page.navigate', { url }); const t0 = Date.now(); while (Date.now() - t0 < ms) { try { if (await h.evaluate(readyExpr)) break; } catch { } await human.sleep(300); }
+    const why = await h.evaluate(BLOCKED).catch(() => ''); if (why) { console.log(`STOP: ${why} at ${url}. Nothing touched after this.`); h.close(); process.exit(4); }
+    await h.pause(1200, 2600); };
   const wheelList = async () => { // scroll the results pane with the wheel so more cards load
     const b = await h.evaluate(`(()=>{const e=document.querySelector('.scaffold-layout__list, .jobs-search-results-list');if(!e)return null;const r=e.getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2}})()`);
     if (!b) return;

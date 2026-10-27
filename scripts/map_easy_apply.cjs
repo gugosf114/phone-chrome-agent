@@ -207,7 +207,7 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
       await h.send('Page.navigate', { url: `https://www.linkedin.com/jobs/view/${jid}/` });
       await waitFor(JOB_READY, 12000); await stopIfBlocked(rec); await h.pause(1200, 2600);
       const tp = String(await ev('document.title') || '').split(' | ');
-      rec.title = (tp[0] || '').trim().slice(0, 80); rec.company = (tp.length >= 3 ? tp[1] : '').trim().slice(0, 60);
+      rec.title = (tp.length >= 3 ? tp.slice(0, -2).join(' | ') : tp[0] || '').trim().slice(0, 80); rec.company = (tp.length >= 3 ? tp[tp.length - 2] : '').trim().slice(0, 60);
       // read a little like a person: wheel down, then back up
       const down = rnd(250, 600); await wheel(down); await h.pause(800, 2000); await wheel(-down - 200); await h.pause(400, 900);
       const ea = await clickByText('/^Easy Apply/i', 'button, a, [role=button]');
