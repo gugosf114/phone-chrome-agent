@@ -225,6 +225,7 @@ bash scripts/anti_freeze.sh
 - **Never sleeping apps** has no shell insert. The screen opens with `am start -a com.samsung.android.sm.ACTION_OPEN_CHECKABLE_LISTACTIVITY -p com.samsung.android.lool --ei activity_type 2`; George taps Chrome, then Add. Not done.
 - Silent audio and PiP hold Chrome only while really playing or really on screen. Weak.
 - **Check:** `dumpsys activity | grep -A 25 "Apps frozen:"` should show no Chrome pid. 10/26 after all of the above: none.
+- **PROVEN 2026-10-26, no reboot:** George in Termux, Chrome in the background, `isFrozen=false`, the socket on 9336 answered `/json/version` and listed 19 tabs. The one false alarm was a wrong socket name: Chrome owned the bare `chrome_devtools_remote`, Beta owned `_<pid>`. Ask `/proc/net/unix` which is which.
 - Open catch: OLAF can still pause Chrome about a second on each app switch. No off switch known.
 
 ## Rules learned the hard way
