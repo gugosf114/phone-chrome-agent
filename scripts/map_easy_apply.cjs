@@ -13,8 +13,8 @@
 // Output: logs/easy_apply_map/map-<stamp>.jsonl (one line per job) + logs/easy_apply_map/seen-forks.json (grows across runs).
 // A "fork" = screen heading + field type + field label. A run's "new forks" = ones no earlier run has seen.
 // A "miss" = a field the book did not answer: no rule hit, or only a test default (number 5, text/yes-no "Yes").
-// Job files (10/27): resume + cover letter per job from picks ("resume_file", "letter_file": laptop paths; "letter": the
-// letter's text) or the apply/<jobId>/ folder (meta.json names, pushed to the laptop by scripts/push_apply_files.sh).
+// Job files (10/27): resume + cover letter per job from picks ("resume_file", "letter_file": laptop paths; "letter_text": the
+// letter's text; "letter" is the human angle and is never typed) or the apply/<jobId>/ folder (meta.json names, pushed to the laptop by scripts/push_apply_files.sh).
 // A form that offers a cover letter with neither in hand stops that job: NEEDS_LETTER.
 // No silent skips (10/27): every field the form offers, required or optional, is filled from the book / picks, or the job
 // stops with NEEDS_INPUT naming the field. Nothing is left empty and walked past.
@@ -95,8 +95,8 @@ function jobFiles(jid, o) {
   const resumePath = o.resume_file || (meta ? win(meta.resume_name) : null);
   const letterPath = o.letter_file || (meta ? win(meta.letter_name) : null);
   const txtF = path.join(dir, 'cover-letter.txt');
-  const letterText = fs.existsSync(txtF) ? fs.readFileSync(txtF, 'utf8').trim() : (o.letter || null);
-  return { resumePath, resumeName: resumePath ? base(resumePath) : BOOK.facts.resume_file, letterPath, letterName: letterPath ? base(letterPath) : null, letterText, from: o.resume_file || o.letter_file || o.letter ? 'picks' : meta ? 'apply/' + jid : 'none' };
+  const letterText = fs.existsSync(txtF) ? fs.readFileSync(txtF, 'utf8').trim() : (o.letter_text || null); // 'letter' in picks is the human angle, never typed
+  return { resumePath, resumeName: resumePath ? base(resumePath) : BOOK.facts.resume_file, letterPath, letterName: letterPath ? base(letterPath) : null, letterText, from: o.resume_file || o.letter_file || o.letter_text ? 'picks' : meta ? 'apply/' + jid : 'none' };
 }
 
 // Stop signs: the run ends on any of these and touches nothing more.

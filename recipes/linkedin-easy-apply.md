@@ -25,7 +25,8 @@ Last submitted: 2026-10-14 02:37 (37 s, "Legal Expert | Remote | $40–$60/hr")
 Last broke: 2026-10-14 02:11 — pressed Next into a drop-down that still said "Select an option"; fixed by treating placeholder selects as empty
 Needs from the answer book: rules + facts in scripts/answers.json (George's own 10/27 rules sit at the top; first hit wins); test defaults (number=5, yes/no=Yes) only when George says so
 Steps:
-1. Find: `CDP_PORT=19222 node scripts/gather.cjs --keywords "<words>" --hours 48 --max 25` (Easy Apply only; seen jobs skipped).
+1. Find: `CDP_PORT=19222 node scripts/gather_api.cjs --keywords "<words>" --hours 48 --max 30` (LinkedIn's own data calls from inside the page: full descriptions every time, 3.5 s a job, Easy Apply only, seen jobs and no.json skipped, walls applied). Spare: `scripts/gather.cjs`, the page reader, which went blank once on 10/26. The seen list lives at /root/.local/state/phone-chrome-agent/seen.json, one copy for every clone (10/27).
+   Then: `python3 scripts/picks_sync.py picks/picks-<stamp>.json` after the picker writes picks: every no into no.json, the ASK lines printed, the walk command printed.
 2. Pick: the picker writes `picks/picks-<stamp>.json` and, for every yes, `apply/<jobId>/` (resume.pdf, cover-letter.pdf,
    cover-letter.txt, meta.json; PDFs by `node scripts/make_pdf.cjs`), then `bash scripts/push_apply_files.sh <jobId>`.
 3. Walk: `CDP_PORT=19222 node scripts/map_easy_apply.cjs --ids <yes ids> --jobs <n> --overrides picks/picks-<stamp>.json` (map only).

@@ -30,9 +30,10 @@ const PORT = process.env.CDP_PORT || '19222';
 const ROOT = path.resolve(__dirname, '..');
 const WALLS = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/walls.json'), 'utf8')).map(w => ({ ...w, rx: new RegExp(w.re, 'i') }));
 const LOGDIR = path.join(ROOT, 'logs/gather'); fs.mkdirSync(LOGDIR, { recursive: true });
+fs.mkdirSync(path.dirname(process.env.SEEN_FILE || '/root/.local/state/phone-chrome-agent/seen.json'), { recursive: true }); // one seen list for every clone (10/27)
 const stamp = new Date().toISOString().replace(/[:T]/g, '-').slice(0, 19); // to the second: two runs in one minute must not share a file
 const OUTJ = path.join(LOGDIR, `gather-${stamp}.json`), OUTM = path.join(LOGDIR, `gather-${stamp}.md`);
-const SEENF = path.join(LOGDIR, 'seen.json'), NOF = path.join(ROOT, 'scripts/no.json');
+const SEENF = process.env.SEEN_FILE || '/root/.local/state/phone-chrome-agent/seen.json', NOF = path.join(ROOT, 'scripts/no.json');
 const SEEN = fs.existsSync(SEENF) ? JSON.parse(fs.readFileSync(SEENF, 'utf8')) : {};
 const NO = fs.existsSync(NOF) ? JSON.parse(fs.readFileSync(NOF, 'utf8')) : {};
 setTimeout(() => { console.log('TIMEOUT 20 min'); process.exit(3); }, 20 * 60 * 1000);

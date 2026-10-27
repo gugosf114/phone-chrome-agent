@@ -29,7 +29,7 @@ Shape (one entry per gathered job id):
 ```
 
 Keys the walker uses: `skip` (job is skipped, reason logged), `rules` (per-job answer rules, tried before the book),
-`resume_file` and `letter_file` (10/27: Windows paths on the laptop, e.g.
+`letter_text` (the letter itself, typed key by key when a form offers a text box; `letter` is the human angle and is never typed), `resume_file` and `letter_file` (10/27: Windows paths on the laptop, e.g.
 `C:\Users\georg\job-applications\<jobId>\George_Abrahamyants_Resume_<Company>.pdf`; the walker uploads or selects these),
 and `letter` (10/27: the letter's full text, under 150 words; typed into a cover-letter text box when there is no
 `apply/<jobId>/cover-letter.txt`). Without `resume_file` / `letter_file` the walker uses the `apply/<jobId>/` folder

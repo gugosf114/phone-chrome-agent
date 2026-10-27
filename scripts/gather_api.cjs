@@ -325,7 +325,7 @@ async function main() {
   const stamp = new Date().toISOString().replace(/[:T]/g, '-').slice(0, 19);
   const base = path.join(LOGDIR, 'gather-api-' + stamp), started = Date.now();
   const readJSON = (f, d) => fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : d;
-  const seenFile = path.join(LOGDIR, 'seen.json'), seen = readJSON(seenFile, {}), no = readJSON(path.join(__dirname, 'no.json'), {});
+  const seenFile = process.env.SEEN_FILE || '/root/.local/state/phone-chrome-agent/seen.json'; fs.mkdirSync(path.dirname(seenFile), { recursive: true }), seen = readJSON(seenFile, {}), no = readJSON(path.join(__dirname, 'no.json'), {});
   const rules = readJSON(path.join(__dirname, 'walls.json'), []);
   const run = { keywords: o.keywords, hours: o.hours, location: o.location, remote: o.remote, easy: o.easy, skippedSeen: 0, skippedNo: 0, gatheredAt: new Date().toISOString(), postings: [], source: 'page Voyager GET', requestedMax: o.max, questionsRequested: o.questions };
   let b, failed = false;

@@ -161,10 +161,6 @@
    "2"
   ],
   [
-   "how many years|years of (work )?experience|years.*experience",
-   "3"
-  ],
-  [
    "hourly rate|rate per hour|hourly",
    "75"
   ],
@@ -174,7 +170,7 @@
   ],
   [
    "salary|compensation|desired pay|expected pay|base pay",
-   "150000"
+   "120000"
   ],
   [
    "start date|when can you start|availability to start",
@@ -305,22 +301,6 @@
    "Yes"
   ],
   [
-   "have you (ever )?(independently )?(gathered|researched|drafted|managed|analyz|prepar|handled|work)",
-   "Yes"
-  ],
-  [
-   "do you have (experience|familiarity)|are you (comfortable|proficient|familiar)",
-   "Yes"
-  ],
-  [
-   "do you have (a|an|any)\\b|do you have .*(experience|background|familiarity)",
-   "Yes"
-  ],
-  [
-   "law firm",
-   "Yes"
-  ],
-  [
    "current/previous employee|former employee|previously (worked|employed|interviewed|applied)",
    "No"
   ]
@@ -331,6 +311,7 @@
  },
  "_notes": [
   "2026-10-27: 8 rules + 4 facts from George's own answers to the 25-walk ASK list. The value 'ALL' on a checkbox group means tick every box.",
-  "2026-10-27 05:00: two rules at the very top: 0 years for fields George never worked in (list grows as forms ask), 15 years Microsoft Office. From the 5-job proof walk: the test defaults answered 3 for civil litigation."
+  "2026-10-27 05:00: two rules at the very top: 0 years for fields George never worked in (list grows as forms ask), 15 years Microsoft Office. From the 5-job proof walk: the test defaults answered 3 for civil litigation.",
+  "2026-10-27 05:30 (George: no guessing): removed 5 blanket rules that said Yes to any 'do you have experience' / 'have you ever' / 'law firm' and 3 to any 'years of'. These sent a false Yes to ERCOT questions on 10/17 and 3 years of civil litigation on 10/27. Such questions now stop as NEEDS_INPUT. Broad salary answer set to George's target 120000 (was 150000)."
  ]
 }
