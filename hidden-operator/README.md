@@ -53,3 +53,17 @@ bash tests/test_learning_dispatch.sh
 
 Lifted out of `gugosf114/agent-bridge` on 2026-09-22 (which stays intact). Never commit
 `web/profile/` (live cookies/logins) or `booker.env`.
+
+## Read an app like a web page (2026-10-26)
+
+An app is a keyhole: the accessibility tree holds only what is drawn, one screenful. Two fixes, both proven on Settings:
+
+1. **A tall screen.** `scripts/hidden_display.sh start -n tall 1080 6000 420` then `launch -n tall <pkg>`. The app lays out
+   six screens of rows at once. Settings: all 31 rows in ONE read, no scroll. Most apps take any height; a few cap their own.
+2. **Scroll and stitch.** `scripts/read_all.sh -n <screen> [max_swipes] [--buttons]`: goes to the top, reads the tree, swipes
+   up like a finger, settles 1.2 s, reads again, until the bottom, all on the phone in ONE adb round trip. Drops furniture
+   (status bar, nav bar, taskbar, sticky titles = same text at the same spot on two pages), merges the overlap, prints one
+   blob. `--buttons` adds `cx cy` per row so a script can tap a stitched row later. Settings on a 1080x2400 screen: 34 rows
+   in order, 12 s. Known gap: the last row or two at the very bottom can lag the reader.
+
+What nothing fixes: addresses. A web page has a URL; an app screen still needs the taps to reach it (`app_map.py` learns those).
