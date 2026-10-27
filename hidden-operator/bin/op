@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# op — the one door into hidden-operator.
+#   op screen <verb> ...     hidden screens (start|stop|list|launch|shot|tap|ensure ...)   -> scripts/hidden_display.sh
+#   op drive  <verb> ...     drive an app by name (open|do|seq|run|type|key|read)         -> scripts/hidden_drive.sh
+#   op map    <verb> ...     learn an app's screens (snap|tap|explore|goto|show)          -> scripts/app_map.py
+#   op teach  <verb> ...     photo-way skills (new|tap|steps|replay|list|drop)             -> scripts/teach_skill.sh
+#   op sms    <verb>         read the phone's own text codes (code|latest [n]|wait [s])    -> scripts/read_sms_code.sh
+#   op keeper <verb>         keep screens alive (boot|tick|watch|ensure|status|stop)       -> scripts/hidden_supervisor.sh
+#   op web    <tool> ...     browser half: observe|run (webfast), pg, book (ot_book), start|logins|shot|viewer
+#   op learn  ...            the skill runtime (schema|catalog|request --json ...)         -> runtime/task-engine skill_cli
+#   op browse ...            persistent browser tasks (schema|list|request --json ...)     -> runtime/task-engine browser_cli
+set -u
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+. "$ROOT/scripts/phone_env.sh"   # one adb device + one screen registry
+v=${1:-help}; shift || true
+case "$v" in
+  screen) exec bash "$ROOT/scripts/hidden_display.sh" "$@" ;;
+  drive)  exec bash "$ROOT/scripts/hidden_drive.sh" "$@" ;;
+  map)    exec python3 "$ROOT/scripts/app_map.py" "$@" ;;
+  teach)  exec bash "$ROOT/scripts/teach_skill.sh" "$@" ;;
+  sms)    exec bash "$ROOT/scripts/read_sms_code.sh" "$@" ;;
+  keeper) exec bash "$ROOT/scripts/hidden_supervisor.sh" "$@" ;;
+  web)
+    t=${1:-help}; shift || true
+    case "$t" in
+      observe|run) exec node "$ROOT/web/webfast.cjs" "$t" "$@" ;;
+      pg)          exec node "$ROOT/web/pg.cjs" "$@" ;;
+      book)        exec node "$ROOT/web/ot_book.cjs" "$@" ;;
+      start)       exec bash "$ROOT/web/start.sh" "$@" ;;
+      phone)       exec bash "$ROOT/web/phone-chrome.sh" "$@" ;;
+      logins)      exec bash "$ROOT/web/pull-logins.sh" "$@" ;;
+      shot)        exec node "$ROOT/web/shot.cjs" "$@" ;;
+      viewer)      exec bash "$ROOT/web/viewer.sh" "$@" ;;
+      *) echo "op web: observe|run|pg|book|start|phone|logins|shot|viewer" >&2; exit 2 ;;
+    esac ;;
+  learn)  export PYTHONPATH="$ROOT/runtime/task-engine${PYTHONPATH:+:$PYTHONPATH}"; exec python3 -m agent_bridge_task.skill_cli "$@" ;;
+  browse) export PYTHONPATH="$ROOT/runtime/task-engine${PYTHONPATH:+:$PYTHONPATH}"; exec python3 -m agent_bridge_task.browser_cli "$@" ;;
+  --b64)  # compat with the old dispatcher's base64 payload form used by tests
+    payload=$(printf '%s' "${1:?missing base64 payload}" | base64 -d); tool=$(printf '%s' "$payload" | python3 -c 'import json,sys;print(json.load(sys.stdin)["tool"])')
+    mapfile -d '' -t args < <(printf '%s' "$payload" | python3 -c 'import json,sys;[sys.stdout.write(str(a)+"\0") for a in json.load(sys.stdin).get("arguments",[])]')
+    exec "$0" "$tool" "${args[@]}" ;;
+  *) sed -n '2,13p' "$0"; exit 0 ;;
+esac

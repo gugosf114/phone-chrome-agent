@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+
+AGENT_BRIDGE_TASK_INSTALL_ROOT="${AGENT_BRIDGE_TASK_INSTALL_ROOT:-/data/data/com.termux/files/home/.local/share/agent-bridge/task-engine}"
+export PYTHONPATH="$AGENT_BRIDGE_TASK_INSTALL_ROOT${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 -m agent_bridge_task "$@"

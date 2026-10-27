@@ -1,0 +1,50 @@
+{
+  "task": {
+    "goal": "Open and verify a public page",
+    "browser_backend": "phone-headless",
+    "permission": {
+      "authority": "local-changes",
+      "scope": {
+        "kind": "test"
+      },
+      "targets": [
+        "browser:https://example.com"
+      ]
+    },
+    "recipe_key": "public-page-read",
+    "baseline_ms": 1000,
+    "speed_ratio": 1.0
+  },
+  "steps": [
+    {
+      "adapter": "browser",
+      "verb": "batch",
+      "target": "browser:https://example.com",
+      "args": {
+        "steps": [
+          {
+            "verb": "open",
+            "arguments": [
+              "https://example.com/"
+            ]
+          },
+          {
+            "verb": "read",
+            "arguments": [
+              "2000"
+            ]
+          }
+        ]
+      },
+      "expect": {
+        "equals": {
+          "payload.results.0.result.effect.verified": true
+        },
+        "contains": {
+          "payload.results.0.result.url": "example.com",
+          "payload.results.1.result.text": "Example Domain"
+        }
+      }
+    }
+  ]
+}

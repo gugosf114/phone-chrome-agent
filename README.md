@@ -19,6 +19,8 @@ Read this file first. It is the whole story, so no session has to be told "remem
 - **Two sessions can push here at the same time.** Pull before you push. Never force-push.
 - **Before a session closes,** add a dated entry to `journal.md` and push.
 
+- **hidden-operator is folded in here too (2026-10-26):** [`hidden-operator/`](hidden-operator/), whole repo, byte for byte. Hidden phone screens, Chrome Beta on the hidden screen (port 9335, `hidden-operator/web/phone-chrome.sh`), the `bin/op` door. `FOLDED.md` has its history.
+
 ## The menu (every option, where it is good, where it is bad)
 
 Pick from here. One line each so George can recall it without re-reading the story.

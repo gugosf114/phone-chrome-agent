@@ -1,0 +1,15 @@
+# never ship a live browser profile (cookies/logins), identity, state, or media
+web/profile/
+web/booker.env
+booker.env
+*.png
+*.log
+*.log.json
+*.wav
+*.mp3
+*.sqlite3
+*.db
+__pycache__/
+*.pyc
+logs/
+/tmp/

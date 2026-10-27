@@ -1,0 +1,11 @@
+{
+  "authority": "full-authority",
+  "scope": {
+    "kind": "test"
+  },
+  "targets": [
+    "browser:https://example.com",
+    "phone:george"
+  ],
+  "denied_actions": []
+}

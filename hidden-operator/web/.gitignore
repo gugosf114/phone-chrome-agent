@@ -1,0 +1,12 @@
+# never ship the live browser profile (holds cookies + logins) or any secret/state
+profile/
+logs/
+booker.env
+*.png
+*.log
+*.log.json
+*.wav
+*.mp3
+*.journal
+pauto*.js
+/tmp/

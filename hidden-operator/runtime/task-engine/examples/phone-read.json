@@ -1,0 +1,27 @@
+{
+  "task": {
+    "goal": "Read the current phone screen without changing it",
+    "permission": {
+      "authority": "read-only",
+      "scope": {
+        "kind": "test"
+      },
+      "targets": [
+        "phone:george"
+      ]
+    },
+    "recipe_key": "phone-current-screen"
+  },
+  "steps": [
+    {
+      "adapter": "phone",
+      "verb": "android_get_screen_state",
+      "target": "phone:george",
+      "args": {
+        "arguments": {
+          "include_screenshot": false
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+#!/data/data/com.termux/files/usr/bin/sh
+# ~/.termux/boot/start-hidden-operator — runs once at every phone boot (Termux:Boot).
+# Symlink this file into ~/.termux/boot/. Keeps the hidden screens alive on their own.
+BASH=/data/data/com.termux/files/usr/bin/bash
+ROOT="${HIDDEN_OPERATOR_ROOT:-$HOME/hidden-operator}"
+LOG="$HOME/.hidden-operator/boot.log"; mkdir -p "$HOME/.hidden-operator" 2>/dev/null
+exec "$BASH" "$ROOT/scripts/hidden_supervisor.sh" boot >>"$LOG" 2>&1

@@ -1,0 +1,10 @@
+#!/data/data/com.termux/files/usr/bin/sh
+# ~/.termux/boot/hidden-chrome — at every boot: bring up the hidden Chrome (Xvfb :5 + headed Chromium, CDP 127.0.0.1:9222)
+# inside the Debian proot. Script: /root/hchrome/start.sh (Debian side). Logs to ~/.agent-bridge/hidden-chrome.log.
+LOG="$HOME/.agent-bridge/hidden-chrome.log"; mkdir -p "$(dirname "$LOG")"
+P=/data/data/com.termux/files/usr/bin
+$P/termux-wake-lock 2>/dev/null
+sleep 25
+printf '[%s] BOOT hidden-chrome start\n' "$(date '+%F %T')" >>"$LOG"
+$P/proot-distro login debian -- bash /root/hchrome/start.sh >>"$LOG" 2>&1
+printf '[%s] done rc=%s\n' "$(date '+%F %T')" "$?" >>"$LOG"
