@@ -214,6 +214,19 @@ One-time phone settings (not run yet; reversible):
 bash scripts/anti_freeze.sh
 ```
 
+## The freeze, measured on the live phone (2026-10-26, another session + this one)
+
+- The phone is **Android 17, One UI 9** (build F766USQUCCZIH), not 16/8 as older notes say.
+- Chrome was `isFrozen=true` at adj 900. This phone freezes any process at adj 850 or worse.
+- **Per-app hold:** `adb shell am unfreeze --sticky com.android.chrome` (same for `com.chrome.beta`). Dies with the process or a reboot. `chrome.sh` now runs it on every open.
+- **Phone-wide:** `anti_freeze.sh` was run; `dumpsys activity | grep use_freezer` now says `false` with no reboot.
+- **Unrestricted battery by shell:** `cmd activity set-bg-restriction-level --user 0 com.android.chrome unrestricted` (done 10/26 for Chrome and Beta).
+- **Standby bucket** is already 5 (exempted, the best). Never run `set-standby-bucket active`; active is 10, worse.
+- **Never sleeping apps** has no shell insert. The screen opens with `am start -a com.samsung.android.sm.ACTION_OPEN_CHECKABLE_LISTACTIVITY -p com.samsung.android.lool --ei activity_type 2`; George taps Chrome, then Add. Not done.
+- Silent audio and PiP hold Chrome only while really playing or really on screen. Weak.
+- **Check:** `dumpsys activity | grep -A 25 "Apps frozen:"` should show no Chrome pid. 10/26 after all of the above: none.
+- Open catch: OLAF can still pause Chrome about a second on each app switch. No off switch known.
+
 ## Rules learned the hard way
 
 - When George gives the answers for every fork, run the whole thing in one command. No look between presses.

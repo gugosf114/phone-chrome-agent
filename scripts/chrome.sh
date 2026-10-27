@@ -5,6 +5,7 @@
 #   bash chrome.sh <url>      -> same, then open <url> in Chrome
 PORT=${CDP_PORT:-9336}
 adb shell am start -n com.android.chrome/com.google.android.apps.chrome.Main >/dev/null 2>&1   # bring Chrome to front (a backgrounded Chrome's socket goes dead)
+adb shell am unfreeze --sticky com.android.chrome >/dev/null 2>&1   # 10/26: per-app hold so the freezer leaves Chrome alone; dies with the process or a reboot, so re-run every open
 sleep 1
 P=$(adb shell pidof com.android.chrome | tr -d '\r' | awk '{print $1}')
 adb forward --remove tcp:$PORT >/dev/null 2>&1
