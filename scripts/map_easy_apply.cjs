@@ -13,6 +13,9 @@
 // Output: logs/easy_apply_map/map-<stamp>.jsonl (one line per job) + logs/easy_apply_map/seen-forks.json (grows across runs).
 // A "fork" = screen heading + field type + field label. A run's "new forks" = ones no earlier run has seen.
 // A "miss" = a field the book did not answer: no rule hit, or only a test default (number 5, text/yes-no "Yes").
+// Job files (10/27): resume + cover letter per job from picks ("resume_file", "letter_file": laptop paths; "letter": the
+// letter's text) or the apply/<jobId>/ folder (meta.json names, pushed to the laptop by scripts/push_apply_files.sh).
+// A form that offers a cover letter with neither in hand stops that job: NEEDS_LETTER.
 
 const fs = require('fs'); const path = require('path');
 const human = require('./human.cjs');
@@ -79,6 +82,19 @@ function radioIndex(f, value) {
   if (j < 0 && /don.?t wish|prefer not|decline/.test(w)) j = o.findIndex(x => /prefer not|don.?t wish|decline|not to (answer|specify|say|disclose)/.test(x));
   return j;
 }
+// This job's resume and cover letter: picks keys first, then apply/<jobId>/ (files on the laptop under meta.json's names).
+// No job resume = the book's resume_file, selected from LinkedIn's saved list (never uploaded).
+function jobFiles(jid, o) {
+  const dir = path.join(ROOT, 'apply', jid), metaF = path.join(dir, 'meta.json');
+  const meta = fs.existsSync(metaF) ? JSON.parse(fs.readFileSync(metaF, 'utf8')) : null;
+  const win = name => `C:\\Users\\georg\\job-applications\\${jid}\\${name}`;
+  const base = p => String(p).split(/[\\/]/).pop();
+  const resumePath = o.resume_file || (meta ? win(meta.resume_name) : null);
+  const letterPath = o.letter_file || (meta ? win(meta.letter_name) : null);
+  const txtF = path.join(dir, 'cover-letter.txt');
+  const letterText = fs.existsSync(txtF) ? fs.readFileSync(txtF, 'utf8').trim() : (o.letter || null);
+  return { resumePath, resumeName: resumePath ? base(resumePath) : BOOK.facts.resume_file, letterPath, letterName: letterPath ? base(letterPath) : null, letterText, from: o.resume_file || o.letter_file || o.letter ? 'picks' : meta ? 'apply/' + jid : 'none' };
+}
 
 // Stop signs: the run ends on any of these and touches nothing more.
 const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||{};if(nav.responseStatus===999)return "HTTP 999";
@@ -92,6 +108,10 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
   const tab = list.find(o => o.type === 'page' && o.url.includes('linkedin.com')) || list.find(o => o.type === 'page');
   if (!tab) { console.log('no tab on port', PORT); process.exit(2); }
   const h = await human.attach(tab, { log: m => process.stderr.write('  [human] ' + m + '\n') });
+  // Uploads: Chrome's file chooser is answered in code (no dialog on the laptop screen); the press on the button stays human.
+  let chooserWaiter = null;
+  await h.send('Page.enable'); await h.send('Page.setInterceptFileChooserDialog', { enabled: true });
+  h.on('Page.fileChooserOpened', p => { if (chooserWaiter) chooserWaiter(p); });
   const ev = async x => { try { return await h.evaluate(x); } catch (e) { console.log('PAGE EXC:', e.message.slice(0, 200), 'in:', x.slice(0, 90).replace(/\s+/g, ' ')); return undefined; } };
   const stopIfBlocked = async (rec) => {
     const why = await ev(BLOCKED); if (!why) return;
@@ -211,9 +231,11 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     d.querySelectorAll("input[type=file]").forEach(f=>{fields.push({type:"file",label:labelOf(f)||"file upload",required:req(f),value:"",sel:mark(f)})});
     const btns=[...d.querySelectorAll("button")].filter(vis).map(b=>({t:((b.innerText||"")+" "+(b.getAttribute("aria-label")||"")).replace(/\\s+/g," ").trim(),sel:mark(b)}));
     const pick=re=>btns.find(b=>re.test(b.t));
+    const uploads=btns.filter(b=>/^Upload\\b/i.test(b.t)).map(b=>({kind:/resume|\\bcv\\b/i.test(b.t)?"resume":/cover/i.test(b.t)?"cover":"other",sel:b.sel,text:b.t.slice(0,60)}));
+    const resumeCards=[...d.querySelectorAll("input[type=radio]")].filter(r=>/\\.(pdf|docx?)$/i.test(r.getAttribute("aria-label")||"")).map(r=>{const lab=r.id?d.querySelector('label[for="'+CSS.escape(r.id)+'"]'):null;let row=r.parentElement;for(let k=0;k<3&&row&&!vis(row);k++)row=row.parentElement;return {name:r.getAttribute("aria-label"),checked:r.checked,sel:mark((lab&&vis(lab))?lab:(row&&vis(row)?row:r))}});
     const next=pick(/^Submit application/i)||pick(/^Review/i)||pick(/^Next|Continue to next step/i)||pick(/^Continue/i)||null;
     const errors=[...d.querySelectorAll(".artdeco-inline-feedback--error, [role=alert], [id^=error-message]")].filter(vis).map(txt).filter(Boolean).slice(0,5);
-    return JSON.stringify({modal:true,heading,prog,h3s:h3s.slice(0,4),fields,next:next?{t:next.t.slice(0,30),sel:next.sel,isSubmit:/^Submit/i.test(next.t)}:null,buttons:btns.map(b=>b.t).slice(0,10),errors,text:dtxt.slice(0,400)})})()`;
+    return JSON.stringify({modal:true,heading,prog,h3s:h3s.slice(0,4),fields,uploads,resumeCards,next:next?{t:next.t.slice(0,30),sel:next.sel,isSubmit:/^Submit/i.test(next.t)}:null,buttons:btns.map(b=>b.t).slice(0,10),errors,text:dtxt.slice(0,400)})})()`;
   const snap = async () => { const v = await ev(SNAP); if (typeof v !== 'string') { console.log('snap failed'); return { modal: false, failed: true }; } return JSON.parse(v); };
   const DLG = 'dialog[open], [role=dialog], [role=alertdialog], .jobs-easy-apply-modal';
   const IN_DLG = DLG.split(',').map(s => s.trim() + ' button').join(', ');
@@ -235,6 +257,36 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     }
     if (await open()) { console.log('  WARNING: form still open after dismiss'); return false; }
     return true;
+  }
+  // Press an Upload button with the hands, answer Chrome's file chooser with the laptop path, wait for the name to show.
+  async function upload(sel, winPath, name) {
+    const got = new Promise(r => { chooserWaiter = r; });
+    if (!await click(sel)) { chooserWaiter = null; return false; }
+    const p = await Promise.race([got, sleep(6000).then(() => null)]); chooserWaiter = null;
+    if (!p) { console.log('  upload: no file chooser opened'); return false; }
+    await h.send('DOM.setFileInputFiles', { files: [winPath], backendNodeId: p.backendNodeId });
+    return waitFor(`(document.querySelector(${JSON.stringify(DLG)})||{innerText:""}).innerText.includes(${JSON.stringify(name)})`, 15000);
+  }
+  // Resume: the job's file already in LinkedIn's saved list -> select it; else upload it. Cover letter offered as an upload:
+  // the job's PDF, required or optional. Returns a stop ({status, field}) or null.
+  async function handleDocs(st, rec, F) {
+    const up = kind => (st.uploads || []).find(u => u.kind === kind);
+    if (!rec.resume && ((st.resumeCards || []).length || up('resume'))) {
+      const card = (st.resumeCards || []).find(c => c.name === F.resumeName);
+      if (card) { if (!card.checked) { await click(card.sel); await h.pause(400, 800); } rec.resume = `selected saved: ${F.resumeName}${F.resumePath ? '' : ' (book default: no job resume)'}`; }
+      else if (F.resumePath && up('resume')) { if (!await upload(up('resume').sel, F.resumePath, F.resumeName)) return { status: 'NEEDS_INPUT', field: 'resume upload failed: ' + F.resumeName }; rec.resume = `uploaded: ${F.resumeName}`; }
+      else return { status: 'NEEDS_INPUT', field: `resume: ${F.resumeName} is not in the saved list and there is no job file to upload` };
+      const now = ((await snap()).resumeCards || []).find(c => c.name === F.resumeName);
+      if (now && !now.checked) { await click(now.sel); await h.pause(400, 800); }
+      if (!now || !((await snap()).resumeCards || []).find(c => c.name === F.resumeName && c.checked)) return { status: 'NEEDS_INPUT', field: 'resume not selected after ' + rec.resume };
+      console.log(`  resume: ${rec.resume}`);
+    }
+    if (!rec.letter && up('cover')) {
+      if (!F.letterPath) return { status: 'NEEDS_LETTER', field: 'cover letter upload (no letter_file in picks, no apply/' + rec.jobId + '/ folder)' };
+      if (!await upload(up('cover').sel, F.letterPath, F.letterName)) return { status: 'NEEDS_INPUT', field: 'cover letter upload failed: ' + F.letterName };
+      rec.letter = `uploaded: ${F.letterName}`; console.log(`  cover letter: ${rec.letter}`);
+    }
+    return null;
   }
   // The Review page ticks "Follow <company>" by default. Untick it with a real press, every time, and log it.
   async function untickFollow(rec) {
@@ -285,7 +337,8 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     const o = OVR[jid] || {};
     if (o.skip) { console.log(`  skip ${jid} by thinker: ${o.skip}`); fs.appendFileSync(OUT, JSON.stringify({ run: null, jobId: jid, status: 'SKIPPED_BY_THINKER', reason: o.skip, startedAt: new Date().toISOString() }) + '\n'); continue; }
     CUR_RULES = (o.rules || []).map(([re, v]) => [new RegExp(re, 'i'), v]);
-    const rec = { run: runs + 1, jobId: jid, startedAt: new Date().toISOString(), screens: [], status: '', review: false, stuck: [], newForks: [], filled: 0, unanswered: 0, misses: [], overwrote: [], error: null };
+    const F = jobFiles(jid, o);
+    const rec = { run: runs + 1, jobId: jid, startedAt: new Date().toISOString(), screens: [], status: '', review: false, stuck: [], newForks: [], filled: 0, unanswered: 0, misses: [], overwrote: [], resume: null, letter: null, files: F.from, needs: null, error: null };
     const t0 = Date.now();
     let opened = false;
     try {
@@ -309,10 +362,19 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
         if (sig === lastSig && step > 0) { rec.status = 'STUCK_SAME_SCREEN'; rec.stuck.push({ heading: st.heading, prog: st.prog, errors: st.errors, buttons: st.buttons, text: st.text, fields: st.fields.filter(f => !f.value).map(f => f.type + ':' + f.label) }); break; }
         lastSig = sig;
         const screen = { heading: st.heading, prog: st.prog, h3s: st.h3s, fields: [], ms: 0, next: st.next ? st.next.t : null, buttons: st.buttons, errors: st.errors, text: st.fields.length ? undefined : st.text };
+        const stop = await handleDocs(st, rec, F);
+        if (stop) { rec.status = stop.status; rec.needs = stop.field; console.log(`  ${stop.status}: ${stop.field}`); screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
+        if (rec.resume || rec.letter) st = await snap();
         for (const f of st.fields) {
           const fork = `${st.heading}|${f.type}|${f.label.toLowerCase()}`;
           const isNew = !seen.has(fork); if (isNew) { seen.add(fork); rec.newForks.push(fork); }
           const entry = { type: f.type, label: f.label, group: f.group || undefined, required: !!f.required, options: f.options, had: f.value || '', filledWith: null, source: null, new: isNew };
+          if (isResumeCard(f)) { entry.source = 'resume card: ' + (rec.resume || 'not handled'); screen.fields.push(entry); continue; }
+          if (/cover letter/i.test(f.label) && (f.type === 'textarea' || f.type === 'text')) { // the letter as a text box: typed key by key
+            if (!F.letterText) { rec.status = 'NEEDS_LETTER'; rec.needs = 'cover letter text box: ' + f.label; break; }
+            if (!same(f.value, F.letterText, 'text')) { const ok = await typeInto(f.sel, F.letterText); entry.filledWith = ok ? `cover letter (${F.letterText.length} chars)` : null; entry.source = ok ? 'job letter text' : 'FAILED:job letter text'; if (ok) { rec.filled++; rec.letter = `typed: ${F.letterText.length} chars`; console.log(`  cover letter: ${rec.letter}`); } }
+            screen.fields.push(entry); continue;
+          }
           if (!f.value && f.type !== 'file') {
             const a = answerFor(f.label, f.type, f.options);
             if (a) {
@@ -337,6 +399,7 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
           }
           screen.fields.push(entry);
         }
+        if (rec.status === 'NEEDS_LETTER') { console.log(`  NEEDS_LETTER: ${rec.needs}`); screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
         st = await snap();
         const stillEmpty = st.fields.filter(f => f.required && !f.value && f.type !== 'file' && f.type !== 'checkbox');
         if (stillEmpty.length) { rec.status = 'STUCK_REQUIRED'; rec.stuck.push({ heading: st.heading, fields: stillEmpty.map(f => f.type + ':' + f.label + (f.options ? ' [' + f.options.join('/') + ']' : '')) }); screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
@@ -362,7 +425,7 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     for (const s of rec.screens) for (const f of s.fields) if (!f.had && f.type !== 'file' && isMiss(f.source)) rec.misses.push({ screen: s.heading, label: f.label, group: f.group, type: f.type, options: f.options, required: f.required, source: f.source, filledWith: f.filledWith });
     fs.appendFileSync(OUT, JSON.stringify(rec) + '\n');
     fs.writeFileSync(SEENF, JSON.stringify([...seen], null, 0));
-    console.log(`run ${rec.run}/${JOBS} · ${(rec.ms / 1000).toFixed(1)} s · ${rec.status}${rec.review ? ' (Review)' : ''} · screens ${rec.screens.length} · filled ${rec.filled} · misses ${rec.misses.length} · overwrote ${rec.overwrote.length} · new forks ${rec.newForks.length}${rec.error ? ' · ERROR ' + rec.error.slice(0, 80) : ''} · ${rec.title} @ ${rec.company}`);
+    console.log(`run ${rec.run}/${JOBS} · ${(rec.ms / 1000).toFixed(1)} s · ${rec.status}${rec.review ? ' (Review)' : ''} · screens ${rec.screens.length} · filled ${rec.filled} · misses ${rec.misses.length} · overwrote ${rec.overwrote.length}${rec.needs ? ' · needs: ' + rec.needs.slice(0, 70) : ''} · new forks ${rec.newForks.length}${rec.error ? ' · ERROR ' + rec.error.slice(0, 80) : ''} · ${rec.title} @ ${rec.company}`);
     if (runs < JOBS && jid !== ids[ids.length - 1]) { const gap = rnd(15000, 45000); console.log(`  waiting ${(gap / 1000).toFixed(0)} s`); await sleep(gap); }
   }
   console.log(`done: ${runs} runs in ${((Date.now() - t00) / 60000).toFixed(1)} min · forks known: ${seen.size} · log: ${path.relative(ROOT, OUT)}`);
