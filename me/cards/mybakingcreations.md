@@ -10,6 +10,10 @@ Salesforce, OpenAI, Stripe, Pinterest, PayPal, DocuSign, Gap, ...).
 **Numbers (README, April 2026).** About 40 active users a day, 1.1K a month, 95% engagement; Google organic 1,120 clicks per
 90 days; ~2,000 monthly visitors on zero ad spend (LinkedIn Featured). Survived and gained during Google's March 2026 spam
 and core updates: indexed pages went 44 → 60 in the update window.
+**Opened live, 2026-10-27.** Home page: "Family-Owned Since 2012 · Custom Cakes, Cookies & Cake Pops", a 13-slide hero, sections
+What We Create (cakes $250–$650+), Latest Creations, Trusted by Leading Companies (10 logos on the strip), Why Choose Us, Request
+Your Custom Order. Nav: Order Now, About, Gallery, Corporate Orders, Design Studio, Blog, Contact, Request an Order. 70 images on
+the home page.
 **Status.** Live. Repo gugosf114/gugosf114.github.io, about 1,400 commits, pushed 2026-10-27. Ops log and Search Console
 work recorded in the README.
 **What it proves.** He taught himself to build on a real business with real customers, kept it alive through Google's

@@ -18,6 +18,14 @@ dead-letter queues, Cloud Scheduler, Secret Manager, GitHub Actions CI, a React 
 Hosting. Models: Claude Sonnet 4.6 and Opus 5.5, Gemini 2.5/3.1 Pro, GPT-4o and Perplexity for visibility checks. Bakers
 Agent 2 is the multi-client commercial build (isolated deployments, onboarding, site audits).
 **Status.** Production. README last updated 2026-09-30; repo pushed through October. Public repo, live dashboard.
+**Opened and read live, 2026-10-27, signed in.** Today tile: "6 people are waiting. Money this week: $3,990." Leads this week 31
+(vs 39), paid $3,990 (up 105% vs $1,947), website visits 383, reply time 1 h (12 of 28 answered within the hour). Six replies
+drafted and waiting: three website-form cake orders (reply ready), three Instagram thank-yous. "What's working": a baby-shower
+cake post, 47 views; Google Fiber branded cake pops, 37. A "call before the holidays" list of 4 customers who ordered last
+Oct–Dec and not yet this year. Posts tab: upload a photo, Claude writes, pick Google Business / Facebook / Instagram / Pinterest,
+Single / Multiple / Reel. Money tab: every number for any period against the same days before (visits 436, page views 1,030,
+quote forms sent 54 up 17%, where visits came from incl. AI apps). More: Social, Google Profile, Website & search, Activity,
+System, Businesses, Fleet. Build 58651d6.
 **What it proves.** He designed, built, and operates a real multi-model agent system with approval gates, event-driven
 cloud architecture, observability, and a feedback loop, for a business that depends on it. This is the strongest "I ship
 AI operations" receipt he has.
