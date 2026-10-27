@@ -27,7 +27,7 @@ Needs from the answer book: rules + facts in scripts/answers.json (George's own 
 Steps:
 1. Find: `CDP_PORT=19222 node scripts/gather_api.cjs --keywords "<words>" --hours 48 --max 30` (LinkedIn's own data calls from inside the page: full descriptions every time, 3.5 s a job, Easy Apply only, seen jobs and no.json skipped, walls applied). Spare: `scripts/gather.cjs`, the page reader, which went blank once on 10/26. The seen list lives at /root/.local/state/phone-chrome-agent/seen.json, one copy for every clone (10/27).
    Then: `python3 scripts/picks_sync.py picks/picks-<stamp>.json` after the picker writes picks: every no into no.json, the ASK lines printed, the walk command printed.
-2. Pick: the picker writes `picks/picks-<stamp>.json` and, for every yes, `apply/<jobId>/` (resume.pdf, cover-letter.pdf,
+2. Pick: first `python3 scripts/asset_hits.py logs/gather/<gather>.json` prints, per job, which of George's assets and receipts the posting calls for and the exact words that tripped them (me/triggers.json: noise ordinance -> NoiseFile public on Play; patent -> App. No. 64/100,336; speech/voice -> WiM; SALT -> Andersen; cannabis/permits -> Santa Rosa; LLM/red-team -> the correction corpus; ...). The picker reads those hits plus the four me/ files, then writes `picks/picks-<stamp>.json` and, for every yes, `apply/<jobId>/` (resume.pdf, cover-letter.pdf,
    cover-letter.txt, meta.json; PDFs by `node scripts/make_pdf.cjs`), then `bash scripts/push_apply_files.sh <jobId>`.
 3. Walk: `CDP_PORT=19222 node scripts/map_easy_apply.cjs --ids <yes ids> --jobs <n> --overrides picks/picks-<stamp>.json` (map only).
    Per screen the walker:

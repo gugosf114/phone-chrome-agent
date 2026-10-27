@@ -346,6 +346,8 @@ scripts/cdpx.cjs                the 10/14 Google Ads driver: reads and clicks IN
 scripts/findclick.sh            find an element by its text, scroll it into view, real-click it (uses cdpx.cjs)
 scripts/fill.sh                 fill a field by its label, key by key, and read the value back (uses cdpx.cjs)
 scripts/clickread.cjs           one mouse click at x,y, then one read; no typing, no iframes
+me/triggers.json                word triggers that tie a posting to George's assets and receipts (say line, proof, status, resume lane); refresh status with check_assets.py (10/27)
+scripts/asset_hits.py           prints, per gathered job, which assets the posting calls for and the words that tripped them; the picker reads it first (10/27)
 picks/README.md                 the picker file: one file per gather, yes/no/ask + why + letter angle + resume cut + per-job rules; the walker reads it as --overrides (10/27)
 scripts/human.cjs               the hands, made to move like a person's (10/26): pointer path + press/release, key-by-key typing with jitter, wheel scroll, pauses; plain CDP; every new script clicks and types through this
 scripts/laptop_show_window.ps1  runs inside the laptop's desktop session (task ShowAgentChrome, /it) and brings the agent Chrome window to the front
