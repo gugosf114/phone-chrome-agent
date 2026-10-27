@@ -1,4 +1,4 @@
-**Download (2026-10-17):** https://github.com/gugosf114/phone-chrome-agent/archive/refs/heads/main.zip
+**Download (2026-10-26):** https://github.com/gugosf114/phone-chrome-agent/archive/refs/heads/main.zip
 
 # phone-chrome-agent
 
@@ -245,6 +245,57 @@ early); wheel-scroll into view, never a JS scroll; Shift held for capitals; a re
 (22 keys, results page). `HUMAN_SPEED=0` zeroes every pause for a fast run, hands stay real.
 Two more from that list we already do: let the tab load pages (never a Node fetch for a page the site scores), leave the window size alone.
 Trap seen twice today: the two phone Chromes SWAP socket names when one restarts. `chrome.sh` now picks by app name on every open.
+Same night, on LinkedIn: "in view" now also means "nothing sits on top of it". The laptop window is small (845×517) and LinkedIn's
+chat layer (`#interop-outlet`, z-index 500) covers the bottom strip; a press there landed on the layer, not the button. `scrollTo`
+now checks the element owns the point at its own centre, and wheels it up when it does not.
+
+## Gather (2026-10-26)
+
+`scripts/gather.cjs` is the job gather. It is read-only. It searches LinkedIn with set filters, opens each posting, and copies
+title, company, where, pay, the apply button, and the full description. It marks walls from `scripts/walls.json`: a rule hit,
+with the exact sentence it matched. It never presses Apply or Easy Apply, never fills a form, never saves, never follows.
+
+How to run it:
+1. `bash scripts/laptop_chrome.sh "https://www.linkedin.com/feed/"` (the laptop's Chrome, tunnel on 19222).
+2. `CDP_PORT=19222 node scripts/gather.cjs --keywords "legal operations" --max 20 --hours 24 --pages 2` (add `--remote`, `--easy`, `--location "..."`). About 10 s a posting.
+3. Read `logs/gather/gather-<stamp>.json` (every description in full) and the `.md` beside it (the table). The stamp is UTC. `logs/` is not in git.
+
+**The rule: the script never picks.** The picker (a model) reads `me/george-dossier.md` and `me/writings.md` in full, then every
+description in the JSON, and writes overrides for `scripts/map_easy_apply.cjs` (`--overrides`: skip a job, or give it its own answers).
+A wall is a rule hit, not a verdict.
+
+How it reads LinkedIn's 2026 job page (no `<h1>`, scrambled class names): title and company from `document.title`
+("<title> | <company> | LinkedIn"); the description from the box with id `JobDetails_AboutTheJob_<jobId>`, after a human.cjs click
+on its "… more" button; location, age, and Remote / Hybrid / On-site from the top line. When LinkedIn shows no workplace type,
+"where" is the city alone. Pay comes from the top line first, then the description; a lone amount counts only next to a pay word.
+
+Proof run 10/26, 9:59 pm (file stamp `2026-10-27-04-59-38`): 20 postings in 3.5 min, 0 empty fields. Wall test the same night
+(`--keywords attorney --max 4`): first pass missed "admission to the New York Bar" and "qualification to practice law"; both are in
+the bar wall now, and the rerun on the saved pages hit 4 of 4. No "sales or recruiting or support" hits on legal ops postings; that
+wall now looks at the title only, and "sales" must be a whole word (so "Salesforce" passes).
+
+| id | title | company | where | pay | apply | walls |
+|---|---|---|---|---|---|---|
+| 4483601187 | Remote Contract Law Expert | Turing | Remote · United States |  | Easy | bar admission |
+| 4483288827 | Legal Document Reviewer - Expert | Mercor | Remote · San Francisco, CA | $60/hour | external |  |
+| 4483285727 | Senior Contracts Manager | Juniper Square | Remote · United States | $140,000 - $170,000 | external |  |
+| 4483292009 | Fully Remote Employment Law Attorney | Ascendion | Remote · California, United States | $180K/yr - $300K/yr | Easy | bar admission |
+| 4459564944 | Food Regulatory Affairs (RA) Specialist | HYH America | On-site · Irvine, CA | $70K/yr - $90K/yr | external |  |
+| 4481828337 | Legal Operations Manager | DNOW | On-site · Greater Houston |  | external |  |
+| 4483784172 | Senior Business Immigration Associate | Fragomen | Hybrid · Los Angeles, CA | $196,000.00 - $245,000.00 | external |  |
+| 4483781385 | Compliance Specialist | MaryRuth's | Remote · Los Angeles, CA | $85,000 to $100,000 | external |  |
+| 4480749051 | Legal Externs Spring 2027 - Justice Megan E.  | State of Ohio | Columbus, OH |  | external |  |
+| 4480235281 | Corporate Counsel (Litigation) | loanDepot | Remote · United States | $141,000 to $175,000 | external | bar admission |
+| 4483721677 | Litigation Docket Specialist | Crowell & Moring | Remote · United States | $70,000 - $110,000 | external |  |
+| 4483708712 | Regulatory Correspondence Specialist | Newrez | Fort Washington, PA |  | external |  |
+| 4483778203 | Senior Counsel, US Litigation | Mondelēz International | East Hanover, NJ | $142,700 to $235,455 | external | bar admission |
+| 4483767207 | Lead Compliance Oversight | Centene Corporation | Remote · Missouri, United States |  | external |  |
+| 4474084030 | Contract Management Team Lead | Boeing | On-site · Oklahoma City, OK | $102,850 – $139,150 | external |  |
+| 4483714801 | Regulatory & Product Counsel | Harbinger | On-site · Garden Grove, CA | $150,000—$170,000 | Easy | bar admission |
+| 4483254992 | Principal, Contracts Management | Tract Capital Management | Remote · United States | $180,000 to $200,000 | external |  |
+| 4483266437 | Litigation Legal Secretary (Pasadena) | Adams & Martin Group | On-site · Los Angeles County, CA | $80K/yr - $92K/yr | Easy |  |
+| 4483754737 | Administrative Judicial Legal Assistant | California Department of  | On-site · Sonoma, CA | $3,689/month - $5,159/month | external |  |
+| 4483749732 | Contract Manager | Pace® Analytical Services | Hybrid · Roseville, MN | $77,025 to $128,400 | external |  |
 
 ## Rules learned the hard way
 
@@ -276,6 +327,8 @@ scripts/easy_apply.cjs          the one-run LinkedIn Easy Apply that worked 2026
 scripts/answers.json            George's answer book (rules + facts + never-yes), merged from Agent Bridge + job-vault
 scripts/anti_freeze.sh          one-time Android settings (freezer off, phantom killer off, Doze whitelist)
 scripts/floorplan.cjs           read-only site crawler: GET only, 2 doors deep, writes pages/links/buttons/inputs as JSON
+scripts/gather.cjs              read-only LinkedIn job gather (10/26): search with set filters, copy every posting + full description, mark walls, write logs/gather/<stamp>.json + .md; never applies, never picks
+scripts/walls.json              George's walls for gather.cjs: name + regex (+ "field": "title" for title-only); a hit = the rule name + the sentence it matched
 floor-plans/github.md           plain-words floor plan of github.com (pages, links, buttons, fastest URLs), drawn 2026-10-26
 floor-plans/github-raw.json     the raw crawl behind it: 45 pages with links, buttons, inputs
 research/deep-research-prompt.md  the prompt that produced the report

@@ -67,8 +67,9 @@ async function attach(tab, opts = {}) {
   const finder = (sel) => typeof sel === 'string'
     ? `document.querySelector(${JSON.stringify(sel)})`
     : `[...document.querySelectorAll(${JSON.stringify(sel.tag || 'button, a, [role=button], input[type=submit], label, summary')})].filter(e=>e.getBoundingClientRect().height>0).find(e=>${sel.text.toString()}.test((e.innerText||e.value||e.getAttribute('aria-label')||'').trim()))`;
-  const readBox = async (sel) => evaluate(`(()=>{const e=${finder(sel)}; if(!e) return null; const b=e.getBoundingClientRect(); return {x:b.left,y:b.top,w:b.width,h:b.height,vw:innerWidth,vh:innerHeight,tag:e.tagName,name:(e.innerText||e.value||e.getAttribute('aria-label')||'').trim().slice(0,40)}})()`);
-  const inView = b => b.y >= 0 && b.y + b.h <= b.vh && b.x >= 0 && b.x + b.w <= b.vw;
+  // hit: the element owns the point at its own centre (nothing on top of it, like LinkedIn's chat layer at the bottom edge).
+  const readBox = async (sel) => evaluate(`(()=>{const e=${finder(sel)}; if(!e) return null; const b=e.getBoundingClientRect(); const t=document.elementFromPoint(b.left+b.width/2,b.top+b.height/2); return {x:b.left,y:b.top,w:b.width,h:b.height,vw:innerWidth,vh:innerHeight,hit:!!t&&(t===e||e.contains(t)),tag:e.tagName,name:(e.innerText||e.value||e.getAttribute('aria-label')||'').trim().slice(0,40)}})()`);
+  const inView = b => b.y >= 0 && b.y + b.h <= b.vh && b.x >= 0 && b.x + b.w <= b.vw && b.hit;
 
   // A curved path from the pointer to (x,y): 8–18 steps, fast start, slow landing.
   const path = (x, y) => {
