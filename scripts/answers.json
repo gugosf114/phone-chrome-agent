@@ -327,10 +327,7 @@
  ],
  "never_yes": "sponsor|visa|criminal|felony|convicted|terminated for cause|non-?compete|current(ly)? employed (by|at) (this|our)|do you require|are you a (former|current) employee|bar admi|licensed attorney|security clearance",
  "defaults": {
-  "number": "5",
-  "yesNo": "Yes",
-  "text": "Yes",
-  "_note": "test defaults from 2026-10-14; the rules above win first"
+  "_note": "EMPTY on purpose since 2026-10-27 (George): the 10/14 test guesses (number=5, yes/no=Yes, text=Yes) are retired. A question the book cannot answer now stops the job as NEEDS_INPUT and lands in the unanswered list; the picker or George adds a rule. Fill number/yesNo/text here ONLY for a test run George orders."
  },
  "_notes": [
   "2026-10-27: 8 rules + 4 facts from George's own answers to the 25-walk ASK list. The value 'ALL' on a checkbox group means tick every box.",

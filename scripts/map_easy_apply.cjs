@@ -50,15 +50,15 @@ function answerFor(label, type, options) {
   const fits = v => v !== 'ALL' || type === 'checkboxgroup'; // "ALL" = tick every box; it means nothing to other fields
   for (const [re, v] of CUR_RULES) if (re.test(l) && fits(v)) return { value: v, source: 'job-rule:' + re.source.slice(0, 30) };
   for (const [re, v] of RULES) if (re.test(l) && fits(v)) return { value: v, source: 'rule:' + re.source.slice(0, 30) };
-  if (type === 'number') return { value: BOOK.defaults.number, source: 'default:number' };
+  if (type === 'number') return BOOK.defaults.number ? { value: BOOK.defaults.number, source: 'default:number' } : null; // 10/27 George: no guessing; null = NEEDS_INPUT
   if (type === 'radio' && (options || []).some(o => /\.(pdf|docx?)$/i.test(o))) return { value: BOOK.facts.resume_file || options[0], source: 'fact:resume_file' };
   if (type === 'radio' || type === 'select') {
     const opts = (options || []).map(o => o.toLowerCase());
     const dec = opts.findIndex(o => /do not want to answer|prefer not|don.?t wish|decline to/.test(o)); if (dec > -1) return { value: options[dec], source: 'default:decline-option' };
-    if (opts.some(o => /^yes$/.test(o))) return { value: BOOK.defaults.yesNo, source: 'default:yesNo' };
+    if (BOOK.defaults.yesNo && opts.some(o => /^yes$/.test(o))) return { value: BOOK.defaults.yesNo, source: 'default:yesNo' };
     return null;
   }
-  if (type === 'text' || type === 'textarea') return { value: BOOK.defaults.text, source: 'default:text' };
+  if (type === 'text' || type === 'textarea') return BOOK.defaults.text ? { value: BOOK.defaults.text, source: 'default:text' } : null;
   if (type === 'checkbox' && /agree|consent|acknowledge|terms|certify/i.test(l)) return { value: 'Yes', source: 'consent box' };
   return null;
 }
@@ -176,7 +176,7 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     if (f.type === 'radio') {
       let j = radioIndex(f, a.value);
       const yn = (f.options || []).some(o => /^yes$/i.test(o)) && (f.options || []).some(o => /^no$/i.test(o));
-      if (j < 0 && allowDefault && yn && !/\.(pdf|docx?)$/i.test(a.value)) { a.source = 'default:yesNo (rule value "' + a.value + '" not an option)'; a.value = BOOK.defaults.yesNo; j = radioIndex(f, a.value); }
+      if (j < 0 && allowDefault && BOOK.defaults.yesNo && yn && !/\.(pdf|docx?)$/i.test(a.value)) { a.source = 'default:yesNo (rule value "' + a.value + '" not an option)'; a.value = BOOK.defaults.yesNo; j = radioIndex(f, a.value); }
       if (j < 0 && allowDefault && (f.options || []).some(o => /\.(pdf|docx?)$/i.test(o))) j = Math.max(0, (f.options || []).findIndex(o => o.includes(BOOK.facts.resume_file || '\u0000')));
       if (j < 0) { entry.note = 'not an option: ' + a.value; return false; }
       const verify = async () => { const s2 = await snap(); const g = (s2.fields || []).find(x => x.type === 'radio' && x.label === f.label); return !!(g && g.value === f.options[j]); };

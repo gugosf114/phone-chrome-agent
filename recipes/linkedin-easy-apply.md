@@ -50,3 +50,6 @@ Stop on (status in the log; the walker never skips a field):
 Receipt: the dialog after Submit says "Application sent" (or the job appears under My items → Applied)
 Proof of the five fixes (10/27 re-walk): logs/easy_apply_map/rewalk-2026-10-27.md
 Script: scripts/map_easy_apply.cjs (laptop, CDP_PORT=19222; walk + map, --submit only on George's word); scripts/easy_apply.cjs (phone, CDP_PORT=9336); scripts/one_pass_form.js (answer-book filler, untested on LinkedIn)
+
+
+No guessing (George, 2026-10-27): the test defaults (5 / Yes / Yes) are gone. A question the book cannot answer stops the job as NEEDS_INPUT. Every stop is a line for the book. Stops are many at first, rare after a few weeks.
