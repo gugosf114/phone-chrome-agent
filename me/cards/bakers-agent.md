@@ -26,6 +26,15 @@ Oct–Dec and not yet this year. Posts tab: upload a photo, Claude writes, pick 
 Single / Multiple / Reel. Money tab: every number for any period against the same days before (visits 436, page views 1,030,
 quote forms sent 54 up 17%, where visits came from incl. AI apps). More: Social, Google Profile, Website & search, Activity,
 System, Businesses, Fleet. Build 58651d6.
+**Bakers Agent 2, the commercial build (WEIGHT: LESS, work in progress).** Repo gugosf114/bakers-agent-2, started
+2026-07-04, last push 2026-10-04. A full copy that diverges from the bakery repo; the bakery is never touched and joins later
+as tenant one. Plan: early clients get isolated deployments, not shared multi-tenant; free first month, SF Bay local, George
+onboards in person; the bar is a couple of paying clients. Two doors: the GitHub door (SEO fixes as pull requests, proven)
+and the "snippet door", one script line pasted into Wix, Squarespace, WordPress, or GoDaddy that applies approved title,
+meta, JSON-LD, alt, and canonical fixes client-side. The pitch: photo-to-post, one-click SEO fixes, and AI-visibility
+monitoring in one bundle with human onboarding, where the closest competitors (Predis, Alli AI, Otterly, Birdeye) sell each
+piece alone for $18–$499 a month. Has: onboarding, site audits, private dashboards, scheduled drafts, guided pilots. Does
+not have yet: a paying client. In a letter: one clause at most, "and a multi-client version in progress"; never a platform claim.
 **What it proves.** He designed, built, and operates a real multi-model agent system with approval gates, event-driven
 cloud architecture, observability, and a feedback loop, for a business that depends on it. This is the strongest "I ship
 AI operations" receipt he has.
