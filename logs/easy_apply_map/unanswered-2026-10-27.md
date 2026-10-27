@@ -59,3 +59,23 @@ legal years → 8). Not misses by the definition above; a reader or George shoul
   log where LinkedIn and the book disagree.
 - **"Follow <company>" was checked on 16 of the 24 Review pages.** Harmless while nothing is submitted. On a real Submit it
   would follow the company, which George's rules forbid. Fix: uncheck it on Review before any Submit.
+
+## From joaosilvalopes/linkedin-easy-apply-bot (373 stars, read only, 10/27). Ideas, not code
+
+Verdict: a thin source. Its whole question brain is five config maps (label regex → answer) plus a few fixed fields.
+Our book already covers its sponsorship, salary, "authorized", bachelor, home city, and phone answers. What it has that
+ours lacks:
+
+| # | Its pattern (where) | What it does | Proposal for us | Mark |
+|---|---|---|---|---|
+| B1 | `YEARS_OF_EXPERIENCE` (sample_config.ts, fillTextFields.ts) | a skill → years table; any text box whose label names the skill gets that number | A years-by-skill table instead of one "how many years → 3" rule. Legal, compliance, contracts, tax stay 8 (dossier). Everything else needs numbers from George: Microsoft Office/Word/Excel, Python (book says 2), SQL (2), Android/Kotlin, Google Cloud, AI/LLM tools | ASK |
+| B2 | same table, used for fields never worked in | — | One standing answer: years in a field that is not in the dossier (healthcare, construction, personal injury, civil litigation, paralegal, IT) = 0. Would fix most of the CHECK table above | ASK |
+| B3 | `LANGUAGE_PROFICIENCY` (fillMultipleChoiceFields.ts) | language → level, picked in a drop-down whose label names the language | Armenian → "Native or bilingual" (dossier: native). Russian → the "full professional" option (dossier: fluent). Any language not in the dossier → "None". English → level word for George | SAFE (Armenian, Russian, None) · ASK (English level) |
+| B4 | `MULTIPLE_CHOICE_FIELDS: { pronouns }` | answers a pronouns drop-down | A pronouns rule. George's own choice, or the decline option | ASK |
+| B5 | `BOOLEANS` on checkboxes (fillBoolean.ts) | a checkbox whose label matches a rule is set to that rule's true/false | Let book rules tick or untick checkboxes ("I have a bachelor's degree", "I am 18 or older"), not only required/consent boxes | SAFE (uses existing rules) |
+| B6 | two-option `<select>` treated as Yes/No by position (fillBoolean.ts) | first real option = Yes, second = No | Our picker matches by option text, which is safer; keep ours. Only use position when the two options are not Yes/No words | idea only |
+| B7 | `uncheckFollowCompany.ts` | unticks "Follow <company>" before Submit | Same as walker gap 3 above: untick it on Review before any Submit (George's rule: never Follow) | SAFE |
+| B8 | `uploadDocs.ts` | uploads a cover letter when the upload box says "cover" | Cover-letter upload box: leave empty unless required (George, 10/26: "the resume covers it"); if required, which file? | ASK |
+| B9 | `JOB_DESCRIPTION_LANGUAGES` (fetchJobLinksUser.ts) | skips postings whose description is not in a listed language | A gather wall: description not in English → flag. George reads English, Armenian, Russian | SAFE |
+
+Nothing else in the repo is a question pattern (login, search URL, Next/Submit buttons, a 1-second error wait).
