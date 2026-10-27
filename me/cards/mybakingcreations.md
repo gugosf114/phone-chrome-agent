@@ -14,6 +14,7 @@ and core updates: indexed pages went 44 → 60 in the update window.
 What We Create (cakes $250–$650+), Latest Creations, Trusted by Leading Companies (10 logos on the strip), Why Choose Us, Request
 Your Custom Order. Nav: Order Now, About, Gallery, Corporate Orders, Design Studio, Blog, Contact, Request an Order. 70 images on
 the home page.
+**For us, not for letters (George, 10/27).** The bakery's PayPal income is what pays the bills; about $70k year to date in 2026. The dashboard's Money tab carries the live figures ($3,990 the week of Oct 21–27).
 **Status.** Live. Repo gugosf114/gugosf114.github.io, about 1,400 commits, pushed 2026-10-27. Ops log and Search Console
 work recorded in the README.
 **What it proves.** He taught himself to build on a real business with real customers, kept it alive through Google's
