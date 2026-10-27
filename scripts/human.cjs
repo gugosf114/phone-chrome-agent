@@ -16,6 +16,8 @@
 //   await h.click('button[aria-label="Easy Apply"]');       // CSS selector, or {text:/^Next$/i}
 //   await h.type('input[name=email]', 'name@example.com'); // clears the box first, then key by key
 //   await h.key('Enter');                                   // one key, no box
+//   await h.keys('University of C');                        // keys into the focused element, no click, no clearing
+//   h.on('Page.fileChooserOpened', p => ...);               // CDP events
 //   await h.pause();                                        // a short human pause (250–900 ms)
 //   h.close();
 //
@@ -45,8 +47,9 @@ const keyOf = (ch) => {
 async function attach(tab, opts = {}) {
   const ws = new WebSocket(tab.webSocketDebuggerUrl);
   await new Promise((r, j) => { ws.onopen = r; ws.onerror = j; });
-  let id = 0; const pend = {};
-  ws.onmessage = e => { const m = JSON.parse(e.data); if (m.id && pend[m.id]) { pend[m.id](m); delete pend[m.id]; } };
+  let id = 0; const pend = {}; const listeners = {};
+  ws.onmessage = e => { const m = JSON.parse(e.data); if (m.id && pend[m.id]) { pend[m.id](m); delete pend[m.id]; } else if (m.method && listeners[m.method]) listeners[m.method].forEach(f => f(m.params)); };
+  const on = (method, fn) => { (listeners[method] = listeners[method] || []).push(fn); }; // CDP events, e.g. Page.fileChooserOpened
   const send = (method, params = {}) => new Promise((res, rej) => { const i = ++id; pend[i] = m => m.error ? rej(new Error(method + ': ' + m.error.message)) : res(m.result || {}); ws.send(JSON.stringify({ id: i, method, params })); });
   // No Runtime.enable on purpose: it is one of the automation marks pages can see. evaluate works without it.
   const evaluate = async (expression) => { const r = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true, userGesture: true }); if (r.exceptionDetails) throw new Error(r.exceptionDetails.text || 'page error'); return r.result.value; };
@@ -165,6 +168,9 @@ async function attach(tab, opts = {}) {
     await jitter(120, 350);
   };
 
+  // Keys into whatever has focus, no click and no clearing first (a drop-down's type-to-find, a box already focused).
+  const keys = async (text) => { for (const ch of [...String(text)]) await pressChar(ch); };
+
   const pause = (a = 250, b = 900) => jitter(a, b);
   const close = () => ws.close();
 
@@ -176,7 +182,7 @@ async function attach(tab, opts = {}) {
     if (!touch) await moveTo(rnd(env.vw * 0.3, env.vw * 0.7), rnd(env.vh * 0.3, env.vh * 0.6));
   }
 
-  return { click, type, key, scrollTo, pause, evaluate, send, close, pointer, touch };
+  return { click, type, key, keys, scrollTo, pause, evaluate, send, on, close, pointer, touch };
 }
 
 async function tabByUrl(port, needle) {
