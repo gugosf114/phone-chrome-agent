@@ -66,16 +66,23 @@
  },
  "Lavrentiy": {
   "words": [
-   "windows (app|desktop)",
-   "offline (speech|voice|transcription)",
+   "windows (app|desktop|application)",
+   "desktop (app|application|software)",
+   "offline (speech|voice|transcription|model)",
    "on[- ]device",
    "local (model|inference|transcription)",
-   "russian"
+   "whisper",
+   "\\bASR\\b",
+   "speech (model|pipeline)",
+   "calibration",
+   "python (app|desktop)"
   ],
-  "say": "Lavrentiy is the Windows twin of WiM: local English transcription, EN/RU interface, works offline, v1.7.11 released.",
+  "say": "Lavrentiy is the Windows twin of WiM: one Python program with a local Whisper model inside, offline dictation, per-user calibration, covert-stutter detection, interface in five languages; v1.7.11 released, 474 commits.",
   "proof": "github.com/abrahamyants/lavrentiy (public)",
-  "status": "released 2026-09-06",
-  "lane": "ai-eval"
+  "status": "released 2026-09-06; pushed 2026-10-11",
+  "lane": "ai-eval",
+  "weight": "FULL",
+  "card": "me/cards/wim-and-patent.md"
  },
  "Heirloom": {
   "words": [

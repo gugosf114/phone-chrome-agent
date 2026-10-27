@@ -19,10 +19,24 @@ disarms, never auto-sends; the bubble moves onto the app's own send button), spa
 five-layer reconstruction stack (verbatim → intent → personal profile → clinical disfluency → interlanguage, detecting
 non-native grammar transfer from text, not accent). Prior art named: Siri, Google Assistant, Wispr Flow, Gboard, Apple
 Dictation. Provisional: pending; a non-provisional must follow within 12 months (by June 27 2027) to keep the date.
+**Lavrentiy, the Windows twin (read 2026-10-27).** One Python program packaged as Lavrentiy.exe, v1.7.11 (Sept 6 2026),
+~508 MB installer with the speech model inside, so dictation works with no internet and no account. Hotkey to record,
+local Whisper small.en with multi-temperature voting and a disagreement map, disfluency filter, paralinguistic detection,
+reconstruction with a deterministic meaning guard, paste into the active app. Per-user profiles with a 60-prompt
+calibration where every transcript is confirmed by the user before it becomes ground truth; a local audio archive; covert
+stuttering detection; a phonetic risk model; exposure difficulty scoring; redo detection against compulsion; delayed
+auditory feedback. Interface in English, Spanish, Russian, Portuguese, French; cloud transcription in 11 languages;
+first-language transfer packs for Russian, Spanish, Mandarin, Hindi, Arabic, Farsi, French, German, Korean. The README's
+own origin line: built by a political refugee from Armenia who arrived without English and lives with a speech block and a
+strong accent. Repo abrahamyants/lavrentiy, public, 474 commits, pushed Oct 11 2026.
+**Where it goes.** The patent covers both: the mobile overlay (WiM) and the desktop embodiment (Lavrentiy, claims 32–33),
+one system. Next for WiM: buy the 12 testers, 14-day test, production. Beyond text: the phone-call lane (WiM Line) already
+proved the far end hears clean speech, and there is a live FCC docket on replacing the human relay operator with ASR and
+TTS, a market that pays per minute. That is the long road: a speech prosthesis for calls and chat, not a dictation toy.
 **What it proves.** He designed a system and wrote the patent himself; he builds for his own disability; he ships to Play
 with billing and a backend; he can write a technical legal document.
 **The sentence.** "I built WiM, a voice-to-text Android app with a speech-disfluency layer, in Google Play testing with
 pricing live, and I am the sole inventor on its 35-claim US provisional patent (App. No. 64/100,336)."
-**Cite when:** speech, voice, dictation, accessibility, assistive tech, patents/IP, product design, Android, AI products,
+**Cite when:** speech, voice, dictation, accessibility, assistive tech, patents/IP, product design, Android, Windows desktop, on-device/offline AI, Whisper, multilingual products, AI products,
 anything where "built it for myself and filed the patent" lands.
 **Proof.** github.com/abrahamyants/wim-android (public) · Play app id 4972415189316953363 · me/samples/patent-provisional-64-100336-2026-06.pdf
