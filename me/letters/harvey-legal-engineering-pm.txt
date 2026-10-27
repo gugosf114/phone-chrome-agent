@@ -1,0 +1,14 @@
+Dear Harvey Hiring Team,
+
+I am applying for the Legal Engineering Program Manager role because it matches the work I have done across professional services, regulated operations, and current AI systems: take ambiguous work, turn it into a process, then keep that process honest with clear owners, evidence, and status.
+
+At Andersen, I managed multistate tax compliance and controversy engagements for corporate and startup clients. The work required coordinating legal analysis, deadlines, client inputs, and recommendations across jurisdictions, often without direct authority over every person involved. I also used early LLM tools to review public-company SEC filings for audits, litigation, and credits-and-incentives positions for client intake and additional-service analysis.
+
+As COO of Phenotopia, I led a $1.75 million regulated retail buildout through permits, construction, inspections, and opening. I coordinated contractors, engineers, consultants, city departments, contracts, procurement, SOPs, and compliance. In parallel, I authored a 33-page land-use application and coordinated roughly $300,000 of outside professional work for a second site.
+
+Since June 2025, I have built and operated AI-assisted systems. Bakers Agent runs approval, evidence, and status workflows for a live small business. Drift Auditor reviews multi-turn model behavior and records failures in instruction retention, source use, authorization, and proof of completion. That work taught me what an AI deployment looks like after the demo: unclear ownership, inconsistent processes, missing evidence, and users who need systems simple enough to trust.
+
+Harvey's Legal Engineering team sits at that junction. I can bring professional-services judgment, program discipline, a JD, and direct experience building AI-supported operating systems to help the team scale across regions without losing clarity.
+
+Sincerely,
+George Abrahamyants

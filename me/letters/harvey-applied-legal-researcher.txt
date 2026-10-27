@@ -1,0 +1,17 @@
+Dear Harvey Hiring Team,
+
+I am applying for Applied Legal Researcher because the role joins the three kinds of work I do best: legal research, careful evaluation of AI output, and turning complex professional workflows into clear systems.
+
+I built Drift Auditor to study failures that appear across long AI conversations. It processed 512 Claude and ChatGPT conversations containing 37,536 messages with zero errors. Its two-stage design uses local rules to surface candidate findings and an optional LLM judge to confirm or reject them. I then wrote Invisible Work: Measuring the Human Cost of AI Alignment, explaining the question, method, results, and limits of the work.
+
+I also built NoiseFile, an Android legal-workflow product that turns 52 archived official sources into 45 city-and-noise-type incident and complaint paths. The product keeps the source trail visible, verifies stored hashes, and labels phone readings as estimates rather than legal findings. That work required breaking dense rules into repeatable tasks without pretending the system knew more than its sources supported.
+
+At Andersen, I managed multistate tax compliance and controversy for corporate and startup clients. I researched statutes and administrative records, drafted legal memoranda, translated disputed tax treatment into client and audit positions, and negotiated resolutions that reduced client liabilities. I also used LLM tools to analyze public-company filings, then checked the conclusions against the underlying record. Earlier, at the U.S. Department of Labor, I drafted a Defense Base Act benefits decision that was affirmed on appeal.
+
+I earned my JD cum laude with a 3.85 GPA from UC Hastings College of the Law, where I received a CALI Award and served as a Production Editor of the Hastings Business Law Journal.
+
+I would bring the same source discipline, legal judgment, model-testing work, and client translation to Harvey's prompts, datasets, benchmarks, and AI systems.
+
+Thank you for your consideration.
+
+George Abrahamyants

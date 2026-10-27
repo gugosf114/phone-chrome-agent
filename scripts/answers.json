@@ -38,7 +38,13 @@
   "salary_floor_full_time": "80000",
   "salary_note": "George 2026-10-27: full time starts at $80k; contract, 1099, part-time all fine; hybrid or in-office in SF / Bay Area fine; equity-only fine",
   "paralegal_note": "George 2026-10-27: not a paralegal. JD with real law work, the same work lawyers do; no bar because Andersen asked him to postpone and then things changed. Use this line in free text when a form asks for paralegal years.",
-  "contract_types_note": "George 2026-10-27: tick every contract type offered; a contract is a contract, a day to read up is all it takes."
+  "contract_types_note": "George 2026-10-27: tick every contract type offered; a contract is a contract, a day to read up is all it takes.",
+  "current_employer": "Self-Employed",
+  "current_title": "AI Developer & Independent Researcher",
+  "university": "UC College of the Law, San Francisco (UC Hastings)",
+  "legal_address": "1096 Wildwood Avenue, Daly City, CA 94015, United States",
+  "website": "https://github.com/gugosf114",
+  "screener_bio": "JD with a tax concentration; SALT work at Andersen; DOL ALJ clerk whose decision was affirmed on appeal; licensing and compliance for highly regulated California businesses; self-employed legal consultant building AI tools; daily LLM user who shipped Android apps, AI phone agents, and chatbots; sole inventor on a pending speech patent; runs bakery e-commerce and marketing; Armenian immigrant and non-native English speaker with speech disfluency."
  },
  "rules": [
   [
@@ -303,6 +309,42 @@
   [
    "current/previous employee|former employee|previously (worked|employed|interviewed|applied)",
    "No"
+  ],
+  [
+   "current or most recent employer|current employer|most recent employer",
+   "Self-Employed"
+  ],
+  [
+   "university or school|school attended|which (university|school)|university name",
+   "UC College of the Law, San Francisco (UC Hastings)"
+  ],
+  [
+   "current legal address|mailing address|street address|home address",
+   "1096 Wildwood Avenue, Daly City, CA 94015, United States"
+  ],
+  [
+   "^(current )?location$|where are you (currently )?(located|based)|city and state",
+   "Daly City, California, United States"
+  ],
+  [
+   "linkedin( profile| url)?$",
+   "https://www.linkedin.com/in/george-abrahamyan"
+  ],
+  [
+   "arbitration agreement acknowledg|i acknowledge that i have opened, read",
+   "Yes"
+  ],
+  [
+   "certify that i have not knowingly withheld|answers given by me are true|i confirm i have read the above",
+   "Yes"
+  ],
+  [
+   "background check consent|consent to a background check",
+   "Yes"
+  ],
+  [
+   "based in this location|able to (work|be) (in|at) (the )?(san francisco|sf) office|this role is tied to",
+   "Yes, I'm based in this location and able to work from the office"
   ]
  ],
  "never_yes": "sponsor|visa|criminal|felony|convicted|terminated for cause|non-?compete|current(ly)? employed (by|at) (this|our)|do you require|are you a (former|current) employee|bar admi|licensed attorney|security clearance",
@@ -312,6 +354,7 @@
  "_notes": [
   "2026-10-27: 8 rules + 4 facts from George's own answers to the 25-walk ASK list. The value 'ALL' on a checkbox group means tick every box.",
   "2026-10-27 05:00: two rules at the very top: 0 years for fields George never worked in (list grows as forms ask), 15 years Microsoft Office. From the 5-job proof walk: the test defaults answered 3 for civil litigation.",
-  "2026-10-27 05:30 (George: no guessing): removed 5 blanket rules that said Yes to any 'do you have experience' / 'have you ever' / 'law firm' and 3 to any 'years of'. These sent a false Yes to ERCOT questions on 10/17 and 3 years of civil litigation on 10/27. Such questions now stop as NEEDS_INPUT. Broad salary answer set to George's target 120000 (was 150000)."
+  "2026-10-27 05:30 (George: no guessing): removed 5 blanket rules that said Yes to any 'do you have experience' / 'have you ever' / 'law firm' and 3 to any 'years of'. These sent a false Yes to ERCOT questions on 10/17 and 3 years of civil litigation on 10/27. Such questions now stop as NEEDS_INPUT. Broad salary answer set to George's target 120000 (was 150000).",
+  "2026-10-27 07:30: facts + 10 rules lifted from real forms George already submitted (job-vault Ashby packets: Harvey, Legora, OpenAI) and from george-facts.json on the phone. The arbitration and certify boxes: he ticked them on OpenAI in Aug 2026, so the book now ticks them."
  ]
 }

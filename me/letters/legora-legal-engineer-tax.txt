@@ -1,0 +1,17 @@
+Dear Legora Hiring Team,
+
+I am applying for Legal Engineer - Tax & Consulting because the role sits at the center of work I know firsthand: multistate tax advisory, professional-services clients, and practical AI workflows.
+
+At Andersen, I managed multistate tax compliance and controversy engagements for corporate and startup clients. I coordinated legal analysis, client inputs, deadlines, and deliverables across jurisdictions; researched statutes and administrative records; drafted legal memoranda; and negotiated audit resolutions that reduced client liabilities. I also used LLM tools to analyze public-company SEC filings for active audits, litigation, and credits-and-incentives positions, then checked the conclusions against the underlying record. That work supported client intake and additional-service analysis.
+
+My current work is hands-on AI workflow design and evaluation. I built Drift Auditor, a two-stage system that processed 512 Claude and ChatGPT conversations containing 37,536 messages with zero errors. It uses local rules to surface candidate failures and an optional LLM judge to confirm or reject them. I documented the review rules so the process can be repeated and improved.
+
+I also built NoiseFile, an Android legal-workflow product that turns 52 archived official sources into 45 city-and-noise-type incident and complaint paths while keeping the source trail and evidence limits visible. I built and operate Bakers Agent in a live business, where AI-generated work moves through source checks, status tracking, and human approval before it reaches customers.
+
+Earlier, as Chief Operations Officer of Phenotopia, I led a $1.75 million regulated buildout through permits, construction, inspections, and opening. That work required turning specialist input from lawyers, engineers, consultants, vendors, and public agencies into one operating plan.
+
+I would bring Legora tax-practice context, client-service judgment, and hands-on AI workflow work to pilots, onboarding, training, product feedback, and firm-wide adoption.
+
+Thank you for your consideration.
+
+George Abrahamyants

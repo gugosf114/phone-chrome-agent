@@ -1,0 +1,805 @@
+{
+  "version": 1,
+  "owner": "George Abrahamyants",
+  "updated_at": "2026-08-28T11:14:44-07:00",
+  "facts": {
+    "identity": {
+      "preferred_name": "George Abrahamyants",
+      "legal_name": "Gurgen Abrahamyants",
+      "date_of_birth": "1984-04-24",
+      "gender": "Male",
+      "race_ethnicity_default": "White/Caucasian",
+    "heritage": "Armenian",
+    "us_citizenship": "Naturalized U.S. citizen",
+    "moved_to_us_age_range": "13-17",
+    "valid_drivers_license": {
+      "value": true,
+      "as_of": "2026-08-10"
+    }
+  },
+    "contact": {
+      "email": "gugosf@berkeley.edu",
+      "phone": "415-632-8008",
+      "address": {
+        "street": "1096 Wildwood Avenue",
+        "city": "Daly City",
+        "state": "California",
+        "postal_code": "94015",
+        "country": "United States"
+      }
+    },
+    "employment": {
+      "status": "Full-time, self-employed",
+      "sector": "Legal",
+      "role": "Legal Consultant",
+      "company": "Self-Employed",
+      "business_structure": "George is the sole operator. There is no separate firm or staff.",
+      "years_experience": 8
+    },
+    "education": {
+      "highest_level": "Doctorate degree",
+      "degree": "Juris Doctor (JD)",
+      "school": "UC Hastings College of the Law",
+      "gpa": "3.5",
+      "gpa_status": "George-directed placeholder; exact JD GPA is unknown and must not be described as verified",
+      "honors": "cum laude",
+      "undergraduate": {
+        "degree": "Bachelor of Arts in Political Science; Minor in Southeast Asian Studies",
+        "school": "University of California, Berkeley",
+        "gpa": "3.85",
+        "honors": "Distinction in General Scholarship",
+        "source": "George confirmed on 2026-08-28 that both the JD and Berkeley BA GPAs are 3.85"
+      },
+      "resume_warning": "Do not reuse a resume that states the Hastings JD GPA is 3.85. For future resumes, omit the JD GPA unless George provides a verified number."
+    },
+    "professional": {
+      "bar_status": "Never took the bar; not licensed; never describe as an attorney",
+      "hourly_rate_usd": 50,
+      "weekly_availability_hours": 20,
+      "english": "Native or bilingual proficiency (LinkedIn highest level)",
+      "languages": {
+        "English": "Native or bilingual proficiency",
+        "Armenian": "Native or bilingual proficiency",
+        "Russian": "Native or bilingual proficiency"
+      },
+      "languages_source": "George confirmed on 2026-08-28 that all three languages are at LinkedIn's highest level",
+      "ai_tool_use": "Daily LLM user",
+      "patent": "Sole inventor on a pending speech patent"
+    },
+    "household": {
+      "annual_income_before_tax_usd_range": "$100,000-$149,999",
+      "housing": "Rents home",
+      "members": [
+        "Spouse",
+        "One child under 18"
+      ],
+    "child_age": {
+      "value": 9,
+      "as_of": "2026-08-10"
+    },
+    "spouse_prior_employment": [
+      {
+        "role": "Bank teller",
+        "industry": "Banking",
+        "timing": "Many years ago",
+        "current": false
+      }
+    ],
+    "paid_digital_subscriptions": [
+      "Digital news"
+    ],
+    "vehicles": [
+      {
+        "make": "Toyota",
+        "model": "Corolla Cross",
+        "color": "Red",
+        "financing": "Financed",
+        "fuel_type": "Gas"
+      }
+    ]
+  },
+    "technology": {
+      "has_used_location_sharing_app": true,
+      "location_sharing_apps_used": [
+        "Google Maps"
+      ],
+      "personal_phone_plan": "Postpaid",
+      "personal_phone_carrier": "T-Mobile",
+      "prior_phone_carrier": "Only T-Mobile",
+      "phone_carrier_never_consider": "None",
+      "home_internet_provider": "AT&T",
+      "organization_map_data_plan": "Considering use within the next 12 months",
+      "fomo_app_used": false,
+    "paid_ai_plans": [
+      "ChatGPT/Codex Pro 20x",
+      "Claude Max 20x",
+      "Gemini Pro ($19.99 per month)"
+    ],
+    "photo_video_editing_apps_used": "None of the listed apps"
+  },
+    "research_participation": {
+      "participated_before_2026_08_10": false,
+      "prior_topics": "None"
+    },
+  "conflicts_of_interest": {
+    "listed_large_tech_and_map_data_employers": "None for George, immediate family, or coworkers",
+    "current_household_phone_banking_education_cpg_advertising_research_employment": "None",
+    "close_family_or_friend_ever_advertising_media_pharma_medicine_market_research_employment": "None"
+  },
+    "time_bound": {
+      "coinbase_wallet_used_in_prior_30_days": {
+        "value": true,
+        "as_of": "2026-08-10"
+      },
+      "wireless_carrier_shopping_in_prior_6_months": {
+        "value": "A lot",
+        "as_of": "2026-08-10"
+      },
+    "available_for_90_minute_san_francisco_study": {
+      "value": true,
+      "dates": [
+        "2026-08-11",
+        "2026-08-12",
+        "2026-08-13"
+      ]
+    },
+    "webcam_meetings": {
+      "used_in_prior_year": true,
+      "six_or_more_over_about_six_months": true,
+      "prior_three_month_form_estimate": "1-3",
+      "as_of": "2026-08-10"
+    },
+    "available_for_tech_talks": {
+      "value": true,
+      "dates": [
+        "2026-08-18",
+        "2026-08-19",
+        "2026-08-20"
+      ],
+      "includes": [
+        "60-minute webcam session",
+        "short homework",
+        "technical check"
+      ]
+    },
+    "nonprescription_medication_used_in_prior_three_months": {
+      "categories": [
+        "Cold medication",
+        "Nonprescription pain reliever",
+        "Heartburn medication"
+      ],
+      "examples": [
+        "Advil",
+        "Tums"
+      ],
+      "as_of": "2026-08-10"
+    },
+    "pain_experience": {
+      "type": "Muscle aches and pains",
+      "typical_frequency": "About once per week",
+      "would_consider_all_listed_future_pain_products": true,
+      "as_of": "2026-08-10"
+    },
+    "social_media_photo_video_posting": {
+      "main_platform_in_prior_month": "Facebook",
+      "form_frequency_estimate": "A few times a month",
+      "as_of": "2026-08-10"
+    }
+    },
+    "approved_screener_bio": "JD with a tax concentration; SALT work at Andersen; DOL ALJ clerk whose decision was affirmed on appeal; licensing and compliance for highly regulated California businesses; self-employed legal consultant building AI tools; daily LLM user who shipped Android apps, AI phone agents, and chatbots; sole inventor on a pending speech patent; runs bakery e-commerce and marketing; Armenian immigrant and non-native English speaker with speech disfluency."
+  },
+  "user_interviews_ledger": {
+    "purpose": "Private study-by-study record of what was entered, what was guessed, and what happened.",
+    "source_session": "/data/data/com.termux/files/home/.codex/sessions/2026/08/10/rollout-2026-08-10T09-41-14-019fec8c-be93-7e81-b339-f8bf5d632cc6.jsonl",
+    "reconstructed_at": "2026-08-10T21:14:31-07:00",
+    "run_counts": {
+      "submitted": 11,
+      "accepted_with_task": 1,
+      "waitlist_or_under_review": 10,
+      "in_progress": 1
+    },
+    "answer_basis": {
+      "confirmed": "George directly confirmed this or it came from the private facts card.",
+      "rule_based": "Chosen under George's saved form rule, such as shared equally or the second-lowest soft estimate.",
+      "agent_inference": "Chosen from existing evidence without a new direct answer.",
+      "authorized_guess": "George explicitly told the agent to guess this answer."
+    },
+    "submitted": [
+      {
+        "order": 1,
+        "title": "The Changing In-Store Shopping Experience",
+        "compensation": "$10",
+        "status": "Accepted; external recorded task remains to be completed",
+        "task_deadline": "2026-08-13T14:15:00-07:00",
+        "answers": {
+          "primary_grocery_decision_maker": "Share decisions equally",
+          "Walmart_shopping_frequency_change_in_prior_six_months": "Somewhat less often"
+        },
+        "non_confirmed_answers": {
+          "Walmart_shopping_frequency_change_in_prior_six_months": "Agent soft estimate"
+        }
+      },
+      {
+        "order": 2,
+        "title": "Consumer Feedback on TV industry",
+        "compensation": "$40",
+        "status": "Submitted to waitlist; under review",
+        "answers": {
+          "currently_resides_in_US": "Yes",
+          "age_entered": 41,
+          "primary_language": "English",
+          "state": "California",
+          "gender": "Male",
+          "race_ethnicity": [
+            "Middle Eastern or North African",
+            "White or Caucasian"
+          ],
+          "heritage_identification": "Identify with them equally/cannot pick one",
+          "listed_household_employment_conflicts": "None of these",
+          "weekly_TV_video_hours": "5-10 hours per week",
+          "streaming_services": [
+            "Netflix",
+            "Amazon Prime Video"
+          ],
+          "adult_animated_shows_watched": [
+            "The Simpsons",
+            "Family Guy",
+            "South Park"
+          ]
+        },
+        "known_conflict": {
+          "field": "age_entered",
+          "submitted_value": 41,
+          "correct_value_from_DOB": 42,
+          "DOB": "1984-04-24"
+        }
+      },
+      {
+        "order": 3,
+        "title": "Calling all AI Life Managers in SF",
+        "compensation": "$400",
+        "status": "Submitted; under review",
+        "answers": {
+          "location": "San Francisco / Bay Area, CA",
+          "available_August_11_to_13": "Yes",
+          "gender": "Man / Male",
+          "age_range": "35-44",
+          "employment": "Business owner, entrepreneur, or self-employed",
+          "Google_products_used_weekly": [
+            "Google Search",
+            "Gmail",
+            "Google Drive / Docs / Sheets",
+            "Google Maps",
+            "YouTube"
+          ],
+          "AI_products_used_daily": [
+            "ChatGPT",
+            "Gemini",
+            "Claude"
+          ],
+          "personally_paid_AI": [
+            "ChatGPT/Codex Pro 20x",
+            "Gemini Pro ($19.99 per month)",
+            "Claude Max 20x"
+          ],
+          "other_AI_products": "Do not use or use free version for Copilot, Meta AI, Perplexity, Grok, DeepSeek, and Mistral / Le Chat",
+          "personalization_or_memory_used": [
+            "ChatGPT",
+            "Gemini",
+            "Claude"
+          ],
+          "agentic_tools_used": [
+            "Claude Cowork or Claude Code",
+            "ChatGPT Codex or ChatGPT Work",
+            "Gemini Antigravity or Gemini Spark",
+            "OpenAI Operator, Manus, Lindy, Hermes Agent, or a similar autonomous assistant",
+            "AI agents that complete multi-step tasks on their own"
+          ],
+          "agentic_usage_level": "Regularly uses autonomous agents, background processes, or deeply integrated AI tools connected to external apps",
+          "AI_use_cases": [
+            "Software coding/programming",
+            "Corporate business operations",
+            "Personal organization and projects",
+            "Creative hobbies and side projects",
+            "Learning and education",
+            "Career development and job searching"
+          ],
+          "goal_horizon": "Relatively equal mix of short-term and long-term goals",
+          "AI_memory_status": "Turned on and actively used/updated",
+          "comfortable_sharing_non_sensitive_setup": "Yes",
+          "workflow_example": "Recently I used AI to turn my job search into an ongoing system. I keep a private source-linked facts card, an application and reply tray that checks email, LinkedIn, and phone messages, and a running log. Each session loads the same records. As applications change, I update those records instead of starting over. The AI then helps fill forms, match replies, and show me the next action.",
+          "projects_example": "Job search and reply tracking; AI phone and application automation; paid research and income tracking"
+        }
+      },
+      {
+        "order": 4,
+        "title": "Project Green",
+        "compensation": "$250",
+        "status": "Submitted; under review",
+        "answers": {
+          "ZIP_code": "94015",
+          "employment": "Full-time employed (35 hours or more per week)",
+          "personal_living_expenses": "I cover half; someone else covers the other half",
+          "household_income": "$100,000-$149,999",
+          "household_members": [
+            "Spouse/partner",
+            "Child under 18"
+          ],
+          "household_industries_selected": [
+            "Food and Beverage Service",
+            "Information technology",
+            "Marketing/marketing research"
+          ]
+        }
+      },
+      {
+        "order": 5,
+        "title": "Seeking professionals who work with the technical services behind their digital products",
+        "compensation": "$200",
+        "status": "Submitted; under review",
+        "answers": {
+          "gender": "Male",
+          "age_range": "35-44",
+          "race_ethnicity": "White",
+          "employment": "Full-time",
+          "listed_large_tech_or_map_employer_conflicts": "None of the above",
+          "role": "Business Owner",
+          "job_title": "Legal Consultant",
+          "digital_products_built_in_house": "Yes",
+          "map_location_data_plan": "Considering use within the next 12 months",
+          "map_location_importance": "Nice to have",
+          "planned_map_uses": [
+            "Help users find business/organization locations",
+            "Analyze or visualize geospatial data for strategic business decisions"
+          ],
+          "map_provider": "Google Maps Platform",
+          "product_surfaces": [
+            "Android native app",
+            "Website",
+            "Backend"
+          ],
+          "product_categories": [
+            "Retail / Ecommerce",
+            "Enterprise software and services",
+            "Communication"
+          ],
+          "planned_monthly_map_spend": "$1-$500",
+          "map_decision_roles": [
+            "Determine financial need and authorize purchases",
+            "Determine needed capabilities or features",
+            "Define goals and strategy",
+            "Recommend providers or products",
+            "Technical implementation and coding",
+            "Final provider and product decision"
+          ],
+          "decision_influence": "Heavily influential; one of the final decision makers",
+          "coding_time": "1% to 25%",
+          "general_development_skill": "Advanced",
+          "coding_style": "Code from scratch",
+          "geospatial_development_skill": "Novice",
+          "organization_name_entered": "Self-Employed",
+          "organization_size": "Less than 100",
+          "organization_stage": "Seed/Startup Stage",
+          "organization_country": "United States",
+          "experience_text": "I am planning location features for small-business Android and web products. The first use cases are helping customers find business locations and using location data for local marketing decisions. I define the requirements, compare providers and APIs, set the budget, select the platform, and direct the implementation across Android, websites, and backend services using AI-assisted coding. This work is in planning and early implementation, not a mature deployed mapping product.",
+          "recording_Zoom_webcam_internet_quiet_space_and_NDA": "Accepted",
+          "assistive_technology_required": "No"
+        },
+        "non_confirmed_answers": {
+          "coding_time": "Rule-based soft estimate",
+          "product_categories": "Agent inference from George's projects"
+        }
+      },
+      {
+        "order": 6,
+        "title": "Renting and renters insurance",
+        "compensation": "$15",
+        "status": "Submitted; under review",
+        "answers": {
+          "housing": "I rent an apartment, house, or room",
+          "cell_phone_provider": "T-Mobile",
+          "home_internet_provider": "AT&T Internet or Fiber"
+        }
+      },
+      {
+        "order": 7,
+        "title": "Tech Talks",
+        "project_id": "1CTYen2Vvw",
+        "compensation": "$70",
+        "status": "Submitted; under review",
+        "answers": {
+          "prior_marketing_research": "Never",
+          "phone_plan": "Postpaid",
+          "current_and_only_carrier": "T-Mobile",
+          "carrier_never_consider": "None",
+          "time_with_carrier": "2 years or more",
+          "likelihood_of_switching": "Somewhat likely",
+          "carrier_shopping_actions": [
+            "Looked up information or reviews",
+            "Compared pricing or plans",
+            "Visited another carrier store or website",
+            "Asked friends or family"
+          ],
+          "prior_switch_date": "Do not know / do not remember",
+          "prior_switch_explanation": "I have only ever used T-Mobile, so I do not remember making a prior switch.",
+          "personally_makes_phone_decisions_and_pays": "Yes",
+          "gender": "Male",
+          "age_range": "40-54",
+          "community_type": "Suburban",
+          "Hispanic_or_Latino": "No",
+          "race": "White or Caucasian",
+          "education": "Graduate Degree",
+          "employment": "Self-Employed",
+          "household_income": "$100,000-$124,999",
+          "has_child": "Yes",
+          "child_age": 9,
+          "current_household_listed_industry_conflicts": "None of the above",
+          "current_carrier": "T-Mobile",
+          "previous_carrier": "None of the above",
+          "two_lifestyle_descriptions": [
+            "Independent thinker who looks for ways to hack or beat the system for good deals",
+            "Always on the go, values new experiences, and is an early technology adopter"
+          ],
+          "single_best_lifestyle_description": "Independent thinker who looks for ways to hack or beat the system for good deals",
+          "character_traits_text": "Analytical: I break hard problems into parts and look for proof. Persistent: I stay with a problem until it works. Direct: I say what I mean and value clear answers. Curious: I test new tools and learn quickly.",
+          "devices": [
+            "Laptop or desktop with webcam and video",
+            "Smartphone with photo and video"
+          ],
+          "posted_text_photos_or_videos_in_prior_month": "Yes",
+          "homework_upload_confidence": "Somewhat confident; I know I could figure it out",
+          "used_webcam_in_prior_year": "Yes",
+          "webcam_platform_confidence": "Somewhat confident; I know I could figure it out",
+          "webcam_meetings_in_prior_three_months": "1-3",
+          "available_August_18_to_20_and_accepts_homework_and_tech_check": "Yes"
+        },
+        "non_confirmed_answers": {
+          "household_income": "Mapped inside George's confirmed broader $100,000-$149,999 range",
+          "webcam_meetings_in_prior_three_months": "Rule-based estimate from six or more meetings over about six months",
+          "lifestyle_answers": "Agent inference"
+        }
+      },
+      {
+        "order": 8,
+        "title": "Seeking 25-54yo: opinion on medicines and health products!",
+        "project_id": "H2CY4aLOnw",
+        "compensation": "$75",
+        "status": "Submitted; under review",
+        "answers": {
+          "confident_can_fulfill_study": "Yes",
+          "US_citizenship": "Yes - By naturalization",
+          "gender": "Male",
+          "age_range": "40-44",
+          "close_family_or_friend_listed_industry_conflicts": "None of the above",
+          "prior_marketing_research": "No",
+          "nonprescription_medication_in_prior_three_months": [
+            "Cold medication",
+            "Nonprescription pain reliever",
+            "Heartburn medication"
+          ],
+          "examples_confirmed": {
+            "pain_reliever": "Advil",
+            "heartburn": "Tums"
+          },
+          "pain_reliever_form": "Pills / oral pain relievers",
+          "oral_pain_reliever_frequency": "Two times a month or more",
+          "reason_for_oral_pain_reliever": "Only to treat pain",
+          "household_purchase_role": "Shares responsibility with household members, but has final say",
+          "pain_type": "Muscle aches and pains",
+          "pain_frequency": "About once per week",
+          "future_pain_products_considered": [
+            "Dietary supplements",
+            "Over-the-counter pills",
+            "Over-the-counter creams, gels, roll-ons, sprays, and balms",
+            "Over-the-counter patches or wraps",
+            "Prescription swallowed products",
+            "Prescription skin products",
+            "Support sleeves, bandages, or kinesiology tape",
+            "Home heat or cold remedies",
+            "Pain relief devices"
+          ],
+          "condition_treated_with_pills": "Muscle aches and pains",
+          "pain_reliever_brands_used": "Advil",
+          "brand_used_most": "Advil",
+          "forced_Tylenol_followup": "Tylenol Extra Strength",
+          "future_brand_consideration": {
+            "Advil": "Definitely would consider",
+            "Excedrin": "Probably would consider",
+            "Motrin": "Probably would consider",
+            "Tylenol": "Probably would consider",
+            "Aleve": "Probably would consider",
+            "Store brand": "Probably would consider"
+          },
+          "general_pain_medication_worry_scale_5_to_1": 3,
+          "health_management_confidence_scale_5_to_1": 4,
+          "minimum_medication_amount_importance": "Important",
+          "last_pain_push_through_scale_5_to_1": 4,
+          "last_pain_preparedness_scale_5_to_1": 4,
+          "alternative_approaches_worthwhile_scale_5_to_1": 2,
+          "last_pain_medication_worry_scale_5_to_1": 3,
+          "last_pain_life_impact_scale_5_to_1": "1 - Able to manage the pain; little life impact",
+          "last_pain_cause_focus_scale_5_to_1": "1 - Tried to understand the cause, not only the symptoms",
+          "race": "White",
+          "Hispanic_or_Latino": "No",
+          "education": "Post graduate education",
+          "employment": "Employed full-time, more than 30 hours per week",
+          "household_income": "$110,000 or more, but less than $130,000",
+          "US_region": "West",
+          "three_wishes_text": "First, lasting health for my wife, my child, and me, because everything else depends on it. Second, enough financial security that my family can live without constant money pressure and I can focus on meaningful work. Third, the ability to turn useful ideas into tools that solve real problems for people, because I want the good fortune to help more than just me.",
+          "creativity_and_expression_statements": "True for all eight listed statements",
+          "devices": [
+            "Laptop with webcam, microphone, and speakers",
+            "Smartphone"
+          ],
+          "comfortable_tasks": [
+            "Browse the internet",
+            "Join a web meeting or Zoom call",
+            "Create or post on blog or social sites",
+            "Instant messaging or chat",
+            "Download or use apps"
+          ],
+          "accepts_90_minute_interview_recording_and_observers": "Yes",
+          "available_August_11": "Yes",
+          "agrees_to_confidentiality": "Yes",
+          "agrees_to_anonymous_product_safety_reporting": "I agree"
+        },
+        "non_confirmed_answers": {
+          "oral_pain_reliever_frequency": "Rule-based soft estimate",
+          "household_purchase_role": "Rule-based forced household choice",
+          "forced_Tylenol_followup": "Authorized guess; the form incorrectly said Tylenol after Advil was selected",
+          "future_brand_consideration": "Agent inference from George saying he would consider everything",
+          "pain_attitude_scales": "Agent inference",
+          "household_income": "Middle mapping inside George's confirmed broader range",
+          "three_wishes_text": "Agent-written response based on saved family, income, and project context",
+          "creativity_and_expression_statements": "Agent inference"
+        }
+      },
+      {
+        "order": 9,
+        "title": "Share Your Experience with AI Health Assist",
+        "project_id": "ckIvVmjQXg",
+        "compensation": "$30",
+        "status": "Submitted; under review",
+        "answers": {
+          "currently_uses_AI_for_medical_questions_or_health_needs": "Yes",
+          "platforms_used_for_health_needs": [
+            "ChatGPT"
+          ]
+        },
+        "non_confirmed_answers": {
+          "platforms_used_for_health_needs": "ChatGPT selected from existing AI use and health discussions; Claude and Gemini were not selected"
+        }
+      },
+      {
+        "order": 10,
+        "title": "How AI agents use developer and consumer products",
+        "project_id": "B2MNKcHcag",
+        "compensation": "$200",
+        "status": "Submitted; under review",
+        "answers": {
+          "product_decision_authority": "I own or share final sign-off for product or platform roadmap, prioritization, API, developer, or agent-facing surface decisions",
+          "first_useful_result": "A person can create access and complete a core task without speaking with anyone from our company",
+          "recent_AI_event": "We attributed at least one signup, install, transaction, or conversion to an AI assistant surfacing or recommending us",
+          "available_for_video_call_next_three_weeks": "Yes",
+          "product_ownership": "A product I own independently as a founder and for which I personally make product decisions",
+          "live_surface": "A self-serve app or service where AI assistants can affect external users' discovery, selection, or measurable downstream action",
+          "job_title": "Founder and Product Owner; self-employed Legal Consultant",
+          "decision_example": "In the last six months, I decided to keep the public My Baking Creations customer discovery and order surface separate from the private Bakers Agent owner console. I rejected one mixed interface because operator workflows did not belong in the customer path. I used live-route checks and Google Analytics acquisition data, then shipped the public surface at mybakingcreations.com while keeping the owner console separate. In the last 28 days, the public site recorded 64 AI Assistant sessions and 328 key events. I made the final scope and release decisions as founder and product owner.",
+          "user_stuck_example": "The most recent verified case was the public consultation route returning a 404, so a visitor could not reach the intake step before speaking with us. I found it during a live-site route check and matched it to the GitHub Pages build and deploy path. We fixed the route, restored green CI, and rechecked the live page.",
+          "AI_event_evidence": "I checked the live Google Analytics 4 Traffic acquisition report for mybakingcreations.com for July 21 through August 17, 2026. The AI Assistant channel showed 64 sessions, 60 engaged sessions, 769 events, and 328 key events. The Reports snapshot also showed chatgpt.com / ai-assistant as a named source.",
+          "public_surface": "Company: My Baking Creations. Surface: the public My Baking Creations website and order path, https://mybakingcreations.com A stranger can arrive from ChatGPT, browse the gallery and product pages, and reach the order page without speaking with us. A person steps in after the inquiry when a custom order needs design, price, and date confirmation."
+        },
+        "non_confirmed_answers": {
+          "available_for_video_call_next_three_weeks": "Derived from the saved 20-hour weekly availability, not a new calendar check.",
+          "first_useful_result": "Agent synthesis from the live public website and order path.",
+          "recent_AI_event": "Live GA4 showed 328 AI Assistant key events; the screener's conversion wording was mapped to GA4 key events."
+        }
+      },
+      {
+        "order": 11,
+        "title": "Looking to chat with you about how your professional experience!",
+        "project_id": "FY5CwWxy0g",
+        "compensation": "$100",
+        "status": "Submitted; under review",
+        "answers": {
+          "firm_primary_business": "Other",
+          "firm_primary_business_write_in": "Self-employed legal consulting and legal-tech product development",
+          "role_at_firm": "Founder, Owner, or CEO",
+          "ai_related_revenue_share": "Less than 10%"
+        },
+        "non_confirmed_answers": {
+          "ai_related_revenue_share": "Agent inference from saved evidence that George's AI products and AI services have no proven paid client revenue. George said the answer was guessable and authorized continuing."
+        },
+        "submission_proof": {
+          "site_text": "Your application survey was submitted and is under review!",
+          "screenshot": "/data/data/com.termux/files/home/.cache/browser-headless/userinterviews/screenshot-20260818T193719.812428Z.png",
+          "email_receipt_received_at": "2026-08-18T19:37:10+00:00"
+        }
+      }
+    ],
+    "in_progress": [
+      {
+        "intended_order": 10,
+        "title": "Social Media Content Creation Interview",
+        "project_id": "LxvT5f9sCA",
+        "compensation": "$20",
+        "status": "Paused; not submitted",
+        "current_question": "Facebook username or profile link where original photos/videos are posted",
+        "answers_entered": {
+          "age": "41 or older",
+          "moved_to_US": "Between ages 13 and 17",
+          "social_media_actions_in_prior_month": [
+            "Browse or scroll",
+            "Comment, like, or interact",
+            "Save inspiration or tutorials"
+          ],
+          "own_photo_or_video_posting_frequency": "A few times a month",
+          "main_platform": "Facebook",
+          "photo_video_mix": "About equal photos and videos",
+          "largest_account_followers": "1,001-5,000",
+          "content_source": "Mostly shot on phone",
+          "creation_method": "Phone camera with little or no editing",
+          "own_photo_video_post_count": "20-50",
+          "photo_effects": "Rarely edit; mostly post originals",
+          "video_effects": "Rarely edit; mostly post originals",
+          "listed_photo_video_apps_used": "None"
+        },
+        "non_confirmed_answers": {
+          "own_photo_or_video_posting_frequency": "Rule-based soft estimate",
+          "photo_video_mix": "Rule-based equal choice",
+          "largest_account_followers": "Rule-based soft estimate",
+          "own_photo_video_post_count": "Rule-based soft estimate",
+          "content_source_creation_method_and_editing": "Agent inference"
+        }
+      }
+    ],
+    "dropped_or_blocked": [
+      {
+        "title": "Media Content Survey",
+        "compensation": "$10",
+        "status": "Not counted as submitted in this run; screener ended with deadline passed",
+        "later_dashboard_conflict": "Participant dashboard later displayed Approved and currently full; exact status still needs a separate check",
+        "answers_entered": {
+          "country_confirmation": "Confirmed profile country",
+          "participation_understanding": "Yes",
+          "English_fluency": "Non-native language; fluent",
+          "listed_conflicts": "None",
+          "news_sources": [
+            "CNN",
+            "The New York Times"
+          ],
+          "three_media_attitude_scales": "Neutral",
+          "cable_status": "Canceled paid cable and no longer has it",
+          "technology_adoption": "Usually first among friends and family to try new technology"
+        }
+      },
+      {
+        "title": "Family location sharing",
+        "compensation": "$30",
+        "status": "Dropped; no truthful path",
+        "answers_entered": {
+          "location_sharing_app": "Google Maps",
+          "Life360_use": "Never used"
+        },
+        "blocker": "Form forced a date for stopping Life360 and offered no never-used answer"
+      },
+      {
+        "title": "Crypto Research",
+        "compensation": "$10",
+        "status": "Dropped; no truthful path",
+        "answers_entered": {
+          "wallet_used": "Coinbase Wallet / Base",
+          "Fomo_use": "Never used"
+        },
+        "blocker": "Form forced Fomo buy, sell, or browse activity and offered no never-used answer"
+      },
+      {
+        "title": "Share Your Experience",
+        "project_id": "ZmWbyJe5FQ",
+        "compensation": "$45",
+        "status": "Dropped; no truthful path",
+        "answers_entered": {
+          "country": "United States",
+          "valid_drivers_license": "Yes",
+          "household_vehicle_count": 1,
+          "vehicle": "Financed red Toyota Corolla Cross",
+          "fuel_type": "Gas"
+        },
+        "blocker": "After gas was selected, the form forced a battery-electric vehicle count of at least one and offered no zero answer"
+      },
+      {
+        "title": "Share Your Experience With Online Healthcare",
+        "compensation": "$45",
+        "status": "Skipped before screener; too weak to interrupt George",
+        "blocker": "No verified recent online medical visit or lab-test platform. This is a sensitive medical fact that cannot be invented, and the study's expected value does not justify pulling George out of his other active sessions."
+      }
+    ],
+    "paused_not_submitted": [
+      {
+        "title": "Business Banking Accounts Experience Research",
+        "project_id": "wN4oSnqM2Q",
+        "compensation": "$200",
+        "status": "Paused on first page",
+        "missing_hard_facts": [
+          "Annual business revenue",
+          "Business bank",
+          "Business account and credit products"
+        ]
+      },
+      {
+        "title": "Grocery store visit task",
+        "project_id": "mG03AnjimA",
+        "compensation": "$40",
+        "status": "Paused",
+        "missing_hard_facts": [
+          "Mayonnaise purchase and use",
+          "Brands purchased or excluded",
+          "Store used most often",
+          "Willingness to film a store visit within 48 hours"
+        ]
+      }
+    ]
+  },
+  "form_rules": {
+    "official_name": "Use Gurgen Abrahamyants only when the form is legal or official; use George Abrahamyants elsewhere.",
+    "education": "Choose Doctorate when offered. Choose Graduate only when Doctorate is absent.",
+    "household_soft_choice": "Choose shared equally when offered. If a forced choice describes mixed reality, choose the plausible answer that keeps the application moving.",
+    "soft_estimate": "When no better evidence exists, choose the second-lowest offered option.",
+    "hard_fact_gate": "First judge the opportunity's value, odds, burden, sensitivity, and George's context-switch cost. Skip weak tasks with unknown hard facts. For a material task, batch all visible unknowns and ask once with full task context, the recommendation, and the consequence of no answer. Never invent sensitive facts.",
+    "screening_language": "Use highly regulated California businesses. Do not name cannabis on screeners."
+  },
+  "sources": {
+    "canonical_screener_identity": {
+      "path": "/data/data/com.termux/files/usr/var/lib/proot-distro/containers/debian/rootfs/root/.claude/projects/-root/memory/research-platforms-income.md",
+      "verified_at": "2026-07-30"
+    },
+    "canonical_job_history": {
+      "path": "/data/data/com.termux/files/usr/var/lib/proot-distro/containers/debian/rootfs/root/.claude/projects/-root/memory/linkedin-job-search.md",
+      "verified_at": "2026-07-02"
+    },
+    "george_current_confirmation": {
+      "type": "direct statement in current conversation",
+      "date": "2026-08-10",
+      "confirmed": [
+        "address",
+        "date_of_birth",
+        "gender",
+        "race_ethnicity_default",
+        "us_citizenship",
+        "annual_income_before_tax_usd_range",
+        "housing",
+        "members",
+        "child_age",
+        "paid_digital_subscriptions",
+        "has_used_location_sharing_app",
+        "location_sharing_apps_used",
+        "personal_phone_plan",
+        "personal_phone_carrier",
+        "prior_phone_carrier",
+        "phone_carrier_never_consider",
+        "home_internet_provider",
+        "organization_map_data_plan",
+        "fomo_app_used",
+        "paid_ai_plans",
+        "participated_before_2026_08_10",
+        "prior_topics",
+        "listed_large_tech_and_map_data_employers",
+        "coinbase_wallet_used_in_prior_30_days",
+        "wireless_carrier_shopping_in_prior_6_months",
+        "available_for_90_minute_san_francisco_study",
+        "moved_to_us_age_range",
+        "valid_drivers_license",
+        "spouse_prior_employment",
+        "vehicles",
+        "current_household_phone_banking_education_cpg_advertising_research_employment",
+        "close_family_or_friend_ever_advertising_media_pharma_medicine_market_research_employment",
+        "webcam_meetings",
+        "available_for_tech_talks",
+        "nonprescription_medication_used_in_prior_three_months",
+        "pain_experience",
+        "social_media_photo_video_posting",
+        "photo_video_editing_apps_used"
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+Dear Anthropic Hiring Team,
+
+I am applying for Research Operations, External Artifacts because the role joins the three kinds of work I do best: source-based writing, careful review of technical claims, and delivery across many open threads.
+
+After reading Anthropic's "Who's in Charge?" paper, I studied a related question: how much work does a person have to do to keep a model on task across a long conversation? I built Drift Auditor and tested it on 512 Claude and ChatGPT conversations containing 37,536 messages. I then wrote "Invisible Work: Measuring the Human Cost of AI Alignment." The paper explains the method, reports the results, and states the limits of the work, including heuristic scoring and a single-operator dataset. The code and live demo are public.
+
+I also built WiM, an Android voice-to-intent app that I use every day. It preserves intended meaning through speech recognition, reconstruction, clarification, and final insertion. I built and operate Bakers Agent in a live bakery business, where AI-generated work passes through source checks and human approval before reaching customers.
+
+At Andersen, I managed multistate tax compliance and controversy for corporate and startup clients, including audit defense, refund claims, voluntary disclosures, and nexus reviews. I led engagements involving disputed state-tax treatment of major technology transactions and negotiated audit resolutions that reduced client liabilities. As COO of Phenotopia, I coordinated a $1.75 million regulated buildout across consultants, vendors, permits, inspections, and opening.
+
+I would bring the same evidence discipline, plain writing, and operating follow-through to Anthropic's risk reports, system cards, and Responsible Scaling Policy updates.
+
+Thank you for your consideration.
+
+George Abrahamyants

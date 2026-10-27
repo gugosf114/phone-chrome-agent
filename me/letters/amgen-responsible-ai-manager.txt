@@ -1,0 +1,15 @@
+Dear Amgen Hiring Team,
+
+I am applying for the Responsible AI Manager - Agentic AI Governance role because its core work is what I have been building: turning model behavior, legal duties, and live operating risk into controls that people can use.
+
+I built Drift Auditor to study failures that appear across long AI conversations. Its checked-in corpus contains 512 Claude and ChatGPT conversations and 37,536 messages. I separately built AI Operator Field Notes, a source-linked corpus of 101 model-authored failures across five control categories. This work required separating model mistakes from process and control failures, keeping every claim tied to evidence, and defining where human review, scoped permission, logs, and stop gates belong.
+
+I also build AI products used in real work. Bakers Agent uses human approval for customer-facing and budget paths; one verified run turned a Search Console finding into a GitHub pull request and then a live page. WiM preserves user control through context-based reconstruction and deliberate insertion. Audit Ledger records evidence, contradictions, and gaps in a SHA-256 hash chain that detects changed records.
+
+Before this work, I managed multistate tax compliance and controversy at Andersen and led regulated operations at Phenotopia. I translated statutes, agency rules, audit evidence, and operating risk into clear plans and defensible records while coordinating legal, finance, operations, vendors, consultants, and government staff.
+
+I would bring that same mix of technical fluency, legal judgment, control design, and cross-functional follow-through to Amgen's agentic AI governance work.
+
+Thank you for your consideration.
+
+George Abrahamyants

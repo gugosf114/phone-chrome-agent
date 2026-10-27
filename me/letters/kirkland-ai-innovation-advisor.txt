@@ -1,0 +1,35 @@
+Dear Kirkland & Ellis Hiring Team,
+
+I am applying for the AI Innovation Advisor role because it joins three kinds
+of work I do best: breaking legal work into clear steps, testing AI output
+against source and quality rules, and carrying client-service work across many
+stakeholders.
+
+At Andersen, I spent more than four years managing multistate tax compliance
+and controversy for corporate and startup clients. I translated statutes,
+agency records, and client facts into work plans, legal memoranda, and
+recommendations across jurisdictions. I also used LLM tools to review
+public-company SEC filings for audits, litigation, and credits-and-incentives
+positions, checking the output against the underlying record. That work taught
+me the pace, confidentiality, judgment, and clarity required in a professional
+client-service setting.
+
+My comparable-platform work now focuses on legal AI workflows and output
+quality. I built Drift Auditor, a two-stage system for evaluating failures
+across long AI conversations. It processed 512 Claude and ChatGPT
+conversations containing 37,536 messages with zero errors, using local
+candidate detection followed by an optional LLM judge. I also built NoiseFile,
+an Android legal-workflow product that turns 52 archived official sources into
+45 city-and-noise-type incident and complaint paths while keeping source links
+and evidence limits visible.
+
+Together, these projects required the work your posting describes: breaking
+complex tasks into testable requirements, identifying failure modes,
+documenting review rules, refining workflows against real output, and making
+the result clear enough for another person to use. I would bring Kirkland a JD,
+professional-services judgment, strong legal writing, and direct proof that I
+can build and test responsible AI workflows.
+
+Sincerely,
+
+George Abrahamyants

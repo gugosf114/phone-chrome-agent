@@ -1,0 +1,15 @@
+Dear OpenAI Hiring Team,
+
+I am applying for Program Manager, Alignment because the role matches how I work: turn a vague problem into a clear plan, keep several open threads moving, and make sure the work ships.
+
+After reading research on safeguards that work for one exchange but fail across a long conversation, I built Drift Auditor to study the problem. I tested it on 512 Claude and ChatGPT conversations containing 37,536 messages, then wrote "Invisible Work: Measuring the Human Cost of AI Alignment." The paper explains the question, method, results, and limits, including heuristic scoring and a single-operator dataset. This work required defining an ambiguous problem, building a repeatable review process, keeping claims tied to evidence, and turning the result into a clear written artifact.
+
+I also built WiM, an Android voice-to-intent app that I use every day. It preserves intended meaning through speech recognition, reconstruction, clarification, and user-controlled insertion. I built and operate Bakers Agent in a live bakery business, where AI-generated work passes through source checks and human approval before reaching customers. Both projects required me to move between technical details, operating rules, testing, and the small follow-up work that makes a system usable.
+
+At Andersen, I managed multistate tax compliance and controversy for corporate and startup clients, including audit defense, refund claims, voluntary disclosures, and nexus reviews. I coordinated records, deadlines, legal questions, and stakeholder decisions across parallel matters. As COO of Phenotopia, I coordinated a $1.75 million regulated buildout across consultants, vendors, permits, inspections, and opening.
+
+I would bring the same evidence discipline, plain writing, and operating follow-through to OpenAI's alignment projects, review loops, decision memos, publishing workflows, and cross-functional work.
+
+Thank you for your consideration.
+
+George Abrahamyants

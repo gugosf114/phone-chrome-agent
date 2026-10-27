@@ -1,0 +1,16 @@
+Dear Eve Hiring Team,
+
+Re: Legal AI Architect
+
+I am applying for Eve's Legal AI Architect role because it combines work I have done across legal analysis, professional-services clients, and hands-on AI workflow building.
+
+At Andersen, I managed multistate tax compliance for corporate and startup clients, conducted tax exposure analyses, and negotiated audit resolutions. I created repeatable frameworks for nexus studies, voluntary disclosures, and refund claims, prepared legal memoranda and client-ready recommendations, and supported matters across more than 20 jurisdictions. I also used LLM tools to analyze public-company SEC filings for active audits, litigation, and credits-and-incentives positions, then checked the conclusions against the underlying record. That work supported client intake and additional-service analysis.
+
+I later led a $1.75 million regulated buildout through permits, construction, inspections, and opening. That work required combining engineering, consulting, vendor, and public-agency requirements into one operating plan.
+
+More recently, I built Audit Ledger, a legal-workflow system that maps California residency rules into structured evidence and review paths. Its tested modules detect conflicting records, measure evidence density, verify source URLs, and use a SHA-256 hash chain to expose later changes. I also built NoiseFile, an Android legal-workflow product that turns 52 archived official sources into 45 city-and-noise-type incident and complaint paths while keeping the source trail and evidence limits visible. I built Bakers Agent for live business work with human approval gates before customer-facing output.
+
+Eve's work mapping how firms operate, configuring agents, building reusable playbooks, and proving value in operating metrics matches this experience. I would welcome the opportunity to discuss how I could help firms move from isolated AI experiments to durable workflows their teams can own.
+
+Sincerely,
+George Abrahamyants

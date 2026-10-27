@@ -1,0 +1,22 @@
+August 5, 2026
+
+OpenAI
+San Francisco, CA
+
+Re: Model Designer
+
+Dear OpenAI Hiring Team,
+
+Most of my recent work started with the same problem at the center of this role: a model can produce a fluent answer, acknowledge a correction, and still miss what the person meant. I built tools to make that gap visible and to turn the miss into a better behavior.
+
+Drift Auditor examines long conversations for dropped instructions, correction decay, semantic dilution, and false context. AI Operator Field Notes organizes failures from real working sessions into recurring categories and records the detection and correction methods that grew from them. The point is practical: define the failure precisely, test whether a correction survives, and reject a clean story when the interaction record says otherwise.
+
+WiM for Android and Lavrentiy for Windows approach the same problem from the product side. They reconstruct intended meaning from messy speech and preserve the speaker's facts and forcefulness. WiM's automatic-tone mode chooses register from message content, flags uncertain words for review, learns from rejected and accepted responses, and rejects a rewrite when names, dates, numbers, or negations do not survive. The design follows a simple rule: change the delivery without changing what the person meant.
+
+Earlier work in tax controversy, federal adjudication, and regulated operations trained me to turn ambiguous language into decisions that can be defended from the record. That habit carries directly into model behavior.
+
+OpenAI is asking for someone who reads between the lines, shapes a cohesive voice, uses feedback and quantitative evidence, and tests ideas hard enough to discard them. That is the work I want to bring to the Core Models team.
+
+Sincerely,
+
+George Abrahamyants
