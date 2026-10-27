@@ -41,8 +41,8 @@
   "re": "^(sales\\b|account executive|business development representative|sdr|bdr|recruiter|talent acquisition|customer (support|success|service) (rep|agent|specialist))"
  },
  {
-  "name": "on-site outside Bay Area (location line)",
+  "name": "outside Bay Area, not remote (location line)",
   "field": "where",
-  "re": "^(on-site|hybrid) · (?!.*(san francisco|bay area|oakland|san jose|daly city|south san francisco|san mateo|berkeley|palo alto|redwood city|fremont|sunnyvale|mountain view|santa clara|walnut creek|hayward|burlingame|menlo park|emeryville|san bruno|millbrae|foster city|san rafael|novato|concord|pleasanton|livermore|san leandro|alameda|richmond, ca|cupertino|milpitas|los gatos|campbell|san carlos|belmont|pacifica|brisbane|colma))"
+  "re": "^(?!remote)(?=.*(,\\s*[A-Z]{2}\\b|\\bgreater |\\bcounty\\b))(?!.*(san francisco|bay area|oakland|san jose|daly city|south san francisco|san mateo|berkeley|palo alto|redwood city|fremont|sunnyvale|mountain view|santa clara|walnut creek|hayward|burlingame|menlo park|emeryville|san bruno|millbrae|foster city|san rafael|novato|concord|pleasanton|livermore|san leandro|alameda|richmond, ca|cupertino|milpitas|los gatos|campbell|san carlos|belmont|pacifica|brisbane|colma))"
  }
 ]
