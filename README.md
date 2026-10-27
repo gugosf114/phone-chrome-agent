@@ -305,6 +305,13 @@ wall now looks at the title only, and "sales" must be a whole word (so "Salesfor
 | 4483754737 | Administrative Judicial Legal Assistant | California Department of  | On-site · Sonoma, CA | $3,689/month - $5,159/month | external |  |
 | 4483749732 | Contract Manager | Pace® Analytical Services | Hybrid · Roseville, MN | $77,025 to $128,400 | external |  |
 
+## Gather by API (10/26)
+
+**Verdict: partial.** Live Voyager GETs return job lists and full details; `walls.json`, seen/no lists, and the seven table columns match the DOM gather.
+`CDP_PORT=19222 node scripts/gather_api.cjs --keywords "legal operations" --hours 48 --max 30 --questions`
+Measured: **30 jobs in 104.5 s (0.287 jobs/s)**; 33 data/document GETs, 2.50–3.96 s apart. See `docs/linkedin-api-notes.md` for endpoints and proof.
+Ban signals: **none**. Easy Apply questions: unavailable without opening Apply; `questions:null` has an explicit reason. Keep a two-minute gap from the DOM gather.
+
 ## Rules learned the hard way
 
 - When George gives the answers for every fork, run the whole thing in one command. No look between presses.
@@ -337,6 +344,8 @@ scripts/answers.json            George's answer book (rules + facts + never-yes)
 scripts/anti_freeze.sh          one-time Android settings (freezer off, phantom killer off, Doze whitelist)
 scripts/floorplan.cjs           read-only site crawler: GET only, 2 doors deep, writes pages/links/buttons/inputs as JSON
 scripts/gather.cjs              read-only LinkedIn job gather (10/26): Easy Apply only unless --any; skips seen jobs (logs/gather/seen.json) unless --all and no.json jobs always; copy every posting + full description, mark walls, write logs/gather/<stamp>.json + .md; never applies, never picks
+scripts/gather_api.cjs          paced GET-only Voyager gather in the signed-in laptop tab, CDP 19222; observed query IDs, normalized graph decoding, 60-call limit, same table/walls plus applicant/pay/company fields; questions explicitly unavailable
+docs/linkedin-api-notes.md      observed endpoints, headers, query shapes, failures, request limits, 30-job timing and five-job DOM comparison (10/26)
 scripts/no.json                 jobs George or the picker said no to ({ "<jobId>": "reason" }); the picker writes here; gather.cjs never shows them again
 scripts/walls.json              George's walls for gather.cjs: name + regex (+ "field": "title" for title-only); a hit = the rule name + the sentence it matched
 scripts/stage_ashby.cjs         fill one Ashby application to the "Submit Application" button with human hands, never submit (10/26); log + screenshot in logs/stage/
