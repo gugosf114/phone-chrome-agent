@@ -1,4 +1,21 @@
 # LinkedIn Easy Apply (one job)
+
+## How the pipeline works
+The finder (gather.cjs) brings in the pile of jobs. No letters yet.
+The picker (Fable) reads the pile against the dossier and resume-master and writes picks/picks-<stamp>.json: yes/no/ask
+   per job, why, letter text, resume cut, per-job rules. For every yes it makes the job's files (below) before the applier runs.
+The applier (map_easy_apply.cjs) walks each yes job's form with that job's letter and resume ready. Map only by
+   default; --submit per job only on George's word.
+
+## The job's files
+- Folder `apply/<jobId>/`: `resume.pdf`, `cover-letter.pdf`, `cover-letter.txt`, `meta.json` {company, title, resume_name, letter_name}
+  (the `.html` sources sit beside them so the PDFs can be rebuilt).
+- Upload names: `George_Abrahamyants_Resume_<Company>.pdf`, `George_Abrahamyants_Cover_Letter_<Company>.pdf` (Company = letters and spaces only).
+- PDF: `node scripts/make_pdf.cjs <in.html> <out.pdf>` (box Chromium, CDP 9222, letter size, 0.6 in margins; prints the page count; a resume must be 1 page).
+- To the laptop: `bash scripts/push_apply_files.sh <jobId>` copies both PDFs to `C:\Users\georg\job-applications\<jobId>\` under the upload names and prints the Windows paths.
+- A picks entry may carry `resume_file` and `letter_file` (laptop paths); without them the applier uses the `apply/<jobId>/` convention.
+- Example set (made by hand 10/27): `apply/4483565124/` (Agile Legal, Senior Contract Management Paralegal - Logistics).
+
 Machine: George's phone Chrome (proven) · laptop Chrome (proven 10/27: 25 walks to Review, nothing submitted)
 Last worked: 2026-10-27 3:38–4:03 am PDT, walk only (no Submit): 25 jobs with the new human.cjs hands, 24 reached Review.
   Seconds per job, open the posting → Review: average 27.5, median 27.6 (min 8.6, max 80.1); with Dismiss + Discard: 33.3 / 33.4.
