@@ -9,6 +9,7 @@ Read this file first. It is the whole story, so no session has to be told "remem
 ## Start here (state as of 2026-10-17, 9:30 am)
 
 - **Read "The menu" below to pick an option fast** (who does the work, where the browser lives, where the hands live, how the model sees), one good-for / bad-at line each.
+- **The picker reads `me/george-dossier.md`, `me/writings.md`, `me/assets.md`, and `me/resume-master.md` before any pick or letter.** (2026-10-26)
 - **Read `me/george-dossier.md` before picking jobs or writing a cover letter.** Who George is, what he built, YES and NO job lanes, how to write. The thinker reads it once per batch; the script never needs it.
 - **Read `the-map.md` for what an agent is, in our words:** brain / hands / handbook, the three ways to do a task (Fable, sent model, dumb script), think-once-run-once, the leash, the sandbox. Settled 2026-10-17 with the Travolta test receipts.
 - **The browser pipe is the laptop's real Chrome.** One command: `bash scripts/laptop_chrome.sh "<url>"`. It starts Chrome if needed, opens the tunnel, opens the page, and puts the window on George's laptop screen. 7 to 15 seconds. The laptop Chrome is signed into LinkedIn.
@@ -252,16 +253,23 @@ now checks the element owns the point at its own centre, and wheels it up when i
 ## Gather (2026-10-26)
 
 `scripts/gather.cjs` is the job gather. It is read-only. It searches LinkedIn with set filters, opens each posting, and copies
-title, company, where, pay, the apply button, and the full description. It marks walls from `scripts/walls.json`: a rule hit,
+title, company, where, pay, the apply button, and the full description. Easy Apply jobs only by default; `--any` lets every
+apply kind in. It marks walls from `scripts/walls.json`: a rule hit,
 with the exact sentence it matched. It never presses Apply or Easy Apply, never fills a form, never saves, never follows.
 
 How to run it:
 1. `bash scripts/laptop_chrome.sh "https://www.linkedin.com/feed/"` (the laptop's Chrome, tunnel on 19222).
-2. `CDP_PORT=19222 node scripts/gather.cjs --keywords "legal operations" --max 20 --hours 24 --pages 2` (add `--remote`, `--easy`, `--location "..."`). About 10 s a posting.
+2. `CDP_PORT=19222 node scripts/gather.cjs --keywords "legal operations" --max 20 --hours 24 --pages 2` (add `--remote`, `--any`, `--all`, `--location "..."`). About 10 s a posting.
 3. Read `logs/gather/gather-<stamp>.json` (every description in full) and the `.md` beside it (the table). The stamp is UTC. `logs/` is not in git.
 
-**The rule: the script never picks.** The picker (a model) reads `me/george-dossier.md` and `me/writings.md` in full, then every
-description in the JSON, and writes overrides for `scripts/map_easy_apply.cjs` (`--overrides`: skip a job, or give it its own answers).
+**Seen list (2026-10-26).** Every posting read goes into `logs/gather/seen.json` (`{ "<jobId>": {first, title, company} }`, local, not in
+git). Next run, a job already in it is skipped: not opened, not in the table. `--all` shows seen jobs again. `scripts/no.json`
+(`{ "<jobId>": "reason" }`, committed) holds the jobs George or the picker said no to; **the picker writes to it**, and those jobs never
+come back, even with `--all`. Each run prints one line: `N skipped (seen), M skipped (no)`. Proven 10/26: run 1 read 5, run 2 printed
+"5 skipped (seen), 0 skipped (no)" and read 5 new ones; a run with one id in no.json and `--all` printed "0 skipped (seen), 1 skipped (no)".
+
+**The rule: the script never picks.** The picker (a model) reads `me/george-dossier.md`, `me/writings.md`, `me/assets.md`, and
+`me/resume-master.md` in full, then every description in the JSON, and writes overrides for `scripts/map_easy_apply.cjs` (`--overrides`: skip a job, or give it its own answers).
 A wall is a rule hit, not a verdict.
 
 How it reads LinkedIn's 2026 job page (no `<h1>`, scrambled class names): title and company from `document.title`
@@ -311,6 +319,7 @@ wall now looks at the title only, and "sales" must be a whole word (so "Salesfor
 ```
 README.md                       this
 me/george-dossier.md            George on one page: credentials, receipts, YES/NO job lanes, cover-letter voice (2026-10-17)
+me/resume-master.md             every sourced bullet about George (121, each tagged with its file), by role + projects + lanes; never sent whole, each application cuts one page from it (2026-10-26)
 the-map.md                      what an agent is, in plain words, + the Travolta three-lane test (2026-10-17)
 scripts/travolta_dumb.sh        the 6-second dumb script from the Travolta test (one fixed search, first hit)
 scripts/chrome.sh               wake phone Chrome + forward DevTools port + list tabs
@@ -327,7 +336,8 @@ scripts/easy_apply.cjs          the one-run LinkedIn Easy Apply that worked 2026
 scripts/answers.json            George's answer book (rules + facts + never-yes), merged from Agent Bridge + job-vault
 scripts/anti_freeze.sh          one-time Android settings (freezer off, phantom killer off, Doze whitelist)
 scripts/floorplan.cjs           read-only site crawler: GET only, 2 doors deep, writes pages/links/buttons/inputs as JSON
-scripts/gather.cjs              read-only LinkedIn job gather (10/26): search with set filters, copy every posting + full description, mark walls, write logs/gather/<stamp>.json + .md; never applies, never picks
+scripts/gather.cjs              read-only LinkedIn job gather (10/26): Easy Apply only unless --any; skips seen jobs (logs/gather/seen.json) unless --all and no.json jobs always; copy every posting + full description, mark walls, write logs/gather/<stamp>.json + .md; never applies, never picks
+scripts/no.json                 jobs George or the picker said no to ({ "<jobId>": "reason" }); the picker writes here; gather.cjs never shows them again
 scripts/walls.json              George's walls for gather.cjs: name + regex (+ "field": "title" for title-only); a hit = the rule name + the sentence it matched
 scripts/stage_ashby.cjs         fill one Ashby application to the "Submit Application" button with human hands, never submit (10/26); log + screenshot in logs/stage/
 scripts/stage_greenhouse.cjs    the same for Greenhouse (job-boards.greenhouse.io), stops at "Submit application" (10/26)

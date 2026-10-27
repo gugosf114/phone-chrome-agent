@@ -1,11 +1,16 @@
 // gather.cjs — the dumb job-search script. Searches LinkedIn with set filters, opens each posting, copies everything
 // a picker needs, marks the hard walls, and writes one file. READ ONLY: it never presses Apply, never fills a form.
 // Built 2026-10-26. The picking is NOT here. George's rule (10/17): never let the script pick jobs. The thinker reads
-// the gathered file against me/george-dossier.md + me/writings.md, writes overrides, then map_easy_apply.cjs walks.
+// the gathered file against me/george-dossier.md + me/writings.md + me/assets.md + me/resume-master.md, writes overrides
+// (and adds the jobs it rejects to scripts/no.json), then map_easy_apply.cjs walks.
 //
-//   CDP_PORT=19222 node scripts/gather.cjs --keywords "legal operations" [--max 20] [--hours 24] [--remote] [--easy]
-//                                          [--location "United States"] [--pages 2]
+//   CDP_PORT=19222 node scripts/gather.cjs --keywords "legal operations" [--max 20] [--hours 24] [--remote] [--any]
+//                                          [--location "United States"] [--pages 2] [--all]
 //
+// Easy Apply only by default (LinkedIn's f_AL=true); --any lets every apply kind in.
+// Seen list: logs/gather/seen.json { "<jobId>": {first, title, company} } grows with every posting read. A job already in it
+// is skipped (not opened, not in the table) unless --all. scripts/no.json { "<jobId>": "reason" } = jobs George or the
+// picker said no to; never shown again, even with --all. One line says how many were skipped and why.
 // Output: logs/gather/<stamp>.json (every posting, full description) + logs/gather/<stamp>.md (the table) + prints the table.
 // Walls come from scripts/walls.json: a rule hit is a WALL with the exact sentence it matched. No rule = no wall. The
 // script never decides "fit"; it only says "this sentence matched this rule".
@@ -20,18 +25,22 @@ const MAX = parseInt(arg('--max', '20'), 10);
 const HOURS = parseInt(arg('--hours', '24'), 10);
 const PAGES = parseInt(arg('--pages', '2'), 10);
 const LOC = arg('--location', 'United States');
+const EASY = !has('--any'), ALL = has('--all');
 const PORT = process.env.CDP_PORT || '19222';
 const ROOT = path.resolve(__dirname, '..');
 const WALLS = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/walls.json'), 'utf8')).map(w => ({ ...w, rx: new RegExp(w.re, 'i') }));
 const LOGDIR = path.join(ROOT, 'logs/gather'); fs.mkdirSync(LOGDIR, { recursive: true });
 const stamp = new Date().toISOString().replace(/[:T]/g, '-').slice(0, 19); // to the second: two runs in one minute must not share a file
 const OUTJ = path.join(LOGDIR, `gather-${stamp}.json`), OUTM = path.join(LOGDIR, `gather-${stamp}.md`);
+const SEENF = path.join(LOGDIR, 'seen.json'), NOF = path.join(ROOT, 'scripts/no.json');
+const SEEN = fs.existsSync(SEENF) ? JSON.parse(fs.readFileSync(SEENF, 'utf8')) : {};
+const NO = fs.existsSync(NOF) ? JSON.parse(fs.readFileSync(NOF, 'utf8')) : {};
 setTimeout(() => { console.log('TIMEOUT 20 min'); process.exit(3); }, 20 * 60 * 1000);
 const rnd = (a, b) => a + Math.random() * (b - a);
 
 const searchUrl = (start) => {
   const p = new URLSearchParams({ keywords: KW, location: LOC, sortBy: 'DD', f_TPR: `r${HOURS * 3600}` });
-  if (has('--easy')) p.set('f_AL', 'true');
+  if (EASY) p.set('f_AL', 'true');
   if (has('--remote')) p.set('f_WT', '2');
   if (start) p.set('start', String(start));
   return `https://www.linkedin.com/jobs/search/?${p}`;
@@ -87,13 +96,17 @@ const READ = `(${readPage.toString()})()`;
 
   // ---------- 1. search ----------
   let ids = [];
-  for (let pg = 0; pg < PAGES && ids.length < MAX * 2; pg++) {
+  const fresh = a => a.filter((v, i) => a.indexOf(v) === i && !NO[v] && (ALL || !SEEN[v]));
+  for (let pg = 0; pg < PAGES && fresh(ids).length < MAX; pg++) { // another page only while new jobs are short of --max
     await nav(searchUrl(pg * 25), 'document.querySelectorAll("a[href*=\\"/jobs/view/\\"]").length>3');
     await wheelList();
     ids = ids.concat(await grab());
   }
-  ids = ids.filter((v, i, a) => a.indexOf(v) === i).slice(0, MAX);
-  console.log(`search "${KW}" · last ${HOURS} h · ${LOC}${has('--remote') ? ' · remote' : ''}${has('--easy') ? ' · Easy Apply' : ''} → ${ids.length} postings`);
+  ids = ids.filter((v, i, a) => a.indexOf(v) === i);
+  const skipNo = ids.filter(v => NO[v]).length, skipSeen = ids.filter(v => !NO[v] && !ALL && SEEN[v]).length;
+  ids = fresh(ids).slice(0, MAX);
+  console.log(`search "${KW}" · last ${HOURS} h · ${LOC}${has('--remote') ? ' · remote' : ''}${EASY ? ' · Easy Apply' : ''} → ${ids.length} postings`);
+  console.log(`${skipSeen} skipped (seen), ${skipNo} skipped (no)${ALL ? ' · --all: seen jobs shown again' : ''}`);
 
   // ---------- 2. gather ----------
   const out = [];
@@ -114,15 +127,17 @@ const READ = `(${readPage.toString()})()`;
       for (const w of WALLS) { const s = sentences[w.field === 'title' ? 'title' : w.field === 'where' ? 'where' : 'all'].find(x => w.rx.test(x)); if (s) rec.walls.push({ wall: w.name, sentence: around(s.trim(), w.rx) }); }
       rec.easy = /^Easy Apply/i.test(rec.applyButton);
       out.push(rec);
+      SEEN[jid] = { first: (SEEN[jid] || {}).first || rec.gatheredAt, title: rec.title, company: rec.company };
+      fs.writeFileSync(SEENF, JSON.stringify(SEEN, null, 1)); // written per posting, so a crash keeps what was read
       console.log(`[${i + 1}/${ids.length}] ${rec.title.slice(0, 50)} @ ${rec.company.slice(0, 30)} · ${rec.pay || 'pay ?'} · ${rec.easy ? 'Easy' : (rec.applyButton || 'no button')}${rec.applied ? ' · APPLIED' : ''}${rec.walls.length ? ' · WALL: ' + rec.walls.map(w => w.wall).join(', ') : ''}`);
     } catch (e) { console.log(`[${i + 1}/${ids.length}] ${jid} ERR ${e.message.slice(0, 80)}`); out.push({ jobId: jid, url, error: e.message }); }
     await h.pause(2500, 5000); // LinkedIn throttles fast readers
   }
 
   // ---------- 3. write ----------
-  fs.writeFileSync(OUTJ, JSON.stringify({ keywords: KW, hours: HOURS, location: LOC, remote: has('--remote'), easy: has('--easy'), gatheredAt: new Date().toISOString(), postings: out }, null, 1));
+  fs.writeFileSync(OUTJ, JSON.stringify({ keywords: KW, hours: HOURS, location: LOC, remote: has('--remote'), easy: EASY, skippedSeen: skipSeen, skippedNo: skipNo, gatheredAt: new Date().toISOString(), postings: out }, null, 1));
   const rows = out.filter(r => !r.error).map(r => `| ${r.jobId} | ${r.title.slice(0, 45)} | ${r.company.slice(0, 25)} | ${[r.workplace, r.location].filter(Boolean).join(' · ')} | ${r.pay || ''} | ${r.easy ? 'Easy' : 'external'}${r.applied ? ' (applied)' : ''} | ${r.walls.map(w => w.wall).join(', ')} |`);
-  const md = `# Gather ${stamp} — "${KW}", last ${HOURS} h, ${LOC}${has('--remote') ? ', remote' : ''}${has('--easy') ? ', Easy Apply only' : ''}\n\n${out.length} postings. Walls are rule hits with the matched sentence in the JSON; they are not a verdict. The picker reads me/george-dossier.md and me/writings.md, then every description in the JSON.\n\n| id | title | company | where | pay | apply | walls |\n|---|---|---|---|---|---|---|\n${rows.join('\n')}\n`;
+  const md = `# Gather ${stamp} — "${KW}", last ${HOURS} h, ${LOC}${has('--remote') ? ', remote' : ''}${EASY ? ', Easy Apply only' : ''}\n\n${out.length} postings (${skipSeen} skipped as seen, ${skipNo} as no). Walls are rule hits with the matched sentence in the JSON; they are not a verdict. The picker reads me/george-dossier.md, me/writings.md, me/assets.md, and me/resume-master.md, then every description in the JSON; jobs it rejects go in scripts/no.json.\n\n| id | title | company | where | pay | apply | walls |\n|---|---|---|---|---|---|---|\n${rows.join('\n')}\n`;
   fs.writeFileSync(OUTM, md);
   console.log(`\nwrote ${path.relative(ROOT, OUTJ)} and ${path.relative(ROOT, OUTM)}`);
   console.log(md);
