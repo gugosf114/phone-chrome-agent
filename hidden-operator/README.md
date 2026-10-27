@@ -60,10 +60,17 @@ An app is a keyhole: the accessibility tree holds only what is drawn, one screen
 
 1. **A tall screen.** `scripts/hidden_display.sh start -n tall 1080 6000 420` then `launch -n tall <pkg>`. The app lays out
    six screens of rows at once. Settings: all 31 rows in ONE read, no scroll. Most apps take any height; a few cap their own.
-2. **Scroll and stitch.** `scripts/read_all.sh -n <screen> [max_swipes] [--buttons]`: goes to the top, reads the tree, swipes
-   up like a finger, settles 1.2 s, reads again, until the bottom, all on the phone in ONE adb round trip. Drops furniture
-   (status bar, nav bar, taskbar, sticky titles = same text at the same spot on two pages), merges the overlap, prints one
-   blob. `--buttons` adds `cx cy` per row so a script can tap a stitched row later. Settings on a 1080x2400 screen: 34 rows
-   in order, 12 s. Known gap: the last row or two at the very bottom can lag the reader.
+   (A second model claimed a private virtual display does not reflow the app and said to resize the REAL screen with `wm size`.
+   Wrong on both counts here: the hidden screen reflowed Settings, and `wm size` would wreck George's own screen. Never run it.)
+2. **Scroll and stitch.** `scripts/read_all.sh -n <screen> [max_pages] [--buttons]`. Finds the list itself (RecyclerView /
+   ListView, else the biggest scrollable view), scrolls it to the top with the accessibility action, reads the tree, asks the
+   list to scroll_forward one page, reads again, until Android answers "false" = the true bottom. No swipe, so no fling and no
+   pull-to-refresh (a swipe once flung Settings off into the launcher). Rows cut by the screen edge are skipped. Furniture
+   (status bar, nav bar, taskbar, sticky titles) is dropped. Overlap merged. One blob, in order. The whole loop runs on the
+   phone in ONE adb round trip, through the reader's request/response files. Settings, 1080x2400: 33 rows, true bottom, 12 s.
+   Apps with no scrollable view in the tree fall back to finger swipes. `--buttons` adds `cx cy` per row for a later tap.
+   Trap found 10/26: the phone shell (mksh) does 32-bit math, so milliseconds overflow; build the deadline as seconds + "000".
 
-What nothing fixes: addresses. A web page has a URL; an app screen still needs the taps to reach it (`app_map.py` learns those).
+Addresses: many apps export deep links. `am start --display <id> -a android.intent.action.VIEW -d '<app-link>'` lands on that
+screen with no taps; then stitch. Check an app's exported links when mapping it (`app_map.py`). Blank-tree apps: `dumpsys activity
+top` prints no text on this Samsung (checked 10/26); use the photo fallback.
