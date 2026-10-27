@@ -15,6 +15,11 @@ What We Create (cakes $250–$650+), Latest Creations, Trusted by Leading Compan
 Your Custom Order. Nav: Order Now, About, Gallery, Corporate Orders, Design Studio, Blog, Contact, Request an Order. 70 images on
 the home page.
 **For us, not for letters (George, 10/27).** The bakery's PayPal income is what pays the bills; about $70k year to date in 2026. The dashboard's Money tab carries the live figures ($3,990 the week of Oct 21–27).
+**Thursday, the order book (for us, not for letters).** mybakingcreations.com/thursday is the internal order dashboard
+(Firebase Realtime Database + Storage, password in the page source: APP_PASSWORD in thursday/index.html). Opened 2026-10-27:
+53 active orders, 14 due this week, 29 unpaid invoices, 39 sketches pending; $17,013 paid, $14,293 outstanding, $745 average
+order; 4 overdue; 3 due today (Willkie Farr 24 logo cupcakes, a robot cake for Accel, ServiceNow 756 branded cake pops at
+$7.25). Upcoming: American Express, BNY, Accel, Willkie. Corporate clients are real and current.
 **Status.** Live. Repo gugosf114/gugosf114.github.io, about 1,400 commits, pushed 2026-10-27. Ops log and Search Console
 work recorded in the README.
 **What it proves.** He taught himself to build on a real business with real customers, kept it alive through Google's
