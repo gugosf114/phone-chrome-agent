@@ -102,7 +102,11 @@ async function attach(tab, opts = {}) {
       b = await readBox(sel);
       if (!b) throw new Error(`human: no element for ${JSON.stringify(sel)}`);
       if (b.w < 2 || b.h < 2) throw new Error(`human: element has no size ${JSON.stringify(sel)}`);
-      if (inView(b)) return b;
+      if (inView(b)) { // a wheel can still be gliding: take the box only when it has stopped moving
+        await new Promise(r => setTimeout(r, 120)); const b2 = await readBox(sel);
+        if (b2 && Math.abs(b2.x - b.x) < 2 && Math.abs(b2.y - b.y) < 2 && inView(b2)) return b2;
+        continue;
+      }
       const centre = b.y + b.h / 2 - b.vh / 2;
       const dy = Math.sign(centre) * Math.min(Math.abs(centre), rnd(200, 420));
       const at = { x: b.vw * rnd(0.35, 0.65), y: b.vh * rnd(0.35, 0.65) };

@@ -245,9 +245,10 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     if (!f) rec.follow = 'no Follow box on Review';
     else if (!f.checked) rec.follow = `already unticked: ${f.text}`;
     else {
-      await click(`[data-map-idx=${k}]`); await h.pause(300, 700);
-      const still = await ev(`(()=>{const e=document.querySelector("[data-map-idx=${k}]");const c=e&&(e.tagName==="INPUT"?e:(e.control||document.getElementById(e.htmlFor)));return !!(c&&c.checked)})()`);
-      rec.follow = (still ? 'FAILED to untick: ' : 'unticked: ') + f.text;
+      const ticked = () => ev(`(()=>{const e=document.querySelector("[data-map-idx=${k}]");const c=e&&(e.tagName==="INPUT"?e:(e.control||document.getElementById(e.htmlFor)));return !!(c&&c.checked)})()`);
+      let presses = 0, still = true;
+      while (still && presses < 2) { presses++; await click(`[data-map-idx=${k}]`); await h.pause(500, 900); still = await ticked(); } // the box is 24 px; a second press if the first missed
+      rec.follow = (still ? 'FAILED to untick: ' : 'unticked: ') + f.text + (presses > 1 ? ` (${presses} presses)` : '');
     }
     console.log(`  Follow: ${rec.follow}`);
   }
