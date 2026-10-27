@@ -1,5 +1,5 @@
 {
- "_what": "George's answer book for job forms. Merged 2026-10-14 from Agent Bridge's LinkedIn ANSWER_SHEET (48 rules) and 10 job-vault packets. Edit here, never in code. 'rules' are matched against the question text, top to bottom, first hit wins. 'never_yes' questions get No even if a yes-default would apply.",
+ "_what": "George's answer book for job forms. Merged 2026-10-14 from Agent Bridge's LinkedIn ANSWER_SHEET (48 rules) and 10 job-vault packets. Edit here, never in code. 'rules' are matched against the question text, top to bottom, first hit wins. 'never_yes' questions get No even if a yes-default would apply. A rule may carry a third item: where its answer comes from (readers use only the first two).",
  "_george_to_pick": {
   "email": [
    "gugosf@berkeley.edu (used in the vault packets)",
@@ -37,6 +37,36 @@
   "licensed_attorney": "No"
  },
  "rules": [
+  [
+   "completed the following level of education: (doctor of (philosophy|medicine|pharmacy)|master of business|m\\.?b\\.?a\\b)",
+   "No",
+   "source: me/george-dossier.md 'Who' (JD + BA only; no PhD, MD, PharmD, MBA); same question family as the next rule; added 10/27"
+  ],
+  [
+   "completed the following level of education: (high school|associate|bachelor|master.?s degree|doctor of law|juris doctor)",
+   "Yes",
+   "source: me/george-dossier.md 'Who' (JD UC Law SF 2018, BA UC Berkeley 2015); a JD meets the Master's level; added 10/27 from the harvest"
+  ],
+  [
+   "^degree$",
+   "Juris Doctor",
+   "source: me/george-dossier.md 'Who' (JD 2018); picks LinkedIn's 'Juris Doctor (J.D.)' option; added 10/27 (book said 'Doctorate', not an option)"
+  ],
+  [
+   "^school$|^school name$",
+   "Hastings College of the Law",
+   "source: me/george-dossier.md 'Who' (JD, UC Law SF = UC Hastings College of the Law); matches 'University of California, Hastings College of the Law', not Hastings College (Nebraska); added 10/27"
+  ],
+  [
+   "\\bspanish\\b",
+   "No",
+   "source: me/george-dossier.md 'Languages: English, Armenian (native), Russian (fluent)'; no Spanish; added 10/27"
+  ],
+  [
+   "(worked|been employed) (for|at) .{1,40}(at any other time|previously|in the past)",
+   "No",
+   "source: the book's own 'previously (worked|employed...)' -> No, in the other word order; dossier employers are Andersen, Phenotopia, DOL OALJ, IRS, USPS (picker overrides for those); added 10/27 (book said Yes to 'Have you worked for Carta ... previously?')"
+  ],
   [
    "\\bsponsor|sponsorship|visa\\b",
    "No"
