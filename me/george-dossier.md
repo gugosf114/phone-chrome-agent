@@ -55,3 +55,5 @@ FULL: Bakers Agent (in production), mybakingcreations.com (live), Thursday the o
 
 ## Form facts (same as scripts/answers.json)
 Authorized to work in the US: Yes. Needs sponsorship: No. Willing to relocate: No. Remote/hybrid/on-site: Yes. Years of legal/compliance experience: 8. Years of general experience: 3 when asked generically. Hourly: 75. Salary: 120000 desired, 150000 if asked for compensation. Start: immediately. Notice: none. Highest education: Doctorate (JD). Bar admitted / licensed attorney: No. Security clearance: No. Veteran, disability, race: decline to answer. Gender: Male. Resume on LinkedIn: George_Abrahamyants_Resume_Oct2026.pdf (the only one; rebuild via gugosf114/job-vault vault/resumes/current/build_resume.py).
+
+Portfolio (live 10/27/2026): https://abrahamyants.github.io — three project pages, resume, writing. Give it as the website/portfolio answer.

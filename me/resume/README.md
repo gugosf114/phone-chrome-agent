@@ -11,3 +11,5 @@ words (edited 10/27), so the page and the paper match.
 
 To change it: edit build_resume.py, rebuild, check `pages 1`, upload to LinkedIn, delete the old one there, then update
 facts.resume_file and every pointer (grep the repo for the old name).
+
+Portfolio (live 10/27/2026): https://abrahamyants.github.io — three project pages, resume, writing. Give it as the website/portfolio answer.

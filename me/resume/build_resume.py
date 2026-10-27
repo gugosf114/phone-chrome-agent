@@ -148,7 +148,8 @@ story = [
         "Daly City, CA 94015  |  415-632-8008  |  "
         '<link href="mailto:gugosf@berkeley.edu" color="#4C5963">gugosf@berkeley.edu</link>  |  '
         '<link href="https://www.linkedin.com/in/george-abrahamyan" color="#4C5963">linkedin.com/in/george-abrahamyan</link>  |  '
-        '<link href="https://github.com/gugosf114" color="#4C5963">github.com/gugosf114</link>',
+        '<link href="https://github.com/gugosf114" color="#4C5963">github.com/gugosf114</link>  |  '
+        '<link href="https://abrahamyants.github.io" color="#4C5963">abrahamyants.github.io</link>',
         contact,
     ),
     p("AI PRODUCTS &amp; OPERATIONS  |  AI EVALUATION  |  AI GOVERNANCE  |  JD", tagline),

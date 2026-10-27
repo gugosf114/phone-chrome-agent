@@ -1,7 +1,8 @@
 George Abrahamyants
 Page 1
  GEORGE ABRAHAMYANTS
- Daly City, CA 94015 | 415-632-8008 | gugosf@berkeley.edu | linkedin.com/in/george-abrahamyan | github.com/gugosf114
+ Daly City, CA 94015 | 415-632-8008 | gugosf@berkeley.edu | linkedin.com/in/george-abrahamyan | github.com/gugosf114 |
+abrahamyants.github.io
  AI PRODUCTS & OPERATIONS | AI EVALUATION | AI GOVERNANCE | JD
 SUMMARY
 JD who builds AI products and runs them in real use: WiM and Lavrentiy, voice-to-intent apps for Android and Windows with

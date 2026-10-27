@@ -43,10 +43,18 @@
   "current_title": "AI Developer & Independent Researcher",
   "university": "UC College of the Law, San Francisco (UC Hastings)",
   "legal_address": "1096 Wildwood Avenue, Daly City, CA 94015, United States",
-  "website": "https://github.com/gugosf114",
+  "website": "https://abrahamyants.github.io",
   "screener_bio": "JD with a tax concentration; SALT work at Andersen; DOL ALJ clerk whose decision was affirmed on appeal; licensing and compliance for highly regulated California businesses; self-employed legal consultant building AI tools; daily LLM user who shipped Android apps, AI phone agents, and chatbots; sole inventor on a pending speech patent; runs bakery e-commerce and marketing; Armenian immigrant and non-native English speaker with speech disfluency."
  },
  "rules": [
+  [
+   "website|portfolio|personal site",
+   "https://abrahamyants.github.io"
+  ],
+  [
+   "^github",
+   "https://github.com/gugosf114"
+  ],
   [
    "start immediately|can you start|available to start|start date",
    "Yes"
@@ -207,10 +215,6 @@
    "https://www.linkedin.com/in/george-abrahamyan/"
   ],
   [
-   "website|portfolio|github",
-   "https://github.com/gugosf114"
-  ],
-  [
    "juris doctor|\\bJD\\b|LL\\.?M\\b|master.?s? degree|ph\\.?d|doctorate",
    "Yes"
   ],
@@ -365,6 +369,7 @@
   "2026-10-27 05:30 (George: no guessing): removed 5 blanket rules that said Yes to any 'do you have experience' / 'have you ever' / 'law firm' and 3 to any 'years of'. These sent a false Yes to ERCOT questions on 10/17 and 3 years of civil litigation on 10/27. Such questions now stop as NEEDS_INPUT. Broad salary answer set to George's target 120000 (was 150000).",
   "2026-10-27 07:30: facts + 10 rules lifted from real forms George already submitted (job-vault Ashby packets: Harvey, Legora, OpenAI) and from george-facts.json on the phone. The arbitration and certify boxes: he ticked them on OpenAI in Aug 2026, so the book now ticks them.",
   "2026-10-27 07:40: resume renamed to George_Abrahamyants_Resume_Oct2026.pdf (NoiseFile live on Play, 36 cities/108 workflows, 40+ functions, Bakers Agent 2 in progress). Uploaded to LinkedIn, Sept2026 deleted there.",
-  "2026-10-27 09:15: BLANK = leave the box empty on purpose (middle name); 'start immediately' = Yes (George: start immediately)."
+  "2026-10-27 09:15: BLANK = leave the box empty on purpose (middle name); 'start immediately' = Yes (George: start immediately).",
+  "2026-10-27 12:05: portfolio live at abrahamyants.github.io; website/portfolio answers point there; resume contact line carries it."
  ]
 }
