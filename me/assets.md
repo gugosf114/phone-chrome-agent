@@ -37,6 +37,10 @@ Rule (George, 2026-10-17): only things that run and can be shown. No drift tools
 | Climate Permit | app.climatepermit.android | Closed testing (George, 10/27: do not mention in letters) | installed audience 23 |
 | Samizdat | me.aap.fermata.auto.samizdat | Draft / internal | not his product |
 
+George's own status, 2026-10-27 (beats the console labels): NoiseFile is live on the Play Store. Heirloom and Climate
+Permit have finished testing; waiting on Google's approval, then one press sends them to production. WiM is the furthest
+out: code review done, testers to be bought soon, then the 14-day test, then production.
+
 Repo READMEs read in full 2026-10-27: NoiseFile (36 cities, 108 rules, $7.99 unlock, local-first, no account), Heirloom
 (one-photo restoration, Play Integrity + Cloudflare Worker + Cloud Run GPU, 3 free then packs, US launch). WiM: product
 sections read in full; the rest of its 4,900-line README is session logs.
