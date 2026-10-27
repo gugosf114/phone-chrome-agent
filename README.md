@@ -95,7 +95,7 @@ Give the model (Claude Code, running in Termux + Debian proot on George's Samsun
 
 | # | Fix | State |
 |---|-----|-------|
-| 1 | **Freezer switch**: two Android settings so background Chrome is not frozen (`scripts/anti_freeze.sh`). Use the word `disabled`, not `0`, on Samsung One UI 8. | written, not run; George's call |
+| 1 | **Freezer switch**: two Android settings so background Chrome is not frozen (`scripts/anti_freeze.sh`). Use the word `disabled`, not `0`, on Samsung One UI 8. | **RUN 2026-10-26 on George's word.** Read back: freezer `disabled`, phantom killer off, Chrome + Termux on the never-sleep list, screen stays on while charging. Freezer setting fully applies after the next reboot. Undo: `settings delete global cached_apps_freezer` etc., one per line. |
 | 2 | **Silent sound in the tab**: a sub-audible audio loop makes Chrome treat the tab like a music player and never freeze it (`scripts/keepalive.js`). | written, not yet tested |
 | 3 | **One-pass form script**: fills a whole multi-page form from the answer sheet, stops only on a question the sheet can't answer, returns the list (`scripts/one_pass_form.js`, from the report). | written, not yet tested on LinkedIn |
 | 4 | **Answer book**: George's standing answers in plain JSON (`scripts/answers.json`): 50 question rules from Agent Bridge's LinkedIn answer sheet plus the facts from 10 job-vault packets, and a never-say-yes list. Three things for George to pick (email, salary, portfolio link) are flagged at the top of the file. | merged 10/14 |
