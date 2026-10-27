@@ -314,6 +314,8 @@ Ban signals: **none**. Easy Apply questions: unavailable without opening Apply; 
 
 Follow-up 1 (10/27): the one authorized Easy Apply dialog tried a POST navigation action, blocked by the GET-only guard; no form fields or Next appeared, Dismiss closed it, and schema extraction remains unavailable (exact evidence in `docs/linkedin-api-notes.md`).
 
+Follow-up guardrails: every run discovers today's `decorationId`/`queryId` from live `/voyager/api/` requests; any future authorized form replay must be checked on the reloaded job, `/jobs/tracker/` and `/my-items/saved-jobs/`, and any started/in-progress trace rules out pre-reading; the first HTTP 999 stops immediately with a persistent stop flag and no retry.
+
 ## Rules learned the hard way
 
 - When George gives the answers for every fork, run the whole thing in one command. No look between presses.

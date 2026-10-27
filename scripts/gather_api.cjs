@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 // Read LinkedIn through GETs observed in this tab. No fixed query/decor IDs, no Apply clicks.
+// Discover today's decorationId/queryId from this run's live /voyager/api/ requests; never hardcode them.
+// A form GET may start an application. After any authorized schema replay, reload the test job,
+// /jobs/tracker/ and /my-items/saved-jobs/; any started/in-progress trace rules out schema pre-reading.
+// No schema replay is implemented. First HTTP 999 (also 403/429) stops immediately: never retry.
 // CDP_PORT=19222 node scripts/gather_api.cjs --keywords "legal operations" --hours 48 --max 30 --questions
 const fs = require('node:fs');
 const path = require('node:path');
@@ -7,6 +11,7 @@ const { execFileSync } = require('node:child_process');
 const ROOT = path.resolve(__dirname, '..');
 const LOGDIR = path.join(ROOT, 'logs/gather');
 const NOTES = path.join(ROOT, 'docs/linkedin-api-notes.md');
+const STOPFILE = path.join(LOGDIR, '.linkedin-stop.json');
 const sleep = ms => new Promise(r => setTimeout(r, ms)); // Deliberately ignores HUMAN_SPEED.
 const random = (a, b) => a + Math.random() * (b - a);
 const text = v => typeof v === 'string' ? v : v?.text || '';
@@ -143,6 +148,8 @@ class Browser {
     this.stopped = { reason, ban, at: new Date().toISOString() };
     this.log({ event: 'STOP', ...this.stopped });
     if (ban) {
+      fs.mkdirSync(LOGDIR, { recursive: true });
+      fs.writeFileSync(STOPFILE, JSON.stringify(this.stopped, null, 2), { mode: 0o600 });
       fs.mkdirSync(path.dirname(NOTES), { recursive: true });
       fs.appendFileSync(NOTES, `\n### Run stopped ${this.stopped.at}\n\n${reason}. No retry. See \`${path.relative(ROOT, this.logPath)}\`.\n`);
     }
@@ -213,6 +220,7 @@ class Browser {
     }
   }
   async init() {
+    if (fs.existsSync(STOPFILE)) throw new Error('LinkedIn stop flag exists; no automatic retry: ' + STOPFILE);
     this.ws.on('message', raw => {
       const m = JSON.parse(raw);
       if (m.id) {
@@ -290,6 +298,7 @@ class Browser {
 
 function lock() {
   fs.mkdirSync(LOGDIR, { recursive: true });
+  if (fs.existsSync(STOPFILE)) throw new Error('LinkedIn stop flag exists; no automatic retry: ' + STOPFILE);
   // DOM gather is unmodified. Refuse its live process, then enforce a minute after its last output.
   const processes = execFileSync('ps', ['-eo', 'comm,args'], { encoding: 'utf8' });
   if (processes.split('\n').some(l => /^node\s/.test(l) && /(?:^|[ /])gather\.cjs(?:\s|$)/.test(l))) throw new Error('DOM gather is running; wait at least two minutes after it finishes');
