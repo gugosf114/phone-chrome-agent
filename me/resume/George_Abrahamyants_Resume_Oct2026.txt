@@ -1,71 +1,61 @@
-GEORGE ABRAHAMYANTS
-Daly City, CA 94015 | 415-632-8008 | gugosf@berkeley.edu | linkedin.com/in/george-abrahamyan | github.com/gugosf114
-
-AI PRODUCTS & OPERATIONS | AI EVALUATION | AI GOVERNANCE | JD
-
+George Abrahamyants
+Page 1
+ GEORGE ABRAHAMYANTS
+ Daly City, CA 94015 | 415-632-8008 | gugosf@berkeley.edu | linkedin.com/in/george-abrahamyan | github.com/gugosf114
+ AI PRODUCTS & OPERATIONS | AI EVALUATION | AI GOVERNANCE | JD
 SUMMARY
 JD who builds AI products and runs them in real use: WiM and Lavrentiy, voice-to-intent apps for Android and Windows with
-a 35-claim patent application, and Bakers Agent, a Google Cloud system running a live business's marketing behind
-human approval gates. Earlier: multistate tax controversy at Andersen, a federal benefits decision affirmed on appeal, and
-a $1.75 million regulated buildout.
-
+a 35-claim patent application, Bakers Agent, a Google Cloud system running a live business's marketing behind human
+approval gates, and NoiseFile, a published Android app on Google Play. Earlier: multistate tax controversy at Andersen, a
+federal benefits decision affirmed on appeal, and a $1.75 million regulated buildout.
 AI DEVELOPER & INDEPENDENT RESEARCHER | Self-Employed | June 2025-Present
-• WiM and Lavrentiy: Built voice-to-intent apps for Android and Windows: the user speaks, and clean text lands in the
+ WiM and Lavrentiy: Built voice-to-intent apps for Android and Windows: the user speaks, and clean text lands in the
 app in use. A speech-disfluency layer lets the user end the recording, detects blocks and covert word substitutions, and
 asks at most three clarifying questions. WiM is in Google Play closed testing; Lavrentiy v1.7.11 installs on Windows and
 works offline.
-• Patent: Sole inventor on a 35-claim U.S. provisional patent application covering the combined mobile and desktop
+ Patent: Sole inventor on a 35-claim U.S. provisional patent application covering the combined mobile and desktop
 architecture (App. No. 64/100,336; filed June 27, 2026).
-• Bakers Agent: Built and operate a Google Cloud system (22 Cloud Functions, React/TypeScript dashboard) that runs a
-live business's marketing behind human approval gates: photos become approved posts on Google Business Profile,
+ Bakers Agent: Built and operate a Google Cloud system (40+ Cloud Functions, React/TypeScript dashboard) that runs
+a live business's marketing behind human approval gates: photos become approved posts on Google Business Profile,
 Facebook, and Pinterest; Search Console findings become GitHub pull requests with a quality gate and feedback loop;
 photo batches become priced Google menus; review replies are drafted for approval; one dashboard tracks traffic,
-search, reviews, AI-search visibility, social reach, and payments. Also the shared backend for WiM and Lavrentiy; Bakers
-Agent 2 is the multi-client version.
-• Agent Bridge: Built an agent that operates the owner's own phone and laptop: it reads notifications, drives apps on
+search, reviews, AI-search visibility, social reach, and payments. Shared backend for WiM and Lavrentiy; a multi-client
+version, Bakers Agent 2, is in progress.
+ Agent Bridge: Built an agent that operates the owner's own phone and laptop: it reads notifications, drives apps on
 hidden screens, reads SMS sign-in codes, and pauses for approval before any irreversible step. A companion web agent
-booked and cancelled a live restaurant reservation end to end.
-• Legal and compliance tools: Built NoiseFile, an Android app (in Google Play testing) that turns noise rules for 15 Bay
-Area cities into 45 complaint workflows from 52 archived official sources, and Audit Ledger, a tamper-evident California
-residency audit-defense system (19 Bragg factors, SHA-256 hash chain, contradiction checks).
-• Client and business sites: Built and operate mybakingcreations.com (44 pages, PayPal checkout, chatbot). Delivered
+booked and cancelled a live restaurant reservation.
+ Legal and compliance tools: Published NoiseFile on Google Play, a local-first Android app that turns the noise codes
+of 36 Bay Area cities into 108 complaint workflows, and Audit Ledger, a tamper-evident California residency
+audit-defense system (19 Bragg factors, SHA-256 hash chain, contradiction checks).
+ Client and business sites: Built and operate mybakingcreations.com (44 pages, PayPal checkout, chatbot). Delivered
 a paid website and field-operations app for a private-jet detailing company, with photo inspections, damage markup,
 manager-only quality sign-off, and shareable customer reports.
-
 LEGAL, TAX & REGULATED OPERATIONS
 Andersen - Senior Associate, State & Local Tax | San Francisco | November 2023-April 2025
-• Managed multistate tax compliance and controversy for corporate and startup clients, including audit defense, refund
+ Managed multistate tax compliance and controversy for corporate and startup clients, including audit defense, refund
 claims, voluntary disclosures, and nexus reviews; led engagements disputing the state tax treatment of major
 technology transactions and negotiated audit resolutions that reduced client liabilities.
-• Used LLM tools to analyze public-company SEC filings for active audits, litigation, and credits-and-incentives positions;
+ Used LLM tools to analyze public-company SEC filings for active audits, litigation, and credits-and-incentives positions;
 drafted memoranda and recommendations across income/franchise and sales-and-use tax.
 Phenotopia - Chief Operations Officer | Santa Rosa | February 2021-May 2023
-• Directed a $1.75 million retail buildout through permits, construction, final municipal inspections, and opening;
+ Directed a $1.75 million retail buildout through permits, construction, final municipal inspections, and opening;
 managed contractors, engineers, consultants, municipal departments, vendor contracts, MSAs, NDAs, purchasing, and
 SOPs. The business remains open.
-• Separately authored the 33-page conditional-use-permit application for a 9,990 sq. ft. cultivation, distribution, and
+ Separately authored the 33-page conditional-use-permit application for a 9,990 sq. ft. cultivation, distribution, and
 non-volatile manufacturing facility and assembled its 11 exhibits from five outside firms (civil engineering, traffic, HVAC
 odor control, security, water treatment), about $300,000 of work, through 16 months of drafts and city review; the
 project won unanimous local approval and state licensing.
 Andersen - Associate, State & Local Tax | August 2018-January 2021
-• Conducted nexus studies, multistate compliance reviews, and exposure analyses across 20+ jurisdictions; supported
+ Conducted nexus studies, multistate compliance reviews, and exposure analyses across 20+ jurisdictions; supported
 audits, voluntary disclosures, refund claims, and controversy matters (intern from February 2018).
-
 EARLIER LEGAL EXPERIENCE
 U.S. Department of Labor, OALJ - Judicial Extern to ALJ Richard M. Clark (2017): drafted the 23-page Decision and Order in
 a Defense Base Act psychological-injury claim, weighing conflicting expert opinions and symptom-validity testing; affirmed by
 the Benefits Review Board, Baba v. SOS International, LLC, BRB No. 17-0440 (Jan. 30, 2018).
 IRS Office of Chief Counsel - Legal Extern (2017) | USPS Pacific Area Law Office - Legal Extern (2017)
-
 EDUCATION
 UC College of the Law, San Francisco (UC Hastings) - JD, Tax Concentration, 2018 | CALI Award | Production Editor,
 Hastings Business Law Journal
 University of California, Berkeley - BA, Political Science; Minor, Southeast Asian Studies, 2015 | 3.85 | Distinction in
 General Scholarship
 Languages: English | Armenian (native) | Russian (fluent)
-
-George Abrahamyants
-
-Page 1
-
-

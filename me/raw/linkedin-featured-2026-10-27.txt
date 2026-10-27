@@ -23,7 +23,7 @@ Media
 
 Bakers Agent — agentic marketing platform
 
-Claude-generated content with human approval gates, posting across 5 platforms; SEO agent drafts website changes as pull requests for owner approval. Running a live Bay Area bakery on GCP. Repo: https://www.google.com/url?q=http://github.com/gugosf114/bakers-agent&source=gmail&ust=1783059765165000&sa=E
+Claude-generated content with human approval gates, posting across 5 platforms; SEO agent drafts website changes as pull requests for owner approval. Running a live Bay Area bakery on GCP. Repo: github.com/gugosf114/bakers-agent
 
 Delete
 
@@ -31,6 +31,6 @@ Media
 
 WiM (Android) + Lavrentiy (Desktop) — patent-pending voice reconstruction
 
-Two implementations of one system: reconstructing intended meaning from disfluent, non-native, and overloaded speech. 35-claim U.S. provisional, sole inventor. Repos: https://www.google.com/url?q=http://github.com/gugosf114/wim-android&source=gmail&ust=1783059765165000&sa=E · https://www.google.com/url?q=http://github.com/gugosf114/lavrentiy&source=gmail&ust=1783059765165000&sa=E
+Two implementations of one system: reconstructing intended meaning from disfluent, non-native, and overloaded speech. 35-claim U.S. provisional, sole inventor. Repos: github.com/gugosf114/wim-android · github.com/gugosf114/lavrentiy
 
 Delete

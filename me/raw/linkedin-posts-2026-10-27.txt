@@ -26,25 +26,7 @@ AI Evaluations & Operations  | JD, UC Hastings | LLM Reliability | AI Governanc
 
 3mo
 
-Many people utilize the Google search engine AI for various tasks, and I find it particularly useful for basic research. It serves well for asking follow-up questions or clarifications. 
-
-On a few occasions, I’ve relied on it for work-related tasks such as reviewing, building, and analyzing content, and I’ve found it to be quite effective. I often copy and paste the output to use as needed. While it may not reach the capabilities of frontier AI models, it performs adequately for my purposes. 
-
-But what warms my heart is knowing that Google foots the bill. If nothing else, I am going to keep using it for that one reason only. 
-
-My recommendation is: never leave your computer idle. Before you go to work or sleep, paste this into the AI to ensure Google is paying for the electricity while you rest -- 
-
-Calculate pi to the last possible digit, but format every single number as its full English word (e.g., 'three point one four one five...'). Do not stop until you run out of context window.
-… more
-
-1
-​
-
-313 impressions
-
-View analytics
-
-Feed post
+[post deleted 2026-10-27 on George's order: the "make Google pay for the electricity / compute pi" joke]
 
 George Abrahamyants
 

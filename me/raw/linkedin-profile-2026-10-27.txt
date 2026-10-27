@@ -58,7 +58,7 @@ At Andersen, I managed audit defense, refund claims, voluntary disclosures, nexu
 
 My current work includes WiM and Lavrentiy, voice-to-intent products for Android and Windows with dedicated speech-disfluency support. I am the sole inventor on the related 35-claim U.S. provisional patent application (App. No. 64/100,336).
 
-I also built Bakers Agent, a small-business AI operations platform used in bakery operations, and Audit Ledger, a tamper-evident evidence and AI-governance system.
+I also published NoiseFile on Google Play, a local-first Android app that turns the noise codes of 36 Bay Area cities into 108 rules and complaint workflows; built Bakers Agent, an AI operations system that runs a live bakery's marketing every day behind approval gates; and built Audit Ledger, a tamper-evident evidence and AI-governance system.
 
 My focus is applied AI, AI operations, and legal technology.
 … more
@@ -85,13 +85,13 @@ Media
 
 Bakers Agent — agentic marketing platform
 
-Claude-generated content with human approval gates, posting across 5 platforms; SEO agent drafts website changes as pull requests for owner approval. Running a live Bay Area bakery on GCP. Repo: https://www.google.com/url?q=http://github.com/gugosf114/bakers-agent&source=gmail&ust=1783059765165000&sa=E
+Claude-generated content with human approval gates, posting across 5 platforms; SEO agent drafts website changes as pull requests for owner approval. Running a live Bay Area bakery on GCP. Repo: github.com/gugosf114/bakers-agent
 
 Media
 
 WiM (Android) + Lavrentiy (Desktop) — patent-pending voice reconstruction
 
-Two implementations of one system: reconstructing intended meaning from disfluent, non-native, and overloaded speech. 35-claim U.S. provisional, sole inventor. Repos: https://www.google.com/url?q=http://github.com/gugosf114/wim-android&source=gmail&ust=1783059765165000&sa=E · https://www.google.com/url?q=http://github.com/gugosf114/lavrentiy&source=gmail&ust=1783059765165000&sa=E
+Two implementations of one system: reconstructing intended meaning from disfluent, non-native, and overloaded speech. 35-claim U.S. provisional, sole inventor. Repos: github.com/gugosf114/wim-android · github.com/gugosf114/lavrentiy
 
 Activity
 

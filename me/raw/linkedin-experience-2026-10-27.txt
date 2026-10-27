@@ -11,7 +11,9 @@ Jun 2025 - Present · 1 yr 5 mos
 
 San Francisco, California, United States · Hybrid
 
-• Built and operate Bakers Agent, a small-business AI operations platform used in bakery operations. It manages content, traditional and AI-search optimization, analytics, brand monitoring, and reviews behind approval controls. Built Bakers Agent 2 as the commercial version, with isolated deployments, automated onboarding and site audits, private dashboards, approval-controlled website fixes, scheduled drafts, and guided pilots.
+• Built and operate Bakers Agent, an AI operations system that runs a live bakery's marketing every day: content, traditional and AI-search optimization, analytics, brand monitoring, and reviews, all behind approval controls. A multi-client version, Bakers Agent 2, is in progress.
+
+• Published NoiseFile on Google Play: a local-first Android app that turns the noise codes of 36 Bay Area cities into 108 rules and complaint workflows, read from each city's own code. No account, no server.
 
 • Developed WiM for Android and Lavrentiy for Windows, voice-to-intent products with dedicated speech-disfluency support for repetitions, false starts, prolongations, long pauses, blocks, circumlocution, and word substitution. They use personal speech patterns to reconstruct intended meaning, clarify uncertain language, and place text into other applications.
 
@@ -19,7 +21,7 @@ San Francisco, California, United States · Hybrid
 
 • Built Audit Ledger, a tamper-evident evidence and AI-governance system using SHA-256 hash chains, pre-commit confidence declarations, compliance mapping, gap detection, and adversarial claim verification.
 
-• Built Drift Auditor, a multi-turn diagnostic for dropped instructions, correction persistence, and operator burden. Analyzed 512 Claude and ChatGPT conversations containing 37,536 messages and documented 101 model failures involving source use, authorization, context recovery, and proof of completion.
+• Built Drift Auditor, a multi-turn diagnostic for dropped instructions, correction persistence, and operator burden. Analyzed 512 Claude and ChatGPT conversations (37,536 messages) and documented 101 model failures.
 
 • Built and operate a live bakery website and its SEO and analytics systems. Delivered paid website work for a private-aviation detailing client.
 
