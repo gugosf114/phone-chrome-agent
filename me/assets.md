@@ -26,6 +26,21 @@ Rule (George, 2026-10-17): only things that run and can be shown. No drift tools
 - **ALJ decision** — a 23-page Defense Base Act decision George drafted as judicial extern to ALJ Richard M. Clark, DOL OALJ, 2017; affirmed on appeal, Baba v. SOS International, LLC, BRB No. 17-0440 (Jan. 30, 2018). Proof: writing sample on LinkedIn (https://www.linkedin.com/in/george-abrahamyan). A public DOL copy was searched for 2026-10-17 and not found. Lane: legal writing.
 - **Santa Rosa permit** — the 33-page conditional-use-permit application for a cultivation, distribution, and manufacturing facility, City of Santa Rosa, 2021, with 11 exhibits from five outside firms; unanimous approval, state licensing (LinkedIn experience text, saved 2026-10-17). Proof: project-description PDF on LinkedIn. Lane: legal ops, regulatory, project lead.
 
+
+## Play Console read 2026-10-27 (laptop Chrome, signed in; app list + NoiseFile dashboard)
+
+| App | Package | Play status today | Numbers |
+|---|---|---|---|
+| NoiseFile ("Neighbor Noise Complaint Kit") | com.wimlabs.noisefile | **Production**, update published 10/27 (0.30.10); SDK-version warning on 0.30.9 | last 28 days: 5 device acquisitions (+67%), 2 first opens, 1 monthly active device; revenue $4.99 (one unlock sold); no ratings yet |
+| WiM: What I Meant | com.wimlabs.wim | Closed testing, last update Oct 13 2026 (vc658) | installed audience 0; pricing Free / Cloud $4.99 / Cloud Plus $7.99 live in the listing |
+| Heirloom: Restore Photos | com.wimlabs.heirloom | Closed testing, last update Oct 27 2026 (1.0.0, vc10) | installed audience 23 |
+| Climate Permit | app.climatepermit.android | Closed testing (George, 10/27: do not mention in letters) | installed audience 23 |
+| Samizdat | me.aap.fermata.auto.samizdat | Draft / internal | not his product |
+
+Repo READMEs read in full 2026-10-27: NoiseFile (36 cities, 108 rules, $7.99 unlock, local-first, no account), Heirloom
+(one-photo restoration, Play Integrity + Cloudflare Worker + Cloud Run GPU, 3 free then packs, US launch). WiM: product
+sections read in full; the rest of its 4,900-line README is session logs.
+
 ## George decides
 
 - **Audit Ledger** — tamper-evident California residency audit-defense ledger: SHA-256 hash chains, the 19 Bragg factors. Status: live dashboard https://gugosf114.github.io/audit-ledger (200, 2026-10-17); repo gugosf114/audit-ledger, 97 commits, last 2026-07-31. Lane: tax law as code.
