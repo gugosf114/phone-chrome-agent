@@ -1,5 +1,5 @@
 {
- "_what": "Word triggers that tie a job description to one of George's assets or receipts. scripts/asset_hits.py scans every gathered description with these and prints the hits per job, so the match is mechanical, not memory. Each entry: words = regexes (case-insensitive); say = the one line a letter or answer uses; proof = where it can be checked; status = where it lives as of the date. Refresh status with scripts/check_assets.py. Built 2026-10-27 from me/assets.md and me/george-dossier.md.",
+ "_what": "Word triggers that tie a job description to one of George's assets or receipts. scripts/asset_hits.py scans every gathered description with these and prints the hits per job, so the match is mechanical, not memory. Each entry: words = regexes (case-insensitive); say = the one line a letter or answer uses; proof = where it can be checked; status = where it lives as of the date. Refresh status with scripts/check_assets.py. Built 2026-10-27 from me/assets.md and me/george-dossier.md. 2026-10-27: 'weight' and 'card' per entry (George's rule: FULL = in use or in the pipeline; LESS = GitHub-only or a paper, backs a letter but never leads).",
  "WiM": {
   "words": [
    "speech[- ]to[- ]text",
@@ -17,10 +17,12 @@
    "assistive technology",
    "speech (impairment|disorder|therapy)"
   ],
-  "say": "I built WiM, an Android voice-to-text app with a speech-disfluency layer, in Google Play testing with pricing live; sole inventor on a 35-claim US provisional patent.",
+  "say": "I built WiM, a voice-to-text Android app with a speech-disfluency layer, in Google Play testing with pricing live; sole inventor on its 35-claim US provisional patent (App. No. 64/100,336).",
   "proof": "github.com/abrahamyants/wim-android (public); Play Console app 4972415189316953363",
-  "status": "Play alpha / closed testing, release 658 (2026-10-17 read)",
-  "lane": "ai-eval"
+  "status": "Play closed testing (vc658, 10/13/2026); testers next, then production",
+  "lane": "ai-eval",
+  "weight": "FULL",
+  "card": "me/cards/wim-and-patent.md"
  },
  "Patent": {
   "words": [
@@ -29,12 +31,17 @@
    "\\bIP\\b",
    "inventor",
    "prior art",
-   "USPTO"
+   "USPTO",
+   "provisional",
+   "claims? drafting",
+   "patent (prosecution|application|portfolio)"
   ],
-  "say": "Sole inventor on US provisional patent App. No. 64/100,336 (filed June 27 2026, 35 claims) for voice reconstruction of disfluent speech.",
+  "say": "Sole inventor on US provisional patent App. No. 64/100,336 (filed June 27 2026, 35 claims): an assistive overlay that reconstructs disfluent speech and clarifies uncertain words without disturbing the host app; I wrote the application myself.",
   "proof": "profile README github.com/gugosf114; resume",
-  "status": "pending",
-  "lane": "legal-ops"
+  "status": "filed, pending; non-provisional due June 2027",
+  "lane": "legal-ops",
+  "weight": "FULL",
+  "card": "me/cards/wim-and-patent.md"
  },
  "NoiseFile": {
   "words": [
@@ -50,10 +57,12 @@
    "govtech",
    "permit(ting)? portal"
   ],
-  "say": "I built NoiseFile, an Android app that checks a noise complaint against the city's own ordinance and files it the way that city wants; public on Google Play.",
+  "say": "I built and shipped NoiseFile, a Google Play app that checks a noise complaint against the city's own ordinance across 36 Bay Area cities and files it the way that city wants.",
   "proof": "github.com/gugosf114/noisefile-android (public); Google Play listing 'Neighbor Noise Complaint Kit'",
-  "status": "PUBLIC on Google Play (2026-10-26)",
-  "lane": "legal-ops"
+  "status": "LIVE on Google Play (production, update 10/27/2026; first sale)",
+  "lane": "legal-ops",
+  "weight": "FULL",
+  "card": "me/cards/noisefile.md"
  },
  "Lavrentiy": {
   "words": [
@@ -79,8 +88,10 @@
   ],
   "say": "Heirloom restores old family photos with a Gemini image engine; Android, Play alpha.",
   "proof": "gugosf114/heirloom-android",
-  "status": "Play alpha/internal rc9 (2026-10-17)",
-  "lane": "ai-eval"
+  "status": "Play closed testing done (1.0.0, 10/27/2026); waiting on Google, then production",
+  "lane": "ai-eval",
+  "weight": "FULL",
+  "card": "me/cards/heirloom.md"
  },
  "Bakers Agent": {
   "words": [
@@ -148,10 +159,12 @@
    "defense base act",
    "longshore"
   ],
-  "say": "As judicial extern to ALJ Richard M. Clark (DOL OALJ) I drafted a 23-page Defense Base Act decision that was affirmed on appeal (Baba v. SOS International, BRB No. 17-0440).",
+  "say": "As judicial extern to ALJ Richard M. Clark I drafted a 23-page Defense Base Act decision, decided on the record across six issues, that the Benefits Review Board affirmed on appeal (Baba v. SOS International, BRB No. 17-0440).",
   "proof": "https://www.dol.gov/sites/dolgov/files/brb/decisions/lngshore/unpublished/Jan18/17-0440.pdf (live 2026-10-26)",
-  "status": "public document",
-  "lane": "legal-ops"
+  "status": "public; PDF in me/samples for writing-sample uploads",
+  "lane": "legal-ops",
+  "weight": "FULL",
+  "card": "me/cards/writing-sample-baba.md"
  },
  "Santa Rosa permit": {
   "words": [
@@ -167,10 +180,12 @@
    "buildout",
    "entitlement"
   ],
-  "say": "At Phenotopia I authored the 33-page conditional-use-permit application with 11 exhibits for a $1.75M regulated facility in Santa Rosa; unanimous approval and state licensing followed.",
+  "say": "At Phenotopia I authored the 33-page conditional-use-permit application for a cannabis cultivation, manufacturing, and distribution facility in Santa Rosa, coordinating about $300,000 of engineering and environmental plans; the city approved it unanimously and the state licensed it.",
   "proof": "LinkedIn featured document; dossier",
-  "status": "approved 2021",
-  "lane": "compliance"
+  "status": "approved 2021, licensed",
+  "lane": "compliance",
+  "weight": "FULL",
+  "card": "me/cards/cup-santa-rosa.md"
  },
  "Andersen SALT": {
   "words": [
@@ -245,12 +260,19 @@
    "human feedback",
    "chatbot (quality|evaluation)",
    "AI alignment",
-   "model alignment"
+   "model alignment",
+   "operator load",
+   "instruction (survival|retention)",
+   "correction (persistence|decay)",
+   "multi-?turn",
+   "drift"
   ],
-  "say": "I adjudicated 449 correction cases from ~1,100 of my own long Claude and GPT transcripts and built Drift Auditor, a two-stage detector for dropped instructions, correction decay, and false completion claims.",
+  "say": "I wrote Invisible Work, a measurement of the human correction burden across 512 real conversations (37,536 messages), built the open-source Drift Auditor behind it, and submitted it to Anthropic's research team.",
   "proof": "github.com/gugosf114/drift-auditor (public); github.com/gugosf114/ai-operator-field-notes",
-  "status": "public repos",
-  "lane": "ai-eval"
+  "status": "paper Feb 2026; tool and data public",
+  "lane": "ai-eval",
+  "weight": "LESS/MEDIUM",
+  "card": "me/cards/invisible-work.md"
  },
  "AI governance & papers": {
   "words": [
@@ -283,8 +305,10 @@
   ],
   "say": "Built Audit Ledger, a tamper-evident audit log with SHA-256 hash chains for California residency audit defense, with a live dashboard.",
   "proof": "public dashboard (see me/assets.md); repo private",
-  "status": "live dashboard",
-  "lane": "compliance"
+  "status": "private repo, idle since July 2026; dashboard live",
+  "lane": "compliance",
+  "weight": "LESS (backs a letter, never leads)",
+  "card": "me/cards/audit-ledger.md"
  },
  "Languages": {
   "words": [
@@ -294,10 +318,11 @@
    "multilingual",
    "fluent in"
   ],
-  "say": "English, Armenian (native), Russian (fluent).",
+  "say": "English, Armenian (native), Russian (fluent); translated public communications into Russian and Armenian at the SF Assessor-Recorder.",
   "proof": "dossier",
   "status": "fact",
-  "lane": "any"
+  "lane": "any",
+  "weight": "FULL"
  },
  "JD, no bar": {
   "words": [

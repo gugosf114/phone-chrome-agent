@@ -2,12 +2,12 @@
 
 Companion: `me/writings.md` = his papers, posts, legal writing samples and LinkedIn profile facts, with the rule for which receipt fits which job. Raw LinkedIn text saved beside it (profile, experience, posts, Oct 17 2026).
 
-Last checked 2026-10-17. Facts come from the Sept 2026 resume, the memory files, and GitHub. Never call him an attorney. He is a lawyer by degree; he never took the bar. The JD is NOT cum laude (George, 10/26); the Berkeley BA is with honors (Distinction in General Scholarship, 3.85).
+Last checked 2026-10-27 (full LinkedIn read, Play Console, the CUP application, the writing sample, the patent, Invisible Work, Audit Ledger). Raw sources: me/raw/ and me/samples/. Read the CARDS first: me/cards/ (one page each, with weights). Facts come from the Sept 2026 resume, the memory files, and GitHub. Never call him an attorney. He is a lawyer by degree; he never took the bar. The JD is NOT cum laude (George, 10/26); the Berkeley BA is with honors (Distinction in General Scholarship, 3.85).
 
 ## Who
 - George Abrahamyants (legal name Gurgen). Daly City, CA 94015. 415-632-8008. gugosf@berkeley.edu. linkedin.com/in/george-abrahamyan. github.com/gugosf114 and github.com/abrahamyants.
-- JD, UC Law SF (Hastings), tax concentration, 2018. CALI Award. Production Editor, Hastings Business Law Journal. BA UC Berkeley, Political Science, 3.85, Distinction in General Scholarship, 2015.
-- Languages: English, Armenian (native), Russian (fluent).
+- JD, UC Law SF (Hastings), tax concentration, 2018; CALI Award (Consumer Law and Bankruptcy, Spring 2017); Outstanding Contribution to UC Hastings Award (Jan 2018); Production Editor, Hastings Business Law Journal (Vol. 13 No. 1). BA UC Berkeley, Political Science, minor Southeast Asian Studies, 2015, 3.85, with honors (Distinction in General Scholarship), Dean's Honors List. City College of San Francisco first, IGETC, 3.92, Alpha Gamma Sigma honor society. JD is NOT cum laude.
+- Languages: English, Armenian (native), Russian (fluent). Translated public communications into Russian and Armenian at the SF Assessor-Recorder (2016).
 - Came to the US at 17. CCSF night classes at 26, then Berkeley, then Hastings.
 - Speech: a stutter and speech blocks. Interviews that demand live self-explanation fail him. Written assessments and work samples are where he shows. Prefer roles and gigs with work-sample gates.
 
@@ -27,6 +27,9 @@ Last checked 2026-10-17. Facts come from the Sept 2026 resume, the memory files,
 - Andersen, State & Local Tax, Associate 2018–2021, Senior Associate Nov 2023–Apr 2025. Multistate compliance and controversy, audit defense, refund claims, voluntary disclosures, nexus; used LLM tools on SEC filings for audits and credits positions.
 - Phenotopia, COO, 2021–2023: $1.75M regulated retail buildout through permits and inspections; authored a 33-page cannabis conditional-use permit with 11 exhibits, unanimous approval and state licensing.
 - DOL OALJ judicial extern 2017: drafted the 23-page decision affirmed on appeal (Baba v. SOS International, BRB No. 17-0440). IRS Office of Chief Counsel extern; USPS law office extern.
+
+## The seven cards (me/cards/, read before any pick or letter; weights are George's, 10/27)
+FULL: NoiseFile (live on Play, first sale), WiM + the 35-claim provisional patent (Play testing; patent filed 6/27/2026), Heirloom (testing done, waiting on Google), the Santa Rosa CUP (approved, licensed), the Baba decision writing sample (affirmed on appeal). LESS: Invisible Work (a paper, public tool and data), Audit Ledger (private repo, idle since July). A LESS item backs a letter; it never leads one.
 
 ## Jobs: YES
 - AI evaluation, annotation, red-team, "legal expert for AI" gigs (Turing, Synthires, Mercor-style written work). Remote, contract, hourly. Target $40–$75/hr and up.

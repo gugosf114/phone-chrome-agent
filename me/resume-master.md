@@ -2,8 +2,8 @@
 
 Each application takes a one-page cut from this file. Nothing here is sent whole. Every bullet ends with the file it came
 from; a claim with no source is not written. Built 2026-10-26 from a full read of: in this repo me/george-dossier.md,
-me/writings.md, me/assets.md, me/linkedin-profile-2026-10-17.txt, me/linkedin-experience-2026-10-17.txt,
-me/linkedin-posts-2026-10-17.txt; in gugosf114/job-vault vault/resumes/current/resume.txt, vault/george-facts.json, and every
+me/writings.md, me/assets.md, me/raw/linkedin-profile-2026-10-17.txt, me/raw/linkedin-experience-2026-10-17.txt,
+me/raw/linkedin-posts-2026-10-17.txt; in gugosf114/job-vault vault/resumes/current/resume.txt, vault/george-facts.json, and every
 file under vault/archive/documents/resume-rebuild-2026-08-04/ (10 resume PDFs, 3 cover-letter PDFs, 10 Word letters, 9 Python
 builders, 1 .pyc, 5 .txt, 1 evidence .md, 19 page pictures; the pictures and .txt copies hold no words the PDFs lack).
 
@@ -151,10 +151,13 @@ Sites and client work
 ## Education
 
 - UC College of the Law, San Francisco (formerly UC Hastings): JD, Tax Concentration, 2018; CALI Award; Production Editor, Hastings Business Law Journal <!-- src: resume.txt -->
-- University of California, Berkeley: BA with honors, Political Science; Minor, Southeast Asian Studies, 2015; Distinction in General Scholarship; GPA 3.85 <!-- src: resume.txt, george-dossier.md, George 2026-10-26 -->
+- University of California, Berkeley: BA with honors, Political Science; Minor, Southeast Asian Studies, 2013–2015; Distinction in General Scholarship; Dean's Honors List (Nov 2014, top 4% of L&S); GPA 3.85 <!-- src: resume.txt, LinkedIn education/honors 2026-10-27, George 2026-10-26 -->
+- City College of San Francisco: IGETC, Political Science and Government, 2012–2013; GPA 3.92; Alpha Gamma Sigma Honor Society <!-- src: LinkedIn education 2026-10-27 -->
+- Honors: CALI Award, Consumer Law and Bankruptcy (Spring 2017); Outstanding Contribution to UC Hastings Award (Jan 2018) <!-- src: LinkedIn honors 2026-10-27 -->
 - Came to the US at 17; City College of San Francisco night classes at 26, then Berkeley, then Hastings <!-- src: george-dossier.md -->
 
 ## Patent
+- U.S. provisional App. No. 64/100,336, filed June 27 2026, sole inventor, micro entity, 18 pages, 35 claims: assistive overlay for real-time bidirectional clarification and reconstruction of speech-recognized input, with application-context invariance, interlanguage normalization, user-gated send, write-integrity recovery. Full text: me/samples/patent-provisional-64-100336-2026-06.pdf. Non-provisional due by June 27 2027. <!-- src: the application, read 2026-10-27 -->
 
 - Sole inventor, U.S. provisional patent application No. 64/100,336, filed June 27, 2026, 35 claims, covering the combined mobile and desktop voice-to-intent architecture behind WiM and Lavrentiy <!-- src: linkedin-experience-2026-10-17.txt, resume.txt -->
 

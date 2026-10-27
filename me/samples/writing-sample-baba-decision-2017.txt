@@ -1,0 +1,1138 @@
+U.S. Department of Labor
+
+Office of Administrative Law Judges
+90 Seventh Street, Suite 4-800
+San Francisco, CA 94103-1516
+(415) 625-2200
+(415) 625-2201 (FAX)
+
+Issue Date: 25 April 2017
+CASE NO.:
+
+2015-LDA-00761
+
+OWCP NO.: 18-302132
+In the Matter of:
+ROBERT BABA,
+Claimant,
+v.
+SOS INTERNATIONAL, LLC,
+Employer,
+and
+ALLIED WORLD ASSURANCE CO.,
+C/O BROADSPIRE,
+Carrier.
+Before:
+
+Richard M. Clark
+Administrative Law Judge
+DECISION AND ORDER
+DENYING COMPENSATION AND BENEFITS
+
+This claim arises under the Longshore and Harbor Workers‟ Compensation Act, 33 U.S.C.
+§§ 901-950, as extended by the Defense Base Act, 42 U.S.C. §§ 1651-1655 (collectively “the Act”).
+The parties submitted the matter for decision on the record without a formal hearing. Attorney
+David Barnett represented Robert Baba (“Claimant”). Attorney Raymond Warns represented SOS
+International, LLC and Allied World Assurance Co. (collectively “Employer”).
+The following exhibits were admitted into evidence: Claimant‟s exhibits (“CX”) 1 through
+23, including the supplemental pages to CX 15 submitted on August 16, 2016, as well as the
+transcript with exhibits for CX 20, submitted the same day, and Employer‟s exhibits (“EX”) 1
+through 7. Claimant and Employer each filed closing briefs on September 19, 2016, marked
+respectively as Administrative Law Judge Exhibit (“ALJX”) 1 and 2. Claimant and Employer filed
+permissible reply briefs, marked respectively as ALJX 3 and 4, on October 3, 2016, thereby closing
+the record.
+
+For the reasons discussed below, I find that Claimant has not shown he is entitled to
+benefits under the Act for a work-related psychological injury.
+I.
+
+ISSUES IN DISPUTE
+
+This matter presents the following disputed issues:
+1.
+2.
+3.
+4.
+5.
+6.
+
+Did Claimant sustain a compensable psychological injury;
+If yes, what date was Claimant injured;
+What was Claimant‟s average weekly wage;
+What is the nature and extent of any psychological disability;
+Is Claimant entitled to medical care and a free choice physician for a psychological
+injury;
+Is Claimant entitled to penalties, interest, and attorney‟s fees and costs?
+II.
+
+STIPULATIONS
+
+The parties agreed to the following stipulated facts:
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+
+The Act applies to this claim;
+There was an employer/employee relationship at the time of any injury;
+The accident/injury occurred in Iraq;
+Claimant alleges a psychiatric injury;
+The claim was timely noticed and timely filed;
+Claimant is not working;
+The alleged injury is unscheduled.
+
+The foregoing stipulations are supported by substantial evidence in the record and are accepted for
+all purposes. See Huneycutt v. Newport News Shipbuilding & Dry Dock Co., 17 BRBS 142, 144 n.2 (1985);
+Phelps v. Newport News Shipbuilding & Dry Dock Co., 16 BRBS 325, 327 (1984).
+III.
+
+FACTUAL FINDINGS
+
+Claimant‟s Information
+1.
+Claimant gave a deposition on November 20, 2015. EX 7 at 92-121. He was born
+in 1950 in Basrah, Iraq but moved to the United States in 1970. EX 7 at 94, 97. He graduated from
+high school and attended a community college for one semester. EX 7 at 94-5. Prior to Claimant‟s
+overseas employment in Iraq, he worked in a supermarket, owned a video store, worked at a sewing
+factory, and owned and operated a grocery store. EX 7 at 95-6. Claimant is fluent in English,
+Arabic and Assyrian and can speak some Persian. EX 7 at 97.
+2.
+From 2008 to 2014, Claimant worked in Iraq, returning home for vacations
+approximately every 16 months. EX 7 at 101. From December 2008 to November 2011, Claimant
+worked as a linguist for a company called L3. EX 2 at 7; EX 7 at 96. At L3, Claimant participated
+in missions “outside the wire” as an interpreter to military personnel during meetings, interviews,
+
+-2-
+
+interrogations, civil affairs, and check points. EX 2 at 7. He also conducted prisoner interrogations
+and trained Iraqi border police on how to interrogate prisoners. EX 7 at 100. Claimant described
+his employment with L3 as very dangerous, particularly from 2008 to 2009, where enemy snipers
+targeted interpreters; during one mission, Claimant‟s party was hit by an IED. EX 7 at 105. At his
+base in Basrah, a piece of a rocket flew into Claimant‟s room window during a rocket attack that
+killed other soldiers on the base. Id.
+3.
+After L3 lost its government contract, Claimant worked for GLS in Iraq on Taji
+camp. EX 2 at 7. His resume said he was hired by GLS in December 2011, but on his employment
+application for Employer, he said he began working for GLS in April of 2012. EX 7 at 101; EX 2 at
+7, 13. At GLS, Claimant worked at the badging office and processed applications for biometric
+enrollment. EX 2 at 107. He could not recall whether he went on missions outside the wire while
+employed by GLS.1 EX 7 at 106. After GLS, he worked for ABM Linc in Iraq starting in March
+2013, where he provided translation and interpretation services and processed biometric
+applications. EX 2 at 7, 15. Claimant could not recall whether he was involved in any work outside
+the wire during his employment with ABM Linc. EX 7 at 102.
+4.
+ABM Linc lost its contract to Employer, who hired Claimant on September 12, 2013.
+EX 2 at 7-8. Claimant remained stationed in Taji camp and primarily conducted badging and
+security work. EX 7 at 102. Occasionally, Employer would use Claimant as an interpreter. Id.
+Claimant did not work outside the wire as it was too dangerous and Employer did not provide
+security or soldiers. EX 7 at 103. Claimant said that during his employment with Employer he was
+exposed to explosions and gun fire because the base had an Iraqi jail on the premises and insurgents
+repeatedly attacked the jail to try and free the prisoners. EX 7 at 104.
+5.
+Claimant testified that while he was working for Employer, he injured his knee and
+his finger when he tripped as he was running to a bunker during an explosion on the base. EX 7 at
+107. However, medical records show that Claimant‟s knee and finger injury occurred on May 27,
+2013, prior to his employment with Employer in September 2013.2 EX 3 at 33-36. On June 13,
+2013, Claimant visited the medical clinic on Taji base and was seen by Kevin Marsh regarding his
+knee and finger injury. EX 3 at 33. On July 12, 2013, Claimant visited Dr. Mohsen Moghaddam
+regarding his knee when he was on vacation in California.3 CX 14 at 066; EX 7 at 108; CX 14 at
+066. Claimant was under Dr. Moghaddam‟s care from July 12 to July 20, 2013, when he was
+released to work. CX 14 at 066.
+
+1 Claimant told Dr. Meisner that after 2011 he worked only on bases and did not go “outside the wire.”
+
+EX 5 at 58.
+
+2 The current case concerns only a psychological injury, and does not include a claim for benefits regarding a knee or
+
+finger injury.
+3 In his November 20, 2015, deposition, Claimant testified that he came to the United States on vacation and saw Dr.
+Moghaddam regarding his May 27, 2013, knee injury. EX 7 at 108. The medical records show that Claimant initially saw
+Dr. Moghaddam for his knee injury on July 12, 2013. CX 14 at 066. However, the “vacation” that Claimant referred to
+in his testimony appears have been in June of 2014. In his testimony, Claimant referred to receiving a cortisone shot
+and mentioned that he never returned to Iraq from his vacation. EX 7 at 108. Claimant received his cortisone shot on
+August 28, 2014, (CX 14 at 067), and his last vacation, during which he was furloughed and subsequently received his
+employment termination notice, occurred in June of 2014. EX 7 at 108. Thus, the vacation that Claimant referred to
+during his deposition testimony appears to have taken place about one year after he first saw Dr. Moghaddam in July of
+2013.
+
+-3-
+
+6.
+In June of 2014, Claimant came back to the United States for a vacation after which
+he did not return to Iraq. EX 7 at 108. Employer told Claimant in an email that he would stay on
+furlough until further notice because the base might get evacuated for safety reasons. CX 7 at 108.
+Employer terminated Claimant on August 31, 2014, due to lack of work, but he remained eligible for
+re-hire. EX 2 at 11. Claimant has not returned to work in any capacity and is receiving California
+State Disability insurance benefits in the amount of about $1,832 every two weeks. EX 7 at 109.
+Upon his return to the United States, Claimant also received unemployment benefits of about $450
+per week for six months. Id. On November 10, 2014, Claimant filed a formal claim for
+compensation benefits (LS-203) for psychological and physical injuries sustained while working for
+Employer, listing the date of injury as June 10, 2014. CX 1 at 001.4
+Claimant‟s Pay Information
+7.
+Claimant testified that he earned $165,000 per year while employed by L-3, $150,000
+per year while working for GLS, $80,000 per year while working for ABM Linc, and $95,000 per
+year while employed by Employer. EX 7 at 101.
+8.
+Employer‟s offer of employment specified total annual compensation of $90,035.52,
+based on a standard work week of 10 hours a day, six days per week, at $19.02 per hour, with uplifts
+for hazard and hardship pay, overtime and additional hourly pay, and travel expense allowance. EX
+2 at 9. Id. While working for Employer, Claimant earned a total of $73,307.56 from September 15,
+2013, through July 10, 2014. EX 2 at 20-32. For the year 2013, Claimant submitted three W-2
+forms totaling $105,766.07 that showed he earned $41,313.55 from GLS,5 $42.929.84 from ABM
+Government Services (Linc), and $21,522.68 from Employer. Id.
+Statement of Frederick Goundrey – Claimant‟s Witness
+9.
+Claimant offered the written statement of Frederic Goundrey, who worked for
+Employer as a screener at the Badging Security section of Taji camp.6 CX 18 at 174. Claimant and
+Mr. Goundrey worked together for Employer at the Taji camp from September 2013 to June 2014.
+Id. Mr. Goundrey said their offices were located at the most extreme edge of the camp perimeter,
+and recalled one incident where Claimant was called in to intervene in an argument that transpired
+between a gate guard and several others, which lead to a fight and riot that “overflowed over to our
+offices as [Claimant] attempted to contact armed backup.” Id. This incident also involved
+numerous shots being fired and an attack with an axe, but Mr. Goundrey‟s statement is not clear
+about whether it was Claimant, Mr. Goundrey, or someone else that was shot at and attacked with
+an axe. Id.
+10.
+Mr. Goundrey also noted that his and Claimant‟s offices were located near a major
+Iraqi prison complex which housed “hardcore militants and jihadists.” CX. 18 at 174. Mr.
+4 Claimant told Dr. Meisner that he does not recall any particular events having occurred on June 10, 2014, and does not
+
+know why he selected that date of injury. EX 5 at 58, 61.
+5 The name of the employer was cutoff on the W-2 form but the employer identification number matched GLS.
+6 Employer objects to the admission into evidence of a letter from Frederick Goundrey because it has not been
+authenticated and is inadmissible hearsay. ALJX 2 at 16. Employer also objects to the email of Khalid Maqdasi on the
+same grounds. ALJX 2 at 17. Employer‟s objections are overruled. The objections are noted, but go to the weight of
+the evidence given to these statements.
+
+-4-
+
+Goundrey recalled that on two occasions the “prison was attacked by large forces of militants and a
+major battle was quickly underway.” Id. On one occasion, the prison was breached and over 150
+prisoners escaped. Id. According to Mr. Goundrey, the prison was attacked on numerous occasions
+with machine guns and small arms fire, and these attacks were countered by helicopter gunships. Id.
+Mr. Goundrey also noted that, at that time, ISIS militants had come within 50 miles of camp Taji.
+Id.
+Statement of Khalid Maqdasi – Claimant‟s Witness
+11.
+Mr. Maqdasi worked as a translator with Claimant in Basrah, Iraq from 2009 to 2010.
+CX 20 at 071. In his statement, Mr. Maqdasi recalled indirect fire and mortar attacks. He also
+mentioned an incident where a piece of shrapnel reached into Claimant‟s room through his window.
+Id.
+Kevin Marsh – Medic at Taji Medical Treatment Facility
+12.
+On June 13, 2013, Kevin Marsh worked as a medic in the medical clinic on Taji base
+visited by Claimant for an injury to his knee and his finger that occurred on May 27, 2013. EX 3 at
+33. Claimant reported that he was walking to check his laundry when an explosion occurred and
+shots were fired; Claimant started running towards the bunker and tripped over a metal boot scraper
+that was lying on the ground, extended his hands to protect his face from hitting the ground. EX 7
+at 107. As a result, Claimant struck his left hand and injured his ring finger, which swelled up and
+turned blue. Id. Two days after the incident, Claimant reported pain and swelling in his knee. Id.
+Mr. Marsh found a small, asymptomatic hematoma on Claimant‟s lateral right knee. EX 3 at 33.
+Claimant denied any pain and need for any medication but wanted it “documented in case anything
+should happen in the future.” Id. Mr. Marsh authorized Claimant to return to duty and instructed
+him to come back if injury worsened. Id.
+Mohsen Moghaddam, M.D. – Claimant‟s Treating Physician
+13.
+Claimant was under the care of Dr. Moghaddam for his right knee from July 12 to
+20, 2013, when he was released to work. CX 14 at 066. Claimant returned to Dr. Moghaddam on
+June 24, 2014, for a checkup regarding his right knee. Dr. Moghaddam had an x-ray taken of both of
+Claimant‟s knees. CX 13 at 058, 059. The right knee x-ray showed moderate joint effusion and
+patellofemoral spurring, while the left knee x-ray revealed mild tri-compartmental degenerative
+disease and joint effusion. CX 13 at 058-059.
+14.
+Dr. Moghaddam saw Claimant again on August 28, 2014, for right knee pain and
+gave him a cortisone injection.7 CX 14 at 067, 084. On September 18, 2014, Dr. Moghaddam saw
+Claimant for anxiety, anger, and depression as the chief complaints. CX 14 at 083. On November
+10, 2014, Dr. Moghaddam prescribed Lexapro and Xanax for Claimant.8 CX. 14 at 064.
+
+7 From Dr. Moghaddam‟s records, particularly his progress notes, it appears that Claimant continued to make frequent
+
+visits to his office. However, most of Dr. Moghaddam‟s progress notes are illegible and thus present difficulties in
+ascertaining the exact nature of Claimant‟s visit. CX 14 at 072-074; CX at 078-079; CX at 083-084; CX at 098-101.
+8 In his report to Dr. Meisner, Claimant stated that he took all the medication that was prescribed but saw no benefit.
+EX 5 at 55. Dr. Meisner added that prescriptions were never refilled. Id.
+
+-5-
+
+15.
+On November 25, 2014, Dr. Moghaddam saw Claimant regarding his
+musculoskeletal and mental complaints. CX 14 at 060. Dr. Moghaddam reported that Claimant
+complained of symptoms of posttraumatic stress disorder (“PTSD”) including short term memory
+loss, insomnia, depression, anxiety, feeling tense, and being startled easily. Id. Claimant also told Dr.
+Moghaddam about the May 2013 injuries to his right knee and left ring finger that had occurred in
+Iraq. CX 14 at 061. Based on Claimant‟s history of the injury and subjective complaints, Dr.
+Moghaddam‟s diagnosed: (1) PTSD, (2) short term memory loss, (3) insomnia, (4) depression, (5)
+anxiety, (6) anhedonia,9 (7) feeling tense, (8) startling easily, (9) short temper, (10) left ring finger
+pain, and (11) right knee sprain and strain. CX 14 at 063. Dr. Moghaddam noted that prognosis for
+Claimant‟s “future ability to continue the normal activities of daily life must be considered guarded”
+and said that additional medical care should be provided if Claimant‟s symptoms worsened. Id.
+16.
+Claimant did not see Dr. Moghaddam again until June 4, 2015. CX 14 at 105. Dr.
+Moghaddam took an x-ray of Claimant‟s right fourth finger, which showed an “unremarkable forth
+finger.” CX 14 at 105, 108. Dr. Moghaddam saw Claimant again on July 29, 2015, who complained
+of insomnia, depression, anxiety and PTSD. CX 14 at 069. Dr. Moghaddam reported on a disability
+form that day that Claimant suffered from insomnia, depression, anxiety, and PTSD and was not
+able to sleep well, concentrate or focus; he anticipated releasing Claimant to work on September 29,
+2015. CX 14 at 118-19. On October 7, 2015, Dr. Moghaddam saw Claimant again and reported on
+the same disability type form that Claimant‟s insomnia, depression, anxiety and PTSD continue to
+make him disabled and he would likely be able to perform his customary work on January 7, 2016.
+CX 14 at 104, 115-16.
+Employer‟s Medical Expert – Stuart Meisner, Ph.D.
+17.
+On December 2, 2015, at the request of Employer, Stuart Meisner, Ph.D., a clinical
+psychologist, evaluated Claimant‟s mental condition to determine whether he suffered from a mental
+disorder that required treatment or employment restrictions, and whether Claimant‟s employment
+contributed to any mental condition.10 EX 5 at 49. Dr. Meisner administered psychological tests,
+and reviewed prior medical reports. Id. Dr. Meisner observed that his interview with Claimant was
+unusually long and that Claimant also “consumed an inordinate length of time to complete the
+personality inventories.” EX 5 at 49. Dr. Meisner noted that, during the interview, Claimant made
+dramatic complaints but during follow up questions was “remarkably vague” in his responses and
+his attempts to elicit detailed information were sometimes met with displays of annoyance by
+Claimant. EX 5 at 49-50. According to Dr. Meisner, Claimant‟s dramatic behavior was especially
+prominent at the beginning of the interview where Claimant would frequently look around the
+interview room for a prolonged period, look behind him, and look out of the fifth floor window.
+EX 5 at 70.
+18.
+Claimant complained to Dr. Meisner of severe anxiety, depression, cognitive deficits,
+and pain, as well as bad headaches, shortness of breath, trouble remembering things, and feeling sad
+and depressed most of the time. EX 5 at 49, 51, 53. Claimant reported having nightmares almost
+9 “Anhedonia” refers to the total loss of feeling of pleasure in acts that normally give pleasure.
+
+Anhedonia, Dorland‟s
+Illustrated Medical Dictionary (28th ed., 1988).
+10 The record does not contain Dr. Meisner‟s resume. The cover letter of the report submitted by Dr. Meisner indicates
+that he is a clinical psychologist. EX 5 at 49. The last page of the report also contains Dr. Meisner‟s California license
+number. EX 5 at 79.
+
+-6-
+
+every night and being worried that “terrorists would come after his family and himself.” EX 5 at 52.
+Claimant stated that he has lost interest in doing most of the activities he used to enjoy, such as
+socializing with friends and boating. EX 5 at 54. He also mentioned the pain in his right knee and
+described it as “constant and sharp, „like a needle.‟” Id.
+19.
+Claimant told Dr. Meisner that on a typical day, he wakes up around four or five in
+the morning. Id. He sleeps separately from his wife so as to not disturb her with his nightmares and
+screaming. Id. Claimant then spends his day around the house alternating between doing chores in
+the backyard or garage, and watching television; he rarely leaves the house, except to take his dog for
+a walk every day in a field near his home. EX 5 at 55-56. Claimant receives visitors about once a
+week, usually his brother and his daughter. Id. After dinner, Claimant feeds the dog and watches
+television until “it will get dark so he can go to sleep,” and he does not usually go to bed until 11:00
+p.m. or midnight. EX 5 at 56-57.
+20.
+Claimant also provided Dr. Meisner with a description of his work in Iraq, which
+was consistent Claimant‟s deposition testimony. EX 5 at 58-62. With Employer, Claimant worked
+in badging and security on the Taji base, where he screened people who were coming onto the base
+to determine if they posed a threat. EX 5 at 60. Claimant spent most days in the office but, if
+needed, drove around the base to provide interpreter services. Id. Early in his employment with
+Employer, Claimant said he did not have nightmares or intrusive thoughts and slept for about seven
+hours a night.11 Id. Claimant told Dr. Meisner that he did not directly witness anyone being injured
+while working for Employer, but recalled that the base was frequently attacked as there was a jail on
+the premises and insurgents were attempting to free their jailed comrades. Id.
+21.
+Before he began working for Employer, Claimant recalled at least ten occasions
+when he felt his life was in danger, mostly from rockets striking as close as 20 yards to him; on two
+occasions, an IED struck a nearby vehicle. EX 5 at 59. Claimant said that during the period before
+he started working for Employer, “he had much closer contact with combat” and was involved in a
+number of missions outside the wire. EX 5 at 58. For example, twice per week, he would travel in
+helicopters to Iraqi bases where he would serve as an interpreter, and he went on missions outside
+the wire in Humvees at night. Id. Other than his knee and finger injury in May of 2013, Claimant
+said he was never physically injured in Iraq. EX 5 at 59. Claimant also recalled an incident that
+occurred early in his employment in Iraq where a sergeant with whom he was friendly was killed by
+rocket fire. EX 5 at 59. Claimant told Dr. Meisner that he did not see anyone get shot, but
+witnessed explosions and bodies torn apart.12 Id.
+22.
+Claimant reported that he began to feel anxious during the last several months of his
+employment with Employer, began to have nightmares about insurgents attacking the base and
+began to experience insomnia. EX 5 at 58, 61. But despite this, Claimant was able to perform well
+at his job. Id. His symptoms became much more intense within a month or two of his return to the
+United States, when his nightmares became more frequent and he dreamt of going on missions,
+being ambushed, hearing dogs bark, and terrorists coming to kill him or his family. EX 5 at 52, 62.
+Claimant also said he had intrusive memories throughout the day - memories of being hit by an IED
+or being chased by bad guys. Id.
+11 Initially, Claimant told Dr. Meisner that he did not recall having intrusive thoughts; later, Claimant said that he did
+
+have some intrusive memories about the death of his sergeant friend. EX 5 at 61.
+12 Claimant was unclear about what date or time period when he witnessed the explosions and bodies being torn apart.
+
+-7-
+
+23.
+As part of the psychological evaluation, Dr. Meisner administered the following tests:
+MMPI-2-RF, PTSD Checklist-Civilian Version, Beck Anxiety Inventory, Best Depression
+Inventory-II, and Word Memory Test. EX 5 at 67. According to Dr. Meisner, “the MMPI-2 is the
+best researched method for discriminating between exaggerated reporting of symptoms, and the
+reports of psychiatric patients who have no incentive to exaggerate.” EX 5 at 70. Based on the
+results of the MMPI-2-RF test, which is the latest iteration of MMPI-2 test, Dr. Meisner opined that
+Claimant over reported his psychiatric symptoms and cognitive impairment and exaggerated his
+somatic distress. EX 5 at 67-68, 70. Dr. Meisner added that there was no evidence of
+underreporting of symptoms by Claimant and it was highly unlikely that Claimant‟s test results could
+be produced without exaggeration. EX 5 at 68, 70. On the PTSD Checklist-Civilian Version,
+Claimant reported a wide range of symptoms of PTSD, some bordering on the extreme. EX 5 at
+68. However, Dr. Meisner stated that the results of the test could not distinguish between an
+extreme PTSD and exaggerated reporting. Id. Claimant reported extreme levels of anxiety on the
+Beck Anxiety Inventory test, yielding a score of 62, which Dr. Meisner said depicted “either an
+extreme level of anxiety, exaggeration or some combination of the two.” EX 5 at 68. Similarly,
+Claimant reported high levels of depression on the Beck Depression Inventory-II test, producing a
+score of 46. Id. Dr. Meisner noted that Claimant‟s clinical appearance did not approximate severe
+depression and the results depict “either an extraordinary level of depression, exaggeration or some
+combination of the two.” EX 5 at 68, 70. Dr. Meisner said the Word Memory Test result “showed
+unequivocal evidence of gross exaggeration of impaired memory.” EX 5 at 68. Dr. Meisner noted
+that Claimant relied on his memory to avoid correct responses and suggested that “[a]n individual
+who had never seen the test stimuli would have performed far better by guessing.” Id.
+24.
+Dr. Meisner noted some credibility concerns in his report, pointing to several
+inconsistencies in Claimant‟s account of events. EX 5 at 69. For example, Claimant reported to
+have lost interest in socializing but later noted that he unexpectedly ran into a friend at a private club
+dinner meeting. Id. In addition, Claimant‟s phone, which he placed on the table, sounded on
+multiple occasions during the interview and he frequently looked at the display. EX 5 at 51. Dr.
+Meisner also noted that Claimant‟s description of his knee and lower back condition seemed to be
+exaggerated but deferred to the opinion of relevant medical expert. Id. Dr. Meisner also mentioned
+an inconsistency between Claimant‟s appearance and his discussion of his appearance. EX 5 at 70.
+According to Dr. Meisner, Claimant reported that he tends not to get a haircut unless prompted by
+his mother but was “meticulously groomed” for the examination and arrived wearing a suit and a tie.
+Id. Dr. Meisner wrote that it was hard to believe that a person with a disregard for his appearance
+would decide to be so meticulously groomed and wear a suit. Id.
+25.
+Dr. Meisner opined that Claimant had “grossly exaggerated symptoms, impairment
+and the severity of traumatic exposure,” and that Claimant‟s vague responses and inconsistencies
+also suggested that he had concealed relevant history. EX 5 at 69. Dr. Meisner added that neither
+Claimant‟s report nor his behavior could be considered evidence of a mental disorder. Id. Dr.
+Meisner concluded that there was no substantial evidence that Claimant suffered from a mental
+disorder and does not require restrictions or treatment. Id.
+26.
+Dr. Meisner added, however, that Claimant‟s “pervasive exaggeration does not rule
+out mental disorder” because sometimes individuals who exaggerate also suffer from a mental
+disorder. EX 5 at 72. Before concluding that someone who is exaggerating their symptoms also
+
+-8-
+
+suffers from a mental disorder, it is necessary to demonstrate that the purported evidence of mental
+disorder is free from exaggerated reporting or exaggerated behavior under the patient‟s voluntary
+control. Id. Dr. Meisner said that his observations of Claimant‟s behavior during the examination
+did not provide him with any compelling indications of mental disorder.13 Id. Claimant did not
+show signs of slowing in motor activities and showed only mild agitation which Dr. Meisner stated
+could have been the product of exaggeration. EX 5 at 73. The rate, volume, and flow of Claimant‟s
+speech were within normal limits. Id. Claimant did raise his voice once in the course of the
+examination, which Dr. Meisner attributed to voluntary behavior, Claimant‟s mood did not appear
+depressed, and he showed a normal range of emotional expression. Id. Dr. Meisner also mentioned
+that Claimant became tearful when describing his traumatic exposures in Iraq, but there was
+something abnormal about the tears, which Dr. Meisner suggested could have been produced with
+voluntary contribution. Id.
+27.
+Dr. Meisner further stated that Claimant‟s history provides reasons to doubt that he
+suffers from a mental disorder. EX 5 at 73. Claimant‟s most traumatic exposures occurred during
+the early years of his employment, but, after 2011, Claimant did not even work outside the wire. Id.
+Dr. Meisner pointed out that Claimant worked as a linguist for six years and filed the claim only
+after his high paying work as an interpreter became unavailable. EX 5 at 73, 75. Moreover, after
+five years of employment in Iraq, Mr. Marsh, who treated Claimant‟s knee injury in Iraq, reported
+that Claimant denied having anxiety and depression and appeared to have normal mood and
+emotion. EX 5 at 74. In addition, Claimant‟s symptoms appeared to have developed in the last
+three months of his employment, which Dr. Meisner found hard to believe because Claimant did
+not witness anyone being injured or killed during his last year of employment with Employer. Id.
+28.
+Dr. Meisner also opined that there were significant post-employment factors and
+events that were much more likely to account for Claimant‟s symptoms rather than a delayed onset
+of PTSD. Dr. Meisner said the most obvious was Claimant‟s post-employment adaptation to his
+new life after spending six years in Iraq. EX 5 at 77. According to Dr. Meisner, “claimant must
+adapt to significant unwanted life changes that are independent of traumatic exposure…the job that
+he enjoyed in Iraq for six years was no longer available to him.” Id. In addition, Claimant noted
+how much he valued the esteem that he received from working with the military and the pride that
+came with successfully operating a business. Id. Dr. Meisner opined that Claimant‟s current
+lifestyle and the pursuit of this claim may not meet his esteem needs, and puts Claimant in an
+unfavorable light in his family and community. Id. Finally, Claimant was facing the transition to life
+after the age of 65. Id. Dr. Meisner concluded that if evidence of mental disorder somehow arose,
+then non-industrial factors could account for it more plausibly than exposure in Iraq. EX 5 at 79.
+29.
+In addition, Dr. Meisner added that “to the extent that there was traumatic exposure,
+it occurred in the earliest years of his employment, but the patient was free of re-experiencing
+symptoms for years after that.” EX 5 at 76. While working for Employer, Claimant did not work
+outside the wire and denied witnessing any significant injuries. EX 5 at 76; EX 7 at 103. According
+to Dr. Meisner, Claimant seemed to enjoy his work despite all the hazards, and said about his work:
+“It‟s an adventure job and I am an adventurer!” Id. Thus, Dr. Meisner concluded that Claimant‟s
+employment with Employer did not cause any psychological conditions.
+13 Dr. Meisner appeared to be referring to the absence or lack of involuntary behavior by Claimant that would be
+
+indicative of a mental disorder or impairment, as opposed to the voluntary behavior he observed Claimant exhibit.
+
+-9-
+
+Claimant‟s Psychiatrist – Parvis Fahimian, M.D.
+30.
+Claimant visited Dr. Parvis Fahimian on December 24, 2015, January 14, 2016, and
+February 2, 2016. CX 16 at 153; CX 17 at 154. According to Dr. Friedman, in spite of Dr. Meisner
+finding no evidence of a psychological disorder, he nevertheless recommended psychiatric
+intervention and Dr. Meisner‟s secretary referred Claimant to Dr. Fahimian. CX 20 at 035.
+However, there are no records that show Dr. Meisner made such referral. Dr. Friedman also noted
+that Dr. Fahimian had observed that Claimant “has a good combination of symptoms for PTSD
+diagnosis,” but no records were provided showing that Dr. Fahimian made such an observation.
+CX 20 at 039. Dr. Friedman also said that Dr. Fahimian prescribed Latuda, Zoloft and Klonopin to
+Claimant, but, the only record of prescription by Dr. Fahimian was for Fluoxetine. CX 17 at 160;
+CX 20 at 035. Dr. Friedman also said that Claimant discontinued his treatment with Dr. Fahimian
+because he saw no improvement as a result of taking the prescribed medications. CX 20 at 035.
+Claimant‟s Medical Expert – David Friedman, M.D., Ph.D.
+31.
+Dr. Friedman testified by deposition on July 28, 2016. CX 20 at 029. Dr. Friedman
+is a psychiatrist and also has a Ph.D. in psychoanalysis. CX 20 at 029. He attended the University of
+Miami School of Medicine and finished a psychiatry residency at Cedar-Sinai Medical Center in Los
+Angeles. CX 20 at 003; CX 20 at 029. Dr. Friedman received a Ph.D. in psychoanalysis from
+Southern California Psychoanalytic Institute and is an assistant clinical professor of psychiatry at
+UCLA School of Medicine. Id. He is also board certified in addiction medicine. CX 20 at 003. For
+the past thirty years, Dr. Friedman‟s practice has involved predominantly the evaluation and
+treatment of people involved in the workers‟ compensation system, usually as an agreed medical
+examiner where the evaluations he conducts are on behalf of both parties. CX 20 at 003. Dr.
+Friedman also maintains a small private practice of treating people outside the workers‟
+compensation system; sixty percent of his time is spent in providing treatment and about forty
+percent in performing psychological evaluations. Id.
+32.
+At the request of Claimant‟s counsel, Dr. Friedman conducted a comprehensive
+psychiatric evaluation of Claimant on March 15, 2016.14 CX 20 at 032. As part of the evaluation,
+Dr. Friedman and Dr. Dobbs interviewed and examined Claimant. Id. Dr. Dobbs is a licensed
+psychologist who worked at Dr. Friedman‟s office but has since retired. CX 20 at 005. The testing
+and the interpretation, except for the MMPI test,15 were done by Dr. Dobbs, and Dr. Friedman
+incorporated the results into his overall assessment.16 CX 20 at 033.
+33.
+Dr. Friedman reported that Claimant‟s PTSD symptoms persisted and were
+essentially unchanged. CX 20 at 036. Claimant complained of depression marked by mood changes
+14 The record contains psychiatric progress notes from Dr. Friedman‟s medical group indicating that Claimant was seen
+
+on a number of occasions by Joseph Silverstein, PA-C. CX 15 at 015, 020, 145, 149, 152. Some of the handwritten
+notes are hard to decipher but they indicate that during the visits Claimant complained of anxiety, depression,
+nightmares, and sleep disturbances. Id. The progress notes also indicate that at various times Claimant was prescribed
+Zoloft, Klonopin, Ativan and Prazosin. Id.
+15 The MMPI-2 was scored by NCS Pearson under license from University of Minnesota, (CX 20 at 033), but Dr. Dobbs
+interpreted the testing based upon the protocols by John Graham, PhD. CX 20 at 013. Dr. Friedman stated that he does
+not claim to have expertise in the interpretation and administration of psychological testing. CX 20 at 005.
+
+- 10 -
+
+and episodes of crying, loss of motivation, and decreased libido. Id. He told Dr. Friedman that
+upon his return to the United States, “I realized that I wasn‟t the same anymore,” and was socially
+withdrawn and short-tempered; he said he slept poorly due to nightmares and intrusive thoughts of
+violence he witnessed in Iraq. CX 20 at 035. Claimant also complained of memory loss, anhedonia,
+and startled reactions. Id. Claimant‟s primary physical complaint was a sharp, needle like pain in the
+right knee occurring three to four times a week and lasting about ten minutes. CX 20 at 035.
+Claimant also reported headaches occurring three to four times a week and lasting up to four hours,
+stiffness in his neck, pain that radiated into his right shoulder and elbow, and chest pain
+accompanied by shortness of breath. CX 20 at 036.
+34.
+In the course of the psychological testing, Claimant was given the Test of Memory
+Malingering (“TOMM”), a 50-item picture recognition test that includes two Learning and Retention
+trials, and is designed to give the impression that it is much more difficult than it actually is. CX 20
+at 040. Dr. Friedman stated that even persons with significant neurologic impairments can score
+well if they exert full effort, so a low score suggests that the test taker may intentionally be
+performing poorly. Id. Dr. Friedman said Claimant‟s “performance of the two trials of the TOMM
+(21, 18) were somewhat lower than he might have achieved by random guessing,” which suggested
+that Claimant was either wholly inattentive or was intentionally providing incorrect answers in an
+attempt to exaggerate claims of cognitive difficulty. CX 20 at 040, 043. Dr. Friedman added that it
+is very unusual for the score to deteriorate on your second attempt as the test taker is already
+familiar with the test material. Id. After Claimant was informed of the true nature of the test, he
+scored significantly higher, 37 out of 50. Id. Dr. Friedman concluded that the low score on the first
+two attempts were intentional and raised concerns about overstatement. Id; CX 20 at 006.
+35.
+On the MMPI-2 test, Dr. Friedman noted that Claimant‟s performance was of highly
+questionable validity and also mentioned concerns about overstatement due to Claimant‟s answers
+on the test which showed rare complaints. CX 20 at 040, 043. Dr. Friedman also noted
+inconsistency in reporting but added that it may “reflect an expression of intense subjective
+distress.” CX 20 at 040. Claimant‟s “profile suggests underlying depression with accompanying
+agitation and a fear of losing control of hostile, aggressive impulses”, but Dr. Friedman added that
+the resulting clinical profile should be interpreted with great caution due to the concerns about
+overstatement and inconsistent reporting of symptoms. CX 20 at 040-041. Dr. Friedman stated
+Claimant‟s performance on the MMPI-2 showed unequivocal evidence of overstatement. CX 20 at
+006.
+36.
+Claimant was given the Pain Patient Profile (“P3”) test, a self-reported test designed
+to identify patients who are experiencing emotional distress with a primary complaint of pain. CX
+20 at 041. Similar to the MMPI-2 test, P3 also has validity scales which can differentiate between
+exaggerating and non-exaggerating patients. Id. Claimant generated a valid P3 profile. Id. On the
+Beck Depression Inventory-II test, Claimant‟s score (29) indicated symptoms consistent with severe
+range of depression. CX 20 at 041. His result on the Beck Anxiety Inventory (22) was consistent
+with a moderate degree of anxiety. CX 20 at 042. The results of the Epworth Sleepiness Scale test
+were within the normal range and did not indicate daytime drowsiness suggestive of a sleeping
+disorder. CX 20 at 042.
+37.
+The Symptom Checklist-90-R is a multidimensional inventory test designed to
+identify psychiatric symptomology. CX 20 at 042. Claimant reported having 78 of the 90 symptoms
+
+- 11 -
+
+listed on the test with the vast majority rated as causing greater than moderate distress. Id. Dr.
+Friedman noted that “[s]ignificant overstatement was evident on the SCL-90-R.” CX 20 at 043.
+Claimant was also administered the Rotter Incomplete Sentences Blank test. CX 20 at 042. The test
+taker is asked to complete sentences expressing their real feelings; the responses may then reflect test
+taker‟s subjective viewpoint and attitudes. Id. Dr. Friedman reported that Claimant‟s responses
+reflected “a sense of deterioration, isolation and diminished self-esteem.” Id.
+38.
+In summary, Dr. Friedman noted that the validity of the psychological test results
+was equivocal. CX 20 at 043, 066. Claimant generated a valid profile on the P3 test, reported
+symptoms consistent with severe depression and moderate anxiety on the Beck Depression and
+Anxiety Inventories, and Claimant‟s sentence completion responses indicated “impaired self-image
+and preoccupation with emotional distress.” Id. However, Dr. Friedman also noted that Claimant‟s
+performance on the MMPI-2 was highly questionable and his performance on TOMM suggested
+that Claimant consciously and intentionally gave erroneous responses in an attempt to dramatize
+cognitive difficulties and called into question the validity of all the test results. Id. In his clinical
+observations, Dr. Friedman reported that Claimant appeared well groomed and was in no obvious
+physical discomfort, but noted that Claimant‟s mood appeared to be moderately depressed and
+anxious. CX 20 at 043. Claimant‟s judgment was unimpaired and he provided a reasonably
+thorough account of events. Id.
+39.
+Based on Claimant‟s history, the results of psychological testing, and manner of
+presentation, Dr. Friedman diagnosed Claimant with Chronic Post-Traumatic Stress Disorder. CX
+20 at 044. In addressing some of the credibility concerns raised by the psychological testing, Dr.
+Friedman stated that while the TOMM and MMPI-2 tests did raise concerns, the P3 was valid and
+the extent of anxiety and depression on the Beck inventories was not excessive. CX 20 at 048. Dr.
+Friedman opined that the exaggeration evident in the test results was a “cry for help,” and added
+that sometimes patients exaggerate symptoms in an attempt to impress upon the doctor the severity
+of their complaints. CX 20 at 015.
+40.
+Regarding the psychological report of Dr. Meisner, Dr. Friedman thought it was
+thorough and well-reasoned, but disagreed with Dr. Meisner‟s opinions and conclusions, stressing
+that Dr. Meisner over-relied on the psychological testing and did not take into adequate
+consideration the nature and severity of Claimant‟s stressful employment conditions. CX 20 at 011.
+According to Dr. Friedman, when a person is completely unreliable and is exaggerating, the results
+of Beck Anxiety and Depression tests will usually be “off the charts,” but here, they were not.17 CX
+20 at 006. However, Dr. Friedman added that if Claimant had produced the same Beck Depression
+and Anxiety scores (46 and 62) as he did with Dr. Meisner, it would indicate a stronger case of
+overstatement and would certainly “raise the bar in terms of finding a compensable psychiatric
+condition and psychiatric impairment.” CX 20 at 014. Dr. Friedman also noted that the majority of
+people who witness traumatic events do not develop PTSD and if the psychological testing was
+17 Dr. Meisner reported high scores on the Beck Anxiety and Depression inventory tests. EX 5 at 68, 70.
+
+Arguably,
+Claimant‟s high or “off the chart” test scores from Beck Anxiety and Depression inventory tests administered by Dr.
+Meisner combined with evidence of exaggeration from TOMM and MMPI-2 tests administered by Dr. Friedman, raised
+additional credibility concerns. When addressing this issue, Dr. Friedman stated that he attributed the noticeable
+difference of the test scores to the effects of medication prescribed by Dr. Fahimian and taken by Claimant between the
+time of the examination by Dr. Meisner in November of 2015 and Dr. Friedman‟s own evaluation in March of 2016.
+CX 20 at 014. However, Dr. Friedman‟s report shows that Claimant had reported to him “[t]o be honest, I haven‟t
+noticed any difference with the medication” and discontinued his treatment with Dr. Fahimian. CX 20 at 035.
+
+- 12 -
+
+taken as the sole criterion, it would create credibility questions. CX 20 at 012, 048. Dr. Friedman
+also disagreed with Dr. Meisner‟s assertion that if a psychological injury was indeed present, it would
+likely be attributed to post-employment stressors. Id. Dr. Friedman said he has had numerous cases
+where the symptoms of PTSD manifested years after the exposure. Id.
+41.
+Dr. Friedman testified that when there is evidence of exaggeration, one must look at
+other factors, such as medical records, past history, and the nature of traumatic exposure to
+determine whether the patient is outright lying or not. CX 20 at 006. Dr. Friedman stated that
+Claimant presented to him a convincing history of threats, danger and warlike conditions which
+created a reasonable basis for a PTSD diagnosis and did not suggest that Claimant was lying. CX 20
+at 007. In addition, based on the past life history that Dr. Friedman obtained from Claimant, he did
+not see any questionable experiences that would indicate that Claimant was a type of person who
+would present a fraudulent claim. Id. In Dr. Friedman‟s opinion, when you have these kinds of
+exposures, such as death and mayhem in a war zone, you give the history that the person provides
+great weight. CX 20 at 015. Here, Claimant‟s history outweighed any concerns and doubts created
+by the testing. Id. In his report, Dr. Friedman concluded that “if the traumatic history presented by
+the applicant is indeed accurate and truthful. It is certainly reasonable that a disabling posttraumatic
+stress disorder has developed.” CX 20 at 048.
+42.
+Dr. Friedman stated that given the two-year period since the end of Claimant‟s
+industrial exposure, his condition had likely stabilized and he may be considered to have reached a
+state of maximum medical improvement, but the severity of Claimant‟s psychiatric symptoms
+precluded him from returning to work. Id. Dr. Friedman recommended immediate and probably
+lifelong psychiatric treatment consisting of psychoactive medication to reduce symptoms and
+prevent deterioration, with 25 sessions of cognitive behavioral therapy to address PTSD symptoms.
+CX 20 at 049.
+43.
+Dr. Friedman concluded that Claimant‟s psychiatric condition was caused entirely by
+the cumulative effects of what he witnessed and experienced during the course of his employment in
+Iraq. CX 20 at 008-009. Dr. Friedman said it would be a highly speculative endeavor to try to
+apportion between the different exposures with the different employers. CX 20 at 016. Thus, even
+if certain exposures were more dangerous during the early period of Claimant‟s employment, they
+were still dangers to Claimant since he was located in the same geographical area, and the final
+events that lead to the psychological injury need not be as severe as the events that preceded them.
+CX 20 at 17.
+IV.
+
+ANALYSIS
+
+As set forth below, the following conclusions of law are based upon analysis of the entire
+record, arguments of the parties, and applicable regulations, statutes, and case law. 29 C.F.R. §
+18.92. In deciding this matter, the administrative law judge (“ALJ”) is entitled to weigh the
+evidence, to draw inferences from it, and to assess the credibility of witnesses. See Cardillo v. Liberty
+Mut. Ins. Co., 330 U.S. 469, 477 (1947); 29 C.F.R. § 18.12. The Act is construed liberally in favor of
+injured employees. Voris v. Eikel, 346 U.S. 328, 333 (1953); J.B. Vozzolo, Inc. v. Britton, 377 F.2d 144,
+147 (D.C. Cir. 1967). However, the proponent of a rule or position has the burden of proof and,
+thus, the burden of persuasion. Dir., OWCP v. Greenwich Collieries, 512 U.S. 267, 275-76 (1994).
+
+- 13 -
+
+A.
+
+Credibility Determinations
+
+In arriving at a decision, the finder of fact is entitled to determine the credibility of witnesses,
+weigh the evidence, and draw inferences from the evidence, and is not bound to accept the opinion
+or theory of any particular medical examiner or other expert witness. Banks v. Chi. Grain Trimmers
+Ass’n, 390 U.S. 459, 467 (1968); Duhagon v. Metro. Stevedore Co., 31 BRBS 98, 101 (1997), aff’d, 169
+F.3d 615 (9th Cir. 1999). The credibility of witnesses “involves more than demeanor. It apprehends
+the over-all evaluation of testimony in the light of its rationality or internal consistency and the
+manner in which it hangs together with other evidence.” Carbo v. United States, 314 F.2d 718, 749
+(9th Cir. 1963). An ALJ is not bound to believe or disbelieve the entirety of a witness‟ testimony,
+but may choose to believe only certain portions of the testimony. Altemose Constr. Co. v. NLRB, 514
+F.2d 8, 14 n.5 (3d Cir. 1975).
+In reviewing the medical opinions of record, several considerations are relevant to the ALJ‟s
+determination of their probative value and relative evidentiary weight. An ALJ must examine the
+logic of a physician‟s conclusions and the evidence upon which those conclusions are based, and
+evaluate the physician‟s opinion in light of the other evidence in the record. Newport News
+Shipbuilding & Dry Dock Co. v. Ward, 326 F.3d 434, 441-42 & n.4 (4th Cir. 2003); Jackson v. Ceres
+Marine Terminals, Inc., 48 BRBS 71, 75 (2014). The judge need not accept the opinion of any
+particular medical examiner, particularly if rational inferences urge a contrary conclusion. Pimpinella
+v. Universal Maritime Serv., Inc., 27 BRBS 154, 157 (1993); Todd Shipyards Corp. v. Donovan, 300 F.2d 741
+(5th Cir. 1962). In evaluating expert testimony, the judge may rely on common sense. Avondale
+Indus., Inc. v. Dir., OWCP, 977 F.2d 186, 189 (5th Cir. 1992). A medical opinion that is based on
+hypothetical possibilities or generalities, rather than on the evidence specific to claimant, may be
+discounted. Cotton v. Army & Air Force Exchange Servs., 34 BRBS 88 (2000). The judge, furthermore,
+may base one finding on a physician‟s opinion and on another issue find contrary to the same
+physician‟s opinion. Pimpinella, 27 BRBS at 157.
+An ALJ is not obligated to rule in favor of a party simply because his or her medical experts
+are more numerous or more highly trained. Avondale Shipyards, Inc. v. Kennel, 914 F.2d 88, 91 (5th Cir.
+1990), abrogated on other grounds. However, an ALJ may consider a physician‟s credentials and
+specialized expertise (or lack thereof) in determining the opinion‟s evidentiary weight. See generally
+Monta v. Navy Exchange Serv. Command, 39 BRBS 104, 107-108 (2005). The opinion of a treating
+physician generally deserves greater weight than that of a non-treating physician, because the treating
+physician “is employed to cure and has a greater opportunity to know and observe the patient as an
+individual.” Amos v. Dir., OWCP, 153 F.3d 1051, 1054 (9th Cir. 1998); see also Black & Decker
+Disability Plan v. Nord, 538 U.S. 822, 830 n.3 (2003) (rule similar to the Social Security treating
+physicians rule, affording such physicians special deference). But, a treating physician‟s testimony is
+not automatically entitled to greater weight when the issue is outside the course of medical treatment
+to be followed. Duhagon, 31 BRBS at 100-01. A judge also “need not accept a treating physician‟s
+opinion which is brief and conclusory in form with little in the way of clinical findings to support
+[its] conclusion.” Magallanes v. Bowen, 881 F.2d 747, 751 (9th Cir. 1989) (internal citations omitted).
+
+- 14 -
+
+1.
+
+Claimant‟s Credibility
+
+Multiple factors significantly detract from Claimant‟s credibility, including inconsistent
+statements and exaggerated symptoms during his psychiatric evaluation, which suggested he had
+self-serving narrative regarding his claim. The information Claimant offered about his personal and
+employment history and working conditions alone was not problematic, but when the entire record
+was considered, particularly his performance on psychological testing, I found Claimant‟s
+information to be entitled to little weight.
+Claimant‟s testimony was inconsistent and at variance with the medical records. During his
+deposition testimony, Claimant testified that he had sustained a knee and a finger injury while
+working for Employer, and appeared to have a good recollection of events surrounding the injury
+and gave a detailed description of how he sustained the injury. F.F. ¶ 3, 13. However, medical
+records established that Claimant‟s knee and finger injury occurred when he was employed by ABM
+Linc. Id. While not a major point, it is concerning in light of other considerations about his
+credibility.
+The biggest issues with Claimant‟s credibility related to the results on psychological testing,
+where both Claimant‟s and Employer‟s experts were concerned about overstatement and
+exaggeration by Claimant. Dr. Friedman, Claimant‟s expert, noted that the results of the TOMM
+test, which deals with malingering, were 21 and 18 respectively, which showed that Claimant may
+have intentionally provided incorrect answers in an attempt to exaggerate claims.18 F.F. ¶ 32. The
+TOMM was designed to appear much more difficult than it really is and Claimant‟s scores were
+lower than what he might have achieved by randomly guessing the answers. Id. According to Dr.
+Friedman, it is very unusual for a test taker to score lower on the second trial because the test-taker
+is already familiar with the test and Claimant‟s lower score on the second trial suggested that
+Claimant was not paying attention or was intentionally providing incorrect answers. Id. Moreover,
+after being informed of the actual nature of the test, Claimant scored a much higher 37 out of 50,
+which suggested that his poor performance on the first two trials was intentional. Id. Dr. Friedman
+noted that Claimant‟s performance on the TOMM brings into question the validity of all the test
+results. F.F. ¶ 44. Dr. Meisner, Employer‟s expert, reached a similar conclusion after administering
+the Word Memory Test, where he noted that Claimant “used his memory to avoid the correct
+answers,” which Dr. Meisner stated served as evidence of gross exaggeration of impaired memory.
+F.F. ¶ 28. The number of Claimant‟s correct responses was lower than one would have achieved by
+blindly guessing the answers. Id.
+Dr. Friedman noted that Claimant‟s results on the MMPI-2 test indicated a pattern of
+overstatement and inconsistency, but was not sufficiently severe to invalidate the test, and was more
+likely a “cry for help.” F.F. ¶¶ 45, 47. However, Dr. Meisner found that the results of the MMPI-2RF showed that it was evident that Claimant over reported his psychiatric symptoms and cognitive
+impairment. F.F. ¶ 25. According to Dr. Meisner, the MMPI-2-RF is one of the best methods to
+distinguish between exaggerated and non-exaggerated reporting of symptoms and it is very unlikely
+that Claimant‟s test results could be produced without exaggeration. Id.
+
+18 It should be noted that the interpretation and the summary of TOMM and MMPI-2 test were written by Dr. Dobbs
+
+who was part of Dr. Friedman‟s practice until his retirement. CX 20 at 013.
+
+- 15 -
+
+Claimant‟s test results on the Beck Anxiety and Depression inventories provide additional
+support of Claimant‟s malingering, especially when combined with his MMPI-2 results. When first
+administered by Dr. Meisner on December 2, 2015, Claimant scored 46 and 62 on the Beck
+Depression and Anxiety inventory tests respectively. F.F. ¶ 27. When administered by Dr.
+Friedman on March 15, 2016, Claimant scored 29 and 22 respectively on the same test. F.F. ¶ 42.
+Dr. Friedman stated that people who are consciously exaggerating will have Beck Depression and
+Anxiety test scores that are “way off the charts,” in the high 50s and even 60s. F.F. ¶ 46. Dr.
+Friedman attributed the difference in test scores to the medication management Claimant received
+from Dr. Fahimian between the time he saw Claimant and Dr. Meisner saw him in November of
+2015. Id. The problem here is that Claimant told Dr. Friedman that he discontinued his treatment
+with Dr. Fahimian because, “[t]o be honest, I haven‟t noticed any difference with the medication.”
+F.F. ¶ 47. In addition, during his interview with Dr. Friedman, Claimant complained of acute
+episodes of anxiety and depression marked by mood swings and crying episodes, which caused Dr.
+Friedman to conclude that Claimant‟s “posttraumatic symptoms persist, essentially unchanged.”
+F.F. ¶ 38. The medication prescribed by Dr. Fahimian did not lessen Claimant‟s psychological
+symptoms, and Claimant‟s PTSD symptoms had not subsided at the time of his evaluation with Dr.
+Friedman. Therefore, it appears that Claimant adjusted his symptoms in a manner that would
+benefit his claim.
+Further, Dr. Meisner found that Claimant made inconsistent statements during his interview
+related to his interest in socializing and the alleged disregard for his appearance. F.F. ¶ 34. Claimant
+discussed his lack of socializing, but then also described running into a friend at dinner. He similarly
+said he had a lack of concern about his appearance, but was impeccably dressed for Dr. Meisner‟s
+examination. Dr. Meisner also noted Claimant‟s overly dramatic behavior by frequently looking
+around the interview room, behind him, and even out of the fifth floor window, which Dr. Meisner
+found suspicious and not credible. F.F. ¶ 19.
+I find that Claimant‟s inconsistent statements and dramatic behavior coupled with the results
+from the psychological tests show that Claimant overstated and exaggerated his claims. The
+exaggeration and inconsistencies undermined the truthfulness of Claimant‟s reporting of the
+symptoms and traumatic exposures that make up his claim. Overall, I found Claimant‟s testimony
+to have minimal credibility, and except where there is corroborating information, I find his
+testimony entitled to little weight.
+2.
+
+Credibility of Dr. Friedman
+
+Dr. Friedman is a well-qualified expert who is board certified in psychiatry and addiction
+medicine, and has a Ph.D. in psychoanalysis. F.F. ¶ 36. I found Dr. Friedman to be a credible
+expert witness and the report he produced to be thorough and detailed. However, despite his
+qualifications and the thoroughness of his report, certain issues detract from his credibility. Dr.
+Friedman downplayed the importance of objective test results which clearly showed malingering,
+and over-relied on Claimants subjective self-reporting, which I found concerning and not adequately
+explained. Dr. Friedman also made an inconsistent statement that appears to be at variance with his
+report when he explained attributing the difference in Claimant‟s Beck Anxiety and Depression
+scores to the effects of medication even though Claimant reported to Dr. Friedman that, “[t]o be
+honest, I haven‟t noticed any difference with the medication” and discontinued his treatment with
+Dr. Fahimian.
+
+- 16 -
+
+For example, Dr. Friedman acknowledged that Claimant‟s results on the MMPI-2 and
+TOMM showed intentionally erroneous responses to dramatize impairment and potentially
+exaggeration of symptoms. Dr. Dobbs, the psychologist who administered and interpreted the tests,
+reported that Claimant‟s performance on TOMM suggested conscious and intentional erroneous
+responses to exaggerate cognitive difficulties. F.F. ¶ 40, 41, 44. However, Dr. Friedman minimized
+those findings in a conclusive manner and opined that the exaggeration is best understood as a “cry
+for help,” before concluding that the nature of Claimant‟s exposures and his life history outweighed
+concerns and doubts created by testing. F.F. ¶ 45, 47. Dr. Friedman took at face value Claimant‟s
+account of his traumatic exposure, but never provided a reasonable explanation for why the
+subjective information, which was contrary to the objective testing results, was entitled to more
+weight in his opinion. The exaggerated test results were disconcerting and Dr. Friedman‟s dismissal
+of the tests with validity scales in a conclusory manner detracted significantly from the weight of his
+opinions.
+Dr. Friedman attributed the significant difference in scores between Claimant‟s Beck Anxiety
+and Depression inventories to the medication prescribed by Dr. Fahimian. F.F. ¶ 46. However, in
+his own report, Dr. Friedman wrote that Claimant‟s PTSD symptoms, which include depression and
+anxiety, persisted essentially unchanged and acknowledged that Claimant did not notice any
+difference as a result of taking medication. F.F. ¶ 38, 46. Despite knowing this information, Dr.
+Friedman surprisingly testified that the medication prescribed by Dr. Fahimian must have lessened
+Claimant‟s anxiety and depression symptoms and thus explained the significant drop in the Beck
+Anxiety and Depression test scores. Id. Dr. Friedman used Claimant‟s “moderate” scores on the
+Beck Anxiety and Depression inventories to support his diagnoses of PTSD and as counter evidence
+to Claimant‟s highly questionable test results from MMPI-2 and TOMM. F.F. ¶ 44, 46. This
+explanation by Dr. Friedman lacked common sense and again detracted from the weight of his
+opinions.
+Overall, I found Dr. Friedman‟s opinions and conclusions to not be well-supported or
+explained by other compelling evidence in the record and therefore discounted his opinions. The
+credibility of Dr. Friedman is affected by his over reliance on Claimant‟s subjective reports and
+downplaying of objective medical testing, as well as his unexplained reliance on the effects of
+medication on Claimant‟s test scores even though Claimant said he stopped taking the medication
+because they were not effective. He also makes a statement that is in variance with his own report.
+While his reports were thorough, they lacked critical examination of Claimant‟s subjective
+complaints in light of the objective testing. His opinion was less compelling and entitled to less
+weight than the opinion of Dr. Meisner.
+3.
+
+Credibility of Dr. Meisner
+
+Assessing the credibility of Dr. Meisner presented some difficulties. The record does not
+contain Dr. Meisner‟s resume and he was not deposed. The only information in the record about
+Dr. Meisner is his report, which includes a cover letter noting he is a licensed clinical psychologist in
+Los Angeles. F.F. ¶ 18. Claimant argues that Dr. Meisner‟s opinion should not be relied upon
+because the record does not show he has a medical degree and the record lacks evidence of his
+licensure, malpractice status, and his clinical experience. ALJX 3 at 5. Claimant contends the
+information is not sufficient to confer expert status on Dr. Meisner and his opinions should be
+
+- 17 -
+
+discounted, but did not cite any authority for his argument. ALJX 3 at 6. In response, Employer
+asked the court to take a judicial notice that Dr. Meisner is a psychologist licensed by the State of
+California and provided a link to an Internet database. ALJX 4 at 3.
+I decline to take judicial notice of Dr. Meisner‟s licensure, but disagree with
+Claimant‟s argument that Dr. Meisner cannot qualify as an expert. Claimant‟s failure to provide Dr.
+Meisner‟s credentials affects the weight to be given his opinions, but not its admissibility. An ALJ is
+not bound by formal rules of evidence or the evidentiary requirements of Daubert v. Merrell Dow
+Pharmaceuticals Inc., 509 U.S. 579 (1993). 33 U.S.C. § 923; see Casey v. Georgetown Univ. Medical Ctr., 31
+BRBS 147, 151-53 (1997). However, “litigants must still satisfy the ALJ that their experts are
+qualified by knowledge, training, or experience to, and have in fact applied recognized and accepted
+medical principles in a reliable way.” Consolidation Coal Co. v. Dir., Office of Workers’ Comp. Programs,
+294 F.3d 885, 893 (7th Cir. 2002). Claimant admitted Dr. Meisner is statutorily considered a medical
+provider, ALJX 3 at 5, and Dr. Meisner‟s report indicates that he is a licensed clinical psychologist.
+F.F. ¶¶ 22, 79. In addition, Dr. Friedman found Dr. Meisner‟s report to be thorough and wellreasoned and mentioned that his conclusions are “not way out.” F.F. ¶ 55. I similarly examined Dr.
+Meisner‟s report and found it thorough, detailed and well-documented. Dr. Meisner‟s report
+included detailed notes about his clinical observations and review of past medical records, as well as
+the results of psychological testing, which yielded results that are different from Dr. Friedman‟s. I
+therefore find Dr. Meisner‟s opinion as an expert is admissible and will consider his opinions. Based
+on the medical report submitted into evidence, I find Dr. Meisner‟s opinions and conclusions to be
+credible and entitled to significant weight. Even though I was unable to compare Dr. Meisner‟s
+professional credentials with those of Dr. Friedman, I found this to not significantly impact the
+weight of his report and opinions.
+B.
+
+Legal Analysis
+1.
+
+Claimant‟s prima facie case and Section 20(a) presumption
+
+Under Section 20(a) of the Act, an ALJ may presume that a claimant‟s injury causally relates
+to employment. 33 U.S.C. § 920(a); Pedroza v. BRB, 624 F.3d 926, 931 (9th Cir. 2010). To invoke
+the Section 20(a) presumption, a claimant must establish: (1) that physical harm or pain occurred
+and (2) that working conditions existed or an accident occurred that could have led to such harm.
+Ramey v. Stevedoring Servs. of Am., 134 F.3d 954, 959 (9th Cir. 1998); Susoeff v. S.F. Stevedoring Co., 19
+BRBS 149, 151 (1986). In presenting a prima facie case, the claimant is not required to introduce
+affirmative evidence that the working conditions in fact caused the harm; rather, claimant must
+merely show that working conditions existed which could have caused the harm. O’Kelley v. Dep’t of
+the Army, 34 BRBS 39, 40 (2000). The claimant only needs to show “some evidence” of each
+element to invoke the Section 20(a) presumption, and need not establish the elements by a
+preponderance of the evidence. Albina Engine & Machine v. Dir., OWCP, 627 F.3d 1293, 1298 (9th
+Cir. 2010) (citations omitted). Where a work-related injury or condition aggravates, accelerates or
+combines with a pre-existing condition, the entire resulting disability is compensable. See, e.g.,
+Strachan Shipping Co. v. Nash, 782 F.2d 513 (5th Cir. 1986) (en banc); Indep. Stevedore Co. v. O’Leary, 357
+F.2d 812 (9th Cir. 1966). A claimant‟s credible complaints of subjective symptoms and pain can be
+sufficient proof of physical injury and a claimant need not establish any particular diagnoses, just
+that something has gone wrong with the human frame. Perry v. Carolina Shipping Co., 20 BRBS 90, 92
+(1987); Golden v. Eller & Co., 8 BRBS 846, 849 (1978), aff’d, 620 F.2d 71 (5th Cir. 1980).
+
+- 18 -
+
+Claimant has established a prima facie case to invoke the Section 20(a) presumption. Claimant
+worked as an interpreter for military personnel in Iraq for seven years. F.F. ¶ 2. He went on
+missions outside the wire alongside the military, and was frequently exposed to artillery fire and
+other hazards. F.F. ¶ ¶ 2, 4, 11. While employed by Employer, Claimant witnessed explosions and
+gun fire at the military base he where he worked, which also contained an Iraqi prison and
+insurgents repeatedly attempted to break out the prisoners. Id. He also reported to Dr. Moghaddam
+that he has short term memory loss, insomnia, depression, and anxiety related to his work in Iraq.
+F.F. ¶ 16. Based on Claimant‟s history of the injury and subjective complaints, Dr. Moghaddam
+diagnosed Claimant with PTSD. Id. There is little doubt that the warlike conditions witnessed by
+Claimant could have caused the alleged psychological injury. Based on the aforementioned, I find
+the evidence sufficient to invoke the Section 20(a) presumption.
+2.
+
+Employer‟s rebuttal of the presumption
+
+If a claimant successfully invokes the Section 20(a) presumption, an employer must present
+“substantial evidence” to rebut claimant‟s prima facie case. Haw. Stevedores, Inc. v. Ogawa, 608 F.3d 642,
+651 (9th Cir. 2010); see generally Del Vecchio v. Bowers, 296 U.S. 280, 286 (1935). Substantial evidence
+must go beyond mere allegations and unreliable speculation and must be more than the submission
+of simply any admissible evidence. Rainey v. Dir., OWCP, 517 F.3d 632, 637 (2d Cir. 2008). It must
+be “„specific and comprehensive enough to sever the potential connection between the disability and
+the work environment.‟” Ogawa, 608 F.3d at 651 (quoting Ramey, 134 F.3d at 959). However, the
+evidence need not necessarily support a ruling in an employer‟s favor; instead, it need only be of the
+type that “a reasonable mind might accept as adequate to support a conclusion.” Am. Grain
+Trimmers, Inc. v. OWCP, 181 F.3d 810, 818 (7th Cir. 1999) (quoting Del Vecchio, 296 U.S. at 286);
+accord Rainey, 517 F.3d at 637. An employer may use negative evidence to rebut the presumption if
+the evidence is sufficiently specific. Holmes v. Universal Maritime Serv. Corp., 29 BRBS 18, 21 (1995);
+Swinton v. J. Frank Kelly, Inc., 554 F.2d 1075, 1083 (D.C. Cir. 1976), cert. denied, 429 U.S. 820 (1976).
+Additionally, negative evidence which supplements “positive” medical evidence and a credibility
+determination adverse to claimant is also sufficient to rebut the presumption. Holmes, 29 BRBS at
+22; see also Mock v. Newport News Shipbuilding & Dry Dock Co., 14 BRBS 275, 279-80 (1981) (negative
+evidence may be used to establish alleged accident did not occur).
+The determination of whether the employer has produced sufficient evidence to rebut the
+presumption is a legal one, and does not involve the weighing of the evidence itself or the credibility
+of witnesses. Ogawa, 608 F.3d at 651. Once the presumption applies, employer must also offer
+substantial evidence that a claimant‟s condition was neither caused by his working conditions nor
+aggravated, accelerated, or rendered symptomatic by such conditions. Id. In addition, “the
+unequivocal testimony of a physician that no relationship exists between an injury and a Claimant‟s
+employment is sufficient to rebut the presumption.” Holmes, 29 BRBS at 20 (citing Kier v. Bethlehem
+Steel Corp., 16 BRBS 128, 130 (1984)); accord O’Kelley, 34 BRBS at 42. The physician need not offer
+an alternate theory of causation for the injury in order to rebut the Section 20(a) presumption.
+O’Kelley, 34 BRBS at 41; Kier, 16 BRBS at 129.
+Here, Dr. Meisner‟s medical report and opinion is sufficient to rebut the presumption of
+coverage under the Act. Dr. Meisner offered a compelling opinion, based upon a reasoned and
+considered review of the evidence that Claimant grossly exaggerated his symptoms, impairment and
+
+- 19 -
+
+the severity of his traumatic exposure in Iraq. Based upon the results of the psychological tests and
+clinical observations, Dr. Meisner opined that neither Claimant‟s reporting of symptoms nor his
+voluntary behavior could be considered evidence of a mental disorder. Id. Dr. Meisner said that if
+Claimant had a mental disorder, it would be highly unlikely that a work related condition caused it.
+Instead, it would be more likely that his adaptation to significant unwanted life changes upon his
+return from Iraq caused his condition. F.F. ¶ 33. Dr. Meisner thought because the job that
+Claimant enjoyed in Iraq for six years was no longer available to him, the pride he had as a
+successful business owner and esteem from working with the military, and the pursuit of this claim
+which leaves him unable to work and puts him in an unfavorable light with his family and
+community, were all more likely to account for any delayed onset mental disorder symptoms or
+PTSD. Id. Further, Dr. Meisner opined that if a psychological injury was found, then it was not due
+to Claimant‟s earlier employment because Claimant did not go on missions outside the wire and
+denied witnessing any significant injuries in his last year of employment with employer. F.F. ¶ 34.
+Dr. Meisner concluded that “to the extent that there was traumatic exposure, it occurred in the
+earliest years of his employment.” Id. I find the conclusion of Dr. Meisner that Claimant does not
+suffer from a mental disorder to be substantial evidence sufficient to rebut the Section 20(a)
+presumption.
+3.
+
+Evaluation of the evidence
+
+If an employer is able to introduce substantial evidence to rebut the 20(a) presumption, the
+presumption drops from the case and the ALJ must weigh all of the evidence and resolve the issue
+of causation based on the record as a whole. Holmes, 29 BRBS at 20; Hughes v. Bethlehem Steel Corp.,
+17 BRBS 153, 155 (1985). In such case, the burden shifts to the claimant, who must prove by a
+preponderance of the evidence that the alleged injury is work-related. Greenwich Collieries, 512 U.S. at
+281; Albina, 627 F.3d at 1298. If the judge finds the evidence evenly balanced, the claim fails.
+Greenwich Collieries, 512 U.S. at 281. In weighing the evidence, the ALJ is responsible for determining
+credibility and resolving conflicts in medical testimony. Magallanes, 881 F.2d at 750 (citing Allen v.
+Heckler, 749 F.2d 577, 579 (9th Cir. 1984)).
+Since the Section 20(a) presumption has been rebutted, I must weigh all of the evidence and
+resolve the causation issue based on the record as a whole. There are conflicting medical opinions
+about whether Claimant sustained a compensable psychological injury arising from the course of his
+employment with Employer. Claimant argues that he sustained a psychological injury as a result of
+the cumulative effect of what he witnessed and experienced during the course of his employment
+with Employer in Iraq and that there was no single causative event that caused the injury. F.F. ¶ 49.
+Employer counters that post-employment factors are more likely to have caused Claimant‟s alleged
+mental disorder. F.F. ¶ 33. In addition, Employer argues that to the extent that there was traumatic
+exposure, it occurred in the earliest years of his employment, when Claimant was not employed by
+Employer. F.F. ¶ 34. Lastly, Employer argues that Claimant does not have a mental disorder based
+on the results of the psychological tests and clinical observations which showed Claimant was
+malingering. F.F. ¶ 30.
+There are three opinions offered about PTSD in this case, but only the opinions of Dr.
+Meisner and Dr. Friedman have value related to the analysis the mental health diagnosis. The record
+also contains Dr. Moghaddam‟s report, who was Claimant‟s treating doctor, in which he diagnosed
+Claimant with PTSD. F.F. ¶ 16. Dr. Moghaddam submitted a brief four page report that
+
+- 20 -
+
+summarized his findings based on Claimant‟s office visit on November 25, 2014. F.F. ¶ 16. Dr.
+Moghaddam did not conduct psychological tests or note any meaningful clinical observations in his
+report that would support or refute a mental disorder or PTSD, but simply noted his diagnostic
+impressions based on Claimant‟s history of the injury and subjective complaints. Employer asked
+the court to take official notice of the fact that Dr. Moghaddam is not a psychologist or psychiatrist,
+and therefore not qualified to render a PTSD diagnosis. ALJX 2 at 13. I decline to take official
+notice of Dr. Moghaddam‟s qualifications or his profession as it is not outcome determinative. I
+find that there is no evidence to indicate that Dr. Moghaddam has the expertise to render a mental
+health diagnosis or PTSD based upon clinical observations, and I find his opinion about PTSD to
+have no weight. The two opinions that matter for the purposes of evaluating whether a
+compensable psychological injury exists are those of Dr. Friedman and Dr. Meisner.
+The issue of the existence of Claimant‟s psychological injury centers on the conflicting
+opinions of Dr. Friedman and Dr. Meisner, who reached diametrically opposed conclusions based
+on the results of psychological testing, clinical observations, and Claimant‟s self-reporting of
+symptoms, traumatic exposures, and past history. Claimant relies on the medical opinion of Dr.
+Friedman, who diagnosed Claimant with chronic PTSD based on Claimant‟s history, the results of
+psychological testing and his manner of presentation. F.F. ¶ 45. In addition, given the concerns of
+Claimant‟s exaggeration of symptoms, Dr. Friedman also relied on medical records, past history, and
+the nature of Claimant‟s traumatic exposure. F.F. ¶ 47. In doing so, Dr. Friedman heavily relied on
+Claimant‟s self-reporting of symptoms and his accounts of traumatic experiences and appeared to
+significantly downplay the results of the objective psychological tests with validity scales. While Dr.
+Friedman is a well-qualified medical expert, I find his opinions and conclusions regarding Claimant‟s
+psychological injury to be less persuasive and less credible than those of Dr. Meisner.
+Dr. Friedman‟s reliance on the results of the psychological testing in reaching his PTSD
+diagnoses is questionable and lacks validity. After Claimant‟s questionable performance on the
+TOMM, Dr. Friedman noted that Claimant “was either wholly inattentive or was intentionally
+providing incorrect answers in an attempt to exaggerate claims of cognitive impairment.” F.F. ¶ 40.
+Claimant‟s performance on the TOMM, given the nature of the test, is highly suggestive of
+malingering. Dr. Friedman concluded that Claimant consciously and intentionally gave erroneous
+responses in attempt to dramatize his claimed cognitive difficulties. More importantly, Dr.
+Friedman opined that Claimant‟s performance on TOMM calls into question the validity of all the
+tests, which may represent exaggeration of genuine distress. Id. Overstatement and inconsistent
+reporting was also suggested by Claimant‟s results on the MMPI-2 test. F.F. ¶ 41. Dr. Friedman
+reported that Claimant‟s score “suggested a pattern of overstatement due to numerous rare
+complaints” and noted that Claimant‟s “performance on MMPI-2 was of highly questionable
+validity.” Id. On the Symptom Checklist-90-R test, which Claimant self-reported his symptoms to
+show greater than moderate distress; Dr. Friedman interpreted the results by stating that
+“[s]ignificant overstatement was evident on the SCL-90-R.” F.F. ¶ 43. However, Dr. Friedman
+determined that Claimant had valid results indicative of a possible mental disorder based on the
+Beck Depression and Anxiety Inventory tests, the Epworth Sleepiness Scale test, the Pain Patient
+Profile (“P3”) test, and the Rotter Incomplete Sentences Blank test. F.F. ¶¶ 44, 45.
+Even though Dr. Friedman obtained a mixed bag of test results, some indicating
+exaggeration of symptoms while others generating results within normal ranges, Dr. Friedman
+nevertheless diagnosed Claimant with chronic PTSD, stating simply that the exaggeration of
+symptoms was a “cry for help.” F.F. ¶ 45. He noted that sometimes patients exaggerate symptoms
+- 21 -
+
+in an attempt to impress upon the doctor the severity of their complaints. Id. I find Dr. Friedman‟s
+explanation troubling and without sufficient support in the record. Dr. Friedman‟s cursory
+justification that the exaggeration of symptoms is a “cry for help,” is not persuasive, as he does not
+sufficiently explain how he reached this conclusion. The “cry for help” justification is used
+selectively to explain the pattern of exaggeration which otherwise should be a red flag that the
+results cannot be trusted. Dr. Friedman did not offer a satisfactory explanation for why the results
+should be discounted so significantly. Moreover, Dr. Friedman did not explain why he gave the
+tests at all if the results appear to be irrelevant to his findings. It is possible that Claimant was
+intentionally giving erroneous responses or exaggerating symptoms even on the tests that showed
+results within valid ranges, such as the P3 test, Beck Depression and Anxiety Inventories, and the
+Rotter Incomplete Sentence test. I find Dr. Friedman‟s explanation for Claimant‟s exaggerated
+symptom reporting to be unpersuasive and detract from Dr. Friedman‟s opinions and conclusions
+that rely upon the results of the psychological tests.
+Dr. Friedman also heavily relied on Claimant‟s subjective reporting of his traumatic
+exposure. Dr. Friedman opined that when there is evidence of exaggeration in psychological testing,
+one must look at other factors, such as Claimant‟s traumatic exposures and his life history. F.F. ¶
+47. Given Claimant‟s exposures to dangerous and warlike conditions such as death and mayhem in
+a war zone, Dr. Friedman opined that Claimant‟s reported history must be given great weight and
+outweighed any concerns and doubts created by the testing , noting that “if the traumatic history
+presented by the applicant is indeed accurate and truthful. It is certainly reasonable that a disabling
+posttraumatic stress disorder has developed.” Id. The problem with his conclusion is that there was
+strong suggestion in the record that Claimant was not truthful. Dr. Friedman‟s preference to rely on
+Claimant‟s subjective reporting of his traumatic exposures over objective psychological tests with
+validity scales is concerning in light of strong evidence of Claimants intentional erroneous responses
+and apparent proclivity to dramatize impairment and overstate symptoms. F.F. ¶ ¶ 46, 47. Since
+Claimant‟s credibility is questionable, so are Dr. Friedman‟s conclusions.
+Dr. Meisner offered an opinion that was completely opposite of the opinion offered by Dr.
+Friedman. After reviewing Claimant‟s history, medical records, and conducting psychological
+testing, Dr. Meisner opined that there is no substantial evidence that Claimant suffers from a work
+related mental disorder. F.F. ¶ 30. I find Dr. Meisner‟s opinions and conclusions to be convincing
+and persuasive, and more aligned with the evidence in the record. Dr. Meisner relied both on the
+results of psychological testing and his clinical observations and that neither should be considered as
+evidence of a mental disorder because the results of medical tests showed that Claimant had “grossly
+exaggerated symptoms, impairment and the severity of traumatic exposure.” F.F. ¶ 30. Dr. Meisner
+added that Claimant‟s vague responses and inconsistencies also suggested that he had concealed
+relevant history. Id.
+Dr. Meisner had administered several psychological tests, such as the MMPI-2-RF, that were
+also administered by Dr. Friedman, and there were some tests that generated similar results. For
+example, based on the results of the MMPI-2-RF test, Dr. Meisner opined that Claimant over
+reported his psychiatric symptoms and cognitive impairment, which was similar to the result
+obtained by Dr. Friedman on the MMPI-2 test. F.F. ¶ 25, 41. On the Word Memory Test, which
+appears to be similar in nature to the TOMM, Claimant showed unequivocal evidence of gross
+exaggeration of impaired memory. F.F. ¶ 28. Both doctors were of the opinion that Claimant
+intentionally gave erroneous answer. Id.; F.F. ¶ 40. Dr. Meisner‟s clinical observations also
+suggested a lack of psychological injury and a propensity to exaggerate symptoms. F.F. ¶ 31.
+- 22 -
+
+According to Dr. Meisner, Claimant showed suspiciously dramatic behavior during the interview,
+including looking around the room, frequent displays of checking behind his shoulder and even out
+the fifth floor window, which Dr. Meisner interpreted as attempts to overstate any psychological
+condition. F.F. ¶ 19.
+However, despite finding no substantial evidence of a mental disorder, Dr. Meisner did not
+entirely rule out a mental disorder. F.F. ¶ 31. Dr. Meisner explained that before concluding that
+someone who is exaggerating their symptoms also suffers from a mental disorder, it is necessary to
+demonstrate that the purported evidence of mental disorder is free from exaggerated reporting or
+exaggerated behavior under the patient‟s voluntary control. Id. Dr. Meisner said that based on
+psychological testing and his observations of Claimant‟s behavior, he did not find any compelling
+indications of mental disorder. Id. I found Dr. Meisner‟s opinions to be thoughtful, detailed and
+well-reasoned, and also better explained in the context of the information available in the record. I
+found his opinion to be compelling and entitled to much more weight than the opinion of Dr.
+Friedman, who relied too much on subjective information without offering a convincing or even
+plausible explanation about the discrepancies with the objective testing information. I was
+persuaded by the opinion of Dr. Meisner over Dr. Friedman.
+After considering the totality of the evidence, including the medical reports of the medical
+experts and the credibility of Claimant, I am not persuaded that Claimant suffers from a workrelated psychological injury. Therefore, I find that Claimant has failed to prove by a preponderance
+of the evidence that he suffers from a compensable psychological injury under the Act.
+Because I have found Claimant is not entitled to benefits under the Act for PTSD, I do not
+reach the additional issues related to AWW, medical benefits and fees and costs.
+ORDER
+denied.
+
+Based upon the foregoing, Claimant‟s request for benefits under the Act related to PTSD is
+SO ORDERED.
+Digitally signed by Richard M.Clark
+DN: CN=Richard M.Clark,
+OU=Administrative Law Judge, O=US
+DOL Office of Administrative Law
+Judges, L=San Francisco, S=CA, C=US
+Location: San Francisco CA
+
+San Francisco, California
+
+RICHARD M. CLARK
+Administrative Law Judge
+
+- 23 -
+
+

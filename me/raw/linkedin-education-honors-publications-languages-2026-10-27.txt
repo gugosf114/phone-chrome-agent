@@ -1,0 +1,115 @@
+(25) George Abrahamyants | LinkedIn
+https://www.linkedin.com/in/george-abrahamyan/details/education/
+
+Education
+
+University of California, College of the Law, San Francisco (formerly UC Hastings)
+
+Juris Doctor, UC Hastings Tax Concentration Program
+
+May 2015 – May 2018
+
+Activities and societies: Hastings Business Law Journal, Production Editor – Volume 13, Number 1
+
+Skills: Legal Writing, Analytical Skills, +2 skills
+
+University of California, Berkeley
+
+Bachelor of Arts in Political Science, Political Science, Minor in Southeast Asian Studies
+
+2013 – 2015
+
+Grade: 3.85
+
+Graduated with Distinction in General Scholarship (cum laude) GPA 3.85
+
+Skills: Analytical Skills
+
+City College of San Francisco
+
+IGETC - Intersegmental General Education Transfer Curriculum, Political Science and Government
+
+Nov 2012 – Jan 2013
+
+Grade: 3.92
+
+Activities and societies: Alpha Gamma Sigma Honor Society 
+
+Profile language
+
+English
+
+
+(25) George Abrahamyants | LinkedIn
+https://www.linkedin.com/in/george-abrahamyan/details/honors/
+
+Honors & awards
+
+Outstanding Contribution to UC Hastings Award
+
+Issued by UC Hastings · Jan 2018
+
+CALI Award
+
+Issued by The Center for Computer-Assisted Legal Instruction - Spring 2017  · Jul 2017
+
+CALI Award in Consumer Law and Bankruptcy, Spring 2017.
+
+Dean's Honors List
+
+Issued by UC Berkeley -  College of Letters & Science · Nov 2014
+
+Associated with University of California, Berkeley
+
+The Dean's Honors List recognizes outstanding academic achievement each fall and spring semester. Requirements include 13 or more letter-graded units, a semester GPA in the top 4% of L&S undergraduates.
+
+
+(25) George Abrahamyants | LinkedIn
+https://www.linkedin.com/in/george-abrahamyan/details/publications/
+
+Publications
+
+Invisible Work: Measuring the Human Cost of AI Alignment
+
+Independent research · Jun 5, 2026
+
+Show publication
+
+Measurement framework for multi-turn LLM drift and the human correction burden it creates. Introduces the Operator Load Index metric, validated on 512 real conversations (37,536 messages) across Claude and ChatGPT via the Drift Auditor diagnostic tool (live public demo). Submitted to Anthropic's research team.
+… more
+
+12 Rules for AI: An Operator's Field Manual
+
+Self-published (LinkedIn / GitHub) · Dec 1, 2025
+
+Show publication
+
+29-page field manual on LLM system failures — drift, sycophancy, session management, and governance protocols — grounded in 17 academic citations. Synthesizes months of documented operator sessions into actionable rules for high-stakes AI use.
+… more
+
+AEGIS: A 10-Layer Prompt Architecture — A Forensic Compiler for Eliminating LLM Drift
+
+Self-published (GitHub) · Dec 1, 2025
+
+Show publication
+
+ A 10-layer prompt architecture that constrains LLMs into auditable forensic analysts: truth hierarchies, conflict triage, adversarial deception detection, and format-locked outputs. Includes a tested case study and a complete copy-paste bootloader.
+… more
+
+
+(25) George Abrahamyants | LinkedIn
+https://www.linkedin.com/in/george-abrahamyan/details/languages/
+
+Languages
+
+Armenian
+
+Native or bilingual proficiency
+
+English
+
+Native or bilingual proficiency
+
+Russian
+
+Native or bilingual proficiency

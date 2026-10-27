@@ -1,0 +1,36 @@
+(25) George Abrahamyants | LinkedIn
+https://www.linkedin.com/in/george-abrahamyan/details/featured/
+
+Featured
+
+Media
+
+Order Denying Compensation and Benefits — Drafted for Hon. Richard M. Clark
+
+Authored a Defense Base Act benefits decision under Judge's direct supervision; the ruling was affirmed by the Benefits Review Board on appeal (Baba v. SOS Int'l, LLC, BRB No. 17-0440, Jan. 30, 2018).
+
+Delete
+
+Media
+
+My Baking Creations — real traffic, zero ad  spend
+
+Live bakery storefront — my first coding project (917 commits). ~2,000 monthly visitors on zero ad spend, pure SEO. Client work includes Fortune 500 logo cookies and Ice Cube's 55th birthday cake. Site: mybakingcreations.com
+
+Delete
+
+Media
+
+Bakers Agent — agentic marketing platform
+
+Claude-generated content with human approval gates, posting across 5 platforms; SEO agent drafts website changes as pull requests for owner approval. Running a live Bay Area bakery on GCP. Repo: https://www.google.com/url?q=http://github.com/gugosf114/bakers-agent&source=gmail&ust=1783059765165000&sa=E
+
+Delete
+
+Media
+
+WiM (Android) + Lavrentiy (Desktop) — patent-pending voice reconstruction
+
+Two implementations of one system: reconstructing intended meaning from disfluent, non-native, and overloaded speech. 35-claim U.S. provisional, sole inventor. Repos: https://www.google.com/url?q=http://github.com/gugosf114/wim-android&source=gmail&ust=1783059765165000&sa=E · https://www.google.com/url?q=http://github.com/gugosf114/lavrentiy&source=gmail&ust=1783059765165000&sa=E
+
+Delete

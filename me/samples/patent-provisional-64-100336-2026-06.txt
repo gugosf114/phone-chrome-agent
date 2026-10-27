@@ -1,0 +1,702 @@
+                    PROVISIONAL PATENT APPLICATION
+       ASSISTIVE OVERLAY SYSTEM FOR REAL-TIME
+ BIDIRECTIONAL CLARIFICATION AND RECONSTRUCTION OF
+ SPEECH-RECOGNIZED INPUT WITH APPLICATION-CONTEXT
+      INVARIANCE, MULTILINGUAL INTERLANGUAGE
+  NORMALIZATION, DYNAMIC TARGET STABILIZATION, AND
+              WRITE-INTEGRITY RECOVERY
+                                 Inventor: George Abrahamyants
+                               Daly City, California, United States
+                                    Entity Status: Micro Entity
+
+CROSS-REFERENCE TO RELATED APPLICATIONS
+None.
+
+STATEMENT REGARDING FEDERALLY SPONSORED RESEARCH
+None.
+
+REFERENCE TO SEQUENCE LISTING
+Not applicable.
+
+FIELD OF THE INVENTION
+The present disclosure relates to voice-input architectures, assistive communication interfaces,
+speech-recognition pipelines, machine-learning language interfaces, and system-level control
+surfaces for mobile and desktop operating systems. More specifically, the disclosure relates to
+systems that maintain a persistent assistive control surface, including a floating overlay, bubble,
+tray control, native desktop window, or other operating-system-level interface, for capturing
+stream-of-consciousness verbal dictation, reconstructing intended meaning from disfluent or
+structurally non-standard speech, clarifying uncertain words without disrupting a host
+application, and injecting or otherwise delivering resulting text into an active target application
+through an operating-system interaction layer.
+
+BACKGROUND OF THE INVENTION
+1. The Voice-to-Text Commodity Problem
+Modern automated speech-recognition (ASR) layers can produce accurate phoneme-to-token
+transcriptions for fluent speech. However, ordinary dictation systems remain oriented around
+literal transcription. When a user speaks in fragments, self-corrections, code-switches, partial
+words, or non-linear stream-of-consciousness structures, these systems often produce a transcript
+that is technically close to the acoustic signal but professionally unusable as a message, email,
+command, or document insertion.
+
+2. The Clinical Disfluency and Cognitive-Load Gap
+Existing voice-input interfaces commonly treat speech disfluencies, including part-word
+repetitions, prolongations, severe silent speech blocks, filler words, false starts, and
+conversational self-corrections, as noise or transcription errors. For a speaker managing a stutter
+or other speech block, ordinary single-pass ASR can preserve the least useful part of the
+utterance: the surface-level breakdown rather than the intended message. A speaker who stutters
+may also maintain alternate lexical candidates, sentence-repair plans, and semantic intent buffers
+while speaking. Requiring that speaker to visually reacquire moving application controls after
+dictation imposes additional cognitive load at the exact moment the speaker is preserving a
+fragile semantic plan.
+
+3. The Application-Context Invariance Problem
+Standard mobile and desktop voice assistants, input-method editors, and dictation surfaces can
+disrupt the host application environment during data entry. They may alter window focus, modify
+layout insets, invoke a keyboard, change cursor or selection state, force a full-viewport refresh,
+or require a separate host application activity. In cross-application communication scenarios,
+such disruption forces the user to reorient within the third-party interface, increasing dual-task
+cognitive load and reducing practical usefulness.
+
+4. The Multilingual and Interlanguage Reconstruction Problem
+Many users communicate across multiple languages or speak a target language through the
+structure of a first or heritage language. A transcript may contain recognizable target-language
+words while carrying non-native grammar-transfer patterns, such as omitted articles, simplified
+tense, missing auxiliaries, literal idiom translation, or transferred word order. Such patterns are
+not necessarily acoustic accents. They can be detected from the text after transcription. Ordinary
+grammar checkers and dictation systems generally do not combine speech-recognition
+uncertainty, user-specific vocabulary, cross-language transfer profiles, and real-time application-
+context preservation in one operating-layer communication system.
+
+5. Assistive Target Stabilization Problem
+Even after text is reconstructed, the user must often locate and press a native send, microphone,
+paste, or commit control. Those controls move across applications, shift when keyboards appear,
+and vary by design system. For users with stuttering, motor impairments, executive-function
+constraints, high stress, or multitasking load, the post-dictation search for a target control is itself
+a failure point. A useful assistive system should preserve the user’s motor target expectations
+while retaining final user authorization for any transmission event.
+
+6. Adjacent Technology Landscape
+The following adjacent technologies are technically relevant background and are identified to
+frame the problem space, not to state a legal conclusion about novelty or validity:
+System-level voice assistants such as Siri and Google Assistant can receive speech commands
+but generally operate through assistant-specific surfaces, app intents, or host integration models
+and do not provide overlay-resident word-level clarification that preserves a third-party text field
+state throughout clarification.
+Commercial AI dictation tools such as Wispr Flow demonstrate cross-application AI dictation
+and floating-button activation in some environments. Such tools are relevant to the general
+category of voice-to-text overlays, but the present disclosure focuses on a combination of
+bidirectional clarification, context-invariance verification, disfluency-specific reconstruction,
+interlanguage-transfer normalization, user-gated target stabilization, and write-integrity recovery.
+Keyboard-bound dictation tools such as Gboard voice typing and Apple Dictation provide useful
+speech input but are tied to input-method surfaces, keyboard focus, or keyboard layout behavior
+and do not provide the disclosed persistent assistive overlay clarification architecture.
+Technical disfluency-recognition and ASR research addresses detecting or categorizing disfluent
+audio. The present disclosure uses disfluency information as part of an application-control
+architecture that includes overlay-resident clarification, text-field manipulation, target
+stabilization, and fallback recovery.
+Desktop dictation utilities can paste text into an active application, but typically do not combine
+clinical stutter-aware reconstruction, per-user trigger modeling, multilingual interlanguage
+normalization, visual pipeline-state feedback, and mobile-style target stabilization in a unified
+architecture.
+
+BRIEF SUMMARY OF THE INVENTION
+The disclosed system provides a cross-application assistive speech-manipulation architecture
+governed by a persistent assistive control surface. In a mobile embodiment, the control surface is
+a system-level floating overlay window. In a desktop embodiment, the control surface may be a
+native desktop window, dashboard, system tray control, hotkey-controlled interface, or floating
+widget paired with operating-system automation. The control surface captures voice input, routes
+the input through a layered reconstruction pipeline, presents clarification choices when
+uncertainty is detected, and causes the resulting text to be placed into an active host application
+while minimizing disturbance to the host application context.
+The system shifts the input paradigm from verbatim acoustic translation to intent-driven
+semantic reconstruction. A raw or buffered audio stream is processed through one or more ASR
+engines and language-model reconstruction layers. The pipeline may incorporate acoustic
+confidence, multi-pass decoding disagreement, per-user vocabulary, prior accepted and rejected
+reconstructions, clinical disfluency indicators, clock and recipient context, multilingual routing,
+and textual interlanguage transfer markers.
+During clarification, the system preserves application-context invariance by avoiding host-
+application focus changes, cursor movement, scroll movement, input-method-editor state
+changes, and selection manipulation. The system may render visual indicators in non-touchable
+overlays rather than using host-application selection changes. Authorized text insertion,
+replacement, paste, send, or other user-approved operations are treated as controlled output
+operations and are separately logged or restored where platform support permits.
+The system further provides write-integrity recovery. Where an accessibility, UI automation,
+text-write, paste, or simulated-input pathway fails, the controller preserves the reconstructed
+payload through a clipboard-marshalling or recovery interface instead of dropping the text. The
+recovery path is surfaced to the user as a non-destructive fallback.
+The system also provides user-gated target stabilization. After text insertion, the control surface
+may enter a send-ready state and reposition or align with the host application’s native send
+control. The system does not automatically transmit the message on countdown expiration. A
+send event is gated by a separate, intentional user contact or command during the send-ready
+state. If the interval expires without user action, the control surface disarms and returns to a
+default location without sending.
+
+DETAILED DESCRIPTION OF THE INVENTION
+1. Core System Architecture
+The system comprises an assistive control-surface manager, a speech-capture component, a
+speech-recognition layer abstraction, a language-model reconstruction service, a clarifier
+component, an operating-system interaction layer, a profile store, and a controller state machine.
+The assistive control surface is persistent across application context switches. It may be
+implemented as a mobile operating-system overlay window, a desktop native window, a tray-
+accessible dashboard, a floating widget, a keyboard/hotkey controlled panel, or any equivalent
+control surface that can remain available while the user interacts with a separate host application.
+The operating-system interaction layer can include an accessibility framework, UI automation
+interface, simulated input pathway, clipboard-marshalling pathway, active-window paste
+interface, or other platform-supported mechanism for writing, replacing, pasting, or committing
+text in a target application. The controller selects the least disruptive pathway available for the
+current host environment and records fallback conditions for later review.
+
+1.1 Mobile Overlay Embodiment and Platform Guardrails
+In a mobile embodiment, the assistive control surface is instantiated through the operating
+system’s top-level overlay mechanism, such as an Android application overlay window. The
+overlay remains visible across host application context switches without taking ordinary window
+or input focus from the background active interface. The mobile embodiment may include an
+accessibility service that detects focused editable fields, reads non-sensitive contextual text
+where permitted, writes reconstructed text into an active field, and dispatches user-approved
+gestures to visible controls where permitted by platform policy.
+To operate within modern foreground-service and while-in-use microphone constraints, the
+controller initiates microphone capture only after a visible user-actuated overlay interaction,
+hotword activation in an expressly armed state, or other platform-recognized visible or
+foreground condition. The controller binds audio capture to a foreground service lifecycle
+configured with appropriate microphone and overlay permissions. Where the platform denies
+microphone startup, the controller transitions to a non-recording fallback state and displays a
+permission, activation, or troubleshooting guide rather than attempting unauthorized background
+capture.
+
+1.2 Desktop Embodiment
+In a desktop embodiment, the system is executed as a native or hosted desktop utility. A desktop
+process may launch a local voice-reconstruction engine, serve or render a dashboard, expose
+profile and calibration controls, register hotkeys such as press-and-hold recording keys, and paste
+or insert reconstructed text into the active desktop application. The desktop embodiment may use
+a native window wrapper, a local HTTP server, a tray icon, a keyboard-hook listener, a clipboard
+pathway, simulated keyboard input, UI Automation, Accessibility APIs, or equivalent operating-
+system mechanisms.
+A representative desktop implementation includes a voice-reconstruction engine that records
+from a microphone, transcribes with an ASR model such as Whisper, optionally executes multi-
+temperature voting and confidence targeting, reconstructs with a language model, validates
+meaning preservation, and pastes output into the active application. The desktop dashboard may
+display session metrics, words per minute, fluency indicators, difficulty scores, profile controls,
+stutter-support toggles, delayed auditory feedback settings, vocabulary and correction sets,
+trigger words, language settings, accent or interlanguage settings, and data export or deletion
+controls.
+
+1.3 Inline Overlay Configuration Interface
+The persistent overlay can operate as a standalone runtime configuration surface. A double-tap,
+long press, voice command, hotkey, or equivalent user input may expand an inline contextual
+configuration payload within the overlay Z-order. The configuration interface can expose
+opacity, size, color, theme, language, second-language selection, profile selection, voice
+shortcuts, send-ready settings, hotword settings, delayed auditory feedback timing, and assistive
+reconstruction-layer controls without requiring the user to open a separate host application view.
+
+1.4 Fluid State-Specific Deformations and Low-Amplitude Idle Kinetics
+The assistive control surface may display low-amplitude periodic deformation or other status
+animation to indicate readiness. For example, an idle bubble may execute a breathing animation;
+a listening state may display a red or enlarged capture state; a processing state may display an
+amber state; a verified or send-ready state may display a green state; and a clarifying state may
+tilt or split into directional choice regions. These state changes provide low-cognitive-load
+feedback without requiring the user to read a dense status panel.
+2. Bidirectional Clarification Mechanism
+Following speech capture and initial reconstruction, the clarifier component evaluates tokens,
+phrases, and intent modes against uncertainty signals. The uncertainty signals may include
+acoustic-decoder log probabilities, n-best alternatives, multi-pass decoding disagreement counts,
+model-to-model disagreement, phonetic-neighbor matches, user vocabulary matches, historical
+correction patterns, prior accepted reconstructions, and semantic confidence estimates.
+If a token or phrase falls within a predetermined ambiguity threshold, the controller enters a
+CLARIFYING state. The control surface displays a sequential review interface for low-
+confidence tokens or phrases. To prevent cognitive fatigue, the system may restrict the display
+sequence to no more than three flagged tokens or phrase candidates per utterance cycle.
+Throughout the clarification interval, the host application’s window focus, accessibility focus,
+input-method-editor state, scroll position, selection state, and cursor position remain unchanged.
+
+2.1 Intent-Ambiguity Clarification Interface
+Where the reconstruction service cannot confidently select among intent modes, such as
+professional reconstruction, casual reconstruction, direct quotation, command transformation,
+translation, or authentic voice preservation, the controller may enter an INTENT_CLARIFYING
+state. The assistive surface may display a central query and two or more lateral targets
+corresponding to approve, reject, defer, preserve, translate, or alternate reconstruction paths. The
+user may select a path by touch, mouse, keyboard, hotkey, gesture, or voice command.
+
+2.2 Word-Level Alternative Sifting Pipeline
+When the clarifier isolates a token below the confidence threshold, the controller may enter a
+WORD_CLARIFYING state. The control surface displays a small list of replacement candidates
+derived from priority matrices, including sentence-boundary continuation predictions, ASR
+alternatives, phonetic neighbors, per-user vocabulary, recipient-specific phrase history, language-
+family transfer profiles, and prior accepted corrections. A user selection locks in the candidate,
+and the controller constructs a revised text segment in which only the flagged token or phrase
+differs from the prior target segment. The system then causes the host text field to contain the
+revised segment through the available operating-system interaction layer.
+
+3. Transient Coordinate Indicator Overlay
+During clarification, a transient visual indicator such as an underline, bracket, glow, or marker
+may be rendered over the host application’s text field at screen coordinates corresponding to the
+token or phrase under review. In a mobile embodiment, the indicator can be rendered through a
+separate non-touchable, non-focusable overlay window so that external finger or pointer contact
+passes through to the underlying host controls. Where absolute character bounding boxes are
+unavailable, the controller may interpolate the screen coordinates using the text field’s global
+layout bounds, approximate character offsets, measured font metrics, or text segment position
+data.
+4. Text Write and Write-Integrity Recovery Framework
+The system attempts to place finalized text into the target field using the least disruptive
+supported pathway. On Android, for example, the system may construct a revised full-field string
+and invoke a text-write action on an accessibility node. On desktop, the system may use a
+clipboard-plus-paste sequence, UI Automation, simulated keyboard entry, or active-window
+paste command. The system avoids clipboard use where a direct programmatic write is available,
+but preserves a clipboard fallback for failure recovery.
+The write-integrity recovery framework evaluates the result returned by the platform action. If
+the target node, window, or application refuses the write, exposes no editable node, loses focus,
+or returns an execution failure token, the controller preserves the reconstructed text in a local
+recovery buffer or clipboard-marshalling handler. The control surface then displays a fallback
+guide, such as “tap a text field; your text is preserved,” or a paste-ready state. This prevents loss
+of a hard-won utterance where the speaker has navigated a severe speech block or high-stress
+cognitive load.
+
+5. Pre-Roll Audio Buffer and Audio-Capture States
+The system may maintain a circular pre-roll audio buffer to capture speech immediately
+preceding a user’s tap-to-record gesture or hotkey activation. The buffer duration may be fixed or
+configurable, for example 500 milliseconds to 3000 milliseconds. Upon activation, the cached
+pre-roll audio stream is prepended to the main dictation audio payload before dispatch to the
+speech-recognition layer.
+To reduce privacy and platform-permission ambiguity, the system may separate audio states. In
+an IDLE state, no active microphone capture is occurring. In an ARMED_IDLE state, the user
+has enabled a visible armed condition in which low-power keyword spotting or short pre-roll
+capture is allowed under platform rules. In a LISTENING state, the primary dictation audio
+channel is active. In a POST_CAPTURE or PROCESSING state, the microphone may close
+while ASR and reconstruction execute. The controller may display distinct visual states for each
+state.
+
+6. Cross-Model Validation Matrix
+Before injecting a synthesized prose string into the host interface, the system may execute an
+automated validation sequence. A primary reconstruction model generates candidate output from
+the raw or cleaned transcription. A second model, validator, rule engine, or independent decoding
+pass evaluates the candidate output against the original transcript and any confidence metadata to
+isolate omissions, unsupported additions, or meaning drift. Tokens or phrases flagged by the
+validator are appended to the clarifier review loop with elevated uncertainty priority. This
+validation layer is optional and may be disabled in low-latency modes.
+
+7. Layered Reconstruction Architecture and Onboarding Intent Tuning
+The system dynamically adjusts its processing pipeline across plural reconstruction profiles
+anchored by an onboarding and usage-history matrix. During initial configuration, the system
+may compile user intent data including typical work hours, industry, primary use cases, tone
+preferences, native-language status, selected languages, vocabulary, corrections, trigger words,
+privacy preferences, and preferred balance between work-style and life-style prose. At runtime,
+the controller evaluates live system-clock metadata, foreground application identity, recipient
+identity where available, user-selected layer, and prior accepted outputs to choose reconstruction
+parameters.
+
+7.1 Layer 1: Verbatim Sub-Pipeline
+A first layer optimizes for literal phonetic extraction. It may use a native on-device ASR
+subsystem, a cloud ASR endpoint, a local model, or a combination thereof. The system may
+apply deterministic disfluency filtering, filler stripping, repetition collapse, punctuation insertion,
+or confidence annotation while preserving a generally literal transcript.
+
+7.2 Layer 2: Intent-Driven Reconstruction
+A second layer standardizes stream-of-consciousness input by parsing semantic intent variables.
+It restructures broken syntax, inserts punctuation, smooths fragmented phrasing, and produces
+text that better reflects what the user intended to communicate rather than the literal acoustic
+sequence.
+
+7.3 Layer 3: Contextual Personal Adaptation
+A third layer augments reconstruction using a per-user lexicon, domain vocabulary, accepted
+examples, rejected examples, correction mappings, trigger words, recipient style preferences, and
+application-specific history. The profile store may weight entries by recency, acceptance rate,
+manual correction frequency, and active context.
+
+7.4 Layer 4: Clinical Disfluency and Environmental Noise Isolation
+A fourth layer applies disfluency-aware reconstruction parameters. The system may track part-
+word repetitions, prolongations, silent blocks, filler postponements, word substitutions,
+circumlocutions, sentence abandonment, content/function word status, sentence position, word
+length, phonetic onset, user-specific trigger words, and low-confidence ASR segments. These
+signals guide the reconstruction engine to treat parts of the transcript as unreliable surface
+artifacts rather than final meaning.
+Layer 4 may also isolate environmental or cognitive-load discontinuities. For example, where the
+speech stream contains a work message interrupted by passenger-cabin side-talk, the engine may
+cross-reference contextual metadata, isolate the non-contextual tangent, collapse repeated
+restarts, and synthesize a single coherent professional text string.
+
+7.5 Layer 5: Textual Interlanguage Reconstruction
+A fifth layer detects non-native or cross-linguistic grammar-transfer patterns from the transcribed
+text stream independent of acoustic accent classification. The layer identifies textual transfer
+markers including omitted articles, tense or aspect simplification, preposition substitution, direct
+word-order transfer, missing auxiliary verbs, pluralization irregularities, literal idiom translation,
+and calque-like sentence structures. The system maps detected markers against a user-specific or
+language-family-specific transfer profile and reconstructs the intended message into idiomatic
+target-language prose while preserving semantic intent.
+The layer may expose a user-selectable mode that normalizes detected patterns toward idiomatic
+target-language conventions or preserves them as authentic speaker voice. For example, an input
+transcription of “I go to store, I bring you milk” may be reconstructed as “I’m going to the store,
+and I’ll bring you some milk.” Because detection operates on transcribed text rather than the
+acoustic signal, the layer assists non-native, heritage, bilingual, and elderly speakers without
+classifying a speaker by accent, ethnicity, or national origin.
+
+7.6 Multilingual and Code-Switching Reconstruction
+The reconstruction engine supports a plurality of natural-language profiles. A language-routing
+component detects or receives a selected source language for each utterance, including, by way
+of non-limiting example, English, Spanish, German, Mandarin Chinese, Russian, Armenian,
+French, Portuguese, Arabic, Hindi, and additional language profiles. For a given utterance, the
+controller may route the audio payload to a language-specific ASR model, a multilingual ASR
+model, or a language-specific reconstruction prompt.
+The system may preserve the source language and perform same-language cleanup, translate the
+utterance into a selected target language, or handle intra-utterance code-switching in which an
+utterance mixes two or more languages. Selection among these modes may be governed by user
+profile, application identity, recipient identity, explicit language selection, automatic language
+identification, prior accepted reconstructions, and runtime context.
+
+8. Advanced Disfluency Metrics, Quiet Capture, DAF, and Voice Configuration
+8.1 Rate-Gap Disfluency Tracking Engine
+The system may measure the immediate syllable-per-minute or word-per-minute generation
+velocity of an active vocal segment and compute a variance ratio against a rolling personal
+median. Where the immediate generation velocity falls below a target ratio, the system flags an
+active speech-block event. The flag may expand token search radiuses, increase reliance on
+semantic context, trigger silent-block bridging, or adjust downstream reconstruction prompts.
+
+8.2 Acoustic Silent-Block Bridging
+Upon detection of a prolonged acoustic gap occurring after a valid partial phrase has already
+been captured, the system may suspend a timeout, route the partial phrase to a reconstruction
+engine, and generate sentence-boundary completion candidates. The candidates may appear on
+the control surface around a central “use” target. A manual gesture, hotkey, or voice selection
+injects or accepts a candidate without requiring the speaker to force vocal production through the
+block.
+
+8.3 Dynamic Quiet Mode and Gain Optimization
+The audio processing architecture may include a low-amplitude tracking loop that detects
+whisper-level or privacy-preserving speech. Upon detection, the controller may apply localized
+gain adjustment, invoke a quiet-mode reconstruction profile, and display a low-intensity visual
+state indicating that quiet capture is active.
+
+8.4 Delayed Auditory Feedback and Prosodic Signals
+The system may include delayed auditory feedback with configurable delay values. It may also
+derive paralinguistic or prosodic features, including pause ratio, pitch, energy, speech rate, non-
+speech acoustic events, cough, laugh, sigh, breath, and throat-clear markers. These features may
+be injected into the reconstruction prompt or profile model to prevent hallucination near non-
+speech audio and to preserve intended tone.
+
+8.5 Voice-Triggered Localized Interface Rotation
+The control surface may include a voice-triggered configuration mode. Upon registration of a
+command phrase, the surface executes a rotation, twist, radial, or other localized animation that
+exposes configuration options such as layer selection, opacity, size, language, quiet mode, or
+send behavior. The user may navigate and lock options by subsequent voice commands, touch,
+pointer movement, or keyboard input.
+
+8.6 Hands-Free Acoustic Summon
+The system may include an on-device keyword-spotting loop that monitors for a designated
+wake phrase and phonetically proximate variants. Upon a phrase match, the controller transitions
+from an armed state to active capture. Where keyword spotting and dictation contend for the
+microphone, the controller executes a microphone-arbitration handshake that releases the
+keyword recognizer during primary dictation and re-arms it when the system returns to an idle or
+armed-idle state.
+
+9. Interface Automation and Dynamic Target Stabilization
+
+9.1 User-Gated Send-Commit Capability
+The system includes a user-gated send-commit capability. After text insertion completes, the
+control surface may enter a send-ready state by displaying a distinctive affirmative visual state,
+such as green, and starting a visible countdown interval. Direct user contact, a pointer click, a
+hotkey, or an explicit voice command during the interval authorizes the system to actuate the
+host application’s send control. If the interval expires without the user action, the controller
+disarms the send pathway and does not transmit the message.
+The countdown is a disarming window rather than an automation window. The system does not
+dispatch a predictive or automatic send action upon countdown expiration. Final transmission
+authorization remains with the user.
+
+9.2 Assistive Target Stabilization Module
+To reduce layout-shift errors and preserve motor target expectations, the system may implement
+an assistive target stabilization module. When enabled, entering the send-ready state causes the
+controller to identify the native send control of the host application through accessibility nodes,
+UI automation nodes, resource identifiers, content descriptions, geometric heuristics, or other
+platform-supported signals. The control surface then repositions, aligns, or visually anchors itself
+to coincide with the native control’s screen bounds or center coordinates.
+If the host application layout shifts, such as when an input method editor appears, the control
+surface may translate in sequence with the target bounds. Upon successful send, send failure,
+user cancellation, or timeout expiration, the control surface returns to a stored pre-alignment
+location. The module is assistive: it preserves the user’s learned native-control reach pattern
+without removing the final user action gate.
+
+9.3 Input Method Editor Inset Synchronization
+To prevent the control surface from being covered by a soft keyboard or input-method editor, the
+overlay controller may register layout-inset or window-animation callbacks. When an IME
+visibility transition occurs, the controller recalculates the overlay’s coordinate boundaries in
+synchronization with the keyboard ascent or descent vector, maintaining accessibility of
+clarification targets and send-ready controls.
+
+9.4 Voice-Input Control Alignment
+The control surface may also align itself with a host application’s or keyboard’s voice-input
+control when that control becomes visible. The controller scans for content descriptions, resource
+identifiers, icon markers, or positional heuristics corresponding to a microphone or voice input
+asset, then translates the control surface to that location. When the control disappears, the surface
+reverts to a user-configured default position.
+
+9.5 Spatial Text-Grab and Transformation Mode
+The system may include a spatial text-grab and transformation mode. When a user highlights text
+in a source viewport and drags or positions the control surface near the selected text, the
+operating-system interaction layer extracts the selected text directly from the accessibility tree,
+UI automation tree, selection API, or clipboard-safe pathway. The system routes the selected text
+and a spoken transformation directive to the reconstruction engine. The output can replace the
+selected text or be injected into a target application after user approval.
+
+9.6 Non-Linear Drag-to-Dismiss Distortion
+To minimize visual friction, the control surface may implement a drag-to-dismiss boundary. As
+the user drags the surface toward a dismissal region, the controller applies a coordinate-
+dependent graphic transformation in which the surface compresses along one axis, elongates
+along another, and fades toward transparency. Upon terminal intersection with the dismissal
+boundary, the controller tears down the view hierarchy or hides the window.
+
+9.7 Indirect Coordinate Tracking Mode
+The window manager may support an indirect coordinate tracking mode in which the control
+surface’s center follows the real-time movement vector of a user’s finger, pointer, stylus, or drag
+event even when the original gesture is owned by another window or source view. This allows
+the surface to be repositioned without saturating the overlay’s own gesture interception
+framework.
+
+10. System State Machine Constraints
+The controller may operate through a sealed or otherwise constrained state architecture.
+Representative states include:
+IDLE: no active microphone capture; control surface hidden, visible, or dormant.
+ARMED_IDLE: user-enabled visible or foreground condition; low-power keyword spotting or
+short pre-roll permitted where platform rules allow.
+LISTENING: primary audio channel active; dictation payload recording; control surface displays
+capture state.
+TRANSCRIBING: audio stream closed or segmented; ASR decoding active.
+STRIPPING: deterministic token filtering, disfluency stripping, repetition collapse, or text
+normalization executing.
+READING_CONTEXT: operating-system interaction layer captures permitted foreground
+package, active-window, recipient, layout, or metadata signals.
+RECONSTRUCTING: selected reconstruction service parses text against intent, profile,
+language, and context parameters.
+VALIDATING: optional validation, hallucination-risk grading, or meaning-preservation check
+executing.
+CLARIFYING: word-level or phrase-level clarification interface active.
+INTENT_CLARIFYING: intent-choice interface active.
+INJECTED: text-insertion pathway completed or fallback buffer preserved.
+SEND_READY: user-gated send target armed; countdown active; optional target stabilization
+enabled.
+FAILED: non-fatal or fatal error caught; system disarms cleanly and preserves recoverable text
+where possible.
+
+10.1 Context-Invariance Integrity Verification
+To verify application-context invariance, the controller may execute entry and exit state
+snapshots during clarification. Snapshot metrics may include window focus handles, accessibility
+focus identifiers, cursor or selection indices, viewport scroll bounds, visible-window identifiers,
+input-method-editor state, and anchor nodes. The controller may assert equality across the
+clarification interval and maintain an evidentiary record that the clarification interface did not
+alter host context.
+The invariance assertion is scoped to the clarification interval unless otherwise stated.
+Authorized text mutations, user-authorized send gestures, platform-imposed cursor movement
+caused by text-write primitives, paste effects, and explicit user actions are recorded separately.
+Where supported, the system may restore cursor position or report any post-injection cursor
+displacement rather than treating such displacement as a clarification-context change.
+
+11. Pipeline Latency Intermediaries
+During transcription and reconstruction, the controller may balance local and remote processing
+based on resource availability, network status, layer choice, and user latency preference. Local
+decoding may provide privacy and offline resilience; remote decoding may provide higher
+accuracy or throughput. The control surface may display progress segments, animation stages, or
+console output to mask latency and reduce uncertainty during processing.
+
+12. Predictive Contextual Indicator
+Before speech capture begins, the persistent control surface may display a predicted recipient,
+medium category, style parameter, language, layer, or difficulty estimate derived from a usage-
+history model. The model may be conditioned on foreground application identity, live system-
+clock metadata, day-of-week, recipient identifier, prior accepted reconstructions, and profile
+settings. The predicted style parameter may bias reconstruction and candidate ordering before the
+user begins speaking.
+
+13. Profile Learning, Data Control, and User Corrections
+The profile store may maintain vocabulary, corrections, filler words, trigger words, accepted
+outputs, rejected outputs, pronunciation or onset weights, interlanguage transfer markers, per-
+application preferences, and privacy settings. The user may add or remove words, corrections,
+trigger words, and no-flag applications. The system may expose export and deletion controls so
+the user can review, back up, or remove profile data. In signed-in embodiments, the profile may
+sync across devices; in local embodiments, it may remain device-local.
+
+CLAIMS
+The following claims are included to map disclosed embodiments and may be revised in a later
+filing.
+1. A method for cross-application speech manipulation on a computing operating system,
+comprising: maintaining a persistent assistive control surface that remains available across host
+application context switches; receiving voice input via said assistive control surface; processing
+said voice input through a speech-recognition layer to produce transcribed text; transmitting at
+least one of said voice input and said transcribed text to a reconstruction engine that produces
+reconstructed text and a set of low-confidence token positions; entering a bidirectional
+clarification state in which the assistive control surface displays a sequential review interface for
+the low-confidence token positions, wherein the host application's window focus, accessibility
+focus, input method editor state, scroll position, selection state, and text-field cursor position
+remain unchanged for the duration of said clarification state; receiving user approve, reject,
+preserve, translate, or defer decisions via touch, pointer, keyboard, gesture, hotkey, or voice
+command; constructing a revised target text segment in which only an approved substituted
+token or phrase differs from a prior target text segment; causing a host application text field to
+contain the revised target text segment through an operating-system interaction layer; and
+executing a write-integrity fallback routine to preserve text upon detection of a write, paste,
+focus, or target-node failure.
+2. The method of claim 1, wherein the persistent assistive control surface comprises a system-
+level overlay window, floating bubble, native desktop window, system tray control, dock control,
+or hotkey-responsive dashboard.
+3. The method of claim 1, wherein the operating-system interaction layer comprises at least one
+of an accessibility framework, UI automation interface, simulated input pathway, active-window
+paste pathway, clipboard-marshalling pathway, gesture-dispatch API, or keyboard automation
+interface.
+4. The method of claim 1, wherein the system maintains a circular pre-roll audio buffer captured
+prior to user-initiated dictation, said buffer being prepended to the dictation audio on activation
+to capture speech preceding a tap, hotkey, or gesture command.
+5. The method of claim 1, wherein the reconstruction engine output is cross-validated by re-
+decoding dictation audio at multiple decoding parameters, and wherein per-token confidence is
+computed at least in part from cross-pass disagreement counts at corresponding token positions.
+6. The method of claim 1, wherein the bidirectional clarification state displays no more than
+three flagged tokens or phrase candidates in a single utterance cycle regardless of the number of
+low-confidence positions identified.
+7. The method of claim 1, wherein the sequential review interface presents replacement
+candidates ordered by a priority comprising: sentence-boundary continuation predictions derived
+from prior accepted reconstructions; ASR n-best alternatives from an original transcription pass;
+phonetic neighbors drawn from a per-user vocabulary; language-transfer candidates derived from
+an interlanguage profile; and recipient-specific phrase history.
+8. The method of claim 1, wherein the user decisions, when issued by voice, are routed through
+the same speech-recognition channel or recognizer session that produced the original
+reconstructed text, without requiring a separate command recognizer instance.
+9. The method of claim 1, further comprising rendering a visible underline, marker, bracket,
+glow, or other visual indicator in a separate non-touchable overlay window positioned over the
+host application text field during the clarification state, wherein said visual indicator does not
+modify the host application text field state.
+10. The method of claim 1, further comprising recording host application state including window
+focus, accessibility focus, input method editor state, scroll position, selection state, and cursor
+position at clarification-state entry; recording said state at clarification-state exit; and asserting
+equality across the clarification interval, while separately recording authorized text mutation or
+user-authorized send events.
+11. The method of claim 1, wherein the assistive control surface comprises a pipeline stage
+indicator segmented into a plurality of stages corresponding to capture, transcription, stripping,
+context reading, reconstruction, validation, clarification, injection, recovery, or send-ready
+operations, wherein each segment is illuminated or animated in temporal sequence as a
+corresponding operation completes.
+12. The method of claim 1, wherein a reconstruction layer parameter is selected using a profile-
+matching matrix compiled during a user onboarding sequence, wherein said profile-matching
+matrix maps explicit user constraints including core operating hours, industry type, work-life
+balance, native-language status, selected languages, and tone preference against live runtime
+metadata comprising a system-clock timestamp, application identity, and recipient identity.
+13. The method of claim 1, wherein per-token confidence signals comprise at least two of:
+acoustic-decoder log probabilities; multi-pass decoding agreement counts across independent
+inference passes; n-best alternate candidates; phonetic-neighbor matches against a per-user
+vocabulary; user correction history; validator-model disagreement; and language-transfer profile
+signals.
+14. The method of claim 1, wherein reconstruction output produced by a primary language
+model is independently graded for hallucination, omission, or meaning-drift risk by a second
+language model, validator model, rule-based validator, or independent decoding pass before
+either acceptance or presentation in the bidirectional clarification interface, and wherein flagged
+tokens or phrases are added to the flagged-token set with elevated priority.
+15. The method of claim 1, wherein the system implements a continuous tracking loop that
+measures immediate syllable-per-minute or word-per-minute generation velocity of an active
+vocal capture segment and flags an active speech block event where the velocity falls below a
+target ratio relative to a rolling multi-session median compiled in a user profile store.
+16. The method of claim 1, wherein, upon detection of a prolonged mid-utterance acoustic block
+exceeding a temporal threshold, the system routes an existing partial phrase to the reconstruction
+engine to generate sentence-boundary completion candidates displayed on the assistive control
+surface, and accepts one candidate for insertion upon a manual gesture, hotkey, pointer selection,
+or voice selection.
+17. The method of claim 1, wherein the audio capture layer includes a low-amplitude tracking
+loop that scales acoustic input through a whisper-boost or quiet-mode function and projects a
+designated visual state on the assistive control surface when a decibel signature falls below a
+privacy or quiet-speech threshold.
+18. The method of claim 1, wherein the system includes delayed auditory feedback with a user-
+configurable delay value, and wherein the delayed auditory feedback is activated or adjusted
+based on user profile, situation mode, or detected speech-block severity.
+19. The method of claim 1, wherein the reconstruction engine processes paralinguistic or
+prosodic signals including at least one of pause ratio, pitch, energy, rate, cough, laugh, sigh,
+breath, throat-clear, or non-speech acoustic event markers and uses said signals to reduce
+hallucination or preserve intended tone.
+20. The method of claim 1, wherein the system includes an on-device keyword-spotting loop that
+monitors an ambient acoustic channel for a designated wake phrase and phonetically proximate
+variants, and wherein a microphone-arbitration handshake releases the keyword recognizer
+during active dictation and re-arms the recognizer upon return to an idle or armed-idle state.
+21. A method for user-gated cross-application text transmission, comprising: maintaining a
+persistent assistive control surface on a computing display interface; altering said assistive
+control surface to a first distinctive visual configuration during speech capture; altering said
+assistive control surface to a second distinctive visual configuration during reconstruction;
+causing reconstructed text to be inserted into a host application text field through an operating-
+system interaction layer; altering said assistive control surface to a third distinctive visual
+configuration and initiating a timed terminal countdown interval; identifying a native send
+control of the host application; optionally repositioning or aligning said assistive control surface
+to coincide with the screen bounds or center coordinates of said native send control; dispatching
+a send action only upon registering a manual user contact event, hotkey, pointer action, or
+explicit voice command during said countdown interval; and, upon expiration of said countdown
+interval without said user action, disarming the send action and returning said assistive control
+surface to a non-superimposed default position without dispatching a send command.
+22. The method of claim 21, wherein the native send control is identified using at least one of
+accessibility-node content description, resource identifier, UI automation node, visible text,
+clickable ancestor, screen-bound heuristic, application-specific mapping, or generic send-control
+classifier.
+23. The method of claim 21, wherein the assistive control surface preserves a stored pre-
+alignment coordinate before repositioning to said native send control and animates back to said
+stored coordinate upon send completion, send failure, user cancellation, or timeout expiration.
+24. The method of claim 1, wherein the assistive control surface self-positions to coincide with a
+host application or input-method voice-input control when said control becomes visible and
+reverts to a user-configured default position when said control is no longer visible.
+25. A method for spatial-context text transformation on a computing operating system,
+comprising: presenting a persistent assistive control surface; detecting that the assistive control
+surface has been moved into spatial proximity with a region of selected text in a host application;
+receiving a spoken, typed, hotkey, or gesture transformation directive; transmitting the selected
+text and the directive to a reconstruction engine; and replacing or outputting transformed text
+through an operating-system interaction layer after user approval.
+26. A method for layered reconstruction of disfluent or structurally non-standard voice input,
+comprising: selecting one of plural reconstruction layers based on user onboarding criteria and
+runtime parameters; at a first layer, performing verbatim acoustic decoding with deterministic
+filler-word stripping and repetition collapse; at a second layer, invoking a semantic
+reconstruction pass to rewrite stream-of-consciousness syntax in accordance with user intent
+variables; at a third layer, injecting a per-user vocabulary, accepted-style examples, and rejected
+outputs as profile context; at a fourth layer, applying disfluency-aware parameters to isolate overt
+word prolongations, silent blocks, part-word repetitions, covert vocabulary blocking constraints,
+and environmental side-talk segments; and at a fifth layer, applying a textual interlanguage
+reconstruction profile to detect cross-linguistic transfer markers and reconstruct text into
+idiomatic target-language prose or preserved authentic speaker voice according to user
+preference.
+27. The method of claim 26, wherein the per-user vocabulary is built from accepted
+reconstructions in prior dictation sessions, weighted by recency and acceptance rate, and
+persisted across sessions in a per-user profile store.
+28. The method of claim 26, wherein the textual interlanguage reconstruction profile identifies
+non-acoustic cross-linguistic transfer markers including at least one of article omission,
+auxiliary-verb omission, tense simplification, preposition substitution, direct word-order transfer,
+pluralization irregularity, or literal idiom translation, and reconstructs transcribed text into
+idiomatic output prose in a selected target language without requiring acoustic accent
+classification.
+29. The method of claim 28, wherein the textual interlanguage reconstruction profile updates a
+per-user transfer profile based on accepted and rejected reconstructions such that recurring non-
+native syntax patterns are corrected according to demonstrated user intent rather than treated as
+generic transcription errors.
+30. The method of claim 1, wherein processing the voice input comprises processing through a
+speech-recognition layer configured for a plurality of natural languages, and wherein a language-
+routing component selects a source-language profile or target-language profile based on at least
+one of user selection, automatic language identification, recipient identity, host application
+identity, second-language setting, code-switch detection, or prior accepted reconstructions.
+31. The method of claim 30, wherein the reconstruction engine performs at least one of same-
+language cleanup, source-to-target-language translation, or intra-utterance code-switch
+preservation or normalization.
+32. A desktop implementation of the method of claim 1, wherein the assistive control surface
+comprises a native desktop window or dashboard, the voice input is initiated by a hotkey or
+dashboard control, the reconstruction engine executes in a local process or local server, and
+output text is delivered to an active desktop application using at least one of clipboard paste,
+simulated keystroke input, UI automation, accessibility API, or active-window insertion
+command.
+33. The desktop implementation of claim 32, wherein the dashboard displays at least one of
+stutter-support controls, delayed auditory feedback settings, language settings, native-speaker or
+interlanguage settings, vocabulary entries, correction mappings, trigger words, session metrics,
+fluency indicators, difficulty scores, profile export controls, or profile deletion controls.
+34. A system comprising: a computing device; a persistent assistive control-surface manager; a
+speech-capture layer; a speech-recognition layer abstraction; a language-model reconstruction
+service; a clarifier component; an operating-system interaction layer; a profile store; and a
+controller state machine; wherein the system is configured to perform the method of any
+preceding claim.
+35. A non-transitory computer-readable medium storing instructions that, when executed by one
+or more processors, cause a computing device to perform the method of any of claims 1 through
+33.
+
+ABSTRACT OF THE DISCLOSURE
+A method and system for cross-application assistive speech reconstruction on a computing
+operating system. A persistent assistive control surface, such as a mobile overlay bubble or
+desktop dashboard, captures voice input and routes it through layered reconstruction profiles that
+convert disfluent, multilingual, non-native, or cognitively fragmented speech into intended text.
+A bidirectional clarification interface displays low-confidence tokens or intent choices while
+preserving host application focus, cursor, scroll, selection, and input-method state during
+clarification. The system inserts or replaces text using an operating-system interaction layer and
+preserves the payload through a write-integrity fallback routine when direct insertion fails.
+Additional embodiments provide pre-roll capture, silent-block bridging, quiet-mode gain
+adjustment, delayed auditory feedback, textual interlanguage reconstruction independent of
+acoustic accent classification, multilingual and code-switching routing, and user-gated send-
+target stabilization in which final transmission requires an intentional user action and countdown
+expiration causes disarming without sending.
+

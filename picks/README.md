@@ -1,6 +1,6 @@
 # Picks — the picker's one file per gather
 
-The picker is the model (Fable) that reads a gather file against `me/george-dossier.md`, `me/writings.md`,
+The picker is the model (Fable) that reads a gather file against the seven cards in `me/cards/` (weights FULL/LESS), `me/george-dossier.md`, `me/writings.md`,
 `me/assets.md`, `me/resume-master.md`, and the per-job asset hits from `python3 scripts/asset_hits.py <gather.json>`
 (me/triggers.json ties job words to assets: noise ordinance -> NoiseFile, patent -> the WiM patent, ...), and decides. It writes ONE file here per run instead of talking in chat:
 `picks/picks-<stamp>.json`. The apply walker reads that same file as `--overrides`, so nothing is retyped.

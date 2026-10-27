@@ -346,6 +346,9 @@ scripts/cdpx.cjs                the 10/14 Google Ads driver: reads and clicks IN
 scripts/findclick.sh            find an element by its text, scroll it into view, real-click it (uses cdpx.cjs)
 scripts/fill.sh                 fill a field by its label, key by key, and read the value back (uses cdpx.cjs)
 scripts/clickread.cjs           one mouse click at x,y, then one read; no typing, no iframes
+me/cards/                       seven one-page cards with WEIGHTS (FULL = live/in pipeline, LESS = GitHub-only/paper): NoiseFile, WiM+patent, Heirloom, the Santa Rosa CUP, the Baba writing sample, Invisible Work, Audit Ledger; the picker reads these, not the raw (10/27)
+me/raw/                         raw LinkedIn text, dated reads (10/17 and 10/27: profile, experience, education+honors+publications+languages, posts, featured); read once, never per job
+me/samples/                     the documents in full: the 33-page CUP application, the 23-page Baba decision (PDF, for writing-sample uploads), the 18-page provisional patent (PDF), Invisible Work (PDF)
 me/triggers.json                word triggers that tie a posting to George's assets and receipts (say line, proof, status, resume lane); refresh status with check_assets.py (10/27)
 scripts/asset_hits.py           prints, per gathered job, which assets the posting calls for and the words that tripped them; the picker reads it first (10/27)
 picks/README.md                 the picker file: one file per gather, yes/no/ask + why + letter angle + resume cut + per-job rules; the walker reads it as --overrides (10/27)
