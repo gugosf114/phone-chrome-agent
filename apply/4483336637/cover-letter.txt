@@ -1,0 +1,11 @@
+Dear Legal.io Team,
+
+I am applying for the Legal Operations Analyst role for payments and vendor management at your technology client. I am a JD with eight years in legal operations, tax, and regulated finance work, and I am available full-time, remote, for the six months.
+
+The queue is settlements, court-ordered payments, and regulatory fines, each with documentation that has to be right the first time: court orders, W-8 and W-9 forms, banking details, vendor setup. At Andersen, over four years of multistate tax work, I handled refund claims, voluntary disclosures, and audit resolutions with state agencies across 20-plus jurisdictions, where every dollar needed the order, the form, and the proof behind it. As COO of Phenotopia I ran purchasing and the vendor contracts for a $1.75 million buildout, with contractors, engineers, and consultants on the other side. I read a court order the way the judge meant it; as a judicial extern I drafted a 23-page federal decision that was affirmed on appeal.
+
+I also build the tracking tools. I built and run an order and invoice dashboard that a working business uses every day, with due-date alerts, invoice status, and an email-to-order parser, and I run Bakers Agent, a Google Cloud system in production. Payment management systems and Source-to-Pay workflows are the same shape.
+
+I work a high-volume queue cleanly, I escalate early, and I write the process down as I go.
+
+George Abrahamyants

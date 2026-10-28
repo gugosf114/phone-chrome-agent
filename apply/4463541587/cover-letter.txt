@@ -1,0 +1,11 @@
+Dear Neuralink Legal Team,
+
+I am applying for the Contracts Manager role in South San Francisco. I am a JD with eight years in contracts and regulated operations, I build AI-enabled tooling, and I live twenty minutes from the office.
+
+The role is the contract desk end to end, with automation on top. As COO of Phenotopia I ran exactly that for a $1.75 million regulated buildout: NDAs, vendor agreements, statements of work, order forms, amendments, and renewals, from intake through e-signature, filing, and obligation tracking, with contractors, engineers, and city departments on the other side. I negotiate and redline my own language and I know when to escalate to counsel. At Andersen, over four years of multistate tax controversy, I wrote the memoranda and playbook positions that let a team move fast on standard cases.
+
+On the tooling line in your posting: I run Bakers Agent, a Google Cloud system in production with 40-plus Cloud Functions that works a live business's queue behind human approval gates, and I built the self-service workflows and templates that sit on top of it. Building a legal team's intake, playbooks, and AI-assisted review is the work I want to do next.
+
+As a judicial extern I drafted a 23-page federal decision affirmed on appeal. Fully on-site works for me.
+
+George Abrahamyants

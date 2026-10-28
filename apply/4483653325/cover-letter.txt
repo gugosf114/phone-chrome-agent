@@ -1,0 +1,11 @@
+Dear US Tech Solutions Team,
+
+I am applying for the remote Contract Manager (Claims) position supporting gas turbine power plant projects. I am a JD with eight years in contracts, claims, and regulated construction operations, and I can start now.
+
+The job is claims: read the contract, find the entitlement, document the delay or the back-charge, write the notice, and settle. As COO of Phenotopia I ran a $1.75 million regulated buildout from permits through inspections. I owned the vendor agreements, MSAs, and NDAs, drafted and negotiated the change orders with contractors, engineers, and city departments, and kept the file that proved who owed what when schedules slipped. At Andersen, over four years of multistate tax controversy, I researched, drafted, and negotiated refund claims and audit resolutions with state agencies, with memoranda that held up under review. As a judicial extern I drafted a 23-page federal decision that was affirmed on appeal, so a claims letter from me reads like it came from counsel.
+
+I also build the tracking tools this role depends on. I run Bakers Agent, a Google Cloud system that works a live business's queue behind approval gates, and I keep contract and claims records in databases I design myself.
+
+Remote with quarterly site visits and travel to Latin America works for me. I speak Russian and Armenian natively.
+
+George Abrahamyants

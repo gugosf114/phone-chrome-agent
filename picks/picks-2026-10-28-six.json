@@ -1,0 +1,153 @@
+{
+ "_run": "SIX ASKS run 10/28 (George: 'yep all six. nine yards'); walk to Review, George glances, then --submit",
+ "4483260077": {
+  "decision": "yes",
+  "why": "Carter Murray Compliance Analyst/Associate, SF Bay hybrid, 3-month contract, 17 applicants",
+  "resume": "current Oct2026 (portfolio link)",
+  "resume_file": "C:\\Users\\georg\\job-applications\\4483260077\\George_Abrahamyants_Resume_Oct2026.pdf",
+  "letter_file": "C:\\Users\\georg\\job-applications\\4483260077\\George_Abrahamyants_Cover_Letter_Carter_Murray.pdf",
+  "rules": [
+   [
+    "travel|on-?site visits|quarterly|boston",
+    "Yes"
+   ],
+   [
+    "on-?site|in[- ]office|commute|hybrid|relocat.*(south san francisco|santa clara|san francisco|bay area)",
+    "Yes"
+   ],
+   [
+    "start immediately|available to start|start date|asap",
+    "Yes"
+   ],
+   [
+    "hourly|pay rate|rate expectation|desired (pay|rate|salary)|compensation expectation",
+    "BLANK"
+   ]
+  ]
+ },
+ "4483653325": {
+  "decision": "yes",
+  "why": "US Tech Solutions Contract Manager (Claims), remote, $60-70/hr, 12 months, 0 applicants",
+  "resume": "current Oct2026 (portfolio link)",
+  "resume_file": "C:\\Users\\georg\\job-applications\\4483653325\\George_Abrahamyants_Resume_Oct2026.pdf",
+  "letter_file": "C:\\Users\\georg\\job-applications\\4483653325\\George_Abrahamyants_Cover_Letter_US_Tech_Solutions.pdf",
+  "rules": [
+   [
+    "travel|on-?site visits|quarterly|boston",
+    "Yes"
+   ],
+   [
+    "on-?site|in[- ]office|commute|hybrid|relocat.*(south san francisco|santa clara|san francisco|bay area)",
+    "Yes"
+   ],
+   [
+    "start immediately|available to start|start date|asap",
+    "Yes"
+   ],
+   [
+    "hourly|pay rate|rate expectation|desired (pay|rate|salary)|compensation expectation",
+    "BLANK"
+   ]
+  ]
+ },
+ "4482883314": {
+  "decision": "yes",
+  "why": "Robert Half Legal Ops & Contracts Coordinator, Santa Clara on-site, $33-35/hr, 5 applicants",
+  "resume": "current Oct2026 (portfolio link)",
+  "resume_file": "C:\\Users\\georg\\job-applications\\4482883314\\George_Abrahamyants_Resume_Oct2026.pdf",
+  "letter_file": "C:\\Users\\georg\\job-applications\\4482883314\\George_Abrahamyants_Cover_Letter_Robert_Half_Santa_Clara.pdf",
+  "rules": [
+   [
+    "travel|on-?site visits|quarterly|boston",
+    "Yes"
+   ],
+   [
+    "on-?site|in[- ]office|commute|hybrid|relocat.*(south san francisco|santa clara|san francisco|bay area)",
+    "Yes"
+   ],
+   [
+    "start immediately|available to start|start date|asap",
+    "Yes"
+   ],
+   [
+    "hourly|pay rate|rate expectation|desired (pay|rate|salary)|compensation expectation",
+    "BLANK"
+   ]
+  ]
+ },
+ "4463541587": {
+  "decision": "yes",
+  "why": "Neuralink Contracts Manager, South SF on-site, $65k, 26 applicants",
+  "resume": "current Oct2026 (portfolio link)",
+  "resume_file": "C:\\Users\\georg\\job-applications\\4463541587\\George_Abrahamyants_Resume_Oct2026.pdf",
+  "letter_file": "C:\\Users\\georg\\job-applications\\4463541587\\George_Abrahamyants_Cover_Letter_Neuralink.pdf",
+  "rules": [
+   [
+    "travel|on-?site visits|quarterly|boston",
+    "Yes"
+   ],
+   [
+    "on-?site|in[- ]office|commute|hybrid|relocat.*(south san francisco|santa clara|san francisco|bay area)",
+    "Yes"
+   ],
+   [
+    "start immediately|available to start|start date|asap",
+    "Yes"
+   ],
+   [
+    "hourly|pay rate|rate expectation|desired (pay|rate|salary)|compensation expectation",
+    "BLANK"
+   ]
+  ]
+ },
+ "4483336637": {
+  "decision": "yes",
+  "why": "Legal.io Junior Analyst payments & vendor mgmt, remote, $40-55/hr, 6 months, 50 applicants",
+  "resume": "current Oct2026 (portfolio link)",
+  "resume_file": "C:\\Users\\georg\\job-applications\\4483336637\\George_Abrahamyants_Resume_Oct2026.pdf",
+  "letter_file": "C:\\Users\\georg\\job-applications\\4483336637\\George_Abrahamyants_Cover_Letter_Legal.io_Payments.pdf",
+  "rules": [
+   [
+    "travel|on-?site visits|quarterly|boston",
+    "Yes"
+   ],
+   [
+    "on-?site|in[- ]office|commute|hybrid|relocat.*(south san francisco|santa clara|san francisco|bay area)",
+    "Yes"
+   ],
+   [
+    "start immediately|available to start|start date|asap",
+    "Yes"
+   ],
+   [
+    "hourly|pay rate|rate expectation|desired (pay|rate|salary)|compensation expectation",
+    "BLANK"
+   ]
+  ]
+ },
+ "4483133354": {
+  "decision": "yes",
+  "why": "Lawyers On Demand corporate paralegal / legal ops manager, remote, $70+/hr, 6-12 months, Boston quarterly, 60 applicants",
+  "resume": "current Oct2026 (portfolio link)",
+  "resume_file": "C:\\Users\\georg\\job-applications\\4483133354\\George_Abrahamyants_Resume_Oct2026.pdf",
+  "letter_file": "C:\\Users\\georg\\job-applications\\4483133354\\George_Abrahamyants_Cover_Letter_Lawyers_On_Demand.pdf",
+  "rules": [
+   [
+    "travel|on-?site visits|quarterly|boston",
+    "Yes"
+   ],
+   [
+    "on-?site|in[- ]office|commute|hybrid|relocat.*(south san francisco|santa clara|san francisco|bay area)",
+    "Yes"
+   ],
+   [
+    "start immediately|available to start|start date|asap",
+    "Yes"
+   ],
+   [
+    "hourly|pay rate|rate expectation|desired (pay|rate|salary)|compensation expectation",
+    "BLANK"
+   ]
+  ]
+ }
+}
