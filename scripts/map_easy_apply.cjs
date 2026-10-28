@@ -427,9 +427,9 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
         if (st.next.isSubmit) {
           await untickFollow(rec);
           if (!SUBMIT) { rec.status = 'READY_TO_SUBMIT'; rec.review = true; screen.ms = Date.now() - ts; rec.screens.push(screen); break; }
-          await h.pause(700, 1500); await click(st.next.sel); await h.pause(2500, 4000);
-          const after = await ev('(()=>{const d=document.querySelector("dialog[open], [role=dialog]");return (d?d.innerText:document.body.innerText).replace(/\\s+/g," ").slice(0,200)})()');
-          rec.receipt = after; rec.status = /application (was )?sent|applied|submitted/i.test(after) ? 'SUBMITTED' : 'SUBMIT_CLICKED_NO_RECEIPT';
+          // Press Submit and move on. No watcher (George 10/27): LinkedIn's Applied list and its email are the receipt.
+          await h.pause(700, 1500); await click(st.next.sel); await h.pause(2000, 3000);
+          rec.status = 'SUBMITTED'; rec.submittedAt = new Date().toISOString();
           screen.ms = Date.now() - ts; rec.screens.push(screen); break;
         }
         await h.pause(700, 2200);
