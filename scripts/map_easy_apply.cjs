@@ -113,6 +113,8 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
   const list = await (await fetch(`http://127.0.0.1:${PORT}/json`)).json();
   const tab = list.find(o => o.type === 'page' && o.url.includes('linkedin.com')) || list.find(o => o.type === 'page');
   if (!tab) { console.log('no tab on port', PORT); process.exit(2); }
+  // 10/28: a tab behind another tab reads as hidden and every mouse event takes 5 s; make ours the front tab first
+  try { await fetch(`http://127.0.0.1:${PORT}/json/activate/${tab.id}`); await new Promise(r => setTimeout(r, 600)); } catch {}
   const h = await human.attach(tab, { log: m => process.stderr.write('  [human] ' + m + '\n') });
   // Uploads: Chrome's file chooser is answered in code (no dialog on the laptop screen); the press on the button stays human.
   let chooserWaiter = null;

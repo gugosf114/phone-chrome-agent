@@ -57,6 +57,8 @@ if (require.main === module) (async () => {
   const list = await (await fetch(`http://127.0.0.1:${PORT}/json`)).json();
   const tab = list.find(o => o.type === 'page' && o.url.includes('linkedin.com')) || list.find(o => o.type === 'page');
   if (!tab) { console.log('no tab on port', PORT); process.exit(2); }
+  // 10/28: a tab behind another tab reads as hidden and every mouse event takes 5 s; make ours the front tab first
+  try { await fetch(`http://127.0.0.1:${PORT}/json/activate/${tab.id}`); await new Promise(r => setTimeout(r, 600)); } catch {}
   const h = await human.attach(tab, {});
   const r = await check(h, ids);
   const out = path.join(LOGDIR, `applied-${new Date().toISOString().replace(/[:T]/g, '-').slice(0, 19)}.json`);
