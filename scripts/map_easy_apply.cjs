@@ -119,6 +119,15 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
   await h.send('Page.enable'); await h.send('Page.setInterceptFileChooserDialog', { enabled: true });
   h.on('Page.fileChooserOpened', p => { if (chooserWaiter) chooserWaiter(p); });
   const ev = async x => { try { return await h.evaluate(x); } catch (e) { console.log('PAGE EXC:', e.message.slice(0, 200), 'in:', x.slice(0, 90).replace(/\s+/g, ' ')); return undefined; } };
+  // 10/27: hidden window = 5 s per mouse event = a frozen-looking run. Before each job: if the tab is hidden, show the
+  // laptop window (ShowAgentChrome task over ssh, laptop pipe only), re-check, and stop the run if it stays hidden.
+  const showWindow = async () => {
+    await h.send('Page.bringToFront').catch(() => {});
+    if (!await ev('document.hidden')) return true;
+    if (PORT === '19222') { try { require('child_process').execFileSync('ssh', ['-o', 'ConnectTimeout=10', '-o', 'BatchMode=yes', 'wimlaptop', 'schtasks /run /tn ShowAgentChrome'], { stdio: 'ignore', timeout: 20000 }); } catch {} await sleep(3000); }
+    if (!await ev('document.hidden')) { console.log('  window was hidden; shown again'); return true; }
+    console.log('STOP: the Chrome tab is hidden and will not show. Every mouse event would take 5 s. Show the window, then rerun.'); process.exit(5);
+  };
   const stopIfBlocked = async (rec) => {
     const why = await ev(BLOCKED); if (!why) return;
     console.log(`STOP: ${why} (job ${rec ? rec.jobId : '-'}). Nothing touched after this.`);
@@ -358,6 +367,7 @@ const BLOCKED = `(()=>{const nav=performance.getEntriesByType("navigation")[0]||
     let clockHit = false; const clock = new Promise(r => setTimeout(() => { clockHit = true; r('CLOCK'); }, JOB_CLOCK * 1000));
     const raced = async (pr) => { const v = await Promise.race([pr, clock]); if (v === 'CLOCK') throw new Error('job clock: ' + JOB_CLOCK + ' s ran out'); return v; };
     try { await raced((async () => {
+      await showWindow();
       await h.send('Page.navigate', { url: `https://www.linkedin.com/jobs/view/${jid}/` });
       await waitFor(JOB_READY, 12000); await stopIfBlocked(rec); await h.pause(1200, 2600);
       const tp = String(await ev('document.title') || '').split(' | ');

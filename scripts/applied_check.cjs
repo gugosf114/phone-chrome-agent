@@ -11,18 +11,22 @@ const human = require('./human.cjs');
 const ROOT = path.resolve(__dirname, '..');
 const LOGDIR = path.join(ROOT, 'logs/easy_apply_map');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-const URL = 'https://www.linkedin.com/my-items/saved-jobs/?cardType=APPLIED';
+const URL = 'https://www.linkedin.com/jobs-tracker/?stage=applied'; // 10/27: /my-items/saved-jobs/?cardType=APPLIED now redirects to the tracker's Saved tab
 
 const READ = `(()=>{const out=[];for(const a of document.querySelectorAll('a[href*="/jobs/view/"]')){const m=a.href.match(/jobs\\/view\\/(\\d+)/);if(!m)continue;
-  const card=a.closest('li')||a.closest('[data-chameleon-result-urn]')||a.parentElement;const t=(card?card.innerText:a.innerText).replace(/\\s+/g,' ').trim();
+  const card=a.closest('li')||a.closest('[data-chameleon-result-urn]')||(a.parentElement&&a.parentElement.parentElement)||a.parentElement;const t=(card?card.innerText:a.innerText).replace(/\\s+/g,' ').trim();
   const when=(t.match(/Applied\\s+([^·]*?ago)/i)||[])[1]||(t.match(/Applied on ([A-Za-z]+ \\d+(, \\d{4})?)/i)||[])[1]||'';
   if(!out.some(o=>o.jobId===m[1]))out.push({jobId:m[1],title:(a.innerText||'').replace(/\\s+/g,' ').trim().slice(0,80),when,text:t.slice(0,160)});}
   return {count:out.length,items:out,title:document.title,url:location.href}})()`;
 
 async function check(h, ids = []) {
   await h.send('Page.navigate', { url: URL });
-  const t0 = Date.now(); while (Date.now() - t0 < 15000) { if (await h.evaluate('/my-items/.test(location.pathname) && document.readyState==="complete"')) break; await sleep(300); }
+  const t0 = Date.now(); while (Date.now() - t0 < 15000) { if (await h.evaluate('/jobs-tracker/.test(location.pathname) && document.readyState==="complete" && !!document.querySelector(\'a[href*="/jobs/view/"]\')')) break; await sleep(300); }
   await h.pause(1500, 2500);
+  // make sure the Applied tab is the one showing (it is a checkbox-styled label); press it if not
+  await h.evaluate('(()=>{if(/stage=applied/.test(location.search))return "on";const l=[...document.querySelectorAll("label")].find(e=>/^Applied\\s*·/.test((e.innerText||"").trim()));if(!l)return "no label";const c=l.control||document.getElementById(l.htmlFor);l.click();if(c&&!c.checked)c.click();return "pressed"})()');
+  await h.pause(2500, 3500);
+  console.log('tracker:', await h.evaluate('location.href'));
   let seen = new Map(); let same = 0;
   for (let i = 0; i < 8; i++) { // the list loads as you scroll; stop when a scroll adds nothing
     const r = await h.evaluate(READ); for (const it of r.items) seen.set(it.jobId, it);

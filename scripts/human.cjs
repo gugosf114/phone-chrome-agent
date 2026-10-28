@@ -46,7 +46,9 @@ const keyOf = (ch) => {
 
 async function attach(tab, opts = {}) {
   const ws = new WebSocket(tab.webSocketDebuggerUrl);
-  await new Promise((r, j) => { ws.onopen = r; ws.onerror = j; });
+  const tOpen = Date.now();
+  await new Promise((r, j) => { ws.onopen = r; ws.onerror = j; setTimeout(() => j(new Error('human: debug socket did not open in 15 s')), 15000); });
+  (opts.log || (() => {}))(`socket open in ${Date.now() - tOpen} ms`);
   let id = 0; const pend = {}; const listeners = {};
   ws.onmessage = e => { const m = JSON.parse(e.data); if (m.id && pend[m.id]) { pend[m.id](m); delete pend[m.id]; } else if (m.method && listeners[m.method]) listeners[m.method].forEach(f => f(m.params)); };
   const on = (method, fn) => { (listeners[method] = listeners[method] || []).push(fn); }; // CDP events, e.g. Page.fileChooserOpened
@@ -59,7 +61,9 @@ async function attach(tab, opts = {}) {
   const log = opts.log || (() => {});
 
   // Which kind of hand: a finger on Android Chrome, a mouse everywhere else.
+  const tEnv = Date.now();
   const env = await evaluate(`({touch: navigator.maxTouchPoints > 0 && /Android/i.test(navigator.userAgent), vw: innerWidth, vh: innerHeight})`);
+  log(`first evaluate in ${Date.now() - tEnv} ms`);
   const touch = opts.touch === undefined ? env.touch : opts.touch;
   const pointer = { x: rnd(env.vw * 0.2, env.vw * 0.6), y: rnd(env.vh * 0.2, env.vh * 0.5) };
 
@@ -186,7 +190,14 @@ async function attach(tab, opts = {}) {
   if (opts.settle !== false) {
     await front().catch(() => {});
     await jitter(1500, 3500);
-    if (!touch) await moveTo(rnd(env.vw * 0.3, env.vw * 0.7), rnd(env.vh * 0.3, env.vh * 0.6));
+    if (!touch) {
+      // 10/27: a hidden Chrome window makes every mouse event take 5 s (Chrome holds input until the tab paints).
+      // One timed move tells us now, instead of a click that takes 90 s.
+      const tMove = Date.now(); await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: pointer.x, y: pointer.y, button: 'none', buttons: 0, pointerType: 'mouse' });
+      const dt = Date.now() - tMove; log(`first mouse move in ${dt} ms`);
+      if (dt > 1500) throw new Error(`human: input is crawling (${dt} ms per mouse event). The Chrome window is hidden or minimized; show it first (laptop: schtasks /run /tn ShowAgentChrome).`);
+      await moveTo(rnd(env.vw * 0.3, env.vw * 0.7), rnd(env.vh * 0.3, env.vh * 0.6));
+    }
   }
 
   return { click, type, key, keys, scrollTo, pause, evaluate, send, on, close, pointer, touch };
