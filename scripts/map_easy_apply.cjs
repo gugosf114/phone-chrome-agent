@@ -52,6 +52,8 @@ function answerFor(label, type, options) {
   if (NEVER_YES.test(l)) return { value: 'No', source: 'never_yes' };
   const fits = v => v !== 'ALL' || type === 'checkboxgroup'; // "ALL" = tick every box; it means nothing to other fields
   for (const [re, v] of CUR_RULES) if (re.test(l) && fits(v)) return { value: v, source: 'job-rule:' + re.source.slice(0, 30) };
+  const hk = l.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').replace(/[\s*:]+$/, '').toLowerCase(); const hh = (BOOK.history || {})[hk]; // George's own past answer to this exact question (LinkedIn export 10/29); beats the regex rules
+  if (hh && fits(hh.answer)) return { value: hh.answer, source: 'history:' + hh.n + 'x' };
   for (const [re, v] of RULES) if (re.test(l) && fits(v)) return { value: v, source: 'rule:' + re.source.slice(0, 30) };
   if (type === 'number') return BOOK.defaults.number ? { value: BOOK.defaults.number, source: 'default:number' } : null; // 10/27 George: no guessing; null = NEEDS_INPUT
   if (type === 'radio' && (options || []).some(o => /\.(pdf|docx?)$/i.test(o))) return { value: BOOK.facts.resume_file || options[0], source: 'fact:resume_file' };

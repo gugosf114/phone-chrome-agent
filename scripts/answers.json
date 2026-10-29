@@ -65,7 +65,8 @@
   ],
   [
    "years .*(microsoft office|ms office|excel|word|powerpoint|outlook)",
-   "15"
+   "10",
+   "source: George 2026-10-29, his most-used answer in the LinkedIn export (history section)"
   ],
   [
    "years .*(civil litigation|paralegal|clinical|nursing|accounting|bookkeeping|sales|recruiting|customer support|ercot|energy market|real estate|insurance claims|medical billing|construction|manufacturing|supply chain|logistics|salesforce|sap\\b|workday|netsuite|quickbooks)",
@@ -160,7 +161,8 @@
   ],
   [
    "\\brelocat",
-   "No"
+   "Yes",
+   "source: George 2026-10-29, his most-used answer in the LinkedIn export (history section)"
   ],
   [
    "work remote|remote work|hybrid|onsite|on-site|commute|days per week in office|in.person",
@@ -228,15 +230,18 @@
   ],
   [
    "veteran",
-   "I don't wish to answer"
+   "I am not a protected veteran",
+   "source: George 2026-10-29, his most-used answer in the LinkedIn export (history section)"
   ],
   [
    "disability",
-   "I don't wish to answer"
+   "No, I do not have a disability and have not had one in the past",
+   "source: George 2026-10-29, his most-used answer in the LinkedIn export (history section)"
   ],
   [
    "race|ethnicity",
-   "I don't wish to answer"
+   "Two or More Races (Not Hispanic or Latino)",
+   "source: George 2026-10-29, his most-used answer in the LinkedIn export (history section)"
   ],
   [
    "gender",
@@ -370,6 +375,5507 @@
   "2026-10-27 07:30: facts + 10 rules lifted from real forms George already submitted (job-vault Ashby packets: Harvey, Legora, OpenAI) and from george-facts.json on the phone. The arbitration and certify boxes: he ticked them on OpenAI in Aug 2026, so the book now ticks them.",
   "2026-10-27 07:40: resume renamed to George_Abrahamyants_Resume_Oct2026.pdf (NoiseFile live on Play, 36 cities/108 workflows, 40+ functions, Bakers Agent 2 in progress). Uploaded to LinkedIn, Sept2026 deleted there.",
   "2026-10-27 09:15: BLANK = leave the box empty on purpose (middle name); 'start immediately' = Yes (George: start immediately).",
-  "2026-10-27 12:05: portfolio live at abrahamyants.github.io; website/portfolio answers point there; resume contact line carries it."
- ]
+  "2026-10-27 12:05: portfolio live at abrahamyants.github.io; website/portfolio answers point there; resume contact line carries it.",
+  "2026-10-29: 'history' section added from George's LinkedIn data export (1,063 questions, his most-used answer each). George: one book, no separate file; on a mismatch take the answer he used most. Five rules moved to his most-used answers: veteran (not a protected veteran), disability (No), race (Two or More Races), relocate (Yes), Microsoft Office years (10). His years-of-experience numbers are the posting's minimum on purpose (George 10/29), loaded as-is."
+ ],
+ "history": {
+  "have you completed the following level of education: bachelor's degree?": {
+   "answer": "Yes",
+   "n": 203,
+   "last": "2026-09-04"
+  },
+  "are you legally authorized to work in the united states?": {
+   "answer": "Yes",
+   "n": 159,
+   "last": "2026-10-27"
+  },
+  "will you now, or in the future, require sponsorship for employment visa status (e.g. h-1b visa status)?": {
+   "answer": "No",
+   "n": 121,
+   "last": "2026-10-27"
+  },
+  "are you comfortable commuting to this job's location?": {
+   "answer": "Yes",
+   "n": 50,
+   "last": "2026-08-28"
+  },
+  "are you comfortable working in an onsite setting?": {
+   "answer": "Yes",
+   "n": 44,
+   "last": "2026-08-28"
+  },
+  "are you willing to undergo a background check, in accordance with local law/regulations?": {
+   "answer": "Yes",
+   "n": 35,
+   "last": "2026-09-04"
+  },
+  "gender": {
+   "answer": "Male",
+   "n": 35,
+   "last": "2026-08-24",
+   "others": {
+    "Decline To Self Identify": 1
+   }
+  },
+  "are you comfortable working in a hybrid setting?": {
+   "answer": "Yes",
+   "n": 29,
+   "last": "2026-10-27"
+  },
+  "veteran status": {
+   "answer": "I am not a protected veteran",
+   "n": 26,
+   "last": "2025-10-09",
+   "others": {
+    "I am not a veteran": 1
+   }
+  },
+  "we must fill this position urgently. can you start immediately?": {
+   "answer": "Yes",
+   "n": 23,
+   "last": "2026-10-27"
+  },
+  "will you now or in the future require visa sponsorship or a visa transfer?": {
+   "answer": "No",
+   "n": 21,
+   "last": "2026-10-27"
+  },
+  "are you legally authorized to work in the us without restriction?": {
+   "answer": "Yes",
+   "n": 21,
+   "last": "2026-10-27"
+  },
+  "how many years of work experience do you have with microsoft excel?": {
+   "answer": "10",
+   "n": 20,
+   "last": "2025-10-19",
+   "others": {
+    "7": 3
+   }
+  },
+  "do you have a valid driver's license?": {
+   "answer": "Yes",
+   "n": 19,
+   "last": "2026-08-22"
+  },
+  "are you willing to take a drug test, in accordance with local law/regulations?": {
+   "answer": "Yes",
+   "n": 18,
+   "last": "2026-08-22"
+  },
+  "linkedin profile": {
+   "answer": "www.linkedin.com/in/george-abrahamyan",
+   "n": 15,
+   "last": "2026-08-28"
+  },
+  "race/ethnicity": {
+   "answer": "Two or More Races (Not Hispanic or Latino)",
+   "n": 14,
+   "last": "2025-10-09",
+   "others": {
+    "I prefer not to specify": 1
+   }
+  },
+  "disability": {
+   "answer": "No, I do not have a disability and have not had one in the past",
+   "n": 13,
+   "last": "2025-10-09"
+  },
+  "how many years of work experience do you have with microsoft office?": {
+   "answer": "10",
+   "n": 12,
+   "last": "2025-10-05"
+  },
+  "what is your current location?": {
+   "answer": "Daly City, CA",
+   "n": 12,
+   "last": "2026-08-23",
+   "others": {
+    "Daly City, CA 94015": 3,
+    "Daly City": 1,
+    "1096 Wildwood Ave, Daly City, 94015": 1,
+    "1096 Wildwood Ave, Daly City, CA 94015": 1,
+    "Daly City, California, United States": 2
+   }
+  },
+  "race and ethnicity": {
+   "answer": "Two or More Races",
+   "n": 11,
+   "last": "2025-03-20"
+  },
+  "have you completed the following level of education: doctor of law?": {
+   "answer": "Yes",
+   "n": 10,
+   "last": "2026-09-03"
+  },
+  "have you completed the following level of education: high school diploma?": {
+   "answer": "Yes",
+   "n": 10,
+   "last": "2025-11-20"
+  },
+  "are you comfortable working in a remote setting?": {
+   "answer": "Yes",
+   "n": 10,
+   "last": "2026-08-23"
+  },
+  "how many years of work experience do you have with contract management?": {
+   "answer": "5",
+   "n": 8,
+   "last": "2025-07-15",
+   "others": {
+    "7": 7,
+    "6": 1
+   }
+  },
+  "applicant privacy acknowledgement": {
+   "answer": "Yes",
+   "n": 7,
+   "last": "2024-10-15"
+  },
+  "will you now or in the future require employment-based visa sponsorship?": {
+   "answer": "No",
+   "n": 7,
+   "last": "2024-10-15"
+  },
+  "are you currently authorized to work lawfully in the u.s.?": {
+   "answer": "Yes",
+   "n": 7,
+   "last": "2024-10-15"
+  },
+  "have you worked at doordash?": {
+   "answer": "I have not worked at DoorDash",
+   "n": 7,
+   "last": "2024-10-15"
+  },
+  "how many years of law practice experience do you currently have?": {
+   "answer": "5",
+   "n": 7,
+   "last": "2025-10-10",
+   "others": {
+    "3": 1
+   }
+  },
+  "how many years of work experience do you have with software as a service (saas)?": {
+   "answer": "5",
+   "n": 7,
+   "last": "2025-10-09"
+  },
+  "by clicking \"yes\" you agree to our privacy policy and data processing. providing accurate information is essential, as any dishonesty may lead to rejection of an application or termination.": {
+   "answer": "Yes",
+   "n": 7,
+   "last": "2026-09-04"
+  },
+  "how many years of legal experience do you currently have?": {
+   "answer": "8",
+   "n": 6,
+   "last": "2026-10-14",
+   "others": {
+    "5": 6,
+    "7": 2
+   }
+  },
+  "how many years of legal services experience do you currently have?": {
+   "answer": "8",
+   "n": 6,
+   "last": "2025-10-10"
+  },
+  "linkedin id": {
+   "answer": "oD8Io0Dqik",
+   "n": 6,
+   "last": "2025-10-06"
+  },
+  "how many years of work experience do you have with regulatory compliance?": {
+   "answer": "6",
+   "n": 6,
+   "last": "2025-10-11",
+   "others": {
+    "4": 1,
+    "5": 1
+   }
+  },
+  "are you willing to undergo a background check in accordance with local law/regulations ?": {
+   "answer": "Yes",
+   "n": 6,
+   "last": "2025-09-25"
+  },
+  "do you have any certifications ?": {
+   "answer": "No",
+   "n": 6,
+   "last": "2025-09-25"
+  },
+  "do you now, or will you in the future, require any type of sponsorship for employment visa status (e.g., h-1b visa status, etc.) to work legally for our company in the united states ?": {
+   "answer": "No",
+   "n": 6,
+   "last": "2025-09-25"
+  },
+  "do you have client-facing consulting experience ?": {
+   "answer": "Yes",
+   "n": 6,
+   "last": "2025-09-25"
+  },
+  "did you graduate from university with a degree ?": {
+   "answer": "Yes",
+   "n": 6,
+   "last": "2025-09-25"
+  },
+  "are you legally authorized to work in the united states for our company?": {
+   "answer": "Yes",
+   "n": 6,
+   "last": "2025-09-25"
+  },
+  "how many years of biotechnology research experience do you currently have?": {
+   "answer": "1",
+   "n": 6,
+   "last": "2025-09-22"
+  },
+  "have you completed the following level of education: associate's degree?": {
+   "answer": "Yes",
+   "n": 5,
+   "last": "2025-08-19"
+  },
+  "how many years of work experience do you have with human resources (hr)?": {
+   "answer": "5",
+   "n": 5,
+   "last": "2025-09-25",
+   "others": {
+    "3": 2
+   }
+  },
+  "do you have a disability?": {
+   "answer": "No, I do not have a disability and have not had one in the past",
+   "n": 5,
+   "last": "2025-10-05"
+  },
+  "protected veterans may have additional rights under userra—the uniformed services employment and reemployment rights act. in particular, if you were absent from employment in order to perform service in the uniformed service, you may be entitled to be reemployed by your employer in the position you would have obtained with reasonable certainty if not for the absence due to service. for more information, call the u.s. department of labor's veterans employment and training service (vets), toll-free, at 1-866-4-usa-dol.if you believe you belong to any of the categories of protected veterans listed above, please indicate by checking the appropriate box below. as a government contractor subject to vevraa, we request this information in order to measure the effectiveness of the outreach and positive recruitment efforts we undertake pursuant to vevraa.": {
+   "answer": "I am not a protected veteran",
+   "n": 5,
+   "last": "2025-10-05"
+  },
+  "i certify that all information in this application is true and correct to the best of my knowledge.": {
+   "answer": "Confirmed",
+   "n": 5,
+   "last": "2025-10-05"
+  },
+  "by checking this box, you will declare that you read and understand the linkedin privacy policy, and the smartrecruiters privacy policy and smartrecruiters terms of use.": {
+   "answer": "I Agree Terms & Conditions",
+   "n": 5,
+   "last": "2025-10-05"
+  },
+  "will you now or in the future require sponsorship for employment visa status, in order to begin or maintain employment with linkedin?": {
+   "answer": "No",
+   "n": 5,
+   "last": "2025-10-05"
+  },
+  "are you legally authorized to work in the country in which this role will be located?": {
+   "answer": "Yes",
+   "n": 5,
+   "last": "2025-10-05"
+  },
+  "i understand that my application will not be considered if i do not provide a resume or career profile at time of application.": {
+   "answer": "Confirmed",
+   "n": 5,
+   "last": "2025-10-05"
+  },
+  "if you currently or previously worked at linkedin or microsoft, please select the company and employment type. (select all that apply)": {
+   "answer": "Not Applicable",
+   "n": 5,
+   "last": "2025-10-05"
+  },
+  "if required, would you be willing to relocate for this role?": {
+   "answer": "Yes",
+   "n": 5,
+   "last": "2025-10-05"
+  },
+  "do you currently or have you previously worked at linkedin or microsoft in any capacity? (select all that apply)": {
+   "answer": "Not Applicable",
+   "n": 5,
+   "last": "2025-10-05"
+  },
+  "i understand and agree that submission of this application form does not constitute a promise or guarantee of employment with linkedin. i further understand and agree that, if i am hired, my employment with linkedin will be \"at will.\"": {
+   "answer": "Confirmed",
+   "n": 5,
+   "last": "2025-10-05"
+  },
+  "have you ever worked for deloitte & touche, curach, ingeus, str, intelligent energy, or any other deloitte affiliates?": {
+   "answer": "No",
+   "n": 5,
+   "last": "2025-10-05"
+  },
+  "are you within a reasonable commuting distance to a sia office location?": {
+   "answer": "Yes",
+   "n": 5,
+   "last": "2025-07-16"
+  },
+  "if yes, from which consulting firm ?": {
+   "answer": "Andersen",
+   "n": 5,
+   "last": "2025-09-25",
+   "others": {
+    "Andersen (Formerly Andersen Tax)": 1
+   }
+  },
+  "by checking this box, you will declare that you read and understand the privacy policy of sia.": {
+   "answer": "I consent",
+   "n": 5,
+   "last": "2025-07-16"
+  },
+  "have you completed the following level of education: master's degree?": {
+   "answer": "Yes",
+   "n": 5,
+   "last": "2025-11-17"
+  },
+  "have you completed the following level of education: master of business administration?": {
+   "answer": "No",
+   "n": 5,
+   "last": "2025-11-17"
+  },
+  "how many years of work experience do you have with microsoft powerpoint?": {
+   "answer": "7",
+   "n": 4,
+   "last": "2025-09-16"
+  },
+  "how many years of work experience do you have with salesforce.com?": {
+   "answer": "3",
+   "n": 4,
+   "last": "2025-09-22",
+   "others": {
+    "4": 1
+   }
+  },
+  "how did you hear about this job?": {
+   "answer": "LinkedIn",
+   "n": 4,
+   "last": "2025-03-20",
+   "others": {
+    "linkedin": 2,
+    "Linkedin": 1
+   }
+  },
+  "how many years of work experience do you have with sharepoint?": {
+   "answer": "3",
+   "n": 4,
+   "last": "2025-09-16",
+   "others": {
+    "2": 1
+   }
+  },
+  "race/ethnicityrace categories are defined as follows:hispanic or latino - a person of cuban, mexican, puerto rican, south or central american, or other spanish culture or origin regardless of racewhite (not hispanic or latino) - a person having origins in any of the original peoples of europe, the middle east, or north africablack or african american (not hispanic or latino) - a person having origins in any of the black racial groups of africanative hawaiian or other pacific islander (not hispanic or latino) - a person having origins in any of the peoples of hawaii, guam, samoa, or other pacific islandsasian (not hispanic or latino) - a person having origins in any of the original peoples of the far east, southeast asia, or the indian subcontinent, including, for example, cambodia, china, india, japan, korea, malaysia, pakistan, the philippine islands, thailand, and vietnamamerican indian or alaska native (not hispanic or latino) - a person having origins in any of the original peoples of north and south america (including central america), and who maintain tribal affiliation or community attachmenttwo or more races (not hispanic or latino) - all persons who identify with more than one of the above five races": {
+   "answer": "Two or More Races (Not Hispanic or Latino)",
+   "n": 4,
+   "last": "2025-10-05",
+   "others": {
+    "White (Not Hispanic or Latino)": 1
+   }
+  },
+  "how many years of work experience do you have with legal compliance?": {
+   "answer": "8",
+   "n": 4,
+   "last": "2025-09-22",
+   "others": {
+    "6": 1
+   }
+  },
+  "how many years of work experience do you have with sap products?": {
+   "answer": "5",
+   "n": 4,
+   "last": "2025-07-07"
+  },
+  "how many years of work experience do you have with paralegal studies?": {
+   "answer": "5",
+   "n": 4,
+   "last": "2025-11-20"
+  },
+  "can you commit to at least 4 hours of daily overlap with us pacific time while working full-time (40 hrs/week)?": {
+   "answer": "Yes",
+   "n": 4,
+   "last": "2026-08-28"
+  },
+  "are you comfortable with a contract, pay-per-task arrangement (no fixed salary, no medical/paid leave)?": {
+   "answer": "Yes",
+   "n": 4,
+   "last": "2026-08-28"
+  },
+  "is your written english at a native or near-native level?": {
+   "answer": "Yes",
+   "n": 4,
+   "last": "2026-08-28"
+  },
+  "have you verified facts using primary sources — government databases, archives, registries, or official records — rather than relying on top google search results?": {
+   "answer": "Yes",
+   "n": 4,
+   "last": "2026-08-28"
+  },
+  "do you have 3+ years of experience in one or more of the following: osint/due diligence, investigative journalism/fact-checking, archival/records research, patent or legal-discovery search?": {
+   "answer": "Yes",
+   "n": 4,
+   "last": "2026-08-28"
+  },
+  "how many years of work experience do you have with microsoft outlook?": {
+   "answer": "9",
+   "n": 3,
+   "last": "2023-08-31"
+  },
+  "what is your level of proficiency in spanish?": {
+   "answer": "None",
+   "n": 3,
+   "last": "2025-07-17"
+  },
+  "how many years of management experience do you currently have?": {
+   "answer": "7",
+   "n": 3,
+   "last": "2025-08-21",
+   "others": {
+    "8": 1
+   }
+  },
+  "we would like to contact you via sms or whatsapp to provide updates on your progress. mark yes if you agree. if you mark no, we will contact you via the email you provided.": {
+   "answer": "No",
+   "n": 3,
+   "last": "2023-09-14",
+   "others": {
+    "Yes": 3
+   }
+  },
+  "disability status": {
+   "answer": "No, I do not have a disability and have not had one in the past",
+   "n": 3,
+   "last": "2025-03-19",
+   "others": {
+    "Yes, I have a disability, or have had one in the past": 1,
+    "No, I don’t have a disability": 2
+   }
+  },
+  "what is your level of proficiency in english?": {
+   "answer": "Native or bilingual",
+   "n": 3,
+   "last": "2025-10-20"
+  },
+  "how many years of administrative experience do you currently have?": {
+   "answer": "6",
+   "n": 3,
+   "last": "2025-06-30"
+  },
+  "do you identify as transgender?": {
+   "answer": "No",
+   "n": 3,
+   "last": "2025-03-26"
+  },
+  "your name": {
+   "answer": "Gurgen Abrahamyants",
+   "n": 3,
+   "last": "2025-10-05",
+   "others": {
+    "gurgen abrahamyants": 2
+   }
+  },
+  "how many years of work experience do you have with contract negotiation?": {
+   "answer": "5",
+   "n": 3,
+   "last": "2025-03-26"
+  },
+  "how many years of work experience do you have with auditing?": {
+   "answer": "4",
+   "n": 3,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with supervisory skills?": {
+   "answer": "7",
+   "n": 3,
+   "last": "2025-09-16",
+   "others": {
+    "5": 1
+   }
+  },
+  "how did you hear about us?": {
+   "answer": "Job Board",
+   "n": 3,
+   "last": "2025-09-16",
+   "others": {
+    "LinkedIn": 1,
+    "LinkedIn Job Postings": 1
+   }
+  },
+  "how many years of work experience do you have with construction?": {
+   "answer": "5",
+   "n": 3,
+   "last": "2025-11-17",
+   "others": {
+    "3": 2
+   }
+  },
+  "how many years of work experience do you have with management?": {
+   "answer": "7",
+   "n": 3,
+   "last": "2025-09-17"
+  },
+  "are you a protected veteran? (definitions)": {
+   "answer": "No",
+   "n": 3,
+   "last": "2025-09-22"
+  },
+  "how many years of project management experience do you currently have?": {
+   "answer": "7",
+   "n": 3,
+   "last": "2025-10-09",
+   "others": {
+    "8": 1
+   }
+  },
+  "if this role or future roles require relocation": {
+   "answer": "I am willing to relocate and will need relocation assistance",
+   "n": 3,
+   "last": "2025-09-16"
+  },
+  "do you need sponsorship now or in the future for employment?": {
+   "answer": "No",
+   "n": 3,
+   "last": "2025-09-16"
+  },
+  "would you like to be considered for future opportunities?": {
+   "answer": "Yes",
+   "n": 3,
+   "last": "2025-09-16"
+  },
+  "by checking this box, you will declare that you read and understand the palo alto networks privacy policy, and the smartrecruiters privacy policy and smartrecruiters terms of use.": {
+   "answer": "I Agree Terms & Conditions",
+   "n": 3,
+   "last": "2025-09-16"
+  },
+  "are you legally authorized to work in the country where the job is located without any restrictions?": {
+   "answer": "Yes",
+   "n": 3,
+   "last": "2025-09-16"
+  },
+  "have you interviewed with palo alto networks in the past?": {
+   "answer": "No",
+   "n": 3,
+   "last": "2025-09-16"
+  },
+  "have you previously worked for palo alto networks?": {
+   "answer": "No - I have not worked for Palo Alto Networks",
+   "n": 3,
+   "last": "2025-09-16"
+  },
+  "how many years of work experience do you have with commercial contracts?": {
+   "answer": "7",
+   "n": 3,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with sap erp?": {
+   "answer": "2",
+   "n": 3,
+   "last": "2025-09-22",
+   "others": {
+    "4": 1
+   }
+  },
+  "how many years of pharmaceutical manufacturing experience do you currently have?": {
+   "answer": "0",
+   "n": 3,
+   "last": "2025-09-22"
+  },
+  "do you have a portfolio of writing samples to share?": {
+   "answer": "Yes",
+   "n": 3,
+   "last": "2025-10-09"
+  },
+  "are you located within reasonable commuting distance of the san francisco bay area?": {
+   "answer": "Yes",
+   "n": 3,
+   "last": "2025-10-09"
+  },
+  "how many years of work experience do you have with technical writing?": {
+   "answer": "5",
+   "n": 3,
+   "last": "2025-10-09"
+  },
+  "how many years of work experience do you have with legal operations?": {
+   "answer": "5",
+   "n": 3,
+   "last": "2025-10-05"
+  },
+  "how many years of work experience do you have with python (programming language)?": {
+   "answer": "2",
+   "n": 3,
+   "last": "2026-10-14"
+  },
+  "how many years of work experience do you have with oracle database?": {
+   "answer": "3",
+   "n": 2,
+   "last": "2025-09-25",
+   "others": {
+    "1": 1
+   }
+  },
+  "how many years of work experience do you have with quickbooks?": {
+   "answer": "7",
+   "n": 2,
+   "last": "2023-08-30"
+  },
+  "how many years of accounting/auditing experience do you currently have?": {
+   "answer": "6",
+   "n": 2,
+   "last": "2025-10-23",
+   "others": {
+    "2": 1,
+    "4": 1
+   }
+  },
+  "how many years of work experience do you have with cannabis?": {
+   "answer": "3",
+   "n": 2,
+   "last": "2023-08-22",
+   "others": {
+    "2": 1
+   }
+  },
+  "how many years of food and beverage manufacturing experience do you currently have?": {
+   "answer": "1",
+   "n": 2,
+   "last": "2023-08-30"
+  },
+  "how did you first hear about flexport?": {
+   "answer": "Career Platform (e.g. LinkedIn, Glassdoor, BuiltIn, etc.)",
+   "n": 2,
+   "last": "2023-08-29"
+  },
+  "have you previously been employed by flexport or any of its entities; or by an agency representing flexport?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2023-08-29"
+  },
+  "are you authorized to work lawfully in the united states for flexport?": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2023-08-29"
+  },
+  "application consent for flexport": {
+   "answer": "I Accept",
+   "n": 2,
+   "last": "2023-08-29"
+  },
+  "will you now or in the future require flexport to commence (\"sponsor\") an immigration case in order to employ you (for example, h-1b or other employment-based immigration case)? this is sometimes called \"sponsorship\" for an employment-based visa status.": {
+   "answer": "No",
+   "n": 2,
+   "last": "2023-08-29"
+  },
+  "how many years of work experience do you have with export control compliance?": {
+   "answer": "5",
+   "n": 2,
+   "last": "2025-08-09"
+  },
+  "how many years of work experience do you have with business strategy?": {
+   "answer": "5",
+   "n": 2,
+   "last": "2025-04-17"
+  },
+  "how many years of work experience do you have with sales?": {
+   "answer": "7",
+   "n": 2,
+   "last": "2023-08-29"
+  },
+  "how many years of work experience do you have with negotiation?": {
+   "answer": "5",
+   "n": 2,
+   "last": "2025-09-22",
+   "others": {
+    "8": 1
+   }
+  },
+  "race (*please select one option that best describes how you identify*)": {
+   "answer": "Two or more races",
+   "n": 2,
+   "last": "2024-10-15"
+  },
+  "are you hispanic or latinx?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2024-10-15"
+  },
+  "protected veteran status": {
+   "answer": "I am not a protected veteran",
+   "n": 2,
+   "last": "2024-10-15"
+  },
+  "how many years of work experience do you have with business initiatives?": {
+   "answer": "5",
+   "n": 2,
+   "last": "2025-07-15"
+  },
+  "how many years of work experience do you have with settlement agreements?": {
+   "answer": "6",
+   "n": 2,
+   "last": "2025-03-26"
+  },
+  "how many years of work experience do you have with communication?": {
+   "answer": "9",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "how many years of work experience do you have with project management?": {
+   "answer": "8",
+   "n": 2,
+   "last": "2025-03-20"
+  },
+  "how many years of work experience do you have with compliance management?": {
+   "answer": "6",
+   "n": 2,
+   "last": "2025-06-27"
+  },
+  "how many years of work experience do you have with renewable energy?": {
+   "answer": "2",
+   "n": 2,
+   "last": "2025-04-23"
+  },
+  "how many years of construction experience do you currently have?": {
+   "answer": "4",
+   "n": 2,
+   "last": "2025-09-25",
+   "others": {
+    "3": 1
+   }
+  },
+  "are you 18 years of age or older?": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2025-08-12"
+  },
+  "are you hispanic or latino?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-08-13"
+  },
+  "select your level": {
+   "answer": "Native",
+   "n": 2,
+   "last": "2023-09-13"
+  },
+  "do you have the following license or certification: certified paralegal (cp)?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-03-25"
+  },
+  "do you have the following license or certification: paralegal certificate?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-10-11"
+  },
+  "do you have the following license or certification: project management professional (pmp)?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-09-26"
+  },
+  "how many years of business development experience do you currently have?": {
+   "answer": "4",
+   "n": 2,
+   "last": "2025-09-23"
+  },
+  "how many years of product management experience do you currently have?": {
+   "answer": "3",
+   "n": 2,
+   "last": "2025-08-12"
+  },
+  "how many years of manufacturing experience do you currently have?": {
+   "answer": "2",
+   "n": 2,
+   "last": "2025-03-20"
+  },
+  "how many years of work experience do you have with strategic planning?": {
+   "answer": "5",
+   "n": 2,
+   "last": "2025-11-17",
+   "others": {
+    "4": 2
+   }
+  },
+  "how many years of experience do you have in project management?": {
+   "answer": "5",
+   "n": 2,
+   "last": "2025-08-13"
+  },
+  "how many years of sales experience do you currently have?": {
+   "answer": "7",
+   "n": 2,
+   "last": "2025-03-26"
+  },
+  "by checking this box, you will declare that you read and agree to the smartrecruiters’ privacy policy and smartrecruiters terms of use.": {
+   "answer": "I Agree Terms & Conditions",
+   "n": 2,
+   "last": "2025-03-20"
+  },
+  "race/ethnicity - gender, race and ethnicity (definitions)": {
+   "answer": "Two or More Races",
+   "n": 2,
+   "last": "2025-09-22"
+  },
+  "gender - gender, race and ethnicity (definitions)": {
+   "answer": "Male",
+   "n": 2,
+   "last": "2025-09-22"
+  },
+  "do you have (or have a history/record of having) a disability? (definitions)": {
+   "answer": "No, I do not have a disability and have not had one in the past.",
+   "n": 2,
+   "last": "2025-09-22"
+  },
+  "do you have experience with private fund offerings and relevant regulatory compliance requirements?": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2025-05-26"
+  },
+  "are you at least 18 years of age?": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2025-07-15"
+  },
+  "how many years of technology, information and internet experience do you currently have?": {
+   "answer": "9",
+   "n": 2,
+   "last": "2025-10-05"
+  },
+  "how many years of work experience do you have with supply chain management?": {
+   "answer": "3",
+   "n": 2,
+   "last": "2025-03-18"
+  },
+  "will you now or in the future require visa sponsorship?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-07-15"
+  },
+  "how many years of work experience do you have with performance metrics?": {
+   "answer": "4",
+   "n": 2,
+   "last": "2025-09-18"
+  },
+  "(motor-vehicle acknowledgment) i acknowledge that the role to which i am applying may require me to travel to and from palo alto networks, inc. business meetings and events and that i have reliable transportation to do so. to the extent i choose to drive in connection with company business, i hereby certify that i have and will maintain a valid driver’s license.": {
+   "answer": "Confirmed",
+   "n": 2,
+   "last": "2025-07-15"
+  },
+  "palo alto networks is a government contractor subject to the vietnam era veterans' readjustment assistance act of 1974, as amended by the jobs for veterans act of 2002, 38 u.s.c. 4212 (\"vevraa\"), which requires government contractors to take affirmative action to employ and advance in employment: (1) disabled veterans/ (2) recently separated veterans/ (3) active duty wartime or campaign badge veterans/ and (4) armed forces service medal veterans. if you believe you are a member of any of the categories of protected veterans listed above, please indicate by checking the appropriate box below. your decision to provide the relevant information is purely voluntary on your part, and refusal to provide such information will not subject you to any adverse treatment. the information will not be used in a manner inconsistent with vevraa, as amended.please select one of the options below [definitions](https://www.smartrecruiters.com/oneclick-ui/resources/html/ofccpveterans)": {
+   "answer": "I am not a veteran",
+   "n": 2,
+   "last": "2025-07-15"
+  },
+  "please indicate your race / ethnic group (choose all that apply) [definitions](https://www.smartrecruiters.com/oneclick-ui/resources/html/eeogeneral?lang=en)": {
+   "answer": "White (Not of Hispanic Origin)",
+   "n": 2,
+   "last": "2025-07-15"
+  },
+  "are you in the reserves?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-07-15"
+  },
+  "please indicate your gender": {
+   "answer": "Male",
+   "n": 2,
+   "last": "2025-07-15"
+  },
+  "i understand that the information i submit as part of my job application will be used in accordance with [palo alto network's candidate privacy notice](https://www.paloaltonetworks.com/legal-notices/privacy/privacy-notice.html). i understand the processing of my information as described in that policy including that, in limited circumstances, palo alto networks may share my contact information with trusted third parties, to assist in certain phases of the hiring process (such as conducting background checks).": {
+   "answer": "Confirmed",
+   "n": 2,
+   "last": "2025-07-15"
+  },
+  "do you consider yourself as a military spouse / domestic partner?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-07-15"
+  },
+  "do you have (or have a history/record of having) a disability? [definitions](https://www.smartrecruiters.com/oneclick-ui/resources/html/ofccpdisability?lang=en)": {
+   "answer": "No, I don’t have a disability, or a history/record of having a disability",
+   "n": 2,
+   "last": "2025-07-15"
+  },
+  "how many years of work experience do you have with civil procedure?": {
+   "answer": "5",
+   "n": 2,
+   "last": "2025-07-17"
+  },
+  "do you have the following license or certification: certified public accountant (cpa)?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-08-14"
+  },
+  "how many years of work experience do you have with timesheet?": {
+   "answer": "4",
+   "n": 2,
+   "last": "2025-07-16"
+  },
+  "how many years of work experience do you have with legal assistants?": {
+   "answer": "3",
+   "n": 2,
+   "last": "2025-07-16"
+  },
+  "how many years of work experience do you have with jira?": {
+   "answer": "3",
+   "n": 2,
+   "last": "2025-11-04"
+  },
+  "how many years of work experience do you have with tax preparation?": {
+   "answer": "7",
+   "n": 2,
+   "last": "2025-07-21"
+  },
+  "how many years of work experience do you have with property management?": {
+   "answer": "1",
+   "n": 2,
+   "last": "2025-08-04"
+  },
+  "how many years of work experience do you have with supportive housing?": {
+   "answer": "1",
+   "n": 2,
+   "last": "2025-08-04"
+  },
+  "how many years of work experience do you have with it contract negotiation?": {
+   "answer": "5",
+   "n": 2,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with civil litigation?": {
+   "answer": "5",
+   "n": 2,
+   "last": "2025-07-07"
+  },
+  "are you authorized to work in the united states?": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2025-08-13"
+  },
+  "how many years of work experience do you have with corporate governance?": {
+   "answer": "5",
+   "n": 2,
+   "last": "2025-07-15"
+  },
+  "are you legally authorized to work for any employer in the us?": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2025-10-19"
+  },
+  "do you require sponsorship now or in the future?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-10-19"
+  },
+  "i am allowing outreach to contact me about future job opportunities for up to 1 year. privacy policy": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2025-10-19"
+  },
+  "how many years of work experience do you have with aderant?": {
+   "answer": "2",
+   "n": 2,
+   "last": "2025-08-19"
+  },
+  "how many years of work experience do you have with legal assistance?": {
+   "answer": "2",
+   "n": 2,
+   "last": "2025-07-02"
+  },
+  "how many years of work experience do you have with sap ariba?": {
+   "answer": "2",
+   "n": 2,
+   "last": "2025-09-22"
+  },
+  "are you a veteran?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-11-17"
+  },
+  "how many years of work experience do you have with billing systems?": {
+   "answer": "3",
+   "n": 2,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with sql?": {
+   "answer": "3",
+   "n": 2,
+   "last": "2026-10-14"
+  },
+  "how many years of work experience do you have with business project management?": {
+   "answer": "6",
+   "n": 2,
+   "last": "2025-09-26"
+  },
+  "how many years of work experience do you have with marketing?": {
+   "answer": "7",
+   "n": 2,
+   "last": "2025-11-04"
+  },
+  "how many years of work experience do you have with tableau?": {
+   "answer": "2",
+   "n": 2,
+   "last": "2025-09-18"
+  },
+  "by checking the box above you are applying your signature and you agree to this applicant statement.": {
+   "answer": "I Agree",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "preferred name (please insert your preferred first name in this field)": {
+   "answer": "George",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "type": {
+   "answer": "Mobile",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "have you worked for san francisco health plan before?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "do you need accommodations through out the interview process?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "do you have any relatives employed by san francisco health plan?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "where did you hear about this position?": {
+   "answer": "LinkedIn",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "date available to start": {
+   "answer": "2025-10-13",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "are you at least 18 years old? (if \"no\", you may be required to provide authorization to work.)": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "primary phone number": {
+   "answer": "415-632-8008",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "if i am offered and accepted a position, i authorize san francisco health plan (sfhp) to release my contact information (email, address, telephone number) with other departments within sfhp for employment and on-boarding purposes.": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "do you now, or will you in the future, require immigration sponsorship for work authorization (e.g., h-1b)? (if hired,verification will be required consistent with federal law.)": {
+   "answer": "No",
+   "n": 2,
+   "last": "2025-10-09"
+  },
+  "do you have 4-7 years of contracting experience in executing and managing contracting activities": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2025-10-23"
+  },
+  "do you have knowledge of sales and use tax-specific software systems such as vertex, avalara, cch sales tax, and thomson reuters onesource?": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2025-09-26"
+  },
+  "how many years of telecommunications experience do you currently have?": {
+   "answer": "1",
+   "n": 2,
+   "last": "2025-09-25"
+  },
+  "how many years of work experience do you have with tracker?": {
+   "answer": "3",
+   "n": 2,
+   "last": "2025-09-25"
+  },
+  "how many years of work experience do you have with patent applications?": {
+   "answer": "1",
+   "n": 2,
+   "last": "2025-11-20"
+  },
+  "linkedin url": {
+   "answer": "www.linkedin.com/in/george-abrahamyan",
+   "n": 2,
+   "last": "2025-10-07"
+  },
+  "how many years of information technology experience do you currently have?": {
+   "answer": "5",
+   "n": 2,
+   "last": "2025-09-25",
+   "others": {
+    "1": 1
+   }
+  },
+  "discipline": {
+   "answer": "Law",
+   "n": 2,
+   "last": "2026-08-28",
+   "others": {
+    "Other": 1,
+    "Political Science": 2
+   }
+  },
+  "please confirm that you have reviewed modern family law and workable's recruitment privacy notice, including the ccpa and cpra for california applicants. please see: https://www.modernfamilylaw.com/privacy/ sections b & c": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2026-08-24"
+  },
+  "will you now or in the future require sponsorship for employment visa status (e.g. h-1b status)?": {
+   "answer": "No",
+   "n": 2,
+   "last": "2026-08-24"
+  },
+  "preferred name": {
+   "answer": "George",
+   "n": 2,
+   "last": "2026-08-24"
+  },
+  "what are your salary requirements?": {
+   "answer": "Yes",
+   "n": 2,
+   "last": "2026-08-24"
+  },
+  "how many years with partnership contracts working for a technology/saas company?": {
+   "answer": "5",
+   "n": 2,
+   "last": "2025-11-17"
+  },
+  "how many years of hospital & health care experience do you currently have?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2020-11-02"
+  },
+  "how may years of working experience in global trade in pharmaceutical/life sciences/biotechnology/medical device industry?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "how many years of work experience do you have with restaurant management?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2023-08-11"
+  },
+  "how many years of work experience do you have with club management?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2023-08-11"
+  },
+  "how many years of restaurants experience do you currently have?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2023-08-11"
+  },
+  "how many years of mgmt experience do you currently have?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2023-08-26"
+  },
+  "this is an on site position working for adecco at one of our clients sites first cruise automation. do you currently live within the san francisco area and could commute to this location?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "does your resume show a stable work history and experience in operations management, fleet management, rental operations, and or valet operations?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "how many years of work experience do you have with adp payroll?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "how many years of work experience do you have with appointment scheduling?": {
+   "answer": "10",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "how many years of work experience involving accounting or finance for nonprofits": {
+   "answer": "1",
+   "n": 1,
+   "last": "2023-08-17"
+  },
+  "how many years of finance and office management experience": {
+   "answer": "4",
+   "n": 1,
+   "last": "2023-08-17"
+  },
+  "how many years of work experience do you have using salesforce.com?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2020-11-02"
+  },
+  "how many years of work experience do you have with operations?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2023-08-22"
+  },
+  "do you have any relatives who are employed by zenni optical or ocusun, llc?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "this position will be scoped as a remote/hybrid position, where in-person meetings will be required on an as-needed basis in the sf bay area. will you be able to travel upon request?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "candidates must be a u.s. citizen!": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "strong knowledge and understanding of distribution and warehouse management applications.": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "related industry experience; natural stone, tile or hard flooring industries preferred.": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "must have 5 years of distribution center operations experience and lean manufacturing principles highly desired.": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "must have a minimum of 5 years of supervisory/management experience and must have supervised at least 15+ team members.": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "how many years of work experience do you have using microsoft office?": {
+   "answer": "11",
+   "n": 1,
+   "last": "2020-11-04"
+  },
+  "how many years of work experience do you have with people management?": {
+   "answer": "12",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "do you have the following license or certification: servsafe manager?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "how many years of work experience do you have with operations management?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "how many years of work experience do you have with business acumen?": {
+   "answer": "10",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "do you have at least 2 years of industry experience?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "how many years of work experience do you have with freight forwarding?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "are you willing to move to the san francisco area for this position?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-22"
+  },
+  "how many years of experience do you have supporting legal projects or programs, including experience working with tier 2 or higher customer support?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "how many years of experience do you have preparing and presenting reports?": {
+   "answer": "7",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "how many years of work experience do you have with salesforce service cloud?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "do you have direct experience assessing a vendor?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-12"
+  },
+  "do you reside in either san francisco, ca, atlanta, ga or bellevue, wa? this role can be based out of either of these 3 office locations and does not qualify for remote work.": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-12"
+  },
+  "let us know which specific channel/event/medium/etc you heard about us": {
+   "answer": "Linkedin",
+   "n": 1,
+   "last": "2023-08-12"
+  },
+  "how many years of work experience do you have with gsuite (sheets, slides, docs, drive, etc.)?": {
+   "answer": "7",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "how many years of work experience do you have with federal & state regulatory compliance?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "how many years of work experience do you have with anti-money laundering?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "how many years of work experience do you have with u.s. office of foreign assets control (ofac)?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "i identify my ethnicity as (mark all that apply)": {
+   "answer": "Middle Eastern",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "i identify my gender as": {
+   "answer": "Male",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "are you located in the santa clara, ca area?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "how many years of work experience do you have with global sourcing?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2023-08-26"
+  },
+  "how many years of work experience do you have with supplier sourcing?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2023-08-26"
+  },
+  "have you managed an annual employee performance review process?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-22"
+  },
+  "do you have experience analyzing and negotiating with benefit providers on medical, dental, vision and life insurances?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-22"
+  },
+  "have you processed california employee payroll?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-22"
+  },
+  "do you have experience using paycom hris?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-22"
+  },
+  "how many years of work experience do you have with global human resources management?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2023-08-17"
+  },
+  "have you supervised a claims team?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "how many years of experience do you have in supplier risk compliance program management?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "how many years of experience do you have with any of the following: project management, human resources, system administration, or business analysis?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2023-08-07"
+  },
+  "do you have the following license or certification: property manager?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-18"
+  },
+  "how many years of work experience do you have with sec regulations?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of work experience do you have with regulatory compliance (in-house or client facing)?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of work experience do you have with regulatory filings (advs and form pfs)?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "would you like to receive communications via sms and/or whatsapp to the number provided [above or during the application process] about your application process? message & data rates may apply and message frequency may vary. if you select no, we will only communicate with you via email and/or telephone calls. if you select yes and change your mind, you can always reply stop to opt out.": {
+   "answer": "No",
+   "n": 1,
+   "last": "2024-10-15"
+  },
+  "have you been involved in hr system upgrades or changes?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-09-14"
+  },
+  "do you have employee relations experience?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-09-14"
+  },
+  "have you managed teams of more that 5 staff members": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-09-14"
+  },
+  "how many years of work experience do you have with artificial intelligence (ai)?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "how many years of work experience do you have with microsoft power bi?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "do you currently reside and plan to work from one of the following states: az, ar, co, fl, id, ia, ks, mo, ok, sd, tn, tx, or ut?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "do you have the following license or certification: professional in human resources (phr)?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of work experience do you have with hr operations?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "are you willing and able to commit to working monday through friday from 8:30am-5:30pm mountain time (9:30am-6:30pm central time)?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "do you have the following license or certification: shrm certified professional?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "if you answered yes to the question above, please provide the golden state warriors employee's first and last name.": {
+   "answer": "N/A",
+   "n": 1,
+   "last": "2023-09-15"
+  },
+  "are you currently authorized to work for all employers in the united states?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-09-15"
+  },
+  "will you require visa sponsorship in the future?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-09-15"
+  },
+  "are you over 18 years of age?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-09-15"
+  },
+  "are you being referred by a golden state warriors employee?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-09-15"
+  },
+  "what gender do you identify with? (select all that apply)": {
+   "answer": "Man",
+   "n": 1,
+   "last": "2024-07-24"
+  },
+  "what is your race/ethnicity? (select all that apply)": {
+   "answer": "White (Not Hispanic or Latino)",
+   "n": 1,
+   "last": "2024-07-24"
+  },
+  "how many years of work experience do you have with tax advisory?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "how many years of work experience do you have with e-commerce?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "how many years of work experience do you have with employment law compliance?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of exp you hsvr delivering effective presentations to stakeholder groups and devsci leadership that build understanding of contract purpose and process?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of work experience do you have with contract drafting?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of experience in either trust & safety, privacy, compliance, or similar functions; do you currently have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2024-07-24"
+  },
+  "how many years of work experience do you have with management consulting?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-04-17"
+  },
+  "how many years of work experience do you have with business operations?": {
+   "answer": "7",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "how many years of work experience do you have with individual taxation?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "linkedin": {
+   "answer": "www.linkedin.com/in/george-abrahamyan",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "how many years of work experience do you have with fair lending?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-04-22"
+  },
+  "how many years of work experience do you have with compliance training?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-04-22"
+  },
+  "do you have the following license or certification: certified regulatory compliance manager (crcm)?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-04-22"
+  },
+  "how many years of banking experience do you currently have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-04-22"
+  },
+  "do you have the following license or certification: board certification in civil pretrial practice (cpp)?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "are you presently residing in california?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "are you a us citizen/ green card holder?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "how many years of warehousing and storage experience do you currently have?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "how many years of work experience do you have with grant monitoring?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "do you have a bachelor's degree in accounting or finance?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "do you have at least 3 years of experience in public accounting?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "how many years of medical equipment manufacturing experience do you currently have?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-05-26",
+   "others": {
+    "0": 1
+   }
+  },
+  "are you authorized to work in the stated location of this role?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "what are your preferred gender pronouns? (she/her/hers; he/him/his; they/them/theirs, etc.)": {
+   "answer": "He/Him",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "this role requires two days per week in office. do you live in, or plan to relocate to the specified location?": {
+   "answer": "Yes, I’m currently located here",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "what country are you based in?": {
+   "answer": "USA",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "do you consent to brex processing your personal information for the purpose of assessing your candidacy for this position in accordance with brex’s applicant privacy policy?": {
+   "answer": "Consent",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "how many years have you worked with regulators?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of experience do you have in working with evolving regulations?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of supervisory experience do you possess?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years have you overseen title 31 compliance?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of work experience do you have with financial services?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "how many years of work experience do you have with third party risk management (tprm)?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "how many years of compliance risk do you have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "how many years of vendor risk do you have?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "how many years of finance experience do you currently have?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-20",
+   "others": {
+    "2": 1
+   }
+  },
+  "do you have the following license or certification: internal auditor?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "do you have the following license or certification: certified internal auditor?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "are you willing to relocate for this position if required?": {
+   "answer": "I'm already located where the position is based",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "stryder corp privacy shield certification": {
+   "answer": "Acknowledge",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "linkedin profile (indicate n/a if you don't have one)": {
+   "answer": "www.linkedin.com/in/george-abrahamyan",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "are you authorized to work lawfully in the united states for handshake?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "your location (city, state/country)": {
+   "answer": "San Francisco, CA",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "will you now, or in the future, require sponsorship for employment visa status?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "are you willing to work from our local office on mondays, wednesdays, and thursdays?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "how many years of research experience do you currently have?": {
+   "answer": "10",
+   "n": 1,
+   "last": "2024-07-24"
+  },
+  "how many years of work experience do you have with commercial real estate?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2024-07-24",
+   "others": {
+    "2": 1
+   }
+  },
+  "how many years of work experience do you have with civil construction?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2023-08-30"
+  },
+  "are you currently in the san francisco bay area or already planning to move here? windsor management will not be supporting any moves for out of town applicants.": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "do you have the following license or certification: real estate salesperson?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "do you have business development experience supporting one or more of the following practices: energy; environmental; esg; business/ human rights; advertising and consumer protection investigations?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "how many years of experience do you have in a law firm business development department?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "how many years of work experience do you have with project accounting?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "experience in affordable housing": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "how many years of work experience do you have with job costing?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "how many years of work experience do you have with hr project management?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "have you ever served in the armed force of the united states, national oceanographic and atmospheric administration (noaa) or united states public health service (usphs) commissioned corps?": {
+   "answer": "No, I have not served",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "by checking this box, you will declare that you read and understand the nbcuniversal privacy policy, and the smartrecruiters privacy policy and smartrecruiters terms of use.": {
+   "answer": "I Agree Terms & Conditions",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "are you currently or have you ever been employed by deloitte and touche?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "are you a current nbcuniversal, comcast or sky employee?": {
+   "answer": "No, I am not a current employee",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "what is your total annual compensation expectation, including bonuses?": {
+   "answer": "$111,000 - $130,000/yr",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "gender identity": {
+   "answer": "Man",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "please type in a language that you speak": {
+   "answer": "Russian",
+   "n": 1,
+   "last": "2023-09-13",
+   "others": {
+    "Armenian": 1
+   }
+  },
+  "i understand that the information i provide must be complete and accurate to the best of my knowledge and that falsification and/or incomplete information may jeopordize my employment now or in the future. i am not currently under contract with any other company or bound by any legal obligation that would prevent me from accepting a new role at this time.": {
+   "answer": "Confirmed",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "are you legally authorized to work in the country where this role is based?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "do you now, or will you in the future, need sponsorship from an employer in order to obtain, extend or renew your authorization to work in the us?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "are you willing to relocate?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "are you a current spouse/domestic partner of a member of the us armed forces (active or guard/reserve), noaa or usphs commissioned corps?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "eeo-race/ethnicity": {
+   "answer": "White",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "public burden statement: according to the paperwork reduction act of 1995 no persons are required to respond to a collection of information unless such collection displays a valid omb control number. this survey should take about 5 minutes to complete.do you have (or have a history/record of having) a disability?": {
+   "answer": "No, I Do Not Have A Disability",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "how many years of experience do you have in supplier management?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "do you have experience with indirect procurement categories?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "will you be able to come 2 days to our san mateo office?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "how would you rate your command of microsoft word, excel, outlook and powerpoint (1 - 10, with 10 being expert level)": {
+   "answer": "10",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "have you completed the following level of education: 200?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "how many years of work experience do you have with oracle primavera?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-03-27"
+  },
+  "will you now, or in the future, require logicmonitor to provide employment sponsorship for the country in which you are applying? (for example, h-1b, or other employment-based visas)": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "acknowledgment of data transfer": {
+   "answer": "Acknowledge / Confirm",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "do you have management or team lead experience?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "do you have experience with equity/stock administration?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "are you currently employed by a vista portfolio company? or have you ever taken a pre-employment assessment with a vista portfolio company? here is a list of current vista portfolio companies: https://www.vistaequitypartners.com/companies/": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "retention of personal information period": {
+   "answer": "Yes, I give you my consent to retain my information for 2 years in the case an opportunity arises that matches my background",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "are you currently located in or willing to relocate to the san francisco, bay area?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "do you have experience partnering with global teams on compensation related matters?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "how many years of business development experience do you have in a law firm setting?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "how would you describe your sexual orientation?": {
+   "answer": "Bisexual and/or pansexual",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "how would you describe your racial/ethnic background?": {
+   "answer": "White or European",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "are you legally authorized to work within the united states?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "do you have a disability or chronic condition (physical, visual, auditory, cognitive, mental, emotional, or other) that substantially limits one or more of your major life activities, including mobility, communication (seeing, hearing, speaking), and learning?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "how would you describe your gender identity?": {
+   "answer": "Man",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "are you a veteran or active member of the united states armed forces?": {
+   "answer": "I don't wish to answer",
+   "n": 1,
+   "last": "2026-08-28",
+   "others": {
+    "No, I am not a veteran or active member": 1
+   }
+  },
+  "do you have previous experience evaluating and implementing a contract management system?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "how many years of work experience do you have with banking operations?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "how many years of work experience do you have with workflow analysis?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "how many years of work experience do you have with vendor relations?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "how many years of experience do you have performing or managing r&d tax credit projects?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "how many years of work experience do you have with attention to detail?": {
+   "answer": "10",
+   "n": 1,
+   "last": "2025-03-27"
+  },
+  "do you have marketing experience?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-27"
+  },
+  "do you have proposal development experience?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-27"
+  },
+  "do you have pitch deck development experience?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-27"
+  },
+  "do you meet the experience requirements in the job description?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-27"
+  },
+  "how many years of work experience do you have with complex project management?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-03-27"
+  },
+  "how many years of managerial experience do you have in a legal or professional services firm?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "do you have the following license or certification: certified international trade professional?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "have you completed the following level of education: doctor of philosophy?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of supervisor/manager experience do you have?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2023-09-12"
+  },
+  "how many years of work experience do you have with conflict of interest?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-10-23",
+   "others": {
+    "2": 1
+   }
+  },
+  "do you have conflict of interest research experience?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "address": {
+   "answer": "1096 Wildwood Ave, Daly City, CA 94015",
+   "n": 1,
+   "last": "2024-07-24"
+  },
+  "are you currently a sofi, galileo or technisys employee?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "preferred name (if different from legal name)": {
+   "answer": "George",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "are you authorized to lawfully work in the country where this role is located?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "race: please select the racial category with which you most closely identify with.": {
+   "answer": "Two or more races",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "have you worked at sofi or galileo before?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "will you now or in the future require sofi to commence (“sponsor”) an immigration case in order to employ you?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "would you like to receive marketing communications about careers at sofi and galileo?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "how many years of experience do you have working with security?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "are you familiar with sop's (standard operational procedures)?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "how many years of experience do you have working with quality review/quality assurance?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "do you currently reside in the bay area or, if not, will you relocate to the bay area prior to starting if selected?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2024-07-24"
+  },
+  "will you submit your resume to jobs@igniteducation.org?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2024-08-02"
+  },
+  "would you be able to report to ignited's offices in santa clara, ca about once a week?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2024-08-02"
+  },
+  "this is a full-time position with benefits (e.g., medical, dental, vision, life, 401k, pto). what is your salary requirement in order to accept an offer? (please enter an hourly or annual range)": {
+   "answer": "$82,500 to $92,500",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "i have an active life & health license. (yes/no) *please note a life & health license is not required to apply. we will pay for you to become licensed once hired": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "have you worked for epic or any of its affiliate companies before? if so, who was your manager and which group/department did you work in? (please enter 'na' if this does not apply to you)": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "do you have large law firm experience?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "do you have experience as a m&a paralegal?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "experience planning and coordinatimg global transportation activities to ensure on time, damage free, compliance and cost-effective delivery of materials, products, equipment and documents.": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "pharma experiencepreferred, but experience in other government-regulated industries (chemical, food, high tech, etc.) would be acceptable": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "sap based tools": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "experience planning, scheduling and routing exports": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "how many years of work experience do you have with biotechnology?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "how many years of work experience do you have with project plans?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "do you have an active - cipp (certified international privacy professional)": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "do you have policy analysis experience?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "do you have project management experience in the policy and/or tech space?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "do you have experience working on davos?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "do you have experience supporting executive visits and large events?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "this is a part-time position. are you available to work 4 hours each day monday-friday?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2024-07-15"
+  },
+  "how many years of administrative experience do you have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2024-07-15"
+  },
+  "do you have any experience working with tax projects?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2024-07-15"
+  },
+  "will you now or in the future require sponsorship to work within the united states?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "how did you hear about this opportunity?": {
+   "answer": "LinkedIn",
+   "n": 1,
+   "last": "2025-05-26",
+   "others": {
+    "LinkedIn (Social Media)": 1
+   }
+  },
+  "are you currently employed or have you been employed with tubi or any tubi affiliates?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "do you have experience as a maintenance manager in a union plant?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-30"
+  },
+  "have you worked in project finance on renewable energy projects?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "will you now or in the future require sila to commence (“sponsor”) an immigration case in order to employ you (for example, h-1b or other employment-based immigration case)? this is sometimes called “sponsorship” for an employment-based visa status.": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "how many years of transportation, logistics, supply chain and storage experience do you currently have?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "how many years of automation machinery manufacturing experience do you currently have?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "how many years of work experience do you have with global trade management?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "how many years of work experience do you have with medical device regulation (mdr)?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "are you interested to work on contract roles on w2": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "how many years of work experience do you have with vendor qualification?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "do you have experience selling power supplies and or power products": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "can you commit to reporting onsite in south san francisco 5 days a week?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "do you have experience in managing retail leases?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "are you interested in engaging in long-term contract employment?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of experience with far/dfars regulations and itar and other trade compliance regulations?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2023-09-13"
+  },
+  "do you have the following license or certification: compliance officer?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2024-07-18"
+  },
+  "how many years of work experience do you have with operations research?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "how many years of work experience do you have with revenue recognition?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "how many years of work experience do you have with sarbanes-oxley act?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "how many years of work experience do you have with internal audits?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "how many years of business development experience do you have in a law firm?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2023-09-15"
+  },
+  "how many years of work experience do you have with crm databases?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2023-09-15"
+  },
+  "do you have experience developing and execute onboarding programs for sales teams?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "how many years of market research experience do you currently have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "how many years of work experience do you have with business?": {
+   "answer": "7",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "how many years of production experience do you currently have?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "what is your desired total annual compensation including bonuses and commission (ote)?": {
+   "answer": "$115,000 base",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "will you now or in the future require sponsorship to work in the country where this job is located?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "are you related to a current employee of insightsoftware?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "are you legally authorized to work in the country where this job is located?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "do you have experience moving office spaces?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "are you local to rosemead ca?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "how many years of work experience do you have in compliance?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "are you willing to go for onsite on a hybrid mode?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "how many years of work experience do you have with financial accounting?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of work experience do you have with accounting?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years of accounting experience do you currently have?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "do you have one of the following professional credentials? (ea, cpa, llm, or jd)": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "how many years of ip law experience do you have?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "how many years of corporate regulatory affairs experience do you have?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "do you have experience with eb-5 documentation and filings?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-25"
+  },
+  "how many years' of experience do you have working with north american power markets?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2024-07-31"
+  },
+  "do you have the following license or certification: certified regulatory compliance manager?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-30"
+  },
+  "how many years of work experience do you have with mulesoft anypoint platform?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2023-08-30"
+  },
+  "how many years of work experience do you have with soap?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2023-08-30"
+  },
+  "do you have experience creating and delivering high quality business presentations to key stakeholders, and management?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "do you have experience implementing fraud prevention strategies?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "are you authorized to work in the us?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "in conjunction with my employment, at monro, i consent to the release of my motor vehicle record (mvr) to the company. i understand the company will use these records to evaluate my suitability to fulfill driving duties that may be related to the position for which i am applying. i also consent to the review, evaluation, and other use of any mvr i may have provided to the company. this consent is given in satisfaction of public law 18 usc 2721 et. seq.. \"federal drivers privacy protection act\", and is intended to constitute \"written consent\" as required by this act.": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "how much experience do you have related to this position?": {
+   "answer": "2-4 years",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "have you ever worked for the monro inc. family of brands before? if yes, please indicate which brand.brands include: allen tire company, car-x tire & auto, free service tire & auto, ken towery's tire & auto care, lloyd's tire & auto care, los gatos tire & auto repair, monro muffler and brake, mountain view tire & auto services, mr. tire auto service centers, skip's tire & auto repair centers, tire barn warehouse, tirechoice auto service centers, tire warehouse, or tiresnow.": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "what is your availability to travel?": {
+   "answer": "Up to 30%",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "were you referred by a current teammate?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "this is to acknowledge that i have reviewed the statements and questions above and truthfully answered to the best of my ability.": {
+   "answer": "Confirmed",
+   "n": 1,
+   "last": "2023-08-29"
+  },
+  "how many years of work experience do you have with general commercial agreements?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "do you now, or will you in the future, require sponsorship for employment visa status (e.g. h-1b visa status, etc.) to work legally in the united states?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2024-07-24"
+  },
+  "do you have any relatives working at pulse biosciences?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2024-07-24"
+  },
+  "how many years of work experience do you have with supervising teams?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-18"
+  },
+  "do you have the following license or certification: certified public accountant?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-03-19"
+  },
+  "are you legally authorized to work for the every company in the united states?": {
+   "answer": "yes",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "this position is based on-site in the bay area. if you are not currently located here, are you willing to relocate for this role? if yes, please specify when you would be available to relocate.": {
+   "answer": "I live in Bay Area",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "if offered a position with the every company, i understand my employment may be contingent upon a reference check, and any other required check or screening specified in the job description, the offer letter and/or discussed during the interview process.": {
+   "answer": "I confirm my understanding",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "where are you located?": {
+   "answer": "Daly City",
+   "n": 1,
+   "last": "2025-10-09",
+   "others": {
+    "Daly City, CA": 1
+   }
+  },
+  "unfortunately, every cannot provide sponsorship. will you now, or in the future, require sponsorship for employment in the u.s.? (e.g., h-1b, f1, m1, tn, visa status)": {
+   "answer": "no",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "select all analytics tools and statistical languages where your experience level is intermediate and above. (intermediate experience is described as being familiar with basic features and using the tool on a regular basis)": {
+   "answer": "[Excel, SQL, Google Sheets, SAS]",
+   "n": 1,
+   "last": "2023-09-14"
+  },
+  "do you have 10 years plus of contract management experience?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "how many years of experience do you currently have ai strategist?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "how many years of experience do you currently have ai platforms (e.g., chatgpt, claude, m365 copilot)?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "how many years of experience do you currently have kpis?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "do you understand regulatory compliance, data privacy and security best practices (e.g., sox, gxp, gdpr, hipaa)?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-03-26"
+  },
+  "what are your compensation expectations with this role?": {
+   "answer": "I am targeting between $115,000 and $125,000, depending on the full compensation package",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "what is your notice period?": {
+   "answer": "I am available to start immediately",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "are you legally authorized to work in your country of application?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "do you now or have you in the past worked for bottomline technologies?": {
+   "answer": "No, I have never worked for Bottomline",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "how many years of work experience do you have with analytic reporting?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2023-08-31"
+  },
+  "how many years of work experience do you have with global program management?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2023-09-14"
+  },
+  "do you have experience identifying and tracking critical measures of success to report and influence program efficiency?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2023-09-14"
+  },
+  "this information will be used by panw to better understand the diversity of our applicants and employees and to assist in our overall diversity efforts. if you do not wish to provide the information requested, choose \"wish not to answer\"do you consider yourself a member of the lgbtqia+ (lesbian, gay, bisexual, transgender, queer, intersex, asexual, or other sexual minority) community?": {
+   "answer": "Yes, I identify as a member of the LGBTQIA+ community",
+   "n": 1,
+   "last": "2025-07-15",
+   "others": {
+    "No, I do not identify as a member of the LGBTQIA+ community": 1
+   }
+  },
+  "select the areas of work that are of interest to you": {
+   "answer": "[Corp Business Strategy, Legal, Operations, Business Development, Sales Operations]",
+   "n": 1,
+   "last": "2025-09-16",
+   "others": {
+    "[Corp Business Strategy, Facilities/Real Estate, Legal, Operations, People Team/Human Resources, Information Technology, Technical Writing, Business Development, Sales Operations]": 1,
+    "[Corp Business Strategy, Facilities/Real Estate, Legal, Operations, Quality Assurance, Technical Writing, Business Development]": 1
+   }
+  },
+  "how many years of work experience do you have with law?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2025-03-20"
+  },
+  "are you comfortable with the responsibilities and expectations outlined in the job description?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "are you legally authorized to work in united states of america?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "how many years of experience do you have in a support or coordination role within executive search, recruiting, or professional services?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years of work experience do you have with document management systems (dms)?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "how many years of work experience do you have with microsoft applications?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "are you currently working at one of the big 4's?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-08-14"
+  },
+  "您是否已获得学士学位学历？": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "手机号码": {
+   "answer": "+1 (415)632-8008",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "您有多少年的內部稽核使用经验？": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "邮箱地址": {
+   "answer": "gugosf@berkeley.edu",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years do you have experience with excel/sharepoint?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "have you used powerbi?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "do you have experience interacting with industrial engineers?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of work experience do you have with travel coordination?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-06-29"
+  },
+  "please select \"yes\" if you are comfortable working contract/contract to hire for this position.": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-06-29"
+  },
+  "how many years of financial services experience do you currently have?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "what is your university grade point average (4.0 gpa scale)?": {
+   "answer": "3.75",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years of work experience do you have with acms?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "how many years of work experience do you have with ecf?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "how many years of work experience do you have with pacer?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "how many years of nearshore/offshore management experience do you have?": {
+   "answer": "2-3 years",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "which u.s. state are you based in?": {
+   "answer": "CA",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "do you have 5 or more years experience working in vendor/collections management within consumer lending?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "are you authorized to work in the united states for happy money?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "please share an example of how you've handled moving to a solution when managing competing interests from both internal and external stakeholders.:i led the rollout of a new pos system that had conflicting priorities — internal teams wanted maximum customization for operational ease, while the vendor pushed for a faster, out-of-the-box deployment to stay on schedule. i facilitated a joint requirements workshop, mapping each feature request against its impact on compliance, launch timelines, and cost. we identified three high-value customizations that addressed core internal needs, while agreeing to implement the rest post-launch. result": {
+   "answer": "The system launched on time, under budget, and met both compliance requirements and daily operational needs, strengthening trust on both sides.",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "do you now, or will you in the future, require sponsorship for employment visa status (e.g., h-1b visa status, etc.) to work legally for wealthfront in the united states?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "are you currently a wealthfront client?": {
+   "answer": "No, I have not had a chance to use Wealthfront.",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "highest education completed?": {
+   "answer": "Other",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "if other, please specify": {
+   "answer": "J.D.",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "what was your major field of study?": {
+   "answer": "Tax Law (graduate school), Poli Sci (undergrad)",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of work experience do you have with corporate contracts?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "do you have experience negotiating with external data suppliers and/or exposiure to data supplier contracts?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "how many years of work experience do you have with licensing agreements?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "do you have the following license or certification: bank secrecy act compliance specialist?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "how many years of experience do you have working with ironclad?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "do you have at least one year of work experience in a professional setting?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "are you located in the united states?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "do you have 3-5 years experience negotiating contracts with cros and cmos?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-07"
+  },
+  "have you been employed as a legal secretary previously?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-07"
+  },
+  "how many years of work experience do you have with office 365?": {
+   "answer": "10",
+   "n": 1,
+   "last": "2025-07-07"
+  },
+  "have you worked in a supervisory role previously?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-07"
+  },
+  "how many years of work experience do you have with section 8?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-08-09"
+  },
+  "3 years + experience in project based section 8, lihtc": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-09"
+  },
+  "experience in compliance role - reviewing and approving files": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-09"
+  },
+  "how many years of work experience do you have with labor compliance?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-07-07"
+  },
+  "how many years experience with fund operations do you have?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years of work experience do you have in domain knowledge: community engagement or recognition programs a plus.": {
+   "answer": "2.5",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "how many years of work experience do you have with program management?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "how many years of work experience do you have with financial management?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "how many years of work experience do you have with relativity?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "how many years of work experience do you have with e-discovery?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-10-10",
+   "others": {
+    "4": 1
+   }
+  },
+  "how many years of work experience do you have with legal project management?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "desired salary": {
+   "answer": "77500",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "please select which client success / implementation tools you have used previously, if any": {
+   "answer": "[Google Suite, Salesforce]",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "what's your highest level of education completed?": {
+   "answer": "College - Doctorate",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "have you previously managed client software (saas) implementations for a minimum of 3 (or more) years?": {
+   "answer": "Yes.",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "what's your citizenship / employment eligibility?": {
+   "answer": "U.S. Citizen/Permanent Resident",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "race": {
+   "answer": "Two or More Races, not Hispanic or Latino",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "earliest start date?": {
+   "answer": "2025-08-12",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "in which united states time zone do you reside?": {
+   "answer": "Pacific",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "how many years of strategy/planning experience do you currently have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of experience in a client- facing role?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of experience do you have negotiating clinical trial agreements?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-04-23"
+  },
+  "do you currently reside in the washington, d.c. metro area?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "are you currently, or have you previously, worked at id.me?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "do you now, or will you in the future, require sponsorship for employment visa status (e.g., h-1b visa status, etc.) to work legally in the united states?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how did you hear about this job? (referral, linkedin, facebook, twitter, press release or news source, recruiter, id.me careers page, or other.) please share details.": {
+   "answer": "Linkedin",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "if you do not currently reside in the washington, d.c. metro area, are you open to relocation?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "do you have extensive experience with banking regulations relating to money transfer (especially ofac, aml, bsa, usa patriot act)?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "do you require to work on a c2c?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-06-29"
+  },
+  "how many years of experience do you have in project management around legal or compliance topics?": {
+   "answer": "7",
+   "n": 1,
+   "last": "2025-06-29"
+  },
+  "are you able to work a hybrid schedule in cupertino, ca?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-06-29"
+  },
+  "do you now, or will you in the future, require immigration sponsorship for work authorization to work in this location?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "please identify your race.": {
+   "answer": "Two or More Races",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "current title": {
+   "answer": "Senior State & Local Tax Associate",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "please identify your disability status.": {
+   "answer": "No, I do not have a disability and have not had one in the past",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "please identify your ethnicity.": {
+   "answer": "Not Hispanic or Latino",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "have you been employed, or otherwise engaged, by an asana entity in the past? (previous independent contractors, select \"yes.\")": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "[optional] pronouns - how should we refer to you in the third person?": {
+   "answer": "he/him/his",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "current company": {
+   "answer": "Andersen (not current but most recent)",
+   "n": 1,
+   "last": "2025-07-25",
+   "others": {
+    "Andersen": 1
+   }
+  },
+  "asana is seeking the below information for the exclusive and limited purpose of complying with u.s. export control laws given that the position for which you are applying may require access to technology subject to those laws. we will not use the information that you provide for any other purpose. are you a citizen or legal permanent resident of cuba, iran, north korea, syria or ukraine (crimea region)?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "[optional] preferred full name (the name that you would like to be referred to as. please input your legal name in the first and last name fields above.)": {
+   "answer": "Gurgen Abrahamyants ( just George, please)",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "please identify your sex.": {
+   "answer": "Male",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "please identify your veteran status.": {
+   "answer": "I am not a veteran (I did not serve in the military)I am not a veteran (I did not serve in the military)",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "experience with capex and opex": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "do you have experience with utility industry (electric domain)?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-06-27"
+  },
+  "how many years of work experience do you have with governance, risk management, and compliance (grc)?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-06-27"
+  },
+  "how many years of work experience do you have with energy regulatory?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-06-27"
+  },
+  "are you currently living in california?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-06-27"
+  },
+  "how many years of work experience do you have with campaigns?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of work experience do you have with event planning?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "do you have experience in public accounting or business management?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-21"
+  },
+  "how many years of work experience do you have with dispute settlement?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-07"
+  },
+  "how many years of work experience do you have with corporate university?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years of work experience do you have with grants management?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years of work experience do you have with financial reporting?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years of experience do you have in business analysis?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of experience do you have in implementing large, complex projects in a corporate, non-profit, or government environment?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of experience do you have working in a leadership role with or without direct reports?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "are you currently based in or willing to relocate to one of the following regions: ca, or, wa, co, ga, washington d.c., ny, il, hi, md, or va?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of experience do you have in enterprise health plan process improvement and implementation?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of experience do you have in managing operational or project budgets?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "do you have the following license or certification: lean six sigma green belt certification – level ii?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "how many years of work experience do you have with business reviews?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "how many years of work experience do you have with statements of work (sow)?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "how many years of work experience do you have with change initiatives?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "how many years of outsourcing and offshoring consulting experience do you currently have?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "how many years of work experience do you have with government contract management?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-24"
+  },
+  "how many years of work experience do you have with benefits management?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "how many years of work experience do you have with leave management?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "how many years of work experience do you have with eccn?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "how many years of work experience do you have with contact center architecture?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of work experience do you have with crm integration?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "this position does not permit c2c or third party recruiters to apply. does this work for you?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "do you have experience with private equity, hedge funds or venture capital compliance?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-06-30"
+  },
+  "do you have experience with regulatory filings?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-06-30"
+  },
+  "do you have experience utilizing ironclad or similar contract management systems?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "how many years of work experience do you have with dispositions?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "how many years of work experience do you have with fraud investigations?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "do you have experience in governance and compliance?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years of work experience do you have with vendor management?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-16",
+   "others": {
+    "4": 1
+   }
+  },
+  "how many years of work experience do you have with customer lifecycle management?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-06-24"
+  },
+  "how many years of full time professional experience do you have in investment banking/private equity/management consulting?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "what is your desired compensation?": {
+   "answer": "$97,500",
+   "n": 1,
+   "last": "2025-07-16"
+  },
+  "this role is 100% in office monday - friday at 2626 hanover street, palo alto ca. can you commit to this schedule and commute?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-16"
+  },
+  "how many years of work experience do you have with legal administration?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-06-29"
+  },
+  "how many years of work experience do you have with proofreading?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2025-06-29"
+  },
+  "how many years of contract lifecycle management experience do you have in a pharma, biotech, or cro environments?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-06-29"
+  },
+  "how many years of relevant work experience do you have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-07"
+  },
+  "how many years of work experience do you have with consumer packaged goods (cpg)?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "if selected for the role, would you be available to begin within a standard two-week notice period?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of experience do you have in legal operations project management?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-06-24"
+  },
+  "are you interested in a 4–6-month contract?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-06-24"
+  },
+  "will you now, or in the future, require sponsorship for employment visa status (e.g., h-1b visa) to legally work for x.ai llc in the u.s.?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "what language(s) do you have professional proficiency in?": {
+   "answer": "Russian and Armenian",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "how many years of work experience do you have with enterprise systems?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-06-29"
+  },
+  "how many years of work experience do you have with legal technology?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-06-29"
+  },
+  "how many years of work experience do you have with organizational leadership?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-06-29"
+  },
+  "will you now or in the future require sponsorship from quince for employment visa status?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "how many years of work experience do you have with servicenow?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "will you now or in the future require any work authorization or sponsorship?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of real estate experience do you currently have?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-08-19"
+  },
+  "are you able & willing to work on-site in cupertino 3 days / week?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "this position is a 6 month contract with possibility of extension or permanent. are you ok with this?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "do you have strong working knowledge of u.s. customs regulations, import programs, and partner government agencies (pgas) requirements?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "do you have experience with automotive or high-tech manufacturing imports?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "how many years of hands-on experience in import/export compliance, with harmonized tariff (hts) codes do you have?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "how many years of experience do you have in technical program management, project management, operations": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of experience do you have in user identity, access operations & account recovery/account management?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of work experience do you have with technical reviews?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years of work experience do you have with onboarding?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "in which state do you currently reside": {
+   "answer": "California",
+   "n": 1,
+   "last": "2025-10-19",
+   "others": {
+    "CA": 1
+   }
+  },
+  "how many years of work experience do you have with managing workflow?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-06-30"
+  },
+  "how many years of work experience do you have with internet of things (iot)?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "what is your expected salary per year ?": {
+   "answer": "97500",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "how many years of work experience do you have with legal billing?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2026-08-22",
+   "others": {
+    "4": 1
+   }
+  },
+  "how many years of work experience do you have with business litigation?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-02"
+  },
+  "how many years of analyst experience do you currently have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-06-24"
+  },
+  "how many years of work experience do you have with sap gts?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-06-29"
+  },
+  "how many years of work experience do you have with contract writing?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-07-07"
+  },
+  "how many years of work experience do you have with construction project management?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-07-16"
+  },
+  "do you have an experience of product management in gaming industry": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "do you have 5+ years of relevant experience with private equity, m&a and public company, dispositions, due diligence, entity formations, and other state filings?": {
+   "answer": "7",
+   "n": 1,
+   "last": "2025-08-19"
+  },
+  "how many years of hands-on experience do you have with carta, shareworks, or similar web based equity tracking systems?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-08-19"
+  },
+  "how many years of experience do you have working with blue sky?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-08-19"
+  },
+  "how many years of experience do you have in financial services?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "are you able and willing to work 4-5 days / week on-site in oakland?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-06-24"
+  },
+  "citizenship status": {
+   "answer": "U.S. citizen or national of the United States",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "current location": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years of work experience do you have with private wealth management?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "how many years of experience do you have in the diagnostic, medical device or pharma industry?": {
+   "answer": "0 - 1 year",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "will you now or in the future require sponsorship by the company?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "do you claim disability status?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "are you open to relocation?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "by checking this box, you will declare that you read and understand the privacy policy of guardant health.": {
+   "answer": "I consent",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "do you now have, or have you ever had, a personal relationship of any kind with a current, past, or prospective customer or business partner of guardant health? a personal relationship could include a family member, friend, romantic partner, or current/former work colleague.": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of work experience do you have with regulatory standards?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years of work experience do you have with validation protocol?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years of work experience do you have with biomedical devices?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-05-26"
+  },
+  "how many years of work experience do you have with apics?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-07-17"
+  },
+  "how many years of experience do you have with elite 3e?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-08-19"
+  },
+  "how many years of work experience do you have with federal & state regulations?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of work experience do you have with faa?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of work experience do you have with microsoft project?": {
+   "answer": "10",
+   "n": 1,
+   "last": "2025-07-16"
+  },
+  "how many years of work experience do you have with bluebeam?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-07-16"
+  },
+  "how many years of work experience do you have with plangrid?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-07-16"
+  },
+  "how many years of construction project management (ideally in high-end residential) experience do you have?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-07-16"
+  },
+  "how many years of experience working in a law firm do you have?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "how many years of experience with ebillinghub and 3e do you have?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-07-25"
+  },
+  "how many years of work experience do you have with adobe indesign?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "current street address": {
+   "answer": "1096 Wildwood Ave",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "current address (state)": {
+   "answer": "California",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "are you over the age of 18?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "do you consent to texts from the recruiting team at gopuff regarding nexts steps and the status of the role you are applying to, along with future positions?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "current address (postal code)": {
+   "answer": "94015",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "do you currently work for gopuff?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "current address (country)": {
+   "answer": "USA",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "what projected base salary are you looking for? *note this role is eligible for a performance bonus and equity package": {
+   "answer": "$90,000",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "current address (city)": {
+   "answer": "Daly City",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "have you ever worked at gopuff?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "do you require sponsorship now or in the future to work in the united states?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "do you currently have any family members that work at gopuff or any of our subsidiaries?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "how many years of work experience do you have with drug development?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-07-16"
+  },
+  "how many years of work experience do you have with agile project management?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-07-16"
+  },
+  "what are your salary expectations?": {
+   "answer": "82000",
+   "n": 1,
+   "last": "2025-10-09",
+   "others": {
+    "92000": 1,
+    "85000": 1
+   }
+  },
+  "do you have minimum of 2 years of direct supervision of 10 or more people ?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-06-30"
+  },
+  "what is your expected annual salary (usd, gross amount)? please put numbers only.": {
+   "answer": "$90,000",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "where are you currently based? (city)": {
+   "answer": "Daly City, CA",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "do you have any relatives currently employed by our company?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "full information on the us applicant and candidate privacy policy can be found here: https://crypto.com/document/us_applicant_privacypolicy": {
+   "answer": "Yes, I have read and understood the privacy policy",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "will you now, or in the future, require sponsorship to work in the united states?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "have you ever been convicted of a crime or been subject to any sanctions by a regulatory body?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "how long is your notice period?": {
+   "answer": "availability immediate",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "how many years of relevant working experience do you have to the role?": {
+   "answer": "5 - 8 years",
+   "n": 1,
+   "last": "2025-07-15"
+  },
+  "how many years of work experience do you have with cybersecurity?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-08-12"
+  },
+  "have you completed income certifications from inception to completion?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-13"
+  },
+  "how many years of work experience do you have with google cloud platform (gcp)?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-10-18"
+  },
+  "how many years of work experience do you have with analyst relations?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-10-18"
+  },
+  "are you willing to take a w2 contracting role?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "are you currently based in west coast and willing to work in pst hours?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "are you a us citizen?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "what would be your expected hourly rate?": {
+   "answer": "45",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "number of years in a client relations/administrative work within a high net worth family office and/or luxury industry?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "do you reside in the eastern time zone?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with proposal coordination?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with conflict analysis?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with operational efficiency?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-18"
+  },
+  "how many years of work experience do you have with laser pro?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-08-19"
+  },
+  "how many years of work experience do you have with business documentation?": {
+   "answer": "7",
+   "n": 1,
+   "last": "2025-08-19"
+  },
+  "experience in process documentation and mapping (miro, lucidchart, visio, bpmn or equivalent)": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "how many years of work experience do you have with continuous improvement facilitation?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "how many years of work experience do you have with process mapping?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "how many years of work experience do you have with generative ai tools?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "will you be able to commute to location mentioned in job every day?": {
+   "answer": "yes",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "do you have an intermediate or expert level proficiency using relativity document review software?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-10"
+  },
+  "do you have high-speed internet with a minimum speed of 100+ mbps?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-10"
+  },
+  "how many years of government contracting experience do you have, specifically with far/dfars?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "what is your target salary ($130,000 = 130000)": {
+   "answer": "950000",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "how many years of work experience do you have with international swaps and derivatives association (isda)?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-08-21"
+  },
+  "how many years of work experience do you have with contract management (investment banking)?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-21"
+  },
+  "experience as a vice president or executive director for banking operations contracts?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-08-21"
+  },
+  "how many years of work experience do you have with collateral?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-08-21"
+  },
+  "do you have experience with us consumer lending regulations (i.e. mortgage, auto loans, credit card, personal loans, deposits, etc.)?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "experience in program/stakeholder management?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "how many years of work experience do you have with project coordination?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "how many enterprise clients are you working with (portfolio size)?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-10-23"
+  },
+  "where are you located? will you now, or in the future, require sponsorship to continue to work there?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-10-23"
+  },
+  "what is your total yearly compensation expectations in usd?": {
+   "answer": "$92,500 to $97,500",
+   "n": 1,
+   "last": "2025-10-23"
+  },
+  "how many years of work experience do you have with insurance compliance?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "how many years of work experience do you have with annuities?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "how many years of work experience do you have with source to pay?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "“do you have experience with any ebilling systems or software, such as elite, 3e, or aderant?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with attorney billing?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with e-invoicing?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with education?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "how many years of work experience do you have with business process?": {
+   "answer": "9",
+   "n": 1,
+   "last": "2025-09-26"
+  },
+  "how many years of work experience do you have with contract requirements?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-09-17"
+  },
+  "how many years of engineering experience do you currently have?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-10-23"
+  },
+  "are you proficient in reading and writing in mandarin?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-09-17"
+  },
+  "how many years of experience do you have with trade support?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-10-20"
+  },
+  "are you open to working onsite in a hybrid model in any of the listed locations?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-20"
+  },
+  "do you have experience managing and/or training legal support staff (this can include specific projects)?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-19"
+  },
+  "how many years of litigation paralegal experience, relevant legal support, or equivalent experience in a law firm or legal services environment?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-09-22",
+   "others": {
+    "5": 1
+   }
+  },
+  "do you have experience in supply chain coordination or vendor management?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "are you comfortable with a 12 month contract and 50/hr?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "are you comfortable with the processing of procurement proposals, change orders, and project close outs?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "are you currently local to san jose, ca and comfortable going onsite on wednesday's?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "will you now or in future require sponsorship for employment visa status (e.g., h-1b visa status)?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "have you held or currently hold an active security clearance?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "how many years of work experience do you have with peoplesoft?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "do you have experience scaling the legal operations function for a startup or growing business?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "how many years of consulting experience do you currently have?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-11-17",
+   "others": {
+    "5": 1
+   }
+  },
+  "how many years of work experience do you have with ai-driven content?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with request for proposal (rfp)?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of forensic and business data analytics with a focus on audit experience?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "do you have experience in technology and licensing in the context of intellectual property?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "have you used the software system figma before for design collaboration?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "have you used the software system jira previously?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of purchasing experience do you currently have?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "how many years of lgl experience do you currently have?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "first and last name": {
+   "answer": "Gurgen Abrahamyants",
+   "n": 1,
+   "last": "2025-10-09",
+   "others": {
+    "gurgen anbrahamyants": 1
+   }
+  },
+  "salary range expected": {
+   "answer": "75,000 to 85,000",
+   "n": 1,
+   "last": "2025-10-09",
+   "others": {
+    "75,000 - 85,000": 1
+   }
+  },
+  "do you have experience in the pharma/biotech industry?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "would you comfortable with 9-9-6 onsite work model in sf/nyc? saturdays being remote optionally?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-26"
+  },
+  "how many years of work experience do you have with private equity?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-10-23"
+  },
+  "were you referred to this role by a current employee?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "by checking this box, you will declare that you read and understand the paynearme privacy policy, and the smartrecruiters privacy policy and smartrecruiters terms of use.": {
+   "answer": "I Agree Terms & Conditions",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "are you authorized to work in the job's location?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "what time zone are you currently located in? (candidates must be based in the u.s. to be considered for this position.)": {
+   "answer": "Pacific Time (PT)",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "do you reside in the us?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "this is a hybrid role and requires in-person attendance in our bay area office 2-3 days per week. are you able to commute to the office 2-3 days per week?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "are you legally authorized to work in the united states for any employer?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "notice period": {
+   "answer": "Immediately",
+   "n": 1,
+   "last": "2026-08-28",
+   "others": {
+    "no notice period": 1
+   }
+  },
+  "will you now or in the future require sponsorship for an employment visa in the united states?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "languages spoken": {
+   "answer": "Russian and Armenian",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "expected salary range and currency (please write full value)": {
+   "answer": "75,000",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with content licensing?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with print media?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of insurance experience do you currently have?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with professional services?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "do you have a minimum of 3 years’ work experience in legal billing?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "do you have experience with annual reviews, form adv part 2, compliance manuals, policies and procedures?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-10"
+  },
+  "do you have at least 4 years of compliance experience in financial services?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-10"
+  },
+  "how many years of work experience do you have with gantt?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-26"
+  },
+  "do you have in-house experience at a biotechnology, pharmaceutical or high-tech company, with a focus on contract drafting and negotiation?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "on your resume, do you have a background in construction, architecture, or engineering?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-17"
+  },
+  "do you have experience redlining contracts?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-17"
+  },
+  "our mission at gofundme is, \"help people help each other.\" can you share a time when you've helped someone recently, big or small?": {
+   "answer": "A neighbor’s Wi-Fi went out right before a job interview, so I set up a hotspot and let her use my desk. She got the job. Took ten minutes, no speech about it.",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "what is your gender?": {
+   "answer": "Male",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "what is your sexual orientation?": {
+   "answer": "Heterosexual",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "by typing my name below, i confirm that the facts set forth in this application, including any additional information provided in my resume or other supplementary materials, are true and complete to the best of my knowledge. i understand that if i am employed, false statements, omissions or misrepresentations may result in my dismissal. i authorize gofundme to verify all information i have provided and to contact any provided references.": {
+   "answer": "Gurgen Abrahamyants",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "i have a physical disability": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "do you require any employment authorization sponsorship now or in the future?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "how did you hear about this job? if you heard about this role from a current gofundme employee, please list their name here as well.": {
+   "answer": "LinkedIn",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "what is your ethnicity?": {
+   "answer": "White",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "how many years of work experience do you have with global regulatory compliance?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "how many years of work experience do you have with data privacy?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2026-08-16",
+   "others": {
+    "2": 1
+   }
+  },
+  "how many years of experience do you have specifically in sba lending?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-25"
+  },
+  "how many total years of experience do you have working with sba 7(a) and sba 504 loan programs?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-25"
+  },
+  "do you have experience managing and/or training legal support staff?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "how many years of human resources experience do you currently have?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "what is your level of proficiency in chinese?": {
+   "answer": "None",
+   "n": 1,
+   "last": "2025-10-20"
+  },
+  "how many years of experience do you have in sales and use tax consulting within a public accounting firm?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-09-26",
+   "others": {
+    "3": 1
+   }
+  },
+  "by checking this box, you will declare that you have read and understand the privacy policy of sia.": {
+   "answer": "I consent",
+   "n": 1,
+   "last": "2025-09-25"
+  },
+  "how many years of work experience do you have with sendgrid?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "how many years of writing experience do you have": {
+   "answer": "9",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "how many years of marketing experience do you currently have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-10-09"
+  },
+  "how many years of experience do you have using ironclad?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-10-10"
+  },
+  "will you now or in the future require sponsorship for employment visa status?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-10-10"
+  },
+  "do you now or in the future require visa sponsorship to continue working in the united states?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-10-19"
+  },
+  "which state do you reside in?": {
+   "answer": "California",
+   "n": 1,
+   "last": "2025-10-19"
+  },
+  "are you currently eligible to work in the united states of america?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-19"
+  },
+  "how did you come to know about this role?": {
+   "answer": "LinkedIn",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "this job will be physically based in the office location indicated on this job description. which of the following describes your current or future situation?": {
+   "answer": "I currently live in this location.",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "will you now or in the future require visa sponsorship for employment in the united states?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "are you comfortable traveling to mchenry, ms for the first two weeks of this position?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "how many years of work experience do you have with regulatory affairs?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "how many years of work experience do you have with electronic common technical document (ectd)?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "are you located in the u.s. & willing to work in new york/ memphis/ bay area?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-26"
+  },
+  "do you have experience with start up companies?": {
+   "answer": "Yes — I’ve supported early-stage fintech and AI clients at Andersen on SALT compliance and structuring, and also managed vendor, payroll, and benefits operations in a start-up environment.",
+   "n": 1,
+   "last": "2025-09-26"
+  },
+  "do you have 3+ years of hr or us benefits specific experience?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-26"
+  },
+  "i have read, understood, and agree to [palo alto network's global candidate privacy notice](https://www.paloaltonetworks.com/legal-notices/privacy/privacy-notice.html) and [palo alto networks privacy statement](https://www.paloaltonetworks.com/legal-notices/privacy.html), which explains how my personal information will be collected, used, and shared throughout palo alto networks’ job recruitment process. i also acknowledge and agree that, in limited circumstances, palo alto networks may share my personal information with trusted third parties to assist in certain phases of the hiring process (such as conducting background checks), as described in the policies.": {
+   "answer": "Confirmed",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "how many years of work experience do you have with fiber optic cable?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-09-25"
+  },
+  "how many years of work experience do you have with investment management?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with client billing?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-10-10"
+  },
+  "are you willing to take skills assessments?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-10"
+  },
+  "how many years of work experience do you have with it procurement?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with financial consolidation?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "have you ever built or configured an ai tool, chatbot, or workflow (for example, using chatgpt, microsoft copilot studio, or power automate)?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-23"
+  },
+  "are you comfortable experimenting with new technologies and creating quick prototypes or automation solutions to improve how people work?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-23"
+  },
+  "how many years of managerial experience do you have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "do you have commercial lease administration experience on the landlord side?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-22"
+  },
+  "this position is available as a w-2 contract only. are you available and open to that arrangement?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-19"
+  },
+  "how many years of work experience do you have with enterprise risk management?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-08-19"
+  },
+  "how many years of work experience do you have with data privacy risk management?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-08-19"
+  },
+  "how many years of work experience do you have with privacy policies?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with process improvement projects?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with workforce planning?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of current experience do you have in producing sba 7(a) loans?": {
+   "answer": "4",
+   "n": 1,
+   "last": "2025-10-10"
+  },
+  "do you have law firm experience in a conflicts department?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-08-21"
+  },
+  "how many years of work experience do you have with patent prosecution?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of experience do you have as a clinical contract administrator?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-09-18"
+  },
+  "how many years of work experience do you have with legal contract review?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-09-18"
+  },
+  "how many years of work experience do you have with mandarin?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-09-18"
+  },
+  "do you have 3+ yrs of legal collections?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-18"
+  },
+  "are you currently in a permanent position?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-09-16"
+  },
+  "do you have hands-on experience automating sales or fulfillment processes that improved profit or retention?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "how many years of hands-on experience do you have managing revenue operations for high-ticket offers ($5k–$25k+)?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "have you personally driven measurable revenue growth for at least one 7- or 8-figure business?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "what measurable % revenue growth or profit increase did your work drive in your last revops role?": {
+   "answer": "12",
+   "n": 1,
+   "last": "2025-10-05"
+  },
+  "how many years of work experience do you have with software licensing?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with business data analytics ?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with intellectual property ?": {
+   "answer": "2",
+   "n": 1,
+   "last": "2025-09-23"
+  },
+  "how many years of work experience do you have with cell site construction?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2025-09-25"
+  },
+  "how many years of work experience do you have with non-disclosure agreements?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-09-18"
+  },
+  "deep command of legal reasoning and research methodology, with a clear point of view on what separates rigorous analysis from surface-level work": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of work experience do you have with legal consulting?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "jd (or equivalent) with a track record of substantive legal work — drafting, negotiating, litigating, or advising, not just coordinating": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of work experience do you have with startups?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of work experience do you have with legal advice?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "3+ years practicing law at a leading firm, in-house at a sophisticated company, a government/regulatory body, or a legal ai startup": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "have you worked with pharma/biotech industries?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2025-11-20"
+  },
+  "do you have law firm experience?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-22"
+  },
+  "how many years of experience do you have with reviewing and analyzing case files, pleadings, discovery, repair records, settlement documents, and litigation deadlines?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2026-08-22"
+  },
+  "how many years of experience do you have preparing case summaries, chronologies, status reports, and settlement-related analyses?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2026-08-22"
+  },
+  "are you currently leveraging ai tools (cocounsel, harvey, ironclad ai, or similar) in your daily work with contracts?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-09-03"
+  },
+  "are you experienced in consolidating and repapering contracts, terms, and conditions, either due to an acquisition, merger, or company-isde material change in contract terms?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-09-03"
+  },
+  "have you had roles reporting into a sales leader?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-09-03"
+  },
+  "how many years experience do you have managing commercial contracts (sows, ndas, amendments, renewals) at a software, saas, or tech company?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2026-09-03"
+  },
+  "do you have 5+ years of data governance analysis exp in collibra?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "do you have experience creating data governance program, policies and standards?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how would you describe your gender identity? (mark all that apply)": {
+   "answer": "I don't wish to answer",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "do you have a disability or chronic condition (physical, visual, auditory, cognitive, mental, emotional, or other) that substantially limits one or more of your major life activities, including mobility, communication, and learning?": {
+   "answer": "I don't wish to answer",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "will you either now or in the future require visa sponsorship?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "please review and acknowledge disco's candidate privacy policy.": {
+   "answer": "Acknowledge/Confirm",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how would you describe your racial/ethnic background? (mark all that apply)": {
+   "answer": "I don't wish to answer",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of work experience do you have with government contracts?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "how many years of work experience do you have with invoicing?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "are you familiar with edgar (education department general administrative regulations) or 2 cfr part 200 (uniform guidance) as they apply to us school districts or other federal grantees?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-23"
+  },
+  "do you have experience drafting, reviewing, or managing contracts in a federal grant, public sector, or education compliance context?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-23"
+  },
+  "this is a freelance/contract role paid at $70 usd per hour. do you accept this rate?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-23"
+  },
+  "do you reside in the state of georgia?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-24"
+  },
+  "are you ok with the work as an independent contractor(hourly paid) role only? no c2c or c2h options are available": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "are you ok with the remote short time contract role": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "what is your expected hourly rate?": {
+   "answer": "35",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "i understand that shortlisted candidates will be contacted via email only (not phone/call), and i agree to keep an eye on my inbox (including spam/junk folder) for updates.": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of work experience do you have with docketing?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2025-11-20"
+  },
+  "do you have experience working in compliance for a saas company?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of work experience do you have with business development?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "how many years of experience do you have in the broadband, fiber and / or osp industry": {
+   "answer": "8",
+   "n": 1,
+   "last": "2026-09-04"
+  },
+  "are you able to commute to our offices in the bay area twice a week?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-07-24"
+  },
+  "how many years of experience do you have working on individual tax returns or strategy?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2026-07-24"
+  },
+  "do you have a qualification as either an enrolled agent or us-certified cpa?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-07-24"
+  },
+  "how many years of work experience do you have with legal research?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2026-08-03"
+  },
+  "do you have experience delivering training or facilitating sessions for professional audiences?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "are you willing and able to travel regularly to client sites, typically for two consecutive days per consulting client each month, plus scheduled training engagements?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of experience do you have leading complex client engagements or implementation programs?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of work experience do you have with litigation calendaring?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2026-10-14"
+  },
+  "have you worked at a company that hosted user-generated content?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-09-03"
+  },
+  "have you independently tracked legal requests from intake through resolution while managing documentation and time-sensitive deadlines?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-09-03"
+  },
+  "have you partnered with engineering, security, data, or other technical teams to respond to legal requests?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-09-03"
+  },
+  "how many years of full-time experience do you have in legal operations, legal coordination, trust & safety, as a paralegal, or in a similar role?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2026-09-03"
+  },
+  "how many years of experience do you have reviewing or processing dmca, copyright, trademark, or other intellectual property infringement reports?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2026-09-03"
+  },
+  "how many years of experience do you have managing subpoenas, law enforcement requests, preservation requests, or other legal or government inquiries?": {
+   "answer": "6",
+   "n": 1,
+   "last": "2026-09-03"
+  },
+  "have you served as a primary point of contact for outside legal counsel or coordinated legal matters between outside counsel and internal teams?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-09-03"
+  },
+  "are you comfortable independently reviewing commercial agreements, identifying contractual risks, and escalating legal issues when appropriate?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-09-04"
+  },
+  "are you authorized to work in the us without current employer sponsorship (f-1 opt/cpt/stem opt qualifies)": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-23"
+  },
+  "do you have at least 1 year of hands-on grc, it audit, or compliance experience, including internships?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-23"
+  },
+  "have you personally prepared or organized evidence for a soc 2 or iso 27001 audit?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-23"
+  },
+  "how many years of work experience do you have with microsoft azure?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "technical program manager (tpm)": {
+   "answer": "0",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of work experience do you have with generative ai?": {
+   "answer": "1",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "are you legally authorized to work in the country in which this role is located?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "what are your salary expectations for this role?": {
+   "answer": "Negotiable",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "were you referred for this position?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "what is your highest level of completed education": {
+   "answer": "Masters Degree",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "do you now, or will you in the future, require work authorization sponsorship from your employer?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "please confirm the state in which you currently reside?": {
+   "answer": "California",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of experience do you have in data annotation, qa, content evaluation, or a related field?": {
+   "answer": "Less than 2 years",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "which location are you applying for?": {
+   "answer": "Santa Clara, CA",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "do you have experience leading or coordinating a team (e.g., annotators, reviewers, qa specialists)?": {
+   "answer": "I don't have experience leading or coordinating a team",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "what type of work authorization do you have?": {
+   "answer": "U.S. Citizen",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "do you hold work authorization for the us?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "are you available to work full-time (40 hours/week)?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "are you available to work in a hybrid capacity from our santa clara, ca office as needed?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "which u.s. state are you currently based in?": {
+   "answer": "California",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of experience do you have in legal project management?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2026-08-22"
+  },
+  "are you comfortable with a 6 month contract?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-22"
+  },
+  "how many years of experience do you have in in e-billing?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2026-08-22"
+  },
+  "how many years of work experience do you have with risk assessment?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2026-08-16"
+  },
+  "how many years of work experience do you have with ai governance?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2026-08-16"
+  },
+  "please confirm the grades you achieved in your university/equivalent qualifications": {
+   "answer": "First class or equivalent",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "expected salary": {
+   "answer": "80000",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "will you require visa sponsorship either now or in the future?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "please confirm the gpa you achieved in your university degree(s)": {
+   "answer": "3.8",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "as a reminder, across the company we have a hybrid working policy but believe in the importance of being in person as a key pillar in our culture which values human relationships, learning and development. we require attendance at least 3 days in the office location for the role (and in some cases this may be higher). please confirm you are ok with this policy": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "are you authorised to work in the united states?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of work experience do you have with reviews?": {
+   "answer": "5",
+   "n": 1,
+   "last": "2025-11-04"
+  },
+  "how many years of experience do you have in reviewing marketing materials in a fintech setting for udaap, tila, and other federal regulations?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-11-04"
+  },
+  "how many years of figma experience do you have?": {
+   "answer": "1.5",
+   "n": 1,
+   "last": "2025-11-04"
+  },
+  "do you have 3+ years experience with outside counsel and legal spend management tasks?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-23"
+  },
+  "my work authorization status is:(choose number) 1. u.s. citizen 2. green card holder 3. visa holder": {
+   "answer": "1",
+   "n": 1,
+   "last": "2026-08-03"
+  },
+  "your hourly rate in usd?": {
+   "answer": "70",
+   "n": 1,
+   "last": "2026-08-03"
+  },
+  "do you reside in the state of california?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-22"
+  },
+  "how many years of work experience do you have with wordpress?": {
+   "answer": "0",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of writing/editing experience do you currently have?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of professional services operations in an enterprise software company?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2025-11-04"
+  },
+  "include relevant immersive trainings/bootcamps and date completed here. (if not applicable please write none.)": {
+   "answer": "None",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "which gender do you identify with most?": {
+   "answer": "Male",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "which of the following best describes you?": {
+   "answer": "White or Caucasian",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "do you live in the us?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "why are you interested in an opportunity with interapt?": {
+   "answer": "Interapt’s technology risk and regulatory work aligns with my audit, compliance, and operational background.",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "are you legally authorized to work in the united states without the need for current or future sponsorship (e.g., us citizen or green card holder)": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "can you work onsite in the bay area?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "how did you learn about this opportunity?": {
+   "answer": "LinkedIn",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "what is your highest level of education": {
+   "answer": "Answer not listed",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "which city & state do you reside in?": {
+   "answer": "Daly City, CA",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "please indicate your target compensation range.": {
+   "answer": "$105,000 – $110,000",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "what is your primary language spoken at home?": {
+   "answer": "Russian",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "voluntary self-identification of disability: interapt invites all applicants to voluntarily self-identify if they have a disability. this information is kept confidential and is used solely for compliance with government reporting requirements. your response is voluntary and will not affect your opportunity for employment, or terms or conditions of employment.": {
+   "answer": "No, I do not have a disability and do not have a history/record of having a disability",
+   "n": 1,
+   "last": "2025-11-17"
+  },
+  "at this time, spreedly is unable to support remote employees in new york. in which city and state do you currently reside?": {
+   "answer": "Daly City, California",
+   "n": 1,
+   "last": "2026-08-22"
+  },
+  "will you now or in the future require visa sponsorship in order to work in the united states?": {
+   "answer": "No - I do not require visa sponsorship now or in the future.",
+   "n": 1,
+   "last": "2026-08-22"
+  },
+  "are you currently authorized to work in the united states for any employer?": {
+   "answer": "Yes, I am authorized to work in the United States for any employer.",
+   "n": 1,
+   "last": "2026-08-22"
+  },
+  "how did you hear about this role?": {
+   "answer": "LinkedIn",
+   "n": 1,
+   "last": "2026-08-22"
+  },
+  "do you have experience with large-scale, end-to-end human judgment flows and tools for the training/evaluation of ai models?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2025-11-04"
+  },
+  "do you have experience compiling data for compliance, policy, or departmental reports?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-22"
+  },
+  "are you currently based in the united states and legally authorised to work in the u.s.?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-09-04"
+  },
+  "how many years of hands-on experience do you have with u.s. import/export compliance, including hts/eccn classification, country of origin, valuation, tariffs and ftas?": {
+   "answer": "8",
+   "n": 1,
+   "last": "2026-09-04"
+  },
+  "do you have at least 8 years of professional experience in trade compliance, customs, logistics compliance, or a related field?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-09-04"
+  },
+  "select an email to share with the employer": {
+   "answer": "gugosf@berkeley.edu",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of in-house experience do you have?": {
+   "answer": "0-1 years",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "do you have experience implementing new technologies?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "do you have direct experience working within legal operations?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "have you applied to axiom in the past?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "will you now, or in the future, require sponsorship to work where this role is located?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "do you have clm implementation experience?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "please select the practice and focus area most closely aligned to your experience": {
+   "answer": "Technology & AI - Artificial Intelligence",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "what motivated you to apply to axiom?": {
+   "answer": "[Variety of work, Top-quality clients]",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "what are your compensation expectations for this opportunity?": {
+   "answer": "$125,000-$150,000 base, flexible based on scope and total compensation.",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "have you worked on an axiom engagement in the past, or been interviewed and admitted to axiom's waitlist?": {
+   "answer": "No",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "how many years of legal operations experience do you have?": {
+   "answer": "3-7 years",
+   "n": 1,
+   "last": "2026-08-28"
+  },
+  "required: experience supporting legal recruiting in a nationally or internationally recognized law firm. (dla piper, kirkland & ellis, latham & watkins, skadden, etc.)": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-10-14"
+  },
+  "technically savvy/ai fluent within day-to-day work?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "2026-10-14"
+  },
+  "how many years of work experience do you have with c++?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2026-08-24"
+  },
+  "how many years of work experience do you have with java?": {
+   "answer": "3",
+   "n": 1,
+   "last": "2026-08-24"
+  },
+  "how many years of work experience do you have with legal discovery?": {
+   "answer": "4",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of sale experience do you currently have?": {
+   "answer": "7",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with bash?": {
+   "answer": "1",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with android?": {
+   "answer": "9",
+   "n": 1,
+   "last": "prefill"
+  },
+  "do you have the following license or certification: certified information systems security professional?": {
+   "answer": "No",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with html?": {
+   "answer": "5",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of prch experience do you currently have?": {
+   "answer": "4",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of eng experience do you currently have?": {
+   "answer": "1",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of mnfc experience do you currently have?": {
+   "answer": "2",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with commercial lending?": {
+   "answer": "7",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with microsoft word?": {
+   "answer": "10",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of it experience do you currently have?": {
+   "answer": "1",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of mrkt experience do you currently have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "prefill"
+  },
+  "do you have the following license or certification: certified paralegal?": {
+   "answer": "No",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with financial analysis?": {
+   "answer": "4",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of rsch experience do you currently have?": {
+   "answer": "10",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of prjm experience do you currently have?": {
+   "answer": "7",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with microsoft products?": {
+   "answer": "10",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of anls experience do you currently have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of acct experience do you currently have?": {
+   "answer": "6",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of bd experience do you currently have?": {
+   "answer": "4",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of hr experience do you currently have?": {
+   "answer": "3",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with databases?": {
+   "answer": "5",
+   "n": 1,
+   "last": "prefill"
+  },
+  "do you speak spanish?": {
+   "answer": "No",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with content management systems (cms)?": {
+   "answer": "5",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with docusign?": {
+   "answer": "5",
+   "n": 1,
+   "last": "prefill"
+  },
+  "do you have the following license or certification: project management professional?": {
+   "answer": "No",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of cnsl experience do you currently have?": {
+   "answer": "6",
+   "n": 1,
+   "last": "prefill"
+  },
+  "what is your level of proficiency in chi?": {
+   "answer": "None",
+   "n": 1,
+   "last": "prefill"
+  },
+  "do you have the following license or certification: epa amusement operators safety certification?": {
+   "answer": "No",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with ios?": {
+   "answer": "8",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with adobe acrobat?": {
+   "answer": "10",
+   "n": 1,
+   "last": "prefill"
+  },
+  "do you have the following license or certification: board certification in civil pretrial practice?": {
+   "answer": "No",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of prdm experience do you currently have?": {
+   "answer": "3",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with autocad?": {
+   "answer": "1",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with git?": {
+   "answer": "0",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of fin experience do you currently have?": {
+   "answer": "3",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of prod experience do you currently have?": {
+   "answer": "2",
+   "n": 1,
+   "last": "prefill"
+  },
+  "do you have the following license or certification: registered nurse?": {
+   "answer": "No",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with amazon web services (aws)?": {
+   "answer": "2",
+   "n": 1,
+   "last": "prefill"
+  },
+  "what is your level of proficiency in eng?": {
+   "answer": "Native or bilingual",
+   "n": 1,
+   "last": "prefill"
+  },
+  "do you have the following license or certification: certified refrigeration compliance manager?": {
+   "answer": "No",
+   "n": 1,
+   "last": "prefill"
+  },
+  "what is your level of proficiency in spa?": {
+   "answer": "None",
+   "n": 1,
+   "last": "prefill"
+  },
+  "do you have the following license or certification: environmental, health and safety certifications?": {
+   "answer": "No",
+   "n": 1,
+   "last": "prefill"
+  },
+  "do you speak english?": {
+   "answer": "Yes",
+   "n": 1,
+   "last": "prefill"
+  },
+  "do you have the following license or certification: real estate salesperson; real estate broker?": {
+   "answer": "No",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of stra experience do you currently have?": {
+   "answer": "5",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of adm experience do you currently have?": {
+   "answer": "6",
+   "n": 1,
+   "last": "prefill"
+  },
+  "do you have the following license or certification: professional in human resources?": {
+   "answer": "No",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of work experience do you have with spreadsheets?": {
+   "answer": "2",
+   "n": 1,
+   "last": "prefill"
+  },
+  "how many years of wrt experience do you currently have?": {
+   "answer": "8",
+   "n": 1,
+   "last": "prefill"
+  }
+ },
+ "_history_what": "George's own past Easy Apply answers, from his LinkedIn data export of 2026-10-29 (931 applications 2018-01 to 2026-09-04, Jobs/Job Applications*.csv) plus LinkedIn's saved screening prefill. Key = question text, lower-cased. 'answer' = the one he used most ('others' = the rest with counts). The walker checks an exact question match here after the per-job picks and before the regex rules (George 10/29: one book, most-used answer wins). Rebuild: python3 -I scripts/build_history.py /root/.linkedin-export scripts/answers.json."
 }
