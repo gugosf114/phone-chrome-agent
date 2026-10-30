@@ -12,6 +12,7 @@ it backs one.
 |---|---|
 | noisefile.md | FULL — live on Google Play |
 | wim-and-patent.md | FULL — app in Play testing + filed provisional patent |
+| lavrentiy.md | FULL (George to confirm) — the Windows engine, 12 shipped releases, eval build runs on his keys with a 300/month cap |
 | heirloom.md | FULL — testing done, waiting on Google |
 | cup-santa-rosa.md | FULL — real application, approved, licensed |
 | writing-sample-baba.md | FULL — real decision, affirmed on appeal |
