@@ -7,17 +7,18 @@ abrahamyants.github.io
 SUMMARY
 JD who builds AI products and runs them in real use: WiM and Lavrentiy, voice-to-intent apps for Android and Windows with a
 35-claim patent application; Bakers Agent, a Google Cloud system running a live business's marketing behind human
-approval gates; NoiseFile and Heirloom on Google Play; and published research on AI correction burden. Earlier: multistate
-tax controversy at Andersen, a federal benefits decision affirmed on appeal, and a $1.75 million regulated buildout.
+approval gates; NoiseFile and Heirloom on Google Play; and published research on the human effort behind AI alignment.
+Earlier: multistate tax controversy at Andersen, a federal decision affirmed on appeal, a $1.75 million regulated buildout.
 AI DEVELOPER & INDEPENDENT RESEARCHER | Self-Employed | June 2025-Present
  WiM and Lavrentiy: Built voice-to-intent apps for Android and Windows: the user speaks, and clean text lands in the app
 in use. A speech-disfluency layer lets the user end the recording, detects blocks and covert word substitutions, and asks at
 most three clarifying questions. WiM is in Google Play testing; Lavrentiy v1.7.11 installs on Windows and works offline.
  Patent: Sole inventor on a 35-claim U.S. provisional patent application covering the combined mobile and desktop
 architecture (App. No. 64/100,336; filed June 27, 2026).
- Research: Wrote Invisible Work (Feb 2026), a measurement of the human correction burden across many-turn AI
-conversations, answering a gap Anthropic named in its January 2026 paper; built the open-source Drift Auditor behind it
-and submitted the paper to Anthropic's research team. Earlier: 12 Rules for AI, AEGIS, Air-Gapped Compilation.
+ Research: Wrote Invisible Work (Feb 2026), which measures the other side of the gap Anthropic named in its January
+2026 disempowerment research and its Opus 4.5 system card: the human effort needed to keep a model on task across
+many turns (Operator Load Index, Alignment Tax, Instruction Survival Rate), run on his own real Claude and ChatGPT
+conversations; built the open-source Drift Auditor behind it; sent to Anthropic's research team.
  Own model: Fine-tune GLM-4.5-Air with QLoRA on an H200 from hand-written training cards, versioned and probe-tested
 through eleven releases, served on Modal, to train out hedging and false completion claims (adapters on Hugging Face).
  Bakers Agent: Built and operate a Google Cloud system (40+ Cloud Functions, React/TypeScript dashboard) that runs a
@@ -28,9 +29,9 @@ and Lavrentiy; Bakers Agent 2, multi-client, is in progress.
  Agent Bridge: Built an agent that operates the owner's own phone and laptop: it reads notifications, drives apps on
 hidden screens, reads SMS sign-in codes, and pauses for approval before any irreversible step.
  Published apps and legal tools: NoiseFile on Google Play, a local-first Android app that turns the noise codes of 36 Bay
-Area cities into 108 complaint workflows; Heirloom, which restores old family photos with an image engine behind a credit
-ledger and a GPU backend, in Google review for production; Audit Ledger, a tamper-evident California residency
-audit-defense system (19 Bragg factors, SHA-256 hash chain).
+Area cities into 108 complaint workflows; Heirloom, which restores old family photos with an image engine, a credit ledger,
+and a GPU backend, in Google review for production; Audit Ledger, a tamper-evident California residency audit-defense
+system (19 Bragg factors, SHA-256 hash chain).
  Client and business sites: Built and operate mybakingcreations.com (117 pages, 1,414 commits, PayPal checkout,
 chatbot). Delivered a paid website and field-operations app for a private-jet detailing company.
 LEGAL, TAX & REGULATED OPERATIONS
